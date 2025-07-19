@@ -1,17 +1,65 @@
-# Asthma Attack Risk Detection using ML
+# Asthma Attack Risk Prediction using Machine Learning
 
-This repository contains a machine learning model that predicts the risk of an asthma attack based on environmental pollutant levels like CO₂, O₂, and others. It includes model training, preprocessing, and a Flask-based app for deployment.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0%2B-orange)
+![Flask](https://img.shields.io/badge/Flask-2.0-lightgrey)
 
-## 🚀 Project Overview
+A machine learning system that predicts asthma attack risk based on environmental pollutants (CO₂, O₂, etc.) with Flask API for deployment.
 
-Asthma is a chronic respiratory condition that can be triggered by environmental pollutants. This project uses data on gas concentrations and other relevant features to predict whether an individual is at risk of experiencing an asthma attack.
+## 📌 Key Features
+- **Predictive Model**: Neural network trained on environmental data
+- **Production-Ready**: Flask web interface + Docker support
+- **Complete Pipeline**: From data preprocessing to model serving
+- **Saved Artifacts**: Includes trained model (.keras) and preprocessing pipeline (.pkl)
 
-### 🔍 Features
-- Predicts **asthma attack risk** based on pollutant levels.
-- Trained ML model saved in `.keras` format.
-- Preprocessing pipeline saved as `.pkl`.
-- Flask API (`app.py`) for integration or deployment.
-- Dockerized environment for easier deployment.
+## 🏗️ Project Structure
+.
+├── app.py # Flask application
+├── Dockerfile # Container configuration
+├── requirements.txt # Python dependencies
+├── best_model.keras # Optimized model weights
+├── model.keras # Trained model
+├── preprocessing.pkl # Data preprocessing pipeline
+├── training_history.pkl # Training metrics
+├── data/ # Raw datasets
+├── notebooks/ # Jupyter notebooks (analysis/training)
+└── utils/ # Helper scripts
+│ ├── model.py # Model architecture
+│ └── preprocess.py # Data processing
 
-## 📁 Project Structure
+text
 
+## 🚀 Quick Deployment
+
+### Local Setup
+```bash
+pip install -r requirements.txt
+python app.py
+Docker Deployment
+bash
+docker build -t asthma-ml .
+docker run -p 5000:5000 asthma-ml
+🔧 Technical Stack
+ML Framework: TensorFlow/Keras
+
+Web Framework: Flask
+
+Containerization: Docker
+
+Data Processing: Pandas, Scikit-learn
+
+📊 Sample API Request
+python
+import requests
+import json
+
+data = {
+    "co2_level": 420,
+    "o2_level": 21,
+    "pm2_5": 35
+}
+
+response = requests.post("http://localhost:5000/predict", json=data)
+print(response.json())
+📝 License
+This project is licensed under the MIT License - see LICENSE file for details.

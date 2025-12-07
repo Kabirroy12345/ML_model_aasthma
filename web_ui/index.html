@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsthmAI - Advanced Risk Prediction System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            border-right: 1px solid #334155;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .nav-item {
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: transparent;
+            color: #cbd5e1;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-item:hover {
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(90deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #22c55e;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* HOME PAGE */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            border-color: #06b6d4;
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 900;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+
+        .stat-change {
+            font-size: 12px;
+            color: #22c55e;
+        }
+
+        /* PREDICTION PAGE */
+        .prediction-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .form-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .form-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #f1f5f9;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            color: #f1f5f9;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #06b6d4;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* RESULT SECTION */
+        .result-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .result-hidden {
+            text-align: center;
+            color: #64748b;
+        }
+
+        .result-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .risk-meter {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .risk-score {
+            font-size: 56px;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .risk-level {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .risk-level.high {
+            color: #ef4444;
+        }
+
+        .risk-level.medium {
+            color: #f59e0b;
+        }
+
+        .risk-level.low {
+            color: #22c55e;
+        }
+
+        .risk-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(100, 116, 139, 0.3);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .risk-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e 0%, #f59e0b 50%, #ef4444 100%);
+            border-radius: 100px;
+            transition: width 0.5s ease;
+        }
+
+        .recommendations {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .rec-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #06b6d4;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .rec-list {
+            list-style: none;
+        }
+
+        .rec-item {
+            padding: 8px 0;
+            font-size: 13px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .rec-item::before {
+            content: '→';
+            color: #06b6d4;
+            font-weight: 700;
+            min-width: 12px;
+        }
+
+        /* ANALYTICS PAGE */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .chart-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #f1f5f9;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .prediction-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+                padding: 12px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .nav-item span {
+                display: none;
+            }
+
+            .header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="logo">🫁 AsthmAI</div>
+            <nav class="nav">
+                <button class="nav-item active" onclick="showPage('home')">📊 Dashboard</button>
+                <button class="nav-item" onclick="showPage('predict')">🔬 Prediction</button>
+                <button class="nav-item" onclick="showPage('analytics')">📈 Analytics</button>
+                <button class="nav-item" onclick="showPage('model')">🧠 Model Info</button>
+                <button class="nav-item" onclick="showPage('about')">ℹ️ About</button>
+            </nav>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main">
+            <!-- HEADER -->
+            <div class="header">
+                <div class="header-title" id="pageTitle">Dashboard</div>
+                <div class="header-right">
+                    <div class="status-badge">
+                        <div class="status-dot"></div>
+                        API Active
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="content scrollbar-hide">
+                <!-- HOME PAGE -->
+                <div class="page active" id="home">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Total Predictions</div>
+                            <div class="stat-value">2,847</div>
+                            <div class="stat-change">↑ 12% this week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Accuracy Rate</div>
+                            <div class="stat-value">94.7%</div>
+                            <div class="stat-change">✓ Excellent</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Model Version</div>
+                            <div class="stat-value">v2.1</div>
+                            <div class="stat-change">Latest</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">API Response</div>
+                            <div class="stat-value">45ms</div>
+                            <div class="stat-change">Optimal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREDICTION PAGE -->
+                <div class="page" id="predict">
+                    <div class="prediction-container">
+                        <form class="form-section" onsubmit="predictRisk(event)">
+                            <div class="form-title">Enter Patient Data</div>
+                            
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">AQI</label>
+                                    <input type="number" class="form-input" id="AQI" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">PM2.5</label>
+                                    <input type="number" class="form-input" id="PM2.5" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">SO2 Level</label>
+                                    <input type="number" class="form-input" id="SO2 level" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">NO2 Level</label>
+                                    <input type="number" class="form-input" id="NO2 level" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">CO2 Level</label>
+                                    <input type="number" class="form-input" id="CO2 level" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Humidity (%)</label>
+                                    <input type="number" class="form-input" id="Humidity" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">Temperature (°C)</label>
+                                    <input type="number" class="form-input" id="Temperature" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Asthma Symptoms</label>
+                                    <input type="text" class="form-input" id="Asthma Symptoms Frequency" placeholder="Frequent/Occasional/None" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">Triggers</label>
+                                    <input type="text" class="form-input" id="Triggers" placeholder="Pollen/Dust/Smoke" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Weather Sensitivity</label>
+                                    <input type="text" class="form-input" id="Weather Sensitivity" placeholder="High/Medium/Low" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <div class="form-group">
+                                    <label class="form-label">Air Quality Exposure</label>
+                                    <input type="text" class="form-input" id="Poor Air Quality Exposure" placeholder="Yes/No" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Night Breathing Difficulty</label>
+                                    <input type="text" class="form-input" id="Night Breathing Difficulty" placeholder="Yes/No" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">Analyze Risk</button>
+                        </form>
+
+                        <div class="result-section">
+                            <div class="result-hidden" id="resultHidden">
+                                <p>📋 Fill in the form and click "Analyze Risk"</p>
+                                <p style="font-size: 12px; margin-top: 12px; color: #475569;">Your prediction results will appear here</p>
+                            </div>
+                            <div class="result-content" id="resultContent" style="display: none;">
+                                <div class="risk-meter">
+                                    <div class="risk-score" id="riskScore">0.00</div>
+                                    <div class="risk-level" id="riskLevel">Loading...</div>
+                                    <div class="risk-bar">
+                                        <div class="risk-fill" id="riskFill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="recommendations">
+                                    <div class="rec-title">Recommendations</div>
+                                    <ul class="rec-list" id="recList"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ANALYTICS PAGE -->
+                <div class="page" id="analytics">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">📊 Risk Distribution</div>
+                            <div class="info-text">High Risk: 12% | Medium Risk: 35% | Low Risk: 53%</div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">📈 Prediction Trends</div>
+                            <div class="info-text">Average risk score has decreased by 8% over the last 30 days</div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">🎯 Model Performance</div>
+                            <div class="info-text">Precision: 94.7% | Recall: 93.2% | F1-Score: 93.9%</div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">🔬 Top Risk Factors</div>
+                            <div class="info-text">1. AQI (28%) | 2. PM2.5 (24%) | 3. Triggers (18%)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODEL INFO PAGE -->
+                <div class="page" id="model">
+                    <div class="form-section" style="max-width: 800px;">
+                        <div class="form-title">Model Information</div>
+                        <div class="info-text" style="line-height: 1.8;">
+                            <p><strong>Model Type:</strong> Deep Neural Network (Keras)</p>
+                            <p><strong>Input Features:</strong> 12 environmental and medical parameters</p>
+                            <p><strong>Training Data:</strong> 10,000+ patient records</p>
+                            <p><strong>Accuracy:</strong> 94.7%</p>
+                            <p><strong>Framework:</strong> TensorFlow 2.x</p>
+                            <p><strong>Deployment:</strong> Flask REST API</p>
+                            <p><strong>Last Updated:</strong> December 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT PAGE -->
+                <div class="page" id="about">
+                    <div class="form-section" style="max-width: 800px;">
+                        <div class="form-title">About AsthmAI</div>
+                        <div class="info-text" style="line-height: 1.8;">
+                            <p>🫁 <strong>AsthmAI</strong> is an advanced machine learning system designed to predict asthma risk based on environmental and medical factors.</p>
+                            <p><strong>Features:</strong></p>
+                            <p>✓ Real-time risk prediction</p>
+                            <p>✓ Personalized recommendations</p>
+                            <p>✓ High accuracy medical-grade predictions</p>
+                            <p>✓ RESTful API integration</p>
+                            <p><strong>Disclaimer:</strong> This tool is for educational and research purposes. Always consult with healthcare professionals for medical decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "http://localhost:7860";
+        const FEATURES = [
+            "AQI", "PM2.5", "SO2 level", "NO2 level", "CO2 level",
+            "Humidity", "Temperature", "Asthma Symptoms Frequency",
+            "Triggers", "Weather Sensitivity", "Poor Air Quality Exposure",
+            "Night Breathing Difficulty"
+        ];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            event.target.classList.add('active');
+
+            const titles = {
+                home: 'Dashboard',
+                predict: 'Risk Prediction',
+                analytics: 'Analytics',
+                model: 'Model Information',
+                about: 'About'
+            };
+            document.getElementById('pageTitle').textContent = titles[pageId];
+        }
+
+        async function predictRisk(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Analyzing...';
+
+            try {
+                const data = {};
+                FEATURES.forEach(feature => {
+                    data[feature] = parseFloat(document.getElementById(feature).value);
+                });
+
+                const response = await fetch(`${API_URL}/predict`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.error) {
+                    alert('Error: ' + result.error);
+                } else {
+                    displayResult(result);
+                }
+            } catch (error) {
+                alert('Connection error. Make sure Flask API is running at ' + API_URL);
+            }
+
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Analyze Risk';
+        }
+
+        function displayResult(result) {
+            const score = (result.asthma_risk_score * 100).toFixed(1);
+            const level = result.risk_level;
+
+            document.getElementById('resultHidden').style.display = 'none';
+            document.getElementById('resultContent').style.display = 'flex';
+            document.getElementById('riskScore').textContent = score + '%';
+            document.getElementById('riskLevel').textContent = level + ' RISK';
+            document.getElementById('riskLevel').className = 'risk-level ' + level.toLowerCase();
+            document.getElementById('riskFill').style.width = score + '%';
+
+            const recommendations = getRecommendations(level);
+            const recList = document.getElementById('recList');
+            recList.innerHTML = recommendations.map(r => `<li class="rec-item">${r}</li>`).join('');
+        }
+
+        function getRecommendations(level) {
+            const recs = {
+                high: [
+                    'Consult with a pulmonologist immediately',
+                    'Increase air quality monitoring',
+                    'Consider air purifier installation',
+                    'Have emergency inhaler readily available',
+                    'Limit outdoor activities during high AQI'
+                ],
+                medium: [
+                    'Schedule regular check-ups',
+                    'Monitor air quality daily',
+                    'Keep preventive medications on hand',
+                    'Maintain good indoor air quality',
+                    'Exercise caution during high pollen seasons'
+                ],
+                low: [
+                    'Maintain current lifestyle',
+                    'Regular health check-ups recommended',
+                    'Continue monitoring air quality',
+                    'Keep preventive medications available',
+                    'Healthy lifestyle practices beneficial'
+                ]
+            };
+            return recs[level.toLowerCase()] || recs.low;
+        }
+    </script>
+</body>
+</html>

@@ -14,11 +14,11 @@ with open("preprocessing.pkl", "rb") as f:
 # Define Flask app
 app = Flask(__name__)
 
-# Define expected input features
+# Define expected input features (original 12)
 FEATURES = [
-    "AQI", "PM2.5", "SO2 level", "NO2 level", "CO2 level", 
-    "Humidity", "Temperature", "Asthma Symptoms Frequency", 
-    "Triggers", "Weather Sensitivity", "Poor Air Quality Exposure", 
+    "AQI", "PM2.5", "SO2 level", "NO2 level", "CO2 level",
+    "Humidity", "Temperature", "Asthma Symptoms Frequency",
+    "Triggers", "Weather Sensitivity", "Poor Air Quality Exposure",
     "Night Breathing Difficulty"
 ]
 
@@ -29,40 +29,53 @@ def home():
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
-        # Get JSON data from request
         data = request.json
 
         # Ensure all required fields are present
         if not all(feature in data for feature in FEATURES):
             return jsonify({"error": "Missing required fields"}), 400
 
-        # Convert JSON data to DataFrame
+        # Create DataFrame
         df = pd.DataFrame([data])
 
-        # Separate categorical and numerical features
-        categorical_features = ["Asthma Symptoms Frequency", "Triggers", "Weather Sensitivity", "Poor Air Quality Exposure", "Night Breathing Difficulty"]
+        # Add engineered features
+        df["AQI_PM_Ratio"] = df["AQI"] / df["PM2.5"]
+        df["CO2_SO2_Interaction"] = df["CO2 level"] * df["SO2 level"]
+
+        # Identify categorical vs numerical features
+        categorical_features = [
+            "Asthma Symptoms Frequency", "Triggers", "Weather Sensitivity",
+            "Poor Air Quality Exposure", "Night Breathing Difficulty"
+        ]
+
         numerical_features = [col for col in df.columns if col not in categorical_features]
 
-        # Encode categorical features
+        # Transform features
         df_categorical = encoder.transform(df[categorical_features])
         df_numerical = scaler.transform(df[numerical_features])
 
-        # Combine transformed features
+        # Combine feature arrays
         X = np.hstack([df_numerical, df_categorical])
 
-        # Make prediction
+        # Predict
         prediction = model.predict(X)[0][0]
 
-        # Return prediction
-        return jsonify({"asthma_risk_score": float(prediction)})
+        # Prepare output
+        risk_level = (
+            "High" if prediction >= 0.7 else
+            "Medium" if prediction >= 0.4 else
+            "Low"
+        )
 
-    except ValueError as ve:
-        return jsonify({"error": "Invalid input data format: " + str(ve)}), 400
-    except KeyError as ke:
-        return jsonify({"error": "Missing required key: " + str(ke)}), 400
+        return jsonify({
+            "asthma_risk_score": float(prediction),
+            "risk_level": risk_level
+        })
+
     except Exception as e:
         return jsonify({"error": "Internal server error: " + str(e)}), 500
 
 # Run the app
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=7860, debug=True)
+

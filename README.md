@@ -136,6 +136,6 @@ MIT — Free to use & modify with attribution.
 <div align="center">
 🫁 Prevent tomorrow’s attack — with today’s prediction.
 
-Asthma-AI: Towards a Smarter, Safer Respiratory Health System
+Asthma-AI: Towards a Smarter, Safer Respiratory Health System.
 
 </div> ```

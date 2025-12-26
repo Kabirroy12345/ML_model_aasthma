@@ -1,0 +1,16 @@
+Dataset: UCI Exasens (Real Clinical Data)
+Samples: 100
+Accuracy: 0.5500
+F1-Score: 0.3264
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Asthma       0.00      0.00      0.00         2
+        COPD       0.75      0.75      0.75         8
+          HC       0.50      0.62      0.56         8
+    Infected       0.00      0.00      0.00         2
+
+    accuracy                           0.55        20
+   macro avg       0.31      0.34      0.33        20
+weighted avg       0.50      0.55      0.52        20

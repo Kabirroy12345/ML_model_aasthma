@@ -1,0 +1,15 @@
+Dataset: Zenodo Clinical Asthma (Radiah Haque et al.)
+Samples: 1010
+Accuracy: 0.9257
+F1-Score: 0.9420
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        High       0.93      0.95      0.94       133
+         Low       1.00      1.00      1.00         4
+      Medium       0.90      0.86      0.88        65
+
+    accuracy                           0.93       202
+   macro avg       0.95      0.94      0.94       202
+weighted avg       0.93      0.93      0.93       202

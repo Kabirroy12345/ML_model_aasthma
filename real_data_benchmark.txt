@@ -1,0 +1,15 @@
+Dataset: Beijing Weather & Health (Real World)
+Samples: 365
+Accuracy: 0.4110
+F1-Score: 0.3963
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        High       0.56      0.23      0.32        22
+         Low       0.42      0.50      0.46        28
+      Medium       0.35      0.48      0.41        23
+
+    accuracy                           0.41        73
+   macro avg       0.44      0.40      0.40        73
+weighted avg       0.44      0.41      0.40        73

@@ -1,0 +1,201 @@
+AQI,PM2.5,SO2 level,NO2 level,CO2 level,Humidity,Temperature,Asthma Symptoms Frequency,Triggers,Weather Sensitivity,Poor Air Quality Exposure,Night Breathing Difficulty,Risk Factor
+70,139.86,27.53,50.1,543.12,50.26,28.65,Daily,Dust,Hot and humid weather,"Yes, often",Frequently,0.62
+85,124.53,24.89,34.59,474.14,88.89,33.71,Daily,Dust,Windy and dry weather,Occasionally,Rarely,0.38
+146,122.31,24.85,39.95,321.33,41.66,8.57,1-2 times a month,"Air pollution (smoke, chemicals etc.), Dust",Hot and humid weather,Occasionally,Never,0.12
+219,91.36,17.17,39.52,483.44,60.14,16.4,Frequently (Weekly),Temperature changes,Cold weather,Occasionally,Frequently,0.75
+140,79.21,27.04,92.44,337.44,61.41,16.36,1-2 times a month,"Air pollution (smoke, chemicals etc.), Temperature changes",Hot and humid weather,"Yes, often",Occasionally,0.62
+270,32.26,18.9,52.68,430.25,59.73,11.14,Less than once a month,"Air pollution (smoke, chemicals etc.), Dust, Pollen",No specific weather-related triggers,No,Rarely,0.12
+236,107.58,26.14,40.13,392.63,38.28,12.64,Daily,"Air pollution (smoke, chemicals etc.), Dust",No specific weather-related triggers,No,Never,0.38
+134,26.22,36.68,78.97,343.02,39.85,35.32,Daily,"Temperature changes, Humidity, Air pollution (smoke, chemicals etc.)",Windy and dry weather,No,Rarely,0.38
+125,85.79,15.26,82.99,479.8,67.76,22.19,Daily,"Dust, Pollen",Windy and dry weather,No,Never,0.5
+104,24.3,7.8,61.62,389.16,85.85,38.06,Less than once a month,Pollen,Hot and humid weather,Occasionally,Rarely,0.12
+148,116.93,41.31,89.05,358.62,50.44,8.65,Less than once a month,"Humidity, Pollen, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,"Yes, often",Rarely,0.5
+77,28.28,8.58,42.82,357.68,42.05,29.6,1-2 times a month,"Dust, Pollen, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,No,Frequently,0.12
+247,71.04,21.85,52.55,469.05,75.05,24.29,Frequently (Weekly),"Dust, Temperature changes",Windy and dry weather,"Yes, often",Occasionally,0.75
+57,39.61,46.07,80.75,499.6,83.56,31.82,Daily,Dust,Cold weather,Occasionally,Never,0.38
+235,84.24,47.35,66.13,591.18,65.43,31.75,Daily,"Pollen, Temperature changes, Air pollution (smoke, chemicals etc.)",Cold weather,"Yes, often",Frequently,1.0
+70,52.19,42.9,23.4,503.18,58.86,15.72,Daily,Humidity,Windy and dry weather,Occasionally,Rarely,0.5
+289,49.3,36.54,44.56,421.78,37.7,12.96,Frequently (Weekly),Humidity,Hot and humid weather,"Yes, often",Frequently,0.75
+153,5.91,25.56,67.38,570.67,63.71,17.31,Daily,Humidity,Hot and humid weather,No,Rarely,0.62
+110,115.78,28.0,14.62,421.44,82.11,13.94,1-2 times a month,Dust,Windy and dry weather,Occasionally,Frequently,0.25
+123,12.17,48.63,50.32,460.36,89.3,35.13,1-2 times a month,"Dust, Air pollution (smoke, chemicals etc.)",Windy and dry weather,"Yes, often",Never,0.38
+62,44.44,27.62,90.76,370.36,87.93,34.65,1-2 times a month,"Air pollution (smoke, chemicals etc.), Temperature changes, Dust",No specific weather-related triggers,Occasionally,Frequently,0.38
+146,28.99,25.98,65.82,567.68,44.64,9.52,1-2 times a month,"Air pollution (smoke, chemicals etc.)",Windy and dry weather,No,Rarely,0.25
+73,70.99,6.2,65.62,534.16,39.51,8.39,Daily,"Pollen, Temperature changes, Air pollution (smoke, chemicals etc.)",Cold weather,No,Rarely,0.5
+272,145.11,15.39,66.43,306.57,85.51,10.53,Daily,"Temperature changes, Air pollution (smoke, chemicals etc.), Pollen",No specific weather-related triggers,"Yes, often",Rarely,0.75
+76,141.37,40.19,90.33,477.67,76.17,7.49,Frequently (Weekly),Dust,Hot and humid weather,No,Occasionally,0.62
+268,112.23,46.38,73.98,376.67,57.61,34.66,Less than once a month,"Air pollution (smoke, chemicals etc.), Temperature changes, Dust",Windy and dry weather,Occasionally,Frequently,0.62
+130,96.49,33.49,29.71,497.45,76.4,18.96,Daily,"Temperature changes, Pollen",Cold weather,Occasionally,Never,0.62
+214,64.64,21.68,53.85,377.88,38.81,15.73,Daily,"Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,"Yes, often",Frequently,0.5
+269,72.66,36.02,46.51,446.26,54.59,7.55,Daily,"Dust, Temperature changes",No specific weather-related triggers,Occasionally,Occasionally,0.62
+158,82.87,33.42,18.03,345.08,63.33,21.13,Less than once a month,"Pollen, Dust",Hot and humid weather,No,Never,0.38
+202,53.99,29.07,75.0,537.18,80.34,24.03,1-2 times a month,Pollen,Cold weather,"Yes, often",Occasionally,0.62
+241,28.43,48.44,97.4,373.33,37.66,36.08,Daily,"Humidity, Temperature changes",No specific weather-related triggers,"Yes, often",Never,0.62
+293,15.71,33.76,81.99,435.15,47.01,14.11,Daily,"Pollen, Temperature changes",No specific weather-related triggers,"Yes, often",Frequently,0.75
+283,22.36,4.93,35.75,316.05,64.99,18.35,Daily,"Air pollution (smoke, chemicals etc.), Pollen",No specific weather-related triggers,"Yes, often",Never,0.38
+298,68.72,45.54,68.43,339.69,45.8,39.7,Less than once a month,Pollen,Hot and humid weather,Occasionally,Rarely,0.25
+275,41.41,13.21,74.3,342.61,36.15,22.64,Less than once a month,"Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,No,Never,0.25
+243,88.01,31.11,96.21,570.79,41.65,29.84,Daily,"Humidity, Pollen, Dust",Windy and dry weather,Occasionally,Never,0.75
+218,107.18,45.19,43.65,333.65,56.2,5.37,Frequently (Weekly),Pollen,Cold weather,Occasionally,Frequently,0.62
+264,104.59,1.11,47.91,342.49,84.93,33.84,Daily,"Dust, Air pollution (smoke, chemicals etc.), Temperature changes",Hot and humid weather,Occasionally,Rarely,0.5
+197,59.1,11.12,76.9,375.14,41.9,37.1,Less than once a month,"Pollen, Humidity, Temperature changes",Cold weather,"Yes, often",Never,0.5
+148,109.95,10.91,32.51,341.61,88.68,37.71,Daily,"Humidity, Air pollution (smoke, chemicals etc.), Dust",No specific weather-related triggers,"Yes, often",Never,0.5
+79,27.5,25.75,92.74,322.35,77.19,10.72,1-2 times a month,"Dust, Temperature changes",Hot and humid weather,"Yes, often",Frequently,0.5
+270,136.26,43.56,7.09,495.88,60.5,9.52,Daily,Humidity,Windy and dry weather,No,Rarely,0.75
+222,36.29,42.33,60.21,426.89,86.95,33.71,Daily,"Temperature changes, Air pollution (smoke, chemicals etc.), Humidity",Hot and humid weather,Occasionally,Never,0.5
+285,38.85,21.57,64.26,476.96,36.71,31.06,Frequently (Weekly),Humidity,Windy and dry weather,No,Rarely,0.62
+105,12.2,0.97,78.46,323.84,50.71,17.38,1-2 times a month,Temperature changes,Cold weather,"Yes, often",Occasionally,0.5
+272,91.64,21.77,99.77,528.64,74.58,26.83,Daily,"Dust, Air pollution (smoke, chemicals etc.), Temperature changes",Cold weather,Occasionally,Occasionally,0.88
+108,132.58,45.35,78.5,458.22,33.57,22.23,1-2 times a month,Humidity,Hot and humid weather,"Yes, often",Occasionally,0.75
+252,47.07,8.25,74.27,333.67,34.27,6.44,1-2 times a month,"Pollen, Temperature changes, Humidity",Hot and humid weather,No,Occasionally,0.5
+223,19.79,48.92,50.16,575.16,77.98,20.01,1-2 times a month,"Air pollution (smoke, chemicals etc.), Humidity, Dust",No specific weather-related triggers,"Yes, often",Frequently,0.75
+146,89.3,32.18,96.17,535.4,66.47,37.44,Frequently (Weekly),Humidity,No specific weather-related triggers,Occasionally,Frequently,0.75
+105,132.35,19.56,98.92,463.9,85.9,8.94,Daily,"Humidity, Dust",No specific weather-related triggers,Occasionally,Frequently,0.75
+273,38.23,40.54,63.36,411.78,75.37,33.96,Frequently (Weekly),Temperature changes,Windy and dry weather,No,Frequently,0.62
+128,109.09,38.83,56.27,520.47,37.81,20.98,Daily,Humidity,Windy and dry weather,No,Frequently,0.75
+85,22.26,48.42,32.64,514.4,43.52,24.88,Daily,Pollen,Windy and dry weather,No,Never,0.38
+285,30.97,28.28,31.06,355.17,53.93,34.61,Frequently (Weekly),"Humidity, Pollen, Temperature changes",Hot and humid weather,"Yes, often",Never,0.5
+125,89.38,39.25,75.77,412.93,49.4,34.78,Less than once a month,"Humidity, Pollen",Hot and humid weather,"Yes, often",Never,0.5
+99,75.32,22.73,50.72,343.29,51.0,31.52,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Occasionally,0.38
+191,79.05,6.28,97.75,530.33,38.42,35.59,Daily,"Temperature changes, Humidity",No specific weather-related triggers,No,Frequently,0.88
+69,117.82,6.02,95.95,589.29,56.82,33.13,Daily,"Air pollution (smoke, chemicals etc.), Temperature changes",No specific weather-related triggers,Occasionally,Rarely,0.62
+133,102.74,10.11,31.49,430.08,35.48,23.12,1-2 times a month,Dust,No specific weather-related triggers,"Yes, often",Never,0.25
+294,141.34,8.08,15.76,331.56,33.3,35.45,Less than once a month,Temperature changes,Windy and dry weather,No,Occasionally,0.5
+255,144.53,44.03,68.92,349.13,47.84,6.55,Less than once a month,"Pollen, Temperature changes, Dust",Cold weather,No,Never,0.5
+155,33.99,21.87,67.07,337.28,85.6,27.08,Daily,Temperature changes,Windy and dry weather,Occasionally,Never,0.5
+269,11.62,34.23,24.68,371.13,52.33,37.62,Less than once a month,"Air pollution (smoke, chemicals etc.)",Hot and humid weather,"Yes, often",Never,0.38
+92,19.75,16.56,35.38,555.69,69.17,24.74,Less than once a month,Dust,No specific weather-related triggers,Occasionally,Frequently,0.25
+130,91.7,6.96,15.15,400.22,35.94,27.68,Daily,Humidity,Windy and dry weather,No,Occasionally,0.5
+227,113.2,2.47,47.17,398.1,41.63,29.28,Daily,Humidity,No specific weather-related triggers,"Yes, often",Occasionally,0.75
+101,104.78,25.78,72.44,469.86,55.8,5.77,Less than once a month,"Pollen, Air pollution (smoke, chemicals etc.), Temperature changes",Windy and dry weather,Occasionally,Occasionally,0.62
+297,87.95,41.9,6.51,585.12,63.09,38.73,Frequently (Weekly),Dust,Cold weather,"Yes, often",Rarely,0.75
+157,94.31,34.07,99.18,314.21,48.05,32.0,Daily,Humidity,Cold weather,Occasionally,Never,0.62
+116,61.03,8.08,73.41,403.15,42.16,19.25,Daily,"Humidity, Pollen, Air pollution (smoke, chemicals etc.)",Windy and dry weather,No,Never,0.38
+106,41.57,44.46,39.74,319.55,50.25,12.25,Daily,Temperature changes,Cold weather,"Yes, often",Never,0.5
+175,55.48,10.25,95.43,585.05,59.23,16.99,Frequently (Weekly),"Temperature changes, Pollen, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,Occasionally,Occasionally,0.75
+130,73.7,9.23,68.18,422.61,61.16,11.07,1-2 times a month,Pollen,Windy and dry weather,"Yes, often",Occasionally,0.38
+253,149.87,35.71,9.72,450.49,45.79,18.82,Daily,"Humidity, Temperature changes",Windy and dry weather,No,Frequently,0.88
+253,13.25,42.71,20.74,541.05,42.7,11.58,1-2 times a month,Humidity,No specific weather-related triggers,Occasionally,Rarely,0.5
+125,44.26,41.91,42.52,376.21,47.36,12.51,Daily,Pollen,Cold weather,Occasionally,Never,0.25
+208,104.85,33.12,81.66,453.15,51.41,11.11,Less than once a month,"Temperature changes, Air pollution (smoke, chemicals etc.)",Cold weather,No,Never,0.62
+229,111.45,4.71,84.1,578.32,86.35,14.51,1-2 times a month,"Air pollution (smoke, chemicals etc.), Pollen, Temperature changes",Cold weather,"Yes, often",Never,0.75
+198,46.23,33.08,71.08,369.99,77.64,8.78,1-2 times a month,"Temperature changes, Dust, Humidity",Windy and dry weather,No,Never,0.38
+300,106.33,31.53,68.39,424.19,83.12,33.82,1-2 times a month,"Temperature changes, Air pollution (smoke, chemicals etc.), Humidity",Windy and dry weather,"Yes, often",Frequently,0.75
+137,103.82,20.97,80.94,449.18,39.56,34.13,Frequently (Weekly),"Pollen, Air pollution (smoke, chemicals etc.)",Hot and humid weather,"Yes, often",Occasionally,0.62
+159,60.64,49.07,74.99,580.23,45.82,17.78,Less than once a month,Humidity,Hot and humid weather,Occasionally,Never,0.5
+221,13.47,46.24,52.66,533.7,33.16,28.69,Daily,"Air pollution (smoke, chemicals etc.), Temperature changes, Dust",Hot and humid weather,"Yes, often",Rarely,0.75
+87,59.67,22.34,73.03,547.93,71.4,24.78,1-2 times a month,"Humidity, Pollen, Temperature changes",Cold weather,No,Rarely,0.38
+111,81.24,8.66,20.75,319.32,42.18,32.58,Less than once a month,Dust,Windy and dry weather,"Yes, often",Frequently,0.38
+157,20.16,40.16,71.7,505.41,30.77,31.94,Frequently (Weekly),"Pollen, Dust",No specific weather-related triggers,No,Rarely,0.5
+163,51.52,14.5,60.96,576.88,48.72,20.32,Daily,"Pollen, Temperature changes",No specific weather-related triggers,Occasionally,Never,0.62
+226,106.22,46.82,74.67,327.37,82.41,29.25,Daily,"Temperature changes, Dust",Cold weather,Occasionally,Rarely,0.62
+115,126.73,14.97,53.58,354.46,74.8,20.11,Frequently (Weekly),Dust,Windy and dry weather,"Yes, often",Occasionally,0.5
+237,58.87,37.24,31.04,329.99,56.91,12.98,1-2 times a month,"Air pollution (smoke, chemicals etc.)",Cold weather,No,Frequently,0.38
+208,108.1,20.53,15.68,513.66,62.81,15.83,Frequently (Weekly),"Temperature changes, Humidity, Dust",Windy and dry weather,"Yes, often",Occasionally,0.88
+79,55.13,29.54,30.17,573.69,46.4,11.09,Less than once a month,"Humidity, Dust",Windy and dry weather,No,Occasionally,0.38
+294,117.12,35.56,36.8,490.95,46.5,38.97,1-2 times a month,"Air pollution (smoke, chemicals etc.)",Windy and dry weather,No,Never,0.5
+297,26.17,8.49,71.54,507.45,56.76,12.99,Frequently (Weekly),Humidity,Hot and humid weather,"Yes, often",Rarely,0.75
+109,135.4,23.53,17.55,387.25,45.25,12.17,Daily,"Dust, Temperature changes",No specific weather-related triggers,"Yes, often",Never,0.5
+144,55.71,24.95,57.79,446.44,74.71,11.22,Less than once a month,Pollen,Windy and dry weather,"Yes, often",Frequently,0.25
+262,138.31,38.36,55.38,586.75,67.19,8.36,Daily,"Humidity, Pollen",Cold weather,"Yes, often",Never,0.88
+299,93.77,5.17,38.78,422.16,40.43,11.68,Daily,"Temperature changes, Air pollution (smoke, chemicals etc.), Pollen",Hot and humid weather,Occasionally,Rarely,0.5
+276,120.81,18.43,72.23,435.84,31.53,35.93,Frequently (Weekly),"Pollen, Dust, Humidity",Windy and dry weather,No,Occasionally,0.75
+70,42.49,41.87,25.75,467.86,76.22,12.56,1-2 times a month,"Dust, Humidity, Temperature changes",Hot and humid weather,No,Rarely,0.38
+59,38.89,29.79,74.61,408.6,56.74,14.29,1-2 times a month,"Air pollution (smoke, chemicals etc.), Temperature changes",No specific weather-related triggers,Occasionally,Rarely,0.25
+62,98.97,5.51,71.29,433.86,54.59,35.84,Frequently (Weekly),"Temperature changes, Dust",Hot and humid weather,"Yes, often",Occasionally,0.75
+185,110.82,5.87,85.74,502.98,44.13,19.45,Less than once a month,Pollen,Windy and dry weather,No,Occasionally,0.62
+214,111.02,15.14,93.83,438.69,38.58,28.62,Less than once a month,"Dust, Humidity, Pollen",Hot and humid weather,Occasionally,Never,0.5
+259,91.13,39.11,47.86,532.97,55.4,25.77,Frequently (Weekly),Pollen,Hot and humid weather,Occasionally,Occasionally,0.75
+202,112.35,44.17,61.31,585.47,51.19,16.94,Daily,"Temperature changes, Dust",No specific weather-related triggers,Occasionally,Occasionally,0.88
+90,61.95,23.24,8.99,471.36,77.23,31.02,Frequently (Weekly),"Humidity, Temperature changes, Dust",Cold weather,"Yes, often",Rarely,0.5
+148,120.75,16.5,25.31,381.1,53.85,6.28,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Humidity",Cold weather,"Yes, often",Never,0.5
+66,24.13,27.2,48.27,585.36,43.88,30.02,Frequently (Weekly),"Dust, Air pollution (smoke, chemicals etc.), Pollen",No specific weather-related triggers,"Yes, often",Rarely,0.38
+171,83.75,21.68,39.45,544.66,55.34,10.94,Daily,"Humidity, Air pollution (smoke, chemicals etc.)",Hot and humid weather,Occasionally,Rarely,0.62
+155,126.79,24.76,54.68,531.32,84.62,24.47,Less than once a month,Humidity,Windy and dry weather,No,Never,0.5
+247,108.35,15.79,40.62,521.39,54.21,9.04,Daily,"Humidity, Air pollution (smoke, chemicals etc.)",Windy and dry weather,Occasionally,Frequently,0.75
+188,121.6,34.93,28.71,412.33,62.31,16.93,Daily,"Air pollution (smoke, chemicals etc.)",Cold weather,Occasionally,Never,0.5
+235,94.93,19.26,36.71,454.39,48.93,36.48,Daily,"Pollen, Humidity",Cold weather,No,Occasionally,0.75
+218,8.29,30.47,5.35,312.4,85.88,27.03,1-2 times a month,"Temperature changes, Pollen",Windy and dry weather,"Yes, often",Frequently,0.62
+219,132.07,17.95,24.56,490.14,74.58,26.99,1-2 times a month,"Temperature changes, Air pollution (smoke, chemicals etc.), Dust",Cold weather,No,Frequently,0.62
+111,87.72,24.79,58.54,406.51,79.77,12.12,Frequently (Weekly),Pollen,Cold weather,No,Never,0.25
+70,6.18,12.2,29.21,483.82,52.03,32.29,Daily,"Dust, Humidity",Cold weather,"Yes, often",Never,0.5
+238,144.59,9.81,7.38,323.58,71.82,5.08,Less than once a month,Pollen,No specific weather-related triggers,"Yes, often",Rarely,0.38
+102,113.18,21.55,42.62,350.31,73.77,23.53,1-2 times a month,"Air pollution (smoke, chemicals etc.)",Hot and humid weather,Occasionally,Rarely,0.12
+76,78.95,30.14,84.86,315.88,30.1,32.29,Daily,"Humidity, Dust",Hot and humid weather,No,Frequently,0.62
+230,80.41,36.37,91.88,347.15,45.27,32.77,Less than once a month,"Temperature changes, Humidity, Air pollution (smoke, chemicals etc.)",Cold weather,No,Occasionally,0.62
+294,47.17,27.43,5.45,314.17,73.37,14.47,Frequently (Weekly),"Pollen, Temperature changes",Hot and humid weather,"Yes, often",Rarely,0.5
+173,146.24,35.99,81.32,455.89,35.57,17.0,Frequently (Weekly),"Dust, Pollen",No specific weather-related triggers,"Yes, often",Rarely,0.75
+110,94.64,34.88,66.83,493.18,30.08,14.32,Frequently (Weekly),"Humidity, Air pollution (smoke, chemicals etc.)",Hot and humid weather,"Yes, often",Rarely,0.75
+122,80.28,11.79,17.77,566.99,30.29,13.05,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Dust, Humidity",No specific weather-related triggers,Occasionally,Rarely,0.5
+293,53.99,37.33,61.17,409.9,64.95,29.36,Less than once a month,"Air pollution (smoke, chemicals etc.)",Windy and dry weather,Occasionally,Frequently,0.38
+154,46.51,49.99,7.76,437.44,77.53,26.33,Less than once a month,"Pollen, Humidity, Temperature changes",Hot and humid weather,"Yes, often",Frequently,0.62
+126,103.17,28.92,23.21,300.88,40.01,24.97,Daily,Dust,Cold weather,"Yes, often",Rarely,0.38
+273,79.17,4.43,38.31,483.26,42.96,37.35,Frequently (Weekly),"Humidity, Air pollution (smoke, chemicals etc.)",Hot and humid weather,No,Never,0.62
+53,94.2,27.92,94.48,563.5,47.96,24.88,Less than once a month,Dust,Windy and dry weather,No,Occasionally,0.5
+277,146.02,22.42,36.88,494.34,85.19,5.96,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Temperature changes",No specific weather-related triggers,"Yes, often",Frequently,0.88
+238,118.56,28.29,38.08,364.88,72.73,6.46,Daily,"Air pollution (smoke, chemicals etc.), Humidity, Dust",No specific weather-related triggers,Occasionally,Never,0.5
+284,51.2,9.46,7.19,519.95,57.15,23.72,Daily,Pollen,Windy and dry weather,Occasionally,Rarely,0.38
+152,43.54,27.35,29.36,433.41,62.06,27.97,1-2 times a month,"Air pollution (smoke, chemicals etc.), Pollen",Windy and dry weather,Occasionally,Frequently,0.25
+206,12.88,28.45,77.13,527.94,62.22,31.66,1-2 times a month,"Dust, Temperature changes, Pollen",Cold weather,No,Never,0.5
+144,94.92,17.29,29.16,467.44,53.36,26.95,Less than once a month,Dust,Cold weather,"Yes, often",Occasionally,0.5
+151,37.7,18.73,95.04,360.62,44.29,13.95,Less than once a month,"Air pollution (smoke, chemicals etc.), Pollen, Dust",No specific weather-related triggers,No,Never,0.25
+145,16.74,4.91,28.92,338.94,66.03,32.98,Frequently (Weekly),"Dust, Temperature changes, Pollen",Cold weather,Occasionally,Frequently,0.38
+93,81.56,9.55,34.04,356.86,43.89,39.65,Less than once a month,Pollen,No specific weather-related triggers,No,Frequently,0.25
+219,82.15,45.05,64.97,398.56,49.74,11.92,Frequently (Weekly),"Humidity, Air pollution (smoke, chemicals etc.), Dust",Hot and humid weather,"Yes, often",Frequently,0.88
+237,95.05,25.19,47.83,499.7,57.09,23.82,Less than once a month,"Humidity, Pollen, Dust",Cold weather,"Yes, often",Frequently,0.75
+233,52.88,19.44,31.44,564.27,46.41,36.64,Daily,Dust,Cold weather,No,Frequently,0.5
+280,103.27,0.75,6.87,393.39,73.2,14.02,Daily,"Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,Occasionally,Rarely,0.38
+123,43.97,49.33,47.71,463.41,79.24,15.63,Frequently (Weekly),Dust,No specific weather-related triggers,"Yes, often",Never,0.5
+239,111.1,44.23,78.59,358.5,32.68,35.79,Frequently (Weekly),"Dust, Pollen",Cold weather,No,Occasionally,0.62
+288,115.03,36.08,10.07,535.01,40.33,33.2,1-2 times a month,Pollen,Cold weather,"Yes, often",Frequently,0.75
+88,85.71,33.25,13.41,487.22,67.43,15.68,1-2 times a month,"Temperature changes, Air pollution (smoke, chemicals etc.), Dust",Hot and humid weather,No,Rarely,0.5
+83,84.1,6.64,65.72,496.54,74.99,18.63,Daily,"Temperature changes, Air pollution (smoke, chemicals etc.)",Cold weather,"Yes, often",Rarely,0.75
+95,137.62,17.08,51.75,565.32,68.59,6.44,Daily,"Dust, Humidity, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,"Yes, often",Occasionally,0.75
+164,71.27,11.86,32.49,392.03,81.68,5.16,Frequently (Weekly),"Pollen, Temperature changes, Humidity",Hot and humid weather,Occasionally,Frequently,0.5
+51,73.66,5.07,80.29,424.95,67.63,26.18,Frequently (Weekly),"Dust, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,No,Occasionally,0.38
+145,69.25,44.63,88.04,328.78,60.13,37.39,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Temperature changes",No specific weather-related triggers,Occasionally,Rarely,0.38
+73,143.6,4.08,63.99,394.85,51.5,13.9,1-2 times a month,"Humidity, Air pollution (smoke, chemicals etc.), Temperature changes",Cold weather,"Yes, often",Never,0.5
+219,8.21,42.51,87.28,545.61,73.96,25.28,Daily,"Pollen, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,No,Never,0.5
+201,84.88,20.14,59.76,318.07,36.49,16.26,1-2 times a month,Dust,Cold weather,No,Frequently,0.38
+227,29.63,13.67,69.35,435.11,71.13,12.8,Less than once a month,Temperature changes,Hot and humid weather,No,Rarely,0.38
+162,27.39,7.24,29.57,470.41,64.29,11.17,Daily,Pollen,Hot and humid weather,"Yes, often",Occasionally,0.62
+249,97.17,25.71,51.57,360.43,40.73,30.45,1-2 times a month,"Temperature changes, Humidity, Pollen",No specific weather-related triggers,"Yes, often",Occasionally,0.62
+262,137.04,1.48,45.79,312.68,31.1,35.62,Daily,"Temperature changes, Humidity, Pollen",Cold weather,"Yes, often",Rarely,0.62
+286,5.93,42.64,80.36,461.08,52.38,19.25,Daily,"Dust, Pollen",No specific weather-related triggers,Occasionally,Frequently,0.62
+181,81.04,22.73,44.25,333.59,68.03,34.06,Daily,Dust,Cold weather,Occasionally,Never,0.38
+290,67.93,25.05,89.39,581.0,36.89,20.68,Frequently (Weekly),Pollen,Windy and dry weather,Occasionally,Never,0.5
+199,25.71,12.69,28.22,301.32,37.37,38.11,Less than once a month,"Pollen, Dust",Windy and dry weather,No,Occasionally,0.25
+260,144.52,34.46,11.89,488.38,45.56,25.63,Daily,"Air pollution (smoke, chemicals etc.), Pollen, Temperature changes",Hot and humid weather,Occasionally,Frequently,0.88
+112,126.42,18.13,7.23,598.9,79.46,18.18,Daily,Pollen,Cold weather,Occasionally,Never,0.38
+143,83.06,23.71,18.41,411.96,84.22,10.7,Less than once a month,"Humidity, Temperature changes",Windy and dry weather,No,Frequently,0.38
+115,105.7,26.66,90.81,367.02,57.0,17.29,Less than once a month,"Air pollution (smoke, chemicals etc.), Humidity, Dust",No specific weather-related triggers,No,Occasionally,0.5
+197,66.66,14.4,62.44,420.64,41.56,16.31,Daily,"Humidity, Pollen, Air pollution (smoke, chemicals etc.)",Hot and humid weather,"Yes, often",Rarely,0.62
+170,139.33,48.84,6.84,551.65,63.93,37.35,Less than once a month,Pollen,Cold weather,No,Never,0.5
+94,70.95,7.86,53.89,358.47,80.57,13.86,1-2 times a month,"Temperature changes, Pollen, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,Occasionally,Occasionally,0.25
+243,130.68,42.21,89.89,509.26,89.77,33.21,Less than once a month,"Humidity, Dust, Temperature changes",Cold weather,Occasionally,Never,0.62
+177,141.32,17.23,75.83,334.5,52.61,19.3,Frequently (Weekly),Humidity,Cold weather,"Yes, often",Occasionally,0.88
+245,64.53,32.79,68.3,579.55,75.04,19.18,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Pollen, Dust",Hot and humid weather,No,Rarely,0.5
+99,84.28,6.0,91.56,530.28,58.09,22.53,Daily,"Temperature changes, Humidity",Hot and humid weather,"Yes, often",Occasionally,0.88
+287,116.56,41.5,82.79,393.29,70.43,23.21,Daily,"Air pollution (smoke, chemicals etc.), Dust",Windy and dry weather,Occasionally,Rarely,0.5
+253,118.35,49.92,67.93,426.71,73.78,20.27,1-2 times a month,"Temperature changes, Dust",No specific weather-related triggers,Occasionally,Occasionally,0.62
+246,85.47,1.2,83.41,370.93,60.78,7.31,Less than once a month,"Humidity, Pollen",Windy and dry weather,No,Never,0.5
+210,76.12,17.82,6.98,569.46,50.52,12.23,Frequently (Weekly),"Air pollution (smoke, chemicals etc.), Dust",Cold weather,No,Rarely,0.5
+194,84.88,9.74,64.01,422.84,83.7,11.44,Frequently (Weekly),"Humidity, Temperature changes, Pollen",Windy and dry weather,Occasionally,Never,0.62
+164,62.31,46.59,54.14,562.38,51.91,5.54,Frequently (Weekly),Pollen,No specific weather-related triggers,No,Never,0.5
+218,77.91,45.71,53.25,500.31,54.59,28.95,Less than once a month,"Air pollution (smoke, chemicals etc.)",Cold weather,Occasionally,Frequently,0.62
+257,8.33,44.75,9.37,569.03,64.78,35.85,Frequently (Weekly),"Pollen, Humidity, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,Occasionally,Rarely,0.62
+150,57.7,24.14,55.37,357.72,39.18,9.31,Less than once a month,"Pollen, Temperature changes, Dust",Cold weather,No,Rarely,0.12
+229,105.36,6.92,28.46,447.47,74.61,18.1,Less than once a month,"Pollen, Air pollution (smoke, chemicals etc.)",Windy and dry weather,Occasionally,Rarely,0.25
+95,13.05,42.45,19.43,419.24,34.03,15.11,Less than once a month,"Air pollution (smoke, chemicals etc.), Pollen",Cold weather,Occasionally,Occasionally,0.25
+270,117.81,4.2,94.57,305.92,61.01,10.36,Daily,Humidity,Hot and humid weather,Occasionally,Frequently,0.75
+130,145.83,44.19,87.89,574.78,80.54,37.04,Less than once a month,"Humidity, Temperature changes, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,No,Rarely,0.5
+236,40.21,24.21,84.59,402.23,83.31,19.13,Frequently (Weekly),"Dust, Pollen, Humidity",No specific weather-related triggers,No,Frequently,0.62
+267,137.86,5.3,10.31,424.23,37.11,23.07,Frequently (Weekly),Temperature changes,Windy and dry weather,"Yes, often",Rarely,0.62
+178,111.95,39.67,17.88,415.16,55.89,20.69,Less than once a month,"Temperature changes, Air pollution (smoke, chemicals etc.)",Hot and humid weather,"Yes, often",Never,0.62
+110,118.48,40.45,36.68,481.82,33.7,9.96,Less than once a month,"Temperature changes, Humidity, Air pollution (smoke, chemicals etc.)",Cold weather,Occasionally,Rarely,0.5
+223,78.67,4.68,59.57,395.85,31.77,36.51,Less than once a month,"Humidity, Air pollution (smoke, chemicals etc.)",No specific weather-related triggers,"Yes, often",Rarely,0.5
+210,8.63,15.58,66.8,311.82,41.76,28.6,Less than once a month,"Temperature changes, Dust",No specific weather-related triggers,No,Never,0.38
+57,144.93,43.74,90.9,509.4,38.82,8.74,1-2 times a month,"Humidity, Pollen",No specific weather-related triggers,"Yes, often",Occasionally,0.75
+233,38.31,33.5,68.46,383.87,82.03,29.54,Daily,Humidity,Windy and dry weather,Occasionally,Occasionally,0.62
+159,116.51,32.86,62.57,523.48,47.59,21.53,Daily,"Temperature changes, Pollen",Hot and humid weather,Occasionally,Never,0.75
+245,85.01,41.34,90.87,477.47,61.61,30.52,Frequently (Weekly),"Pollen, Air pollution (smoke, chemicals etc.), Temperature changes",No specific weather-related triggers,"Yes, often",Never,0.88

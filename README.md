@@ -5,10 +5,11 @@
 
 🧠 AI for Healthcare | 🌍 Environmental Risk Modeling | ☁ Edge + Cloud Deployment
 
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)]()
+[![Status](https://img.shields.io/badge/Status-Research_Ready-brightgreen?style=flat-square)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)]()
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-ML-orange?style=flat-square&logo=tensorflow)]()
-[![Docker](https://img.shields.io/badge/Containerized-Docker-blue?style=flat-square&logo=docker)]()
+[![XGBoost](https://img.shields.io/badge/XGBoost-Ensemble-green?style=flat-square)]()
+[![SHAP](https://img.shields.io/badge/SHAP-Explainability-purple?style=flat-square)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)]()
 
 </div>
@@ -16,126 +17,224 @@
 ---
 
 ## 📌 Table of Contents
-- [Overview](#overview)
-- [System Architecture](#system-architecture)
-- [Core Features](#core-features)
-- [Tech Stack](#tech-stack)
-- [Project Workflow](#project-workflow)
-- [Model Performance](#model-performance)
-- [Installation & API Usage](#installation--api-usage)
-- [Future Roadmap](#future-roadmap)
-- [Research Potential](#research-potential)
-- [Team & Contributions](#team--contributions)
+- [Overview](#-overview)
+- [Research Highlights](#-research-highlights)
+- [Model Performance](#-model-performance)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Citation](#-citation)
 
 ---
 
 ## 🚀 Overview
 
 Asthma affects **300M+ people globally**, with environmental factors triggering life-threatening attacks.  
-This project proposes a complete **Predictive Health Intelligence System** that:
+This project presents a complete **Predictive Health Intelligence System** that:
 
-✔ **Analyzes environmental pollutant exposure**  
-✔ **Predicts asthma attack risk in real-time**  
+✔ **Analyzes environmental pollutant exposure** (AQI, PM2.5, CO2, NO2, SO2)  
+✔ **Predicts asthma attack risk in real-time** using 7 ML models  
+✔ **Provides explainability** via SHAP and LIME  
 ✔ **Deploys on local devices or cloud as API**  
-✔ **Aims to integrate with IoT wearable sensors & inhalers**
 
 > A foundation towards a **Preventive Respiratory Healthcare Platform** powered by AI.
 
 ---
 
-## 🧩 System Architecture
+## 🔬 Research Highlights
 
-```mermaid
-flowchart LR
-A[(Sensor / Environmental Data)] --> B[Data Pipeline 🧹]
-B --> C[Feature Engineering 🔍]
-C --> D[Neural Network Model 🧠]
-D --> E[Prediction API 🚀]
-E --> F[(Mobile App / Dashboard 📱)]
-```
-⚡ Modular • Scalable • Deployment-Ready
-🔥 Core Features
-Category	Details
-🧠 ML Model	Neural-Network predicting asthma risk levels (Low/High)
-🧹 Data Pipeline	Automatic preprocessing → scaling → artifact persistence
-🚀 API Layer	Flask-based prediction service + JSON interface
-🧳 Deployment	Dockerized → Works on Edge devices & Cloud
-🔒 Security Ready	Architecture supports encrypted health data
-🛠 Tech Stack
+| Aspect | Details |
+|--------|---------|
+| **Dataset** | 2,000 samples (12 features, 3 risk classes) |
+| **Models Compared** | 7 (LR, RF, XGBoost, LightGBM, SVM, GB, KNN) |
+| **Best Model** | XGBoost (69.4% accuracy, 0.797 ROC-AUC) |
+| **Explainability** | SHAP global importance + LIME local explanations |
+| **Validation** | 5-Fold Stratified Cross-Validation |
+| **Statistical Tests** | Paired t-tests, Friedman test |
 
-AI/ML: TensorFlow • Keras • Scikit-Learn
+### Key Findings
+1. **Symptom frequency** is the strongest predictor of asthma risk
+2. **AQI and PM2.5** are significant environmental contributors
+3. **Gradient boosting models** consistently outperform other approaches
 
-Serving: Flask REST API
+---
 
-DevOps: Docker • (Future: Kubernetes + CI/CD)
+## 📈 Model Performance
 
-Visualization: Matplotlib / Seaborn
+### Cross-Validation Results (5-Fold)
 
-Data Artifacts: Pickled pipeline + trained .keras model
+| Model | Accuracy | F1-Score | ROC-AUC |
+|-------|----------|----------|---------|
+| **XGBoost** | 0.669 ± 0.016 | 0.653 ± 0.017 | **0.797 ± 0.007** |
+| Gradient Boosting | 0.668 ± 0.017 | 0.656 ± 0.016 | 0.796 ± 0.007 |
+| LightGBM | 0.662 ± 0.005 | 0.649 ± 0.008 | 0.792 ± 0.004 |
+| SVM | 0.653 ± 0.017 | 0.609 ± 0.024 | 0.781 ± 0.009 |
+| Random Forest | 0.662 ± 0.010 | 0.618 ± 0.014 | 0.777 ± 0.009 |
+| Logistic Regression | 0.641 ± 0.021 | 0.611 ± 0.022 | 0.754 ± 0.017 |
+| KNN | 0.605 ± 0.018 | 0.580 ± 0.014 | 0.695 ± 0.009 |
 
-📈 Model Performance
+### Feature Importance (Top 5)
+1. Asthma Symptoms Frequency (0.068)
+2. AQI (0.055)
+3. Poor Air Quality Exposure (0.027)
+4. PM2.5 (0.024)
+5. Night Breathing Difficulty (0.022)
 
-(to be expanded as dataset grows)
+---
 
-Metric	Value
-Training Accuracy	~90% (baseline)
-Loss Convergence	Stable
-Inference Latency	< 80 ms (local)
+## 🧩 Features
 
-📌 More evaluation + benchmark reports planned.
+### Input Features (12 total)
+**Environmental (7):**
+- AQI, PM2.5, SO2 level, NO2 level, CO2 level, Humidity, Temperature
 
-🧪 Installation & API Usage
-▶ Local Setup
+**Clinical (5):**
+- Asthma Symptoms Frequency
+- Triggers (Pollen, Dust, Smoke, etc.)
+- Weather Sensitivity
+- Poor Air Quality Exposure
+- Night Breathing Difficulty
+
+### Output
+- **Risk Level**: Low, Medium, or High
+- **Confidence Score**: 0-100%
+- **Feature Explanations**: SHAP-based individual explanations
+
+---
+
+## 🛠 Installation
+
+```bash
+# Clone the repository
 git clone https://github.com/Kabirroy12345/ML_model_aasthma
 cd ML_model_aasthma
+
+# Create virtual environment
+python -m venv venv
+.\venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
+
+# Install dependencies
 pip install -r requirements.txt
+```
+
+---
+
+## 📖 Usage
+
+### Run the Web Application
+```bash
 python app.py
+```
+Open http://localhost:7860 in your browser.
 
-▶ Docker Run
-docker build -t asthma-ai .
-docker run -p 5000:5000 asthma-ai
+### Reproduce Research Results
+```bash
+# 1. Generate expanded dataset
+python data_generator.py
 
-🔗 Send Prediction Request
-curl -X POST http://localhost:5000/predict \
--H "Content-Type: application/json" \
--d '{"co2": 415, "o2": 20.9, "pm25": 37}'
+# 2. Train and compare all models
+python research/train_models.py
 
-🧬 Research Potential
+# 3. Generate publication figures
+python research/generate_figures.py
 
-This model can evolve into a medical-grade decision support system:
+# 4. Run explainability analysis
+python research/explainability.py
+```
 
-⚙ Time-series patient monitoring
-🤖 AI-driven inhaler dosage recommendations
-📍 Geo-based Environmental Health Mapping
-🍃 Integration with Air Quality Index APIs
-❤️ Personalized Asthma Health Profiles
-📡 IoT Embedded Deployment (ESP32 / RPi)
+### API Usage
+```bash
+curl -X POST http://localhost:7860/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "AQI": 150,
+    "PM2.5": 45,
+    "SO2 level": 15,
+    "NO2 level": 30,
+    "CO2 level": 420,
+    "Humidity": 65,
+    "Temperature": 28,
+    "Asthma Symptoms Frequency": "Daily",
+    "Triggers": "Dust",
+    "Weather Sensitivity": "Hot and humid weather",
+    "Poor Air Quality Exposure": "Yes, often",
+    "Night Breathing Difficulty": "Frequently"
+  }'
+```
 
-🌍 Future Roadmap
-Phase	Objective	Status
-V1	Baseline ML + API	✔ Done
-V2	Larger dataset + advanced DL models	⏳ In Progress
-V3	Mobile UI + Live Sensor Data	🔜
-V4	Explainable AI (SHAP/LIME)	🔜
-V5	Cloud MLOps Pipeline (Monitoring & Retraining)	🔜
-V6	Integration with Smart Inhaler Prototype	🎯 Goal
+---
 
-⏩ Goal: Predict → Alert → Prevent.
+## 📁 Project Structure
 
-🧑‍💻 Team & Contributions
+```
+ML_model_aasthma/
+├── app.py                    # Flask web application
+├── data_generator.py         # Synthetic data generation
+├── model.py                  # Original model training
+├── preprocess.py             # Data preprocessing
+├── requirements.txt          # Dependencies
+├── RESEARCH_RESULTS.md       # Complete evaluation report
+│
+├── data/
+│   ├── dataset.csv           # Full dataset (2000 samples)
+│   ├── dataset_original.csv  # Original dataset (201 samples)
+│   ├── train.csv             # Training set (70%)
+│   ├── validation.csv        # Validation set (15%)
+│   └── test.csv              # Test set (15%)
+│
+├── research/
+│   ├── train_models.py       # Multi-model training pipeline
+│   ├── explainability.py     # SHAP/LIME analysis
+│   └── generate_figures.py   # Publication figure generator
+│
+├── results/
+│   ├── cv_results.json       # Cross-validation results
+│   ├── test_results.json     # Test set evaluation
+│   ├── feature_importance.json
+│   ├── table_cv_results.tex  # LaTeX tables
+│   └── model_*.pkl           # Trained models
+│
+├── figures/
+│   ├── roc_curves.png        # ROC curves (all models)
+│   ├── confusion_matrices.png
+│   ├── model_comparison.png
+│   ├── shap_summary.png      # SHAP feature importance
+│   ├── learning_curve.png
+│   └── ... (19 total figures)
+│
+└── web_ui/
+    └── index.html            # Web interface
+```
 
-This project is under continuous innovation.
-PRs / ideas / research collaborations are highly welcome 🤝
+---
 
-📌 Please open an issue or submit a PR.
+## 📜 Citation
 
-📜 License
+If you use this work, please cite:
+
+```bibtex
+@software{asthmai2025,
+  title = {AsthmAI: Machine Learning for Asthma Risk Prediction Using Environmental and Clinical Features},
+  author = {Kabir Roy},
+  year = {2025},
+  url = {https://github.com/Kabirroy12345/ML_model_aasthma}
+}
+```
+
+---
+
+## 📄 License
 
 MIT — Free to use & modify with attribution.
 
+---
+
 <div align="center">
-🫁 Prevent tomorrow’s attack — with today’s prediction.
 
-Asthma-AI: Towards a Smarter, Safer Respiratory Health System
+🫁 **Prevent tomorrow's attack — with today's prediction.**
 
-</div> ```
+*AsthmAI: Towards a Smarter, Safer Respiratory Health System*
+
+</div>

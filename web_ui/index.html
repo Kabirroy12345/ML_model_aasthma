@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AsthmAI - Advanced Risk Prediction System</title>
+
+    <!-- Chart.js for live charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -162,7 +166,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .stat-card {
@@ -443,6 +447,26 @@
             line-height: 1.6;
         }
 
+        /* TABLE (Recent Predictions) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th, td {
+            padding: 8px 6px;
+            text-align: left;
+        }
+
+        thead tr {
+            border-bottom: 1px solid #1f2937;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #111827;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .prediction-container {
@@ -513,29 +537,59 @@
 
             <!-- CONTENT AREA -->
             <div class="content scrollbar-hide">
-                <!-- HOME PAGE -->
+                <!-- HOME PAGE (DASHBOARD) -->
                 <div class="page active" id="home">
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-label">Total Predictions</div>
-                            <div class="stat-value">2,847</div>
-                            <div class="stat-change">↑ 12% this week</div>
+                            <div class="stat-value" id="statTotalPredictions">2,847</div>
+                            <div class="stat-change" id="statTotalChange">↑ 12% this week</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">Accuracy Rate</div>
-                            <div class="stat-value">94.7%</div>
+                            <div class="stat-value" id="statAccuracy">94.7%</div>
                             <div class="stat-change">✓ Excellent</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">Model Version</div>
-                            <div class="stat-value">v2.1</div>
+                            <div class="stat-value" id="statModelVersion">v2.1</div>
                             <div class="stat-change">Latest</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-label">API Response</div>
-                            <div class="stat-value">45ms</div>
+                            <div class="stat-value" id="statApiResponse">45ms</div>
                             <div class="stat-change">Optimal</div>
                         </div>
+                    </div>
+
+                    <!-- DASHBOARD CHARTS -->
+                    <div class="chart-grid" style="margin-top: 24px;">
+                        <div class="chart-card">
+                            <div class="chart-title">📊 Risk Distribution</div>
+                            <canvas id="riskChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">📈 Prediction Trend (Last 7 Days)</div>
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- RECENT PREDICTIONS -->
+                    <div class="chart-card" style="margin-top: 24px;">
+                        <div class="chart-title">🕒 Recent Predictions</div>
+                        <div class="info-text" id="recentEmpty">
+                            No predictions logged yet. Submit some predictions from the Prediction tab to see activity here.
+                        </div>
+                        <table id="recentTable" style="display: none; margin-top: 12px;">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Score (%)</th>
+                                    <th>Risk</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -636,24 +690,29 @@
                     </div>
                 </div>
 
-                <!-- ANALYTICS PAGE -->
+                <!-- ANALYTICS PAGE (LIVE) -->
                 <div class="page" id="analytics">
                     <div class="chart-grid">
                         <div class="chart-card">
-                            <div class="chart-title">📊 Risk Distribution</div>
-                            <div class="info-text">High Risk: 12% | Medium Risk: 35% | Low Risk: 53%</div>
+                            <div class="chart-title">📊 Risk Distribution (Live)</div>
+                            <canvas id="analyticsRiskChart"></canvas>
                         </div>
                         <div class="chart-card">
-                            <div class="chart-title">📈 Prediction Trends</div>
-                            <div class="info-text">Average risk score has decreased by 8% over the last 30 days</div>
+                            <div class="chart-title">📈 Predictions per Day (Last 7 Days)</div>
+                            <canvas id="analyticsTrendChart"></canvas>
                         </div>
                         <div class="chart-card">
-                            <div class="chart-title">🎯 Model Performance</div>
-                            <div class="info-text">Precision: 94.7% | Recall: 93.2% | F1-Score: 93.9%</div>
+                            <div class="chart-title">🎯 Model Performance Snapshot</div>
+                            <div class="info-text" id="analyticsPerfText">
+                                Loading performance metrics from live usage...
+                            </div>
                         </div>
                         <div class="chart-card">
-                            <div class="chart-title">🔬 Top Risk Factors</div>
-                            <div class="info-text">1. AQI (28%) | 2. PM2.5 (24%) | 3. Triggers (18%)</div>
+                            <div class="chart-title">🔬 Top Risk Factors (Conceptual)</div>
+                            <div class="info-text">
+                                1. AQI (28%) | 2. PM2.5 (24%) | 3. Triggers (18%)<br>
+                                These percentages are conceptual and based on typical environmental health studies.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -702,6 +761,11 @@
             "Night Breathing Difficulty"
         ];
 
+        let riskChart = null;
+        let trendChart = null;
+        let analyticsRiskChart = null;
+        let analyticsTrendChart = null;
+
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -716,8 +780,15 @@
                 about: 'About'
             };
             document.getElementById('pageTitle').textContent = titles[pageId];
+
+            if (pageId === 'home') {
+                loadDashboard();
+            } else if (pageId === 'analytics') {
+                loadAnalytics();
+            }
         }
 
+        // ------------ PREDICTION LOGIC (unchanged core) ------------
         async function predictRisk(event) {
             event.preventDefault();
             const submitBtn = document.getElementById('submitBtn');
@@ -725,10 +796,20 @@
             submitBtn.textContent = 'Analyzing...';
 
             try {
-                const data = {};
-                FEATURES.forEach(feature => {
-                    data[feature] = parseFloat(document.getElementById(feature).value);
-                });
+                const data = {
+                    "AQI": parseFloat(document.getElementById("AQI").value),
+                    "PM2.5": parseFloat(document.getElementById("PM2.5").value),
+                    "SO2 level": parseFloat(document.getElementById("SO2 level").value),
+                    "NO2 level": parseFloat(document.getElementById("NO2 level").value),
+                    "CO2 level": parseFloat(document.getElementById("CO2 level").value),
+                    "Humidity": parseFloat(document.getElementById("Humidity").value),
+                    "Temperature": parseFloat(document.getElementById("Temperature").value),
+                    "Asthma Symptoms Frequency": document.getElementById("Asthma Symptoms Frequency").value.trim(),
+                    "Triggers": document.getElementById("Triggers").value.trim(),
+                    "Weather Sensitivity": document.getElementById("Weather Sensitivity").value.trim(),
+                    "Poor Air Quality Exposure": document.getElementById("Poor Air Quality Exposure").value.trim(),
+                    "Night Breathing Difficulty": document.getElementById("Night Breathing Difficulty").value.trim()
+                };
 
                 const response = await fetch(`${API_URL}/predict`, {
                     method: 'POST',
@@ -738,13 +819,16 @@
 
                 const result = await response.json();
 
-                if (result.error) {
-                    alert('Error: ' + result.error);
+                if (!result.success) {
+                    alert('Error: ' + (result.error || 'Prediction failed'));
                 } else {
                     displayResult(result);
+                    // After each prediction, refresh dashboard stats silently
+                    loadDashboard();
                 }
             } catch (error) {
                 alert('Connection error. Make sure Flask API is running at ' + API_URL);
+                console.error(error);
             }
 
             submitBtn.classList.remove('loading');
@@ -793,6 +877,189 @@
             };
             return recs[level.toLowerCase()] || recs.low;
         }
+
+        // ------------ DASHBOARD DATA ------------
+        async function loadDashboard() {
+            try {
+                await Promise.all([
+                    loadStats(),
+                    loadTrend(),
+                    loadRecent()
+                ]);
+            } catch (e) {
+                console.error("Dashboard load error:", e);
+            }
+        }
+
+        async function loadStats() {
+            const res = await fetch(`${API_URL}/api/stats`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            document.getElementById('statTotalPredictions').textContent = data.total_predictions;
+            document.getElementById('statAccuracy').textContent = data.accuracy.toFixed(1) + '%';
+            document.getElementById('statApiResponse').textContent = data.api_response_ms + 'ms';
+            // Model version left static
+
+            const dist = data.risk_distribution || { low: 0, medium: 0, high: 0 };
+            const ctx = document.getElementById('riskChart').getContext('2d');
+            if (riskChart) riskChart.destroy();
+            riskChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Low', 'Medium', 'High'],
+                    datasets: [{
+                        data: [dist.low, dist.medium, dist.high]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { labels: { color: '#cbd5e1' } }
+                    }
+                }
+            });
+        }
+
+        async function loadTrend() {
+            const res = await fetch(`${API_URL}/api/trend`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            const labels = data.labels || [];
+            const avgScores = (data.avg_scores || []).map(x => x * 100); // to %
+
+            const ctx = document.getElementById('trendChart').getContext('2d');
+            if (trendChart) trendChart.destroy();
+            trendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Avg Risk (%)',
+                        data: avgScores,
+                        tension: 0.3
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.2)' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#cbd5e1' } }
+                    }
+                }
+            });
+        }
+
+        async function loadRecent() {
+            const res = await fetch(`${API_URL}/api/recent`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            const items = data.items || [];
+            const emptyEl = document.getElementById('recentEmpty');
+            const table = document.getElementById('recentTable');
+            const tbody = table.querySelector('tbody');
+
+            if (items.length === 0) {
+                emptyEl.style.display = 'block';
+                table.style.display = 'none';
+                return;
+            }
+
+            emptyEl.style.display = 'none';
+            table.style.display = 'table';
+            tbody.innerHTML = '';
+
+            items.forEach(item => {
+                const tr = document.createElement('tr');
+                const time = new Date(item.timestamp);
+                const timeStr = time.toLocaleString();
+
+                const scoreTd = (item.score * 100).toFixed(1) + '%';
+
+                tr.innerHTML = `
+                    <td>${timeStr}</td>
+                    <td>${scoreTd}</td>
+                    <td>${item.risk_level}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // ------------ ANALYTICS PAGE ------------
+        async function loadAnalytics() {
+            try {
+                await Promise.all([
+                    loadAnalyticsStats(),
+                    loadAnalyticsTrend()
+                ]);
+            } catch (e) {
+                console.error("Analytics load error:", e);
+            }
+        }
+
+        async function loadAnalyticsStats() {
+            const res = await fetch(`${API_URL}/api/stats`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            const dist = data.risk_distribution || { low: 0, medium: 0, high: 0 };
+            const ctx = document.getElementById('analyticsRiskChart').getContext('2d');
+            if (analyticsRiskChart) analyticsRiskChart.destroy();
+            analyticsRiskChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Low', 'Medium', 'High'],
+                    datasets: [{
+                        data: [dist.low, dist.medium, dist.high]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: { labels: { color: '#cbd5e1' } }
+                    }
+                }
+            });
+
+            const perfEl = document.getElementById('analyticsPerfText');
+            perfEl.textContent = `Live usage: ${data.total_predictions} total predictions logged. Current estimated accuracy: ${data.accuracy.toFixed(1)}%.`;
+        }
+
+        async function loadAnalyticsTrend() {
+            const res = await fetch(`${API_URL}/api/trend`);
+            const data = await res.json();
+            if (!data.success) return;
+
+            const labels = data.labels || [];
+            const counts = data.counts || [];
+
+            const ctx = document.getElementById('analyticsTrendChart').getContext('2d');
+            if (analyticsTrendChart) analyticsTrendChart.destroy();
+            analyticsTrendChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Predictions per Day',
+                        data: counts
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.2)' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#cbd5e1' } }
+                    }
+                }
+            });
+        }
+
+        // Initial dashboard load on page open
+        loadDashboard();
     </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 ## 🚀 Overview
 
 Asthma affects **300M+ people globally**, with environmental factors triggering life-threatening attacks.  
-This project presents a complete **Predictive Health Intelligence System** that:
+This project presents a complete **Predictive Health Intelligence System** that :
 
 ✔ **Analyzes environmental pollutant exposure** (AQI, PM2.5, CO2, NO2, SO2)  
 ✔ **Predicts asthma attack risk in real-time** using 7 ML models  

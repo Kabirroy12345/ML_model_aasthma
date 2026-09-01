@@ -769,11 +769,14 @@ def api_figures_list():
     ]
     return jsonify({"success": True, "figures": figures})
 
+# Initialize DB on load (ensures tables exist when running with Gunicorn or direct python)
+init_db()
+
 # ==================== MAIN ====================
 
 if __name__ == "__main__":
-    init_db()
     if not os.path.exists("web_ui"):
         os.makedirs("web_ui")
-    print("🚀 HridyaVayu Server Started - Review 1 Collaborative 3-Model Ready")
-    app.run(host="0.0.0.0", port=7860, debug=False)
+    port = int(os.environ.get("PORT", 7860))
+    print(f"🚀 HridyaVayu Server Started on port {port} - Review 1 Collaborative 3-Model Ready")
+    app.run(host="0.0.0.0", port=port, debug=False)

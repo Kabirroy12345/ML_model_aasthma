@@ -1,0 +1,18 @@
+{
+  "baseline_lr": {
+    "accuracy": 71.33,
+    "f1": 0.7117
+  },
+  "random_forest": {
+    "accuracy": 72.33,
+    "f1": 0.7058
+  },
+  "gradient_boosting": {
+    "accuracy": 69.67,
+    "f1": 0.6942
+  },
+  "collaborative_ensemble": {
+    "accuracy": 73.0,
+    "f1": 0.7234
+  }
+}

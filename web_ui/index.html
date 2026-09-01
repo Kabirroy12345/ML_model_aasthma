@@ -2220,18 +2220,67 @@
             switchView('user');
             setStep(2);
           }
+          syncSensorDataToBackend();
         }
       } catch (err) {
         console.error('Error fetching live environmental data:', err);
       }
     }
 
+    // Sync Environmental Telemetry to Backend SensorData ORM Table
+    async function syncSensorDataToBackend() {
+      try {
+        const userId = (currentUser && currentUser.id) ? currentUser.id : 1;
+        await fetch('/upload-sensor-data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            user_id: userId,
+            air_quality: Math.round(envData.AQI),
+            pm25: Number(envData.PM25),
+            no2_level: Number(envData.NO2),
+            so2_level: Number(envData.SO2),
+            co2_level: Number(envData.CO2),
+            temperature: Number(envData.Temperature),
+            humidity: Number(envData.Humidity)
+          })
+        });
+      } catch (e) {
+        console.warn('Auto sensor sync to backend failed:', e);
+      }
+    }
+
     // Run Review 1 Model Prediction
     async function runHridyaVayuPrediction() {
       const patientName = document.getElementById('patient-name').value || "Alex Rivera";
+      const userId = currentUser ? currentUser.id : 1;
+      const symptomsFreq = document.getElementById('symptoms-freq').value;
+      const nightDiff = document.getElementById('night-diff').value;
+      const triggers = document.getElementById('triggers-input').value;
+      const exposure = document.getElementById('exposure-input').value;
+      const weatherSens = document.getElementById('weather-input').value;
+
+      // Sync Quiz Responses to QuizResponse ORM Table
+      try {
+        fetch('/submit-quiz', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            user_id: userId,
+            responses: [
+              { question: 'Asthma Symptoms Frequency', answer: symptomsFreq },
+              { question: 'Night Breathing Difficulty', answer: nightDiff },
+              { question: 'Triggers', answer: triggers },
+              { question: 'Poor Air Quality Exposure', answer: exposure },
+              { question: 'Weather Sensitivity', answer: weatherSens }
+            ]
+          })
+        }).catch(e => console.warn('Quiz sync:', e));
+      } catch(e) {}
+
       const payload = {
         patient_name: patientName,
-        user_id: currentUser ? currentUser.id : 1,
+        user_id: userId,
         AQI: envData.AQI,
         'PM2.5': envData.PM25,
         'SO2 level': envData.SO2,
@@ -2239,11 +2288,11 @@
         'CO2 level': envData.CO2,
         Humidity: envData.Humidity,
         Temperature: envData.Temperature,
-        'Asthma Symptoms Frequency': document.getElementById('symptoms-freq').value,
-        'Night Breathing Difficulty': document.getElementById('night-diff').value,
-        'Triggers': document.getElementById('triggers-input').value,
-        'Poor Air Quality Exposure': document.getElementById('exposure-input').value,
-        'Weather Sensitivity': document.getElementById('weather-input').value
+        'Asthma Symptoms Frequency': symptomsFreq,
+        'Night Breathing Difficulty': nightDiff,
+        'Triggers': triggers,
+        'Poor Air Quality Exposure': exposure,
+        'Weather Sensitivity': weatherSens
       };
 
       try {

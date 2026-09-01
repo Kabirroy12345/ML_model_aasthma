@@ -1,0 +1,15 @@
+AsthmAI Ablation Study Results
+========================================
+
+Feature Group Ablation:
+  Environmental only         Acc=58.5%+/-1.7%  F1=0.559
+  Clinical only              Acc=60.1%+/-1.0%  F1=0.576
+  No engineered feats        Acc=58.5%+/-1.7%  F1=0.559
+  Engineered only            Acc=66.8%+/-1.2%  F1=0.657
+  All features (full)        Acc=68.5%+/-1.7%  F1=0.676
+
+Base Learner Count Ablation:
+  Single (XGBoost)           Acc=66.7%+/-1.1%  F1=0.659
+  Stacking (2 learners)      Acc=67.5%+/-0.7%  F1=0.664
+  Stacking (3 learners)      Acc=68.5%+/-1.7%  F1=0.676
+  Stacking (6 learners)      Acc=68.4%+/-2.1%  F1=0.675

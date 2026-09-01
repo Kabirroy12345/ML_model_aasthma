@@ -1,0 +1,26 @@
+AsthmAI Entropy-Gated Safety-Net Hybrid (FINAL)
+==================================================
+Entropy threshold: H >= 1.0
+Total Samples:      300
+Heuristic Triggers: 12 (4.0%)
+
+Pure ML Accuracy:   0.7367
+Hybrid Accuracy:    0.7500
+Improvement:        +1.33%
+
+High Risk Recall ML:     0.6977
+High Risk Recall Hybrid: 0.7519
+
+High Conf (H<0.5): 52 (17%) Acc=86.5%
+Med  Conf (0.5-1): 187 (62%) Acc=72.7%
+Low  Conf (H>=1):  61 (20%) Acc=72.1%
+
+              precision    recall  f1-score   support
+
+        High       0.81      0.75      0.78       129
+         Low       0.67      0.26      0.38        23
+      Medium       0.71      0.82      0.76       148
+
+    accuracy                           0.75       300
+   macro avg       0.73      0.61      0.64       300
+weighted avg       0.75      0.75      0.74       300

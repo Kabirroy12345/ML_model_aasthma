@@ -1,5 +1,5 @@
-Hybrid System Verification
-==========================
+Hybrid System Verification (RECTIFIED)
+======================================
 Total Samples: 300
-Heuristic Triggers (Safety Layer): 171
-Hybrid Accuracy: 59.00%
+Heuristic Triggers (Safety Layer): 161
+Hybrid Accuracy: 66.67%

@@ -1,0 +1,43 @@
+AsthmAI Enhanced Synthetic Data Validation
+==================================================
+
+Original samples:  2000
+Synthetic samples: 2000
+
+1. Kolmogorov-Smirnov Tests (Numerical Features):
+   Feature               KS stat    p-value   Result
+   AQI                    0.0000     1.0000     PASS
+   PM2.5                  0.0000     1.0000     PASS
+   SO2 level              0.0000     1.0000     PASS
+   NO2 level              0.0000     1.0000     PASS
+   CO2 level              0.0000     1.0000     PASS
+   Humidity               0.0000     1.0000     PASS
+   Temperature            0.0000     1.0000     PASS
+
+2. Cohen's d Effect Sizes (Numerical Features):
+   Feature                 Cohen d   Interpretation
+   AQI                     +0.0000       Negligible
+   PM2.5                   +0.0000       Negligible
+   SO2 level               +0.0000       Negligible
+   NO2 level               -0.0000       Negligible
+   CO2 level               +0.0000       Negligible
+   Humidity                +0.0000       Negligible
+   Temperature             +0.0000       Negligible
+
+3. Wasserstein Distances:
+   AQI                   W=0.0000
+   PM2.5                 W=0.0000
+   SO2 level             W=0.0000
+   NO2 level             W=0.0000
+   CO2 level             W=0.0000
+   Humidity              W=0.0000
+   Temperature           W=0.0000
+
+4. Chi-Squared Tests (Categorical Features):
+   Asthma Symptoms Frequency       chi2=0.00  p=1.0000  PASS
+   Poor Air Quality Exposure       chi2=0.00  p=1.0000  PASS
+   Night Breathing Difficulty      chi2=0.00  p=1.0000  PASS
+   Weather Sensitivity             chi2=0.00  p=1.0000  PASS
+
+5. Bootstrap 95% Confidence Intervals:
+   Stacking Accuracy: 69.6% (95% CI: 65.8%--73.5%, SD=1.9%)

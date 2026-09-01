@@ -1,0 +1,26 @@
+Dataset: Kaggle Asthma Disease Dataset (Synthetic-Clinical)
+Total Patients: 2392
+Test Set: 479
+Accuracy: 0.9645
+F1-Score: 0.9471
+Precision: 0.9304
+Recall: 0.9645
+ROC-AUC: 0.8341
+CV Accuracy: 0.9629 +/- 0.0026
+
+Risk Class Distribution:
+Risk_Class
+Medium    2164
+Low        143
+High        85
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        High       0.00      0.00      0.00        17
+         Low       1.00      1.00      1.00        29
+      Medium       0.96      1.00      0.98       433
+
+    accuracy                           0.96       479
+   macro avg       0.65      0.67      0.66       479
+weighted avg       0.93      0.96      0.95       479

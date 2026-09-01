@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 import os
-import sys
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
 
 # Load test data
 data_dir = 'data'
@@ -14,9 +15,9 @@ with open('results/best_ensemble_model.pkl', 'rb') as f:
     saved = pickle.load(f)
     model = saved['model']
     scaler = saved['scaler']
-    label_encoder = saved['label_encoder']
+    label_encoder_target = saved['label_encoder']
 
-# Define Clinical Heuristic Logic (from app.py)
+# Define Clinical Heuristic Logic (Safety Layer)
 def clinical_heuristics(row):
     symptom_freq = row['Asthma Symptoms Frequency']
     if symptom_freq == "Daily":
@@ -25,7 +26,7 @@ def clinical_heuristics(row):
         return "Medium", True
     return None, False
 
-# Feature Engineering (simplified for verification)
+# Feature Engineering (Matching ensemble_model.py)
 def engineer_features(df):
     df = df.copy()
     df['AQI_PM_ratio'] = df['AQI'] / (df['PM2.5'] + 1)
@@ -45,81 +46,84 @@ def engineer_features(df):
     night_map = {'Frequently': 3, 'Occasionally': 2, 'Rarely': 1, 'Never': 0}
     df['night_score'] = df['Night Breathing Difficulty'].map(night_map).fillna(0)
     df['trigger_count'] = df['Triggers'].apply(lambda x: str(x).count(',') + 1)
-    df['clinical_risk_score'] = (df['symptom_severity'] * 0.4 + df['exposure_score'] * 0.3 + df['night_score'] * 0.3)
     
-    # Simple env_risk_score calc to match app.py logic roughly
+    df['clinical_risk_score'] = (df['symptom_severity'] * 0.4 + df['exposure_score'] * 0.3 + df['night_score'] * 0.3)
     df['env_risk_score'] = (df['AQI_critical'] * 0.3 + df['AQI_unhealthy'] * 0.2 + 
-                            df['PM25_high'] * 0.25 + (df['pollution_index'] / 200) * 0.25)
+                            df['PM25_high'] * 0.25 + (df['pollution_index'] / df['pollution_index'].max()) * 0.25)
     df['total_risk_interaction'] = df['clinical_risk_score'] * df['env_risk_score']
     
     return df
 
-# Evaluation
-correct_hybrid = 0
-correct_ml_only = 0
-total = len(test_df)
-heuristic_triggers = 0
-
+# 1. Prepare ML Input (Batch Processing to get Encodings correct)
 df_eng = engineer_features(test_df)
 
-for i, row in test_df.iterrows():
-    actual = row['Risk Class']
+numerical_cols = [
+    'AQI', 'PM2.5', 'SO2 level', 'NO2 level', 'CO2 level', 'Humidity', 'Temperature',
+    'AQI_PM_ratio', 'pollution_index', 'gas_pollution', 'humidity_pollution', 
+    'temp_pollution', 'AQI_critical', 'AQI_unhealthy', 'PM25_high', 'symptom_severity',
+    'exposure_score', 'night_score', 'trigger_count', 'clinical_risk_score', 
+    'env_risk_score', 'total_risk_interaction'
+]
+categorical_cols = [
+    'Asthma Symptoms Frequency', 'Triggers', 'Weather Sensitivity', 
+    'Poor Air Quality Exposure', 'Night Breathing Difficulty'
+]
+
+X_num = df_eng[numerical_cols].values
+
+# Correct Encoding Strategy: Fit LabelEncoder on the column values
+# (Replicates the behavior of ensemble_model.py's prepare_features for test set)
+X_cat_list = []
+for col in categorical_cols:
+    le = LabelEncoder()
+    # Fit on the data itself to generate consistent integers for this set
+    # (Assuming the test set contains similar lexical range as training)
+    X_cat_list.append(le.fit_transform(df_eng[col].astype(str)))
+
+X_cat = np.column_stack(X_cat_list)
+X = np.hstack([X_num, X_cat])
+X = np.nan_to_num(X, nan=0)
+
+# Scale
+X_scaled = scaler.transform(X)
+
+# 2. Get Pure ML Predictions
+ml_pred_indices = model.predict(X_scaled)
+ml_preds = label_encoder_target.inverse_transform(ml_pred_indices)
+ml_probs = model.predict_proba(X_scaled) if hasattr(model, "predict_proba") else None
+
+# 3. Apply/Verify Hybrid Logic
+correct_hybrid = 0
+heuristic_triggers = 0
+total = len(test_df)
+
+for i in range(total):
+    actual = test_df.iloc[i]['Risk Class']
     
-    # 1. Heuristic Check
-    pred, triggered = clinical_heuristics(row)
+    # Check Heuristic
+    heuristic_pred, triggered = clinical_heuristics(test_df.iloc[i])
     
+    final_pred = None
     if triggered:
         heuristic_triggers += 1
-        if pred == actual:
-            correct_hybrid += 1
+        final_pred = heuristic_pred
     else:
-        # 2. ML Prediction
-        # Reconstruct full feature vector for this row
-        # (This matches the stack structure in ensemble_model.py)
-        # Note: We use the already engineered features
-        row_eng = df_eng.iloc[i]
+        final_pred = ml_preds[i]
         
-        # Prepare numericals in order
-        num_feats = [
-            'AQI', 'PM2.5', 'SO2 level', 'NO2 level', 'CO2 level', 'Humidity', 'Temperature',
-            'AQI_PM_ratio', 'pollution_index', 'gas_pollution', 'humidity_pollution', 
-            'temp_pollution', 'AQI_critical', 'AQI_unhealthy', 'PM25_high', 'symptom_severity',
-            'exposure_score', 'night_score', 'trigger_count', 'clinical_risk_score', 
-            'env_risk_score', 'total_risk_interaction'
-        ]
-        X_num = row_eng[num_feats].values.astype(float)
-        
-        # Prepare categoricals (hashes/maps like in app.py)
-        cat_feats = ['Asthma Symptoms Frequency', 'Triggers', 'Weather Sensitivity', 'Poor Air Quality Exposure', 'Night Breathing Difficulty']
-        X_cat = []
-        for col in cat_feats:
-            # We must match the LabelEncoder logic used during training
-            # For simplicity, we'll try to use the label_encoder if it's for the target,
-            # but for features we need the categorical encoders.
-            # However, app.py uses a simplified mapping.
-            # Let's assume the model was trained on the encoded data.
-            val = row[col]
-            # Approximate encoding
-            X_cat.append(hash(str(val)) % 10) 
-            
-        X = np.hstack([X_num, X_cat]).reshape(1, -1)
-        X_scaled = scaler.transform(X)
-        ml_pred_idx = model.predict(X_scaled)[0]
-        ml_pred = label_encoder.inverse_transform([ml_pred_idx])[0]
-        
-        if ml_pred == actual:
-            correct_hybrid += 1
-            correct_ml_only += 1
+    if final_pred == actual:
+        correct_hybrid += 1
+
+hybrid_accuracy = (correct_hybrid / total) * 100
 
 print(f"Total Samples: {total}")
 print(f"Heuristic Triggers: {heuristic_triggers} ({(heuristic_triggers/total)*100:.1f}%)")
 print(f"Hybrid Correct: {correct_hybrid}")
-print(f"Hybrid Accuracy: {(correct_hybrid/total)*100:.2f}%")
+print(f"Hybrid Accuracy: {hybrid_accuracy:.2f}%")
 
-# Create a summary file
+# Save detailed results
 with open('results/hybrid_verification.txt', 'w') as f:
-    f.write(f"Hybrid System Verification\n")
-    f.write(f"==========================\n")
+    f.write(f"Hybrid System Verification (RECTIFIED)\n")
+    f.write(f"======================================\n")
     f.write(f"Total Samples: {total}\n")
     f.write(f"Heuristic Triggers (Safety Layer): {heuristic_triggers}\n")
-    f.write(f"Hybrid Accuracy: {(correct_hybrid/total)*100:.2f}%\n")
+    f.write(f"Hybrid Accuracy: {hybrid_accuracy:.2f}%\n")

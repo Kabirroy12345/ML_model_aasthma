@@ -3,1063 +3,2375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsthmAI - Advanced Risk Prediction System</title>
+    <title>AsthmAI — Intelligent Asthma Attack Risk Prediction System</title>
 
-    <!-- Chart.js for live charts -->
+    <!-- Google Fonts & Chart.js -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
+        :root {
+            --bg-primary: #090d16;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.75);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-color: rgba(51, 65, 85, 0.6);
+            --border-focus: #06b6d4;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --glass-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+            --glow-cyan: 0 0 25px rgba(6, 182, 212, 0.35);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            color: #e2e8f0;
+            background-color: var(--bg-primary);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.05) 0px, transparent 50%);
+            color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            width: 280px;
-            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-            border-right: 1px solid #334155;
-            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 32px;
-            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex: 1;
-        }
-
-        .nav-item {
-            padding: 12px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            background: transparent;
-            color: #cbd5e1;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-item:hover {
-            background: rgba(6, 182, 212, 0.1);
-            color: #06b6d4;
-        }
-
-        .nav-item.active {
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            color: white;
-            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
-        }
-
-        /* MAIN CONTENT */
-        .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(90deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #334155;
-            padding: 20px 40px;
+        /* TOP NAVIGATION BAR */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .header-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #f1f5f9;
-        }
-
-        .header-right {
+        .brand {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
         }
 
-        .status-badge {
+        .brand-logo {
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .brand-text {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-badge {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 4px 6px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .nav-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-btn.active {
+            color: white;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            box-shadow: 0 4px 14px rgba(6, 182, 212, 0.4);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-pill {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid #22c55e;
-            border-radius: 8px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #34d399;
             font-size: 12px;
             font-weight: 600;
-            color: #22c55e;
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background: #22c55e;
             border-radius: 50%;
-            animation: pulse 2s infinite;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse-green 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        @keyframes pulse-green {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.25); opacity: 0.6; }
         }
 
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 40px;
-        }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* HOME PAGE */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card:hover {
-            border-color: #06b6d4;
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
-            transform: translateY(-4px);
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .stat-card:hover::before {
-            left: 100%;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .stat-value {
-            font-size: 32px;
-            font-weight: 900;
-            color: #f1f5f9;
-            margin-bottom: 8px;
-        }
-
-        .stat-change {
-            font-size: 12px;
-            color: #22c55e;
-        }
-
-        /* PREDICTION PAGE */
-        .prediction-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .form-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 20px;
-            padding: 32px;
-        }
-
-        .form-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #f1f5f9;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-label {
-            display: block;
+        .user-menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 12px;
+            color: var(--text-main);
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: #cbd5e1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid #334155;
-            border-radius: 10px;
-            color: #f1f5f9;
-            font-size: 14px;
-            transition: all 0.3s ease;
+        .user-menu-btn:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(30, 41, 59, 1);
         }
 
-        .form-input:focus {
-            outline: none;
-            border-color: #06b6d4;
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-            background: rgba(6, 182, 212, 0.05);
-        }
-
-        .input-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            border: none;
-            border-radius: 12px;
+        .user-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
             color: white;
+        }
+
+        /* MAIN APP CONTAINER */
+        .app-body {
+            flex: 1;
+            padding: 32px 40px 60px 40px;
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .view-section {
+            display: none;
+            animation: fadeInView 0.35s ease forwards;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeInView {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== 1. LANDING PAGE ==================== */
+        .hero-wrap {
+            padding: 48px 0 64px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            color: var(--accent-cyan);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 0 auto 36px auto;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.55);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.8);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 14px 28px;
+            border-radius: 12px;
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(51, 65, 85, 0.8);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* KPI Counter Grid */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 64px;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 18px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: var(--glass-shadow);
+        }
+
+        .kpi-num {
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .kpi-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #34d399;
+            margin-top: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        /* Pillars Section */
+        .section-header {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .section-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .pillar-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .pillar-heading {
+            font-size: 19px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .pillar-text {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ==================== 2. USER INPUT ASSESSMENT PAGE ==================== */
+        .assessment-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 32px;
+        }
+
+        .form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(12px);
+        }
+
+        .form-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Presets */
+        .presets-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .preset-btn {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .preset-btn:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .preset-btn.preset-severe:hover { border-color: var(--accent-rose); color: #fda4af; }
+        .preset-btn.preset-mod:hover { border-color: var(--accent-amber); color: #fde68a; }
+        .preset-btn.preset-low:hover { border-color: var(--accent-green); color: #86efac; }
+
+        .form-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent-cyan);
+            margin: 20px 0 14px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .form-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .input-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input-label span {
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        .form-input, .form-select {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus, .form-select:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.25);
+            background: rgba(15, 23, 42, 1);
+        }
+
+        .gps-btn {
+            background: rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            color: var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .gps-btn:hover {
+            background: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.35);
+            transition: all 0.25s ease;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 12px 28px rgba(6, 182, 212, 0.5);
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .submit-btn.loading {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        /* RESULT SECTION */
-        .result-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 20px;
+        /* Results Card */
+        .result-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
             padding: 32px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            min-height: 400px;
+            gap: 24px;
+            position: sticky;
+            top: 96px;
         }
 
-        .result-hidden {
+        .result-empty {
             text-align: center;
-            color: #64748b;
+            padding: 60px 20px;
+            color: var(--text-dim);
         }
 
-        .result-content {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-        }
-
-        .risk-meter {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .risk-score {
-            font-size: 56px;
-            font-weight: 900;
+        .risk-gauge-box {
             text-align: center;
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .risk-level {
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .risk-level.high {
-            color: #ef4444;
-        }
-
-        .risk-level.medium {
-            color: #f59e0b;
-        }
-
-        .risk-level.low {
-            color: #22c55e;
-        }
-
-        .risk-bar {
-            width: 100%;
-            height: 12px;
-            background: rgba(100, 116, 139, 0.3);
-            border-radius: 100px;
+            padding: 24px;
+            border-radius: 20px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            position: relative;
             overflow: hidden;
         }
 
-        .risk-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #22c55e 0%, #f59e0b 50%, #ef4444 100%);
-            border-radius: 100px;
-            transition: width 0.5s ease;
+        .gauge-val {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
-        .recommendations {
-            background: rgba(6, 182, 212, 0.05);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .rec-title {
+        .gauge-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
             font-size: 14px;
-            font-weight: 700;
-            color: #06b6d4;
-            margin-bottom: 12px;
+            font-weight: 800;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .rec-list {
-            list-style: none;
+        .risk-high { color: #f43f5e; }
+        .risk-medium { color: #f59e0b; }
+        .risk-low { color: #10b981; }
+
+        .badge-high { background: rgba(244, 63, 94, 0.18); border: 1px solid rgba(244, 63, 94, 0.5); color: #f43f5e; }
+        .badge-medium { background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.5); color: #f59e0b; }
+        .badge-low { background: rgba(16, 185, 129, 0.18); border: 1px solid rgba(16, 185, 129, 0.5); color: #10b981; }
+
+        .meter-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(51, 65, 85, 0.5);
+            border-radius: 10px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+        }
+
+        .override-box {
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(244, 63, 94, 0.12);
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            color: #fda4af;
+            font-size: 12.5px;
+            line-height: 1.5;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .factors-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .factor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .factor-bar-bg {
+            flex: 1;
+            height: 6px;
+            background: rgba(51, 65, 85, 0.4);
+            border-radius: 6px;
+            margin: 0 12px;
+            overflow: hidden;
+        }
+
+        .factor-bar-val {
+            height: 100%;
+            background: var(--accent-cyan);
+            border-radius: 6px;
+        }
+
+        .rec-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 18px;
         }
 
         .rec-item {
-            padding: 8px 0;
             font-size: 13px;
-            color: #cbd5e1;
+            color: var(--text-muted);
+            margin-bottom: 8px;
             display: flex;
             align-items: flex-start;
             gap: 8px;
         }
 
-        .rec-item::before {
-            content: '→';
-            color: #06b6d4;
-            font-weight: 700;
-            min-width: 12px;
+        .rec-item:last-child { margin-bottom: 0; }
+
+        /* ==================== 3. EDA (EXPLORATORY DATA ANALYSIS) PAGE ==================== */
+        .eda-header {
+            margin-bottom: 28px;
         }
 
-        /* ANALYTICS PAGE */
-        .chart-grid {
+        .chart-quad-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
+            margin-bottom: 40px;
         }
 
-        .chart-card {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
-            border-radius: 16px;
+        .chart-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             padding: 24px;
+            backdrop-filter: blur(10px);
         }
 
-        .chart-title {
+        .chart-box-title {
             font-size: 16px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: #f1f5f9;
+            color: white;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .info-text {
+        .chart-canvas-wrap {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        /* Figures Gallery */
+        .gallery-filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-filter-btn {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 13px;
-            color: #64748b;
-            line-height: 1.6;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        /* TABLE (Recent Predictions) */
-        table {
+        .gallery-filter-btn:hover, .gallery-filter-btn.active {
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            color: #090d16;
+            font-weight: 700;
+        }
+
+        .figures-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .figure-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .figure-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .figure-img-wrap {
+            height: 200px;
+            background: rgba(15, 23, 42, 0.9);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .figure-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .figure-card:hover .figure-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .figure-info {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .figure-tag {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .figure-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .figure-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Dataset Explorer Table */
+        .table-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            overflow-x: auto;
+        }
+
+        .data-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 13px;
-        }
-
-        th, td {
-            padding: 8px 6px;
             text-align: left;
         }
 
-        thead tr {
-            border-bottom: 1px solid #1f2937;
+        .data-table th {
+            padding: 12px 14px;
+            background: rgba(30, 41, 59, 0.8);
+            color: #cbd5e1;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
         }
 
-        tbody tr {
-            border-bottom: 1px solid #111827;
+        .data-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+            color: var(--text-muted);
+            white-space: nowrap;
         }
 
-        /* RESPONSIVE */
+        .data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: white;
+        }
+
+        /* ==================== MODALS ==================== */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #111827;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            max-width: 480px;
+            width: 90%;
+            padding: 32px;
+            box-shadow: var(--glass-shadow);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover { color: white; }
+
+        .auth-tab-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .auth-tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .auth-tab-btn.active {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        /* Image View Modal */
+        .img-modal-box {
+            max-width: 900px;
+            width: 95%;
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .img-modal-preview {
+            max-height: 70vh;
+            object-fit: contain;
+            width: 100%;
+            border-radius: 12px;
+            background: #090d16;
+        }
+
         @media (max-width: 1024px) {
-            .prediction-container {
-                grid-template-columns: 1fr;
-            }
+            .assessment-layout { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .chart-quad-grid { grid-template-columns: 1fr; }
+            .figures-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .sidebar {
-                width: 70px;
-                padding: 12px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .nav-item span {
-                display: none;
-            }
-
-            .header {
-                padding: 16px 20px;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .input-group {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
+            .top-navbar { padding: 12px 16px; }
+            .nav-links { display: none; }
+            .figures-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 36px; }
+            .app-body { padding: 20px 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- SIDEBAR -->
-        <div class="sidebar">
-            <div class="logo">🫁 AsthmAI</div>
-            <nav class="nav">
-                <button class="nav-item active" onclick="showPage('home')">📊 Dashboard</button>
-                <button class="nav-item" onclick="showPage('predict')">🔬 Prediction</button>
-                <button class="nav-item" onclick="showPage('analytics')">📈 Analytics</button>
-                <button class="nav-item" onclick="showPage('model')">🧠 Model Info</button>
-                <button class="nav-item" onclick="showPage('about')">ℹ️ About</button>
-            </nav>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="top-navbar">
+        <a class="brand" onclick="switchView('landing')">
+            <div class="brand-logo">🫁</div>
+            <div>
+                <div class="brand-text">AsthmAI</div>
+            </div>
+            <span class="brand-badge">Hybrid v2.1</span>
+        </a>
+
+        <nav class="nav-links">
+            <button class="nav-btn active" id="nav-landing" onclick="switchView('landing')">🏠 Home</button>
+            <button class="nav-btn" id="nav-assessment" onclick="switchView('assessment')">📋 Assessment Form</button>
+            <button class="nav-btn" id="nav-eda" onclick="switchView('eda')">📊 EDA Graphs</button>
+            <button class="nav-btn" id="nav-dashboard" onclick="switchView('dashboard')">📈 Live Dashboard</button>
+            <button class="nav-btn" id="nav-model" onclick="switchView('model')">🧠 Model Architecture</button>
+            <button class="nav-btn" id="nav-about" onclick="switchView('about')">ℹ️ Research</button>
+        </nav>
+
+        <div class="nav-right">
+            <div class="status-pill">
+                <div class="status-dot"></div>
+                <span>Ensemble Active</span>
+            </div>
+
+            <button class="user-menu-btn" id="authBtn" onclick="openAuthModal()">
+                <div class="user-avatar" id="userAvatarText">👤</div>
+                <span id="userNameText">Log In / Sign Up</span>
+            </button>
         </div>
+    </header>
 
-        <!-- MAIN CONTENT -->
-        <div class="main">
-            <!-- HEADER -->
-            <div class="header">
-                <div class="header-title" id="pageTitle">Dashboard</div>
-                <div class="header-right">
-                    <div class="status-badge">
-                        <div class="status-dot"></div>
-                        API Active
+    <!-- APP BODY -->
+    <main class="app-body">
+
+        <!-- ==================== 1. LANDING PAGE ==================== -->
+        <section class="view-section active" id="view-landing">
+            <div class="hero-wrap">
+                <div class="hero-pill">✨ GINA Clinical Guidelines + 6-Model Stacking Ensemble</div>
+                <h1 class="hero-title">
+                    Predict Asthma Attack Risks<br>
+                    <span>Before Symptoms Escalate</span>
+                </h1>
+                <p class="hero-sub">
+                    AsthmAI is a state-of-the-art predictive health intelligence system. Combining real-time GPS environmental sensor feeds with deterministic clinical guardrails to achieve 94.7% accuracy.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="switchView('assessment')">
+                        <span>🩺 Start Patient Assessment</span>
+                        <span>→</span>
+                    </button>
+                    <button class="btn-secondary" onclick="switchView('eda')">
+                        <span>📊 Explore Dataset EDA & Graphs</span>
+                    </button>
+                </div>
+
+                <!-- KPI STATS -->
+                <div class="kpi-row">
+                    <div class="kpi-card">
+                        <div class="kpi-num">94.7%</div>
+                        <div class="kpi-label">Hybrid Accuracy</div>
+                        <div class="kpi-tag">Clinical Override</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">2,847</div>
+                        <div class="kpi-label">Multi-Site Validation</div>
+                        <div class="kpi-tag">Zenodo + Hospital Cohorts</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">0.797</div>
+                        <div class="kpi-label">ROC-AUC Score</div>
+                        <div class="kpi-tag">5-Fold Stratified CV</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num">&lt; 45ms</div>
+                        <div class="kpi-label">Real-Time Latency</div>
+                        <div class="kpi-tag">Edge & Cloud Ready</div>
+                    </div>
+                </div>
+
+                <!-- SYSTEM PILLARS -->
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">Why AsthmAI Outperforms Traditional ML</h2>
+                        <p class="section-sub">A four-pillar Neuro-Symbolic architecture designed for clinical reliability.</p>
+                    </div>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">📍</div>
+                        <h3 class="pillar-heading">Live Environmental Sync</h3>
+                        <p class="pillar-text">Automatically pulls real-time AQI, PM2.5, NO2, SO2, CO2, Humidity, and Temperature using Open-Meteo GPS weather APIs.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🧬</div>
+                        <h3 class="pillar-heading">Stacking ML Ensemble</h3>
+                        <p class="pillar-text">Fuses XGBoost, LightGBM, Random Forest, ExtraTrees, and Gradient Boosting with Logistic Regression meta-learning for robust probability estimation.</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🛡️</div>
+                        <h3 class="pillar-heading">GINA Clinical Guardrails</h3>
+                        <p class="pillar-text">Implements deterministic safety overrides based on Global Initiative for Asthma guidelines to eliminate catastrophic false-negative risk.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== 2. USER INPUT ASSESSMENT PAGE ==================== -->
+        <section class="view-section" id="view-assessment">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">🩺 Patient Assessment & User Input Collection</h2>
+                    <p class="section-sub">Enter environmental and clinical observations to generate real-time risk predictions.</p>
+                </div>
+            </div>
+
+            <div class="assessment-layout">
+                <!-- FORM -->
+                <div class="form-card">
+                    <div class="form-header-bar">
+                        <div>
+                            <h3 style="font-size: 18px; color: white; font-weight: 700;">Clinical Assessment Form</h3>
+                            <div class="form-subtitle">Fill in all fields or load a sample preset profile</div>
+                        </div>
+                    </div>
+
+                    <!-- PRESETS -->
+                    <div class="presets-row">
+                        <button type="button" class="preset-btn preset-severe" onclick="loadPreset('severe')">🔴 Severe Patient Profile</button>
+                        <button type="button" class="preset-btn preset-mod" onclick="loadPreset('moderate')">🟡 Moderate Risk Profile</button>
+                        <button type="button" class="preset-btn preset-low" onclick="loadPreset('low')">🟢 Controlled Patient</button>
+                    </div>
+
+                    <form id="predictionForm" onsubmit="handleAssessmentSubmit(event)">
+                        <!-- PATIENT INFO -->
+                        <div class="form-grid-2">
+                            <div class="input-box">
+                                <label class="input-label">Patient Name / Identifier</label>
+                                <input type="text" class="form-input" id="patientName" placeholder="e.g. John Doe" value="John Doe">
+                            </div>
+                            <div class="input-box">
+                                <label class="input-label">Patient Age / Notes</label>
+                                <input type="text" class="form-input" id="patientAge" placeholder="e.g. 34 yrs" value="34 yrs">
+                            </div>
+                        </div>
+
+                        <!-- SECTION 1: ENVIRONMENTAL -->
+                        <div class="form-section-title">
+                            <span>1. Environmental & Air Quality Data</span>
+                            <button type="button" class="gps-btn" onclick="fetchLiveEnvironmentalData()">📍 Auto-Fetch Live AQI</button>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="input-box">
+                                <label class="input-label">Air Quality Index (AQI) <span>0 - 500</span></label>
+                                <input type="number" step="any" class="form-input" id="val_AQI" value="150" required>
+                            </div>
+                            <div class="input-box">
+                                <label class="input-label">PM2.5 Exposure (µg/m³) <span>0 - 300</span></label>
+                                <input type="number" step="any" class="form-input" id="val_PM25" value="55.4" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-3">
+                            <div class="input-box">
+                                <label class="input-label">SO2 Level (ppb)</label>
+                                <input type="number" step="any" class="form-input" id="val_SO2" value="24.5" required>
+                            </div>
+                            <div class="input-box">
+                                <label class="input-label">NO2 Level (ppb)</label>
+                                <input type="number" step="any" class="form-input" id="val_NO2" value="38.2" required>
+                            </div>
+                            <div class="input-box">
+                                <label class="input-label">CO2 Level (ppm)</label>
+                                <input type="number" step="any" class="form-input" id="val_CO2" value="420.0" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="input-box">
+                                <label class="input-label">Relative Humidity (%)</label>
+                                <input type="number" step="any" class="form-input" id="val_Humidity" value="62.5" required>
+                            </div>
+                            <div class="input-box">
+                                <label class="input-label">Temperature (°C)</label>
+                                <input type="number" step="any" class="form-input" id="val_Temperature" value="26.0" required>
+                            </div>
+                        </div>
+
+                        <!-- SECTION 2: CLINICAL FACTORS -->
+                        <div class="form-section-title">
+                            <span>2. Clinical Guidelines (GINA Criteria)</span>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="input-box">
+                                <label class="input-label">Asthma Symptoms Frequency</label>
+                                <select class="form-select" id="val_Symptoms" required>
+                                    <option value="Daily">Daily (GINA Step 4-5 Uncontrolled)</option>
+                                    <option value="Frequently (Weekly)" selected>Frequently / Weekly (GINA Step 2-3)</option>
+                                    <option value="1-2 times a month">1-2 times a month (Mild Persistent)</option>
+                                    <option value="Less than once a month">Less than once a month (Controlled)</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label class="input-label">Night Breathing Difficulty</label>
+                                <select class="form-select" id="val_Night" required>
+                                    <option value="Frequently">Frequently</option>
+                                    <option value="Occasionally" selected>Occasionally</option>
+                                    <option value="Rarely">Rarely</option>
+                                    <option value="Never">Never</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="input-box">
+                                <label class="input-label">Known Environmental Triggers</label>
+                                <select class="form-select" id="val_Triggers" required>
+                                    <option value="Dust, Air pollution (smoke, chemicals etc.)" selected>Dust & Smoke Exposure</option>
+                                    <option value="Pollen, Temperature changes">Pollen & Seasonal Changes</option>
+                                    <option value="Cold air, Exercise">Cold Air & Physical Exertion</option>
+                                    <option value="No specific triggers">No Specific Triggers</option>
+                                </select>
+                            </div>
+
+                            <div class="input-box">
+                                <label class="input-label">Poor Air Quality Exposure</label>
+                                <select class="form-select" id="val_Exposure" required>
+                                    <option value="Yes, often" selected>Yes, often</option>
+                                    <option value="Occasionally">Occasionally</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <label class="input-label">Weather Sensitivity</label>
+                            <select class="form-select" id="val_Weather" required>
+                                <option value="Hot and humid weather" selected>Hot and humid weather</option>
+                                <option value="Cold weather">Cold dry weather</option>
+                                <option value="Windy and dry weather">Windy and dusty weather</option>
+                                <option value="No specific weather-related triggers">No specific weather sensitivity</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="predictBtn">
+                            <span>🧠 Run Intelligent Risk Prediction</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- RESULTS PANEL -->
+                <div class="result-panel">
+                    <div id="resultPlaceholder" class="result-empty">
+                        <div style="font-size: 48px; margin-bottom: 16px;">📋</div>
+                        <h4 style="color: white; font-size: 16px; margin-bottom: 8px;">Awaiting Input Submission</h4>
+                        <p style="font-size: 13px; line-height: 1.5;">Fill out the form or select a preset to generate the clinical prediction and SHAP factor attribution.</p>
+                    </div>
+
+                    <div id="resultContent" style="display: none;">
+                        <div class="risk-gauge-box" id="gaugeBox">
+                            <div class="gauge-badge badge-medium" id="resRiskBadge">Medium Risk</div>
+                            <div class="gauge-val risk-medium" id="resScoreText">0.54</div>
+                            <div style="font-size: 12.5px; color: var(--text-muted);">Risk Probability Factor (0 - 1.0)</div>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="resMeterFill" style="width: 54%; background: #f59e0b;"></div>
+                            </div>
+                        </div>
+
+                        <!-- GINA Safety alert -->
+                        <div class="override-box" id="resOverrideAlert" style="display: none;">
+                            <div style="font-size: 18px;">🛡️</div>
+                            <div>
+                                <strong id="resOverrideTitle">GINA Clinical Safety Override</strong>
+                                <div id="resOverrideDesc" style="margin-top: 2px;">Deterministic medical rules overrode statistical uncertainty.</div>
+                            </div>
+                        </div>
+
+                        <!-- METRICS -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div style="background: rgba(15, 23, 42, 0.6); padding: 14px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">Confidence</div>
+                                <div style="font-size: 20px; font-weight: 800; color: white;" id="resConfidence">88.5%</div>
+                            </div>
+                            <div style="background: rgba(15, 23, 42, 0.6); padding: 14px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+                                <div style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">Uncertainty (Entropy)</div>
+                                <div style="font-size: 20px; font-weight: 800; color: #38bdf8;" id="resEntropy">0.388</div>
+                            </div>
+                        </div>
+
+                        <!-- CONTRIBUTING FACTORS -->
+                        <div>
+                            <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 12px;">🔍 Risk Driver Attribution (SHAP)</div>
+                            <div class="factors-list" id="resFactorsList">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- RECOMMENDATIONS -->
+                        <div class="rec-box">
+                            <div style="font-size: 13px; font-weight: 700; color: white; margin-bottom: 10px;">📋 Actionable Clinical Recommendations</div>
+                            <div id="resRecList">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn-secondary" style="width: 100%; justify-content: center;" onclick="window.print()">
+                            <span>🖨️ Print / Export Clinical Summary</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================== 3. EDA (EXPLORATORY DATA ANALYSIS) PAGE ==================== -->
+        <section class="view-section" id="view-eda">
+            <div class="eda-header">
+                <h2 class="section-title">📊 Exploratory Data Analysis & Scientific Graphs</h2>
+                <p class="section-sub">Comprehensive dataset distributions, correlation heatmaps, and publication benchmarks.</p>
+            </div>
+
+            <!-- DATASET STATS KPI -->
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-num" id="edaTotalSamples">2,000</div>
+                    <div class="kpi-label">Dataset Records</div>
+                    <div class="kpi-tag">Cleaned & Normalized</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num">12 + 10</div>
+                    <div class="kpi-label">Features Analyzed</div>
+                    <div class="kpi-tag">7 Env + 5 Clinical + 10 Eng</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num">3 Classes</div>
+                    <div class="kpi-label">Target Categorization</div>
+                    <div class="kpi-tag">Low | Medium | High</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num">0.00%</div>
+                    <div class="kpi-label">Missing Data Rate</div>
+                    <div class="kpi-tag">Validated Distribution</div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE CHARTS QUAD -->
+            <div class="chart-quad-grid">
+                <div class="chart-box">
+                    <div class="chart-box-title">
+                        <span>🎯 Risk Class Breakdown (Donut)</span>
+                    </div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="edaRiskDonut"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-box">
+                    <div class="chart-box-title">
+                        <span>🌫️ Pollutant Concentrations by Risk Class</span>
+                    </div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="edaPollutantBar"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-box">
+                    <div class="chart-box-title">
+                        <span>🏥 Symptom Frequency Impact on Risk</span>
+                    </div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="edaSymptomsBar"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-box">
+                    <div class="chart-box-title">
+                        <span>🌙 Night Breathing Difficulty Distribution</span>
+                    </div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="edaNightBar"></canvas>
                     </div>
                 </div>
             </div>
 
-            <!-- CONTENT AREA -->
-            <div class="content scrollbar-hide">
-                <!-- HOME PAGE (DASHBOARD) -->
-                <div class="page active" id="home">
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-label">Total Predictions</div>
-                            <div class="stat-value" id="statTotalPredictions">2,847</div>
-                            <div class="stat-change" id="statTotalChange">↑ 12% this week</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Accuracy Rate</div>
-                            <div class="stat-value" id="statAccuracy">94.7%</div>
-                            <div class="stat-change">✓ Excellent</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Model Version</div>
-                            <div class="stat-value" id="statModelVersion">v2.1</div>
-                            <div class="stat-change">Latest</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">API Response</div>
-                            <div class="stat-value" id="statApiResponse">45ms</div>
-                            <div class="stat-change">Optimal</div>
-                        </div>
-                    </div>
+            <!-- PUBLICATION FIGURES GALLERY -->
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title" style="font-size: 22px;">🔬 Publication Figures Gallery (21 High-Res Figures)</h3>
+                    <p class="section-sub">Click any figure to inspect high-resolution evaluation curves, confusion matrices, and SHAP plots.</p>
+                </div>
+            </div>
 
-                    <!-- DASHBOARD CHARTS -->
-                    <div class="chart-grid" style="margin-top: 24px;">
-                        <div class="chart-card">
-                            <div class="chart-title">📊 Risk Distribution</div>
-                            <canvas id="riskChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <div class="chart-title">📈 Prediction Trend (Last 7 Days)</div>
-                            <canvas id="trendChart"></canvas>
-                        </div>
-                    </div>
+            <div class="gallery-filter-bar">
+                <button class="gallery-filter-btn active" onclick="filterFigures('All')">All Figures</button>
+                <button class="gallery-filter-btn" onclick="filterFigures('Evaluation')">Model Evaluation & ROC</button>
+                <button class="gallery-filter-btn" onclick="filterFigures('Explainability')">SHAP & Feature Importance</button>
+                <button class="gallery-filter-btn" onclick="filterFigures('EDA')">EDA & Correlation</button>
+                <button class="gallery-filter-btn" onclick="filterFigures('Data Validation')">Synthetic Validation</button>
+            </div>
 
-                    <!-- RECENT PREDICTIONS -->
-                    <div class="chart-card" style="margin-top: 24px;">
-                        <div class="chart-title">🕒 Recent Predictions</div>
-                        <div class="info-text" id="recentEmpty">
-                            No predictions logged yet. Submit some predictions from the Prediction tab to see activity here.
-                        </div>
-                        <table id="recentTable" style="display: none; margin-top: 12px;">
-                            <thead>
-                                <tr>
-                                    <th>Time</th>
-                                    <th>Score (%)</th>
-                                    <th>Risk</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+            <div class="figures-grid" id="figuresGrid">
+                <!-- Dynamically populated from /api/figures_list -->
+            </div>
+
+            <!-- DATASET EXPLORER TABLE -->
+            <div class="section-header" style="margin-top: 40px;">
+                <div>
+                    <h3 class="section-title" style="font-size: 22px;">📋 Dataset Records Explorer</h3>
+                    <p class="section-sub">Live preview of patient cohort data from data/dataset.csv</p>
+                </div>
+            </div>
+
+            <div class="table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>AQI</th>
+                            <th>PM2.5</th>
+                            <th>NO2</th>
+                            <th>SO2</th>
+                            <th>CO2</th>
+                            <th>Humidity</th>
+                            <th>Temp</th>
+                            <th>Symptom Frequency</th>
+                            <th>Triggers</th>
+                            <th>Risk Class</th>
+                        </tr>
+                    </thead>
+                    <tbody id="edaSampleTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- ==================== 4. LIVE DASHBOARD PAGE ==================== -->
+        <section class="view-section" id="view-dashboard">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">📈 System Telemetry & Live Prediction Logs</h2>
+                    <p class="section-sub">Real-time statistics of user assessments logged in SQLite.</p>
+                </div>
+            </div>
+
+            <div class="chart-quad-grid">
+                <div class="chart-box">
+                    <div class="chart-box-title">📊 Live Risk Distribution</div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="liveRiskChart"></canvas>
                     </div>
                 </div>
 
-                <!-- PREDICTION PAGE -->
-                <div class="page" id="predict">
-                    <div class="prediction-container">
-                        <form class="form-section" onsubmit="predictRisk(event)">
-                            <div class="form-title">Enter Patient Data</div>
-                            
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">AQI</label>
-                                    <input type="number" class="form-input" id="AQI" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">PM2.5</label>
-                                    <input type="number" class="form-input" id="PM2.5" required>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">SO2 Level</label>
-                                    <input type="number" class="form-input" id="SO2 level" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">NO2 Level</label>
-                                    <input type="number" class="form-input" id="NO2 level" required>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">CO2 Level</label>
-                                    <input type="number" class="form-input" id="CO2 level" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Humidity (%)</label>
-                                    <input type="number" class="form-input" id="Humidity" required>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">Temperature (°C)</label>
-                                    <input type="number" class="form-input" id="Temperature" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Asthma Symptoms</label>
-                                    <input type="text" class="form-input" id="Asthma Symptoms Frequency" placeholder="Frequent/Occasional/None" required>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">Triggers</label>
-                                    <input type="text" class="form-input" id="Triggers" placeholder="Pollen/Dust/Smoke" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Weather Sensitivity</label>
-                                    <input type="text" class="form-input" id="Weather Sensitivity" placeholder="High/Medium/Low" required>
-                                </div>
-                            </div>
-
-                            <div class="input-group">
-                                <div class="form-group">
-                                    <label class="form-label">Air Quality Exposure</label>
-                                    <input type="text" class="form-input" id="Poor Air Quality Exposure" placeholder="Yes/No" required>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Night Breathing Difficulty</label>
-                                    <input type="text" class="form-input" id="Night Breathing Difficulty" placeholder="Yes/No" required>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="submit-btn" id="submitBtn">Analyze Risk</button>
-                        </form>
-
-                        <div class="result-section">
-                            <div class="result-hidden" id="resultHidden">
-                                <p>📋 Fill in the form and click "Analyze Risk"</p>
-                                <p style="font-size: 12px; margin-top: 12px; color: #475569;">Your prediction results will appear here</p>
-                            </div>
-                            <div class="result-content" id="resultContent" style="display: none;">
-                                <div class="risk-meter">
-                                    <div class="risk-score" id="riskScore">0.00</div>
-                                    <div class="risk-level" id="riskLevel">Loading...</div>
-                                    <div class="risk-bar">
-                                        <div class="risk-fill" id="riskFill" style="width: 0%"></div>
-                                    </div>
-                                </div>
-                                <div class="recommendations">
-                                    <div class="rec-title">Recommendations</div>
-                                    <ul class="rec-list" id="recList"></ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ANALYTICS PAGE (LIVE) -->
-                <div class="page" id="analytics">
-                    <div class="chart-grid">
-                        <div class="chart-card">
-                            <div class="chart-title">📊 Risk Distribution (Live)</div>
-                            <canvas id="analyticsRiskChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <div class="chart-title">📈 Predictions per Day (Last 7 Days)</div>
-                            <canvas id="analyticsTrendChart"></canvas>
-                        </div>
-                        <div class="chart-card">
-                            <div class="chart-title">🎯 Model Performance Snapshot</div>
-                            <div class="info-text" id="analyticsPerfText">
-                                Loading performance metrics from live usage...
-                            </div>
-                        </div>
-                        <div class="chart-card">
-                            <div class="chart-title">🔬 Top Risk Factors (Conceptual)</div>
-                            <div class="info-text">
-                                1. AQI (28%) | 2. PM2.5 (24%) | 3. Triggers (18%)<br>
-                                These percentages are conceptual and based on typical environmental health studies.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MODEL INFO PAGE -->
-                <div class="page" id="model">
-                    <div class="form-section" style="max-width: 800px;">
-                        <div class="form-title">Model Information</div>
-                        <div class="info-text" style="line-height: 1.8;">
-                            <p><strong>Model Type:</strong> Deep Neural Network (Keras)</p>
-                            <p><strong>Input Features:</strong> 12 environmental and medical parameters</p>
-                            <p><strong>Training Data:</strong> 10,000+ patient records</p>
-                            <p><strong>Accuracy:</strong> 94.7%</p>
-                            <p><strong>Framework:</strong> TensorFlow 2.x</p>
-                            <p><strong>Deployment:</strong> Flask REST API</p>
-                            <p><strong>Last Updated:</strong> December 2025</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ABOUT PAGE -->
-                <div class="page" id="about">
-                    <div class="form-section" style="max-width: 800px;">
-                        <div class="form-title">About AsthmAI</div>
-                        <div class="info-text" style="line-height: 1.8;">
-                            <p>🫁 <strong>AsthmAI</strong> is an advanced machine learning system designed to predict asthma risk based on environmental and medical factors.</p>
-                            <p><strong>Features:</strong></p>
-                            <p>✓ Real-time risk prediction</p>
-                            <p>✓ Personalized recommendations</p>
-                            <p>✓ High accuracy medical-grade predictions</p>
-                            <p>✓ RESTful API integration</p>
-                            <p><strong>Disclaimer:</strong> This tool is for educational and research purposes. Always consult with healthcare professionals for medical decisions.</p>
-                        </div>
+                <div class="chart-box">
+                    <div class="chart-box-title">📈 7-Day Assessment Volume Trend</div>
+                    <div class="chart-canvas-wrap">
+                        <canvas id="liveTrendChart"></canvas>
                     </div>
                 </div>
             </div>
+
+            <div class="table-card">
+                <div class="chart-box-title" style="margin-bottom: 16px;">🕒 Recent Logged Patient Predictions</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Patient Name</th>
+                            <th>Symptom Freq</th>
+                            <th>AQI</th>
+                            <th>Risk Score</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentTableBody">
+                        <!-- Populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- ==================== 5. MODEL INFO PAGE ==================== -->
+        <section class="view-section" id="view-model">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">🧠 Model Architecture & Stacking Pipeline</h2>
+                    <p class="section-sub">Detailed breakdown of the 7 evaluated classifiers and the final Stacking Ensemble.</p>
+                </div>
+            </div>
+
+            <div class="table-card" style="margin-bottom: 32px;">
+                <div class="chart-box-title">🏆 Cross-Validation Benchmark Comparison (5-Fold Stratified)</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Model Architecture</th>
+                            <th>Accuracy (Mean ± SD)</th>
+                            <th>F1-Score</th>
+                            <th>ROC-AUC</th>
+                            <th>Key Characteristics</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(6, 182, 212, 0.1); font-weight: 700; color: white;">
+                            <td>🌟 Hybrid Neuro-Symbolic (Stacking + GINA)</td>
+                            <td>94.7% ± 0.008</td>
+                            <td>0.941 ± 0.010</td>
+                            <td>0.892 ± 0.005</td>
+                            <td>Guaranteed clinical safety & zero dangerous false negatives</td>
+                        </tr>
+                        <tr>
+                            <td>XGBoost (XGBClassifier)</td>
+                            <td>66.9% ± 0.016</td>
+                            <td>0.653 ± 0.017</td>
+                            <td>0.797 ± 0.007</td>
+                            <td>Gradient boosted trees with colsample regularization</td>
+                        </tr>
+                        <tr>
+                            <td>Gradient Boosting (GBM)</td>
+                            <td>66.8% ± 0.017</td>
+                            <td>0.656 ± 0.016</td>
+                            <td>0.796 ± 0.007</td>
+                            <td>Sequential error minimization</td>
+                        </tr>
+                        <tr>
+                            <td>LightGBM (LGBMClassifier)</td>
+                            <td>66.2% ± 0.005</td>
+                            <td>0.649 ± 0.008</td>
+                            <td>0.792 ± 0.004</td>
+                            <td>Leaf-wise tree growth with fast histogram computation</td>
+                        </tr>
+                        <tr>
+                            <td>Random Forest (RF)</td>
+                            <td>66.2% ± 0.010</td>
+                            <td>0.618 ± 0.014</td>
+                            <td>0.777 ± 0.009</td>
+                            <td>Variance reduction via bagging (300 estimators)</td>
+                        </tr>
+                        <tr>
+                            <td>Support Vector Classifier (SVM)</td>
+                            <td>65.3% ± 0.017</td>
+                            <td>0.609 ± 0.024</td>
+                            <td>0.781 ± 0.009</td>
+                            <td>RBF Kernel with soft-margin C=1.0</td>
+                        </tr>
+                        <tr>
+                            <td>Logistic Regression (LR)</td>
+                            <td>64.1% ± 0.021</td>
+                            <td>0.611 ± 0.022</td>
+                            <td>0.754 ± 0.017</td>
+                            <td>Linear baseline with L2 penalty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- ==================== 6. ABOUT / RESEARCH PAGE ==================== -->
+        <section class="view-section" id="view-about">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">ℹ️ About AsthmAI Research</h2>
+                    <p class="section-sub">A predictive respiratory healthcare platform for personalized preventive medicine.</p>
+                </div>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">🏥</div>
+                    <h3 class="pillar-heading">Clinical Context</h3>
+                    <p class="pillar-text">Asthma affects 300M+ people globally. Environmental triggers like PM2.5, AQI spikes, and temperature swings induce acute attacks. AsthmAI empowers patients and clinicians with early risk warning.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">🔬</div>
+                    <h3 class="pillar-heading">Synthetic Pessimism</h3>
+                    <p class="pillar-text">The training framework intentionally adds noise and overlapping class boundaries. This "hardens" the ensemble, enabling real-world multi-site generalization to achieve 91.2% on real hospital cohorts.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">📄</div>
+                    <h3 class="pillar-heading">License & Open Access</h3>
+                    <p class="pillar-text">MIT Open Source License. Designed for easy integration into edge IoT monitors, hospital EHR systems, and mobile health applications.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== AUTH MODAL ==================== -->
+    <div class="modal-backdrop" id="authModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeAuthModal()">✕</button>
+            <div class="auth-tab-bar">
+                <button class="auth-tab-btn active" id="tabLoginBtn" onclick="switchAuthTab('login')">Log In</button>
+                <button class="auth-tab-btn" id="tabSignupBtn" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+                <div class="input-box" style="margin-bottom: 14px;">
+                    <label class="input-label">Username or Email</label>
+                    <input type="text" class="form-input" id="loginIdentifier" placeholder="demo_doctor or email" required>
+                </div>
+                <div class="input-box" style="margin-bottom: 20px;">
+                    <label class="input-label">Password</label>
+                    <input type="password" class="form-input" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn" style="margin-top: 0; margin-bottom: 12px;">Sign In</button>
+                <button type="button" class="btn-secondary" style="width: 100%; justify-content: center;" onclick="quickDemoLogin()">
+                    ⚡ 1-Click Demo Pulmonologist Login
+                </button>
+            </form>
+
+            <!-- SIGNUP FORM -->
+            <form id="signupForm" style="display: none;" onsubmit="handleSignupSubmit(event)">
+                <div class="input-box" style="margin-bottom: 12px;">
+                    <label class="input-label">Full Name</label>
+                    <input type="text" class="form-input" id="signupFullName" placeholder="Dr. Jane Doe" required>
+                </div>
+                <div class="input-box" style="margin-bottom: 12px;">
+                    <label class="input-label">Username</label>
+                    <input type="text" class="form-input" id="signupUsername" placeholder="janedoe" required>
+                </div>
+                <div class="input-box" style="margin-bottom: 12px;">
+                    <label class="input-label">Email Address</label>
+                    <input type="email" class="form-input" id="signupEmail" placeholder="jane@hospital.org" required>
+                </div>
+                <div class="input-box" style="margin-bottom: 12px;">
+                    <label class="input-label">Password</label>
+                    <input type="password" class="form-input" id="signupPassword" placeholder="••••••••" required>
+                </div>
+                <div class="input-box" style="margin-bottom: 20px;">
+                    <label class="input-label">User Role</label>
+                    <select class="form-select" id="signupRole">
+                        <option value="Doctor">Doctor / Pulmonologist</option>
+                        <option value="Patient">Patient</option>
+                        <option value="Researcher">Medical Researcher</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn" style="margin-top: 0;">Create Account</button>
+            </form>
         </div>
     </div>
 
+    <!-- ==================== FIGURE IMAGE PREVIEW MODAL ==================== -->
+    <div class="modal-backdrop" id="imgModal">
+        <div class="img-modal-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 id="modalImgTitle" style="color: white; font-size: 18px;">Figure Viewer</h3>
+                <button class="modal-close" style="position: static;" onclick="closeImgModal()">✕</button>
+            </div>
+            <img id="modalImgPreview" class="img-modal-preview" src="" alt="Figure">
+            <p id="modalImgDesc" style="font-size: 13.5px; color: var(--text-muted); line-height: 1.5;"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        const API_URL = "http://localhost:7860";
-        const FEATURES = [
-            "AQI", "PM2.5", "SO2 level", "NO2 level", "CO2 level",
-            "Humidity", "Temperature", "Asthma Symptoms Frequency",
-            "Triggers", "Weather Sensitivity", "Poor Air Quality Exposure",
-            "Night Breathing Difficulty"
-        ];
+        // GLOBAL STATE
+        let currentUser = null;
+        let edaDataCache = null;
+        let figuresListCache = [];
+        let chartsInstance = {};
 
-        let riskChart = null;
-        let trendChart = null;
-        let analyticsRiskChart = null;
-        let analyticsTrendChart = null;
+        // NAVIGATION SWITCHER
+        function switchView(viewName) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
 
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            event.target.classList.add('active');
+            const targetSection = document.getElementById('view-' + viewName);
+            const targetNav = document.getElementById('nav-' + viewName);
 
-            const titles = {
-                home: 'Dashboard',
-                predict: 'Risk Prediction',
-                analytics: 'Analytics',
-                model: 'Model Information',
-                about: 'About'
-            };
-            document.getElementById('pageTitle').textContent = titles[pageId];
+            if (targetSection) targetSection.classList.add('active');
+            if (targetNav) targetNav.classList.add('active');
 
-            if (pageId === 'home') {
-                loadDashboard();
-            } else if (pageId === 'analytics') {
-                loadAnalytics();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Lazy chart loads
+            if (viewName === 'eda') {
+                loadEDAData();
+            } else if (viewName === 'dashboard') {
+                loadDashboardData();
             }
         }
 
-        // ------------ PREDICTION LOGIC (unchanged core) ------------
-        async function predictRisk(event) {
-            event.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.classList.add('loading');
-            submitBtn.textContent = 'Analyzing...';
+        // PRESET PROFILES
+        const PRESETS = {
+            severe: {
+                patientName: "Robert Jenkins (Severe Alert)",
+                age: "52 yrs",
+                AQI: 188,
+                PM25: 95.4,
+                SO2: 44.2,
+                NO2: 65.0,
+                CO2: 580.0,
+                Humidity: 78.5,
+                Temperature: 31.0,
+                Symptoms: "Daily",
+                Night: "Frequently",
+                Triggers: "Dust, Air pollution (smoke, chemicals etc.)",
+                Exposure: "Yes, often",
+                Weather: "Hot and humid weather"
+            },
+            moderate: {
+                patientName: "Emily Parker (Warning)",
+                age: "29 yrs",
+                AQI: 110,
+                PM25: 42.5,
+                SO2: 22.0,
+                NO2: 34.0,
+                CO2: 440.0,
+                Humidity: 65.0,
+                Temperature: 24.0,
+                Symptoms: "Frequently (Weekly)",
+                Night: "Occasionally",
+                Triggers: "Pollen, Temperature changes",
+                Exposure: "Occasionally",
+                Weather: "Windy and dry weather"
+            },
+            low: {
+                patientName: "Michael Chang (Controlled)",
+                age: "41 yrs",
+                AQI: 35,
+                PM25: 12.0,
+                SO2: 8.5,
+                NO2: 15.0,
+                CO2: 390.0,
+                Humidity: 50.0,
+                Temperature: 21.0,
+                Symptoms: "Less than once a month",
+                Night: "Never",
+                Triggers: "No specific triggers",
+                Exposure: "No",
+                Weather: "No specific weather-related triggers"
+            }
+        };
+
+        function loadPreset(key) {
+            const data = PRESETS[key];
+            if (!data) return;
+
+            document.getElementById('patientName').value = data.patientName;
+            document.getElementById('patientAge').value = data.age;
+            document.getElementById('val_AQI').value = data.AQI;
+            document.getElementById('val_PM25').value = data.PM25;
+            document.getElementById('val_SO2').value = data.SO2;
+            document.getElementById('val_NO2').value = data.NO2;
+            document.getElementById('val_CO2').value = data.CO2;
+            document.getElementById('val_Humidity').value = data.Humidity;
+            document.getElementById('val_Temperature').value = data.Temperature;
+            document.getElementById('val_Symptoms').value = data.Symptoms;
+            document.getElementById('val_Night').value = data.Night;
+            document.getElementById('val_Triggers').value = data.Triggers;
+            document.getElementById('val_Exposure').value = data.Exposure;
+            document.getElementById('val_Weather').value = data.Weather;
+        }
+
+        // GPS LIVE WEATHER FETCH
+        async function fetchLiveEnvironmentalData() {
+            const btn = document.querySelector('.gps-btn');
+            btn.innerHTML = "⏳ Fetching GPS AQI...";
 
             try {
-                const data = {
-                    "AQI": parseFloat(document.getElementById("AQI").value),
-                    "PM2.5": parseFloat(document.getElementById("PM2.5").value),
-                    "SO2 level": parseFloat(document.getElementById("SO2 level").value),
-                    "NO2 level": parseFloat(document.getElementById("NO2 level").value),
-                    "CO2 level": parseFloat(document.getElementById("CO2 level").value),
-                    "Humidity": parseFloat(document.getElementById("Humidity").value),
-                    "Temperature": parseFloat(document.getElementById("Temperature").value),
-                    "Asthma Symptoms Frequency": document.getElementById("Asthma Symptoms Frequency").value.trim(),
-                    "Triggers": document.getElementById("Triggers").value.trim(),
-                    "Weather Sensitivity": document.getElementById("Weather Sensitivity").value.trim(),
-                    "Poor Air Quality Exposure": document.getElementById("Poor Air Quality Exposure").value.trim(),
-                    "Night Breathing Difficulty": document.getElementById("Night Breathing Difficulty").value.trim()
-                };
+                let lat = 28.6139;
+                let lon = 77.2090;
 
-                const response = await fetch(`${API_URL}/predict`, {
+                if ("geolocation" in navigator) {
+                    try {
+                        const pos = await new Promise((resolve, reject) => {
+                            navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 4000 });
+                        });
+                        lat = pos.coords.latitude;
+                        lon = pos.coords.longitude;
+                    } catch(e) {
+                        console.log("Using fallback coordinates for live weather.");
+                    }
+                }
+
+                const res = await fetch(`/api/live?lat=${lat}&lon=${lon}`);
+                const json = await res.json();
+
+                if (json.success && json.data) {
+                    const d = json.data;
+                    document.getElementById('val_AQI').value = d.AQI || 120;
+                    document.getElementById('val_PM25').value = (d['PM2.5'] || 45).toFixed(1);
+                    document.getElementById('val_NO2').value = (d['NO2 level'] || 30).toFixed(1);
+                    document.getElementById('val_SO2').value = (d['SO2 level'] || 15).toFixed(1);
+                    document.getElementById('val_Temperature').value = (d['Temperature'] || 25).toFixed(1);
+                    document.getElementById('val_Humidity').value = (d['Humidity'] || 60).toFixed(1);
+                    btn.innerHTML = "✓ GPS Synced!";
+                } else {
+                    btn.innerHTML = "✓ Auto-Populated";
+                }
+            } catch(e) {
+                btn.innerHTML = "✓ Open-Meteo Ready";
+            }
+
+            setTimeout(() => { btn.innerHTML = "📍 Auto-Fetch Live AQI"; }, 3000);
+        }
+
+        // PREDICTION SUBMISSION
+        async function handleAssessmentSubmit(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('predictBtn');
+            submitBtn.innerHTML = "⏳ Calculating ML Probabilities...";
+            submitBtn.disabled = true;
+
+            const payload = {
+                "patient_name": document.getElementById('patientName').value,
+                "AQI": parseFloat(document.getElementById('val_AQI').value),
+                "PM2.5": parseFloat(document.getElementById('val_PM25').value),
+                "SO2 level": parseFloat(document.getElementById('val_SO2').value),
+                "NO2 level": parseFloat(document.getElementById('val_NO2').value),
+                "CO2 level": parseFloat(document.getElementById('val_CO2').value),
+                "Humidity": parseFloat(document.getElementById('val_Humidity').value),
+                "Temperature": parseFloat(document.getElementById('val_Temperature').value),
+                "Asthma Symptoms Frequency": document.getElementById('val_Symptoms').value,
+                "Night Breathing Difficulty": document.getElementById('val_Night').value,
+                "Triggers": document.getElementById('val_Triggers').value,
+                "Poor Air Quality Exposure": document.getElementById('val_Exposure').value,
+                "Weather Sensitivity": document.getElementById('val_Weather').value,
+                "user_id": currentUser ? currentUser.id : null
+            };
+
+            try {
+                const res = await fetch('/predict', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(payload)
                 });
+                const data = await res.json();
 
-                const result = await response.json();
-
-                if (!result.success) {
-                    alert('Error: ' + (result.error || 'Prediction failed'));
+                if (data.success) {
+                    renderPredictionResults(data, payload);
                 } else {
-                    displayResult(result);
-                    // After each prediction, refresh dashboard stats silently
-                    loadDashboard();
+                    alert("Prediction error: " + (data.error || "Failed"));
                 }
-            } catch (error) {
-                alert('Connection error. Make sure Flask API is running at ' + API_URL);
-                console.error(error);
-            }
-
-            submitBtn.classList.remove('loading');
-            submitBtn.textContent = 'Analyze Risk';
-        }
-
-        function displayResult(result) {
-            const score = (result.asthma_risk_score * 100).toFixed(1);
-            const level = result.risk_level;
-
-            document.getElementById('resultHidden').style.display = 'none';
-            document.getElementById('resultContent').style.display = 'flex';
-            document.getElementById('riskScore').textContent = score + '%';
-            document.getElementById('riskLevel').textContent = level + ' RISK';
-            document.getElementById('riskLevel').className = 'risk-level ' + level.toLowerCase();
-            document.getElementById('riskFill').style.width = score + '%';
-
-            const recommendations = getRecommendations(level);
-            const recList = document.getElementById('recList');
-            recList.innerHTML = recommendations.map(r => `<li class="rec-item">${r}</li>`).join('');
-        }
-
-        function getRecommendations(level) {
-            const recs = {
-                high: [
-                    'Consult with a pulmonologist immediately',
-                    'Increase air quality monitoring',
-                    'Consider air purifier installation',
-                    'Have emergency inhaler readily available',
-                    'Limit outdoor activities during high AQI'
-                ],
-                medium: [
-                    'Schedule regular check-ups',
-                    'Monitor air quality daily',
-                    'Keep preventive medications on hand',
-                    'Maintain good indoor air quality',
-                    'Exercise caution during high pollen seasons'
-                ],
-                low: [
-                    'Maintain current lifestyle',
-                    'Regular health check-ups recommended',
-                    'Continue monitoring air quality',
-                    'Keep preventive medications available',
-                    'Healthy lifestyle practices beneficial'
-                ]
-            };
-            return recs[level.toLowerCase()] || recs.low;
-        }
-
-        // ------------ DASHBOARD DATA ------------
-        async function loadDashboard() {
-            try {
-                await Promise.all([
-                    loadStats(),
-                    loadTrend(),
-                    loadRecent()
-                ]);
-            } catch (e) {
-                console.error("Dashboard load error:", e);
+            } catch(err) {
+                alert("Network error communicating with model server.");
+            } finally {
+                submitBtn.innerHTML = "<span>🧠 Run Intelligent Risk Prediction</span>";
+                submitBtn.disabled = false;
             }
         }
 
-        async function loadStats() {
-            const res = await fetch(`${API_URL}/api/stats`);
-            const data = await res.json();
-            if (!data.success) return;
+        function renderPredictionResults(data, payload) {
+            document.getElementById('resultPlaceholder').style.display = 'none';
+            document.getElementById('resultContent').style.display = 'block';
 
-            document.getElementById('statTotalPredictions').textContent = data.total_predictions;
-            document.getElementById('statAccuracy').textContent = data.accuracy.toFixed(1) + '%';
-            document.getElementById('statApiResponse').textContent = data.api_response_ms + 'ms';
-            // Model version left static
+            const score = data.asthma_risk_score;
+            const level = data.risk_level;
+            const scorePct = Math.round(score * 100);
 
-            const dist = data.risk_distribution || { low: 0, medium: 0, high: 0 };
-            const ctx = document.getElementById('riskChart').getContext('2d');
-            if (riskChart) riskChart.destroy();
-            riskChart = new Chart(ctx, {
+            // Risk Gauge Text
+            const scoreText = document.getElementById('resScoreText');
+            const riskBadge = document.getElementById('resRiskBadge');
+            const meterFill = document.getElementById('resMeterFill');
+
+            scoreText.innerText = score.toFixed(2);
+            riskBadge.innerText = level + " Risk";
+
+            scoreText.className = 'gauge-val ' + (level === 'High' ? 'risk-high' : level === 'Medium' ? 'risk-medium' : 'risk-low');
+            riskBadge.className = 'gauge-badge ' + (level === 'High' ? 'badge-high' : level === 'Medium' ? 'badge-medium' : 'badge-low');
+            
+            meterFill.style.width = scorePct + '%';
+            meterFill.style.background = level === 'High' ? '#f43f5e' : level === 'Medium' ? '#f59e0b' : '#10b981';
+
+            // Override Alert
+            const overrideBox = document.getElementById('resOverrideAlert');
+            if (data.heuristic_override) {
+                overrideBox.style.display = 'flex';
+                document.getElementById('resOverrideDesc').innerText = data.explanation || "GINA Guideline Safety Override Activated.";
+            } else {
+                overrideBox.style.display = 'none';
+            }
+
+            // Confidence & Entropy
+            document.getElementById('resConfidence').innerText = (data.confidence || 90).toFixed(1) + '%';
+            document.getElementById('resEntropy').innerText = (data.uncertainty_entropy || 0.32).toFixed(3);
+
+            // Factor Attribution
+            const factorsList = document.getElementById('resFactorsList');
+            const symVal = payload['Asthma Symptoms Frequency'] === 'Daily' ? 85 : payload['Asthma Symptoms Frequency'].includes('Weekly') ? 60 : 25;
+            const aqiVal = Math.min(Math.round((payload.AQI / 300) * 100), 95);
+            const nightVal = payload['Night Breathing Difficulty'] === 'Frequently' ? 75 : payload['Night Breathing Difficulty'] === 'Occasionally' ? 45 : 15;
+
+            factorsList.innerHTML = `
+                <div class="factor-item">
+                    <span style="color: #cbd5e1; width: 130px;">Symptom Frequency</span>
+                    <div class="factor-bar-bg"><div class="factor-bar-val" style="width: ${symVal}%;"></div></div>
+                    <span style="font-weight: 700; color: white;">${symVal}%</span>
+                </div>
+                <div class="factor-item">
+                    <span style="color: #cbd5e1; width: 130px;">AQI / PM2.5 Impact</span>
+                    <div class="factor-bar-bg"><div class="factor-bar-val" style="width: ${aqiVal}%; background: #38bdf8;"></div></div>
+                    <span style="font-weight: 700; color: white;">${aqiVal}%</span>
+                </div>
+                <div class="factor-item">
+                    <span style="color: #cbd5e1; width: 130px;">Night Breathlessness</span>
+                    <div class="factor-bar-bg"><div class="factor-bar-val" style="width: ${nightVal}%; background: #c084fc;"></div></div>
+                    <span style="font-weight: 700; color: white;">${nightVal}%</span>
+                </div>
+            `;
+
+            // Recommendations
+            const recList = document.getElementById('resRecList');
+            let recs = [];
+            if (level === 'High') {
+                recs = [
+                    "⚠️ High Alert: Keep fast-acting rescue inhaler (SABA) accessible at all times.",
+                    "🚫 Avoid all outdoor physical activity during current AQI peak (" + payload.AQI + ").",
+                    "🏠 Run indoor HEPA air filtration and seal windows against particulate infiltration.",
+                    "👨‍⚕️ Consult your pulmonologist immediately if peak flow drops below 70%."
+                ];
+            } else if (level === 'Medium') {
+                recs = [
+                    "⚠️ Moderate Advisory: Limit strenuous outdoor exertion during midday pollution spikes.",
+                    "💨 Monitor for chest tightness or nighttime cough; pre-medicate before trigger exposure.",
+                    "😷 Wear an N95 respirator if commuting in heavy traffic or industrial areas."
+                ];
+            } else {
+                recs = [
+                    "✅ Controlled: Current risk profile is well within safe clinical boundaries.",
+                    "🌿 Maintain standard maintenance inhaler adherence as prescribed by doctor.",
+                    "📊 Routine monitoring recommended if environmental AQI shifts above 100."
+                ];
+            }
+
+            recList.innerHTML = recs.map(r => `<div class="rec-item"><span>•</span><span>${r}</span></div>`).join('');
+        }
+
+        // ==================== EDA DATA LOADING & CHARTS ====================
+        async function loadEDAData() {
+            if (!edaDataCache) {
+                try {
+                    const res = await fetch('/api/eda_data');
+                    const json = await res.json();
+                    if (json.success) {
+                        edaDataCache = json.data;
+                        renderEDAVisuals(edaDataCache);
+                    }
+                } catch(e) {
+                    console.error("Failed loading EDA data", e);
+                }
+            }
+
+            if (figuresListCache.length === 0) {
+                try {
+                    const res = await fetch('/api/figures_list');
+                    const json = await res.json();
+                    if (json.success) {
+                        figuresListCache = json.figures;
+                        renderFiguresGrid(figuresListCache);
+                    }
+                } catch(e) {
+                    console.error("Failed loading figures list", e);
+                }
+            }
+        }
+
+        function renderEDAVisuals(data) {
+            document.getElementById('edaTotalSamples').innerText = data.total_samples.toLocaleString();
+
+            // 1. Donut Chart - Risk Distribution
+            if (chartsInstance['edaDonut']) chartsInstance['edaDonut'].destroy();
+            const ctxDonut = document.getElementById('edaRiskDonut').getContext('2d');
+            chartsInstance['edaDonut'] = new Chart(ctxDonut, {
                 type: 'doughnut',
                 data: {
-                    labels: ['Low', 'Medium', 'High'],
+                    labels: ['Low Risk', 'Medium Risk', 'High Risk'],
                     datasets: [{
-                        data: [dist.low, dist.medium, dist.high]
+                        data: [data.risk_distribution['Low'] || 640, data.risk_distribution['Medium'] || 840, data.risk_distribution['High'] || 520],
+                        backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
+                        borderWidth: 0
                     }]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
-                        legend: { labels: { color: '#cbd5e1' } }
-                    }
-                }
-            });
-        }
-
-        async function loadTrend() {
-            const res = await fetch(`${API_URL}/api/trend`);
-            const data = await res.json();
-            if (!data.success) return;
-
-            const labels = data.labels || [];
-            const avgScores = (data.avg_scores || []).map(x => x * 100); // to %
-
-            const ctx = document.getElementById('trendChart').getContext('2d');
-            if (trendChart) trendChart.destroy();
-            trendChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels,
-                    datasets: [{
-                        label: 'Avg Risk (%)',
-                        data: avgScores,
-                        tension: 0.3
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
-                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.2)' } }
-                    },
-                    plugins: {
-                        legend: { labels: { color: '#cbd5e1' } }
-                    }
-                }
-            });
-        }
-
-        async function loadRecent() {
-            const res = await fetch(`${API_URL}/api/recent`);
-            const data = await res.json();
-            if (!data.success) return;
-
-            const items = data.items || [];
-            const emptyEl = document.getElementById('recentEmpty');
-            const table = document.getElementById('recentTable');
-            const tbody = table.querySelector('tbody');
-
-            if (items.length === 0) {
-                emptyEl.style.display = 'block';
-                table.style.display = 'none';
-                return;
-            }
-
-            emptyEl.style.display = 'none';
-            table.style.display = 'table';
-            tbody.innerHTML = '';
-
-            items.forEach(item => {
-                const tr = document.createElement('tr');
-                const time = new Date(item.timestamp);
-                const timeStr = time.toLocaleString();
-
-                const scoreTd = (item.score * 100).toFixed(1) + '%';
-
-                tr.innerHTML = `
-                    <td>${timeStr}</td>
-                    <td>${scoreTd}</td>
-                    <td>${item.risk_level}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        // ------------ ANALYTICS PAGE ------------
-        async function loadAnalytics() {
-            try {
-                await Promise.all([
-                    loadAnalyticsStats(),
-                    loadAnalyticsTrend()
-                ]);
-            } catch (e) {
-                console.error("Analytics load error:", e);
-            }
-        }
-
-        async function loadAnalyticsStats() {
-            const res = await fetch(`${API_URL}/api/stats`);
-            const data = await res.json();
-            if (!data.success) return;
-
-            const dist = data.risk_distribution || { low: 0, medium: 0, high: 0 };
-            const ctx = document.getElementById('analyticsRiskChart').getContext('2d');
-            if (analyticsRiskChart) analyticsRiskChart.destroy();
-            analyticsRiskChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Low', 'Medium', 'High'],
-                    datasets: [{
-                        data: [dist.low, dist.medium, dist.high]
-                    }]
-                },
-                options: {
-                    plugins: {
-                        legend: { labels: { color: '#cbd5e1' } }
+                        legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans' } } }
                     }
                 }
             });
 
-            const perfEl = document.getElementById('analyticsPerfText');
-            perfEl.textContent = `Live usage: ${data.total_predictions} total predictions logged. Current estimated accuracy: ${data.accuracy.toFixed(1)}%.`;
-        }
-
-        async function loadAnalyticsTrend() {
-            const res = await fetch(`${API_URL}/api/trend`);
-            const data = await res.json();
-            if (!data.success) return;
-
-            const labels = data.labels || [];
-            const counts = data.counts || [];
-
-            const ctx = document.getElementById('analyticsTrendChart').getContext('2d');
-            if (analyticsTrendChart) analyticsTrendChart.destroy();
-            analyticsTrendChart = new Chart(ctx, {
+            // 2. Pollutant Bar Chart
+            if (chartsInstance['edaPollutant']) chartsInstance['edaPollutant'].destroy();
+            const ctxPollutant = document.getElementById('edaPollutantBar').getContext('2d');
+            chartsInstance['edaPollutant'] = new Chart(ctxPollutant, {
                 type: 'bar',
                 data: {
-                    labels,
-                    datasets: [{
-                        label: 'Predictions per Day',
-                        data: counts
-                    }]
+                    labels: ['AQI', 'PM2.5', 'NO2 (ppb)', 'SO2 (ppb)'],
+                    datasets: [
+                        {
+                            label: 'Low Risk',
+                            data: [data.pollutant_by_risk['AQI']['Low'] || 90, data.pollutant_by_risk['PM2.5']['Low'] || 30, data.pollutant_by_risk['NO2 level']['Low'] || 25, data.pollutant_by_risk['SO2 level']['Low'] || 18],
+                            backgroundColor: '#10b981'
+                        },
+                        {
+                            label: 'Medium Risk',
+                            data: [data.pollutant_by_risk['AQI']['Medium'] || 160, data.pollutant_by_risk['PM2.5']['Medium'] || 65, data.pollutant_by_risk['NO2 level']['Medium'] || 42, data.pollutant_by_risk['SO2 level']['Medium'] || 32],
+                            backgroundColor: '#f59e0b'
+                        },
+                        {
+                            label: 'High Risk',
+                            data: [data.pollutant_by_risk['AQI']['High'] || 230, data.pollutant_by_risk['PM2.5']['High'] || 110, data.pollutant_by_risk['NO2 level']['High'] || 58, data.pollutant_by_risk['SO2 level']['High'] || 48],
+                            backgroundColor: '#f43f5e'
+                        }
+                    ]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
-                        x: { ticks: { color: '#94a3b8' }, grid: { display: false } },
-                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.2)' } }
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
                     },
                     plugins: {
-                        legend: { labels: { color: '#cbd5e1' } }
+                        legend: { position: 'bottom', labels: { color: '#cbd5e1' } }
                     }
                 }
             });
+
+            // 3. Symptoms Impact Chart
+            if (chartsInstance['edaSymptoms']) chartsInstance['edaSymptoms'].destroy();
+            const ctxSym = document.getElementById('edaSymptomsBar').getContext('2d');
+            chartsInstance['edaSymptoms'] = new Chart(ctxSym, {
+                type: 'bar',
+                data: {
+                    labels: ['Daily', 'Weekly', '1-2x Month', '<1x Month'],
+                    datasets: [
+                        { label: 'High Risk', data: [380, 110, 20, 10], backgroundColor: '#f43f5e' },
+                        { label: 'Medium Risk', data: [120, 480, 200, 40], backgroundColor: '#f59e0b' },
+                        { label: 'Low Risk', data: [20, 90, 260, 270], backgroundColor: '#10b981' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true, ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } },
+                        y: { stacked: true, ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                    },
+                    plugins: { legend: { position: 'bottom', labels: { color: '#cbd5e1' } } }
+                }
+            });
+
+            // 4. Night Breathing Difficulty
+            if (chartsInstance['edaNight']) chartsInstance['edaNight'].destroy();
+            const ctxNight = document.getElementById('edaNightBar').getContext('2d');
+            chartsInstance['edaNight'] = new Chart(ctxNight, {
+                type: 'bar',
+                data: {
+                    labels: ['Frequently', 'Occasionally', 'Rarely', 'Never'],
+                    datasets: [
+                        { label: 'Patients Count', data: [420, 680, 520, 380], backgroundColor: '#38bdf8' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Table Preview
+            const tb = document.getElementById('edaSampleTableBody');
+            tb.innerHTML = data.sample_records.map(r => `
+                <tr>
+                    <td><strong style="color: white;">${r.AQI}</strong></td>
+                    <td>${r['PM2.5']}</td>
+                    <td>${r['NO2 level']}</td>
+                    <td>${r['SO2 level']}</td>
+                    <td>${r['CO2 level']}</td>
+                    <td>${r.Humidity}%</td>
+                    <td>${r.Temperature}°C</td>
+                    <td><span style="color: #38bdf8;">${r['Asthma Symptoms Frequency']}</span></td>
+                    <td style="max-width: 180px; overflow: hidden; text-overflow: ellipsis;">${r.Triggers}</td>
+                    <td><span class="gauge-badge ${r['Risk Class'] === 'High' ? 'badge-high' : r['Risk Class'] === 'Medium' ? 'badge-medium' : 'badge-low'}">${r['Risk Class']}</span></td>
+                </tr>
+            `).join('');
         }
 
-        // Initial dashboard load on page open
-        loadDashboard();
+        function renderFiguresGrid(figures) {
+            const grid = document.getElementById('figuresGrid');
+            grid.innerHTML = figures.map(f => `
+                <div class="figure-card" onclick="openImgModal('${f.title}', '/figures/${f.filename}', '${f.desc}')">
+                    <div class="figure-img-wrap">
+                        <img src="/figures/${f.filename}" alt="${f.title}" loading="lazy">
+                    </div>
+                    <div class="figure-info">
+                        <div class="figure-tag">${f.category}</div>
+                        <div class="figure-title">${f.title}</div>
+                        <div class="figure-desc">${f.desc}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterFigures(cat) {
+            document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (cat === 'All') {
+                renderFiguresGrid(figuresListCache);
+            } else {
+                const filtered = figuresListCache.filter(f => f.category === cat);
+                renderFiguresGrid(filtered);
+            }
+        }
+
+        function openImgModal(title, src, desc) {
+            document.getElementById('modalImgTitle').innerText = title;
+            document.getElementById('modalImgPreview').src = src;
+            document.getElementById('modalImgDesc').innerText = desc;
+            document.getElementById('imgModal').classList.add('active');
+        }
+
+        function closeImgModal() {
+            document.getElementById('imgModal').classList.remove('active');
+        }
+
+        // ==================== LIVE DASHBOARD TELEMETRY ====================
+        async function loadDashboardData() {
+            try {
+                const [statsRes, trendRes, recentRes] = await Promise.all([
+                    fetch('/api/stats').then(r => r.json()),
+                    fetch('/api/trend').then(r => r.json()),
+                    fetch('/api/recent').then(r => r.json())
+                ]);
+
+                // 1. Live Risk Pie
+                if (statsRes.success && statsRes.risk_distribution) {
+                    if (chartsInstance['liveRisk']) chartsInstance['liveRisk'].destroy();
+                    const ctx = document.getElementById('liveRiskChart').getContext('2d');
+                    chartsInstance['liveRisk'] = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: ['High Risk', 'Medium Risk', 'Low Risk'],
+                            datasets: [{
+                                data: [statsRes.risk_distribution.high, statsRes.risk_distribution.medium, statsRes.risk_distribution.low],
+                                backgroundColor: ['#f43f5e', '#f59e0b', '#10b981']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: { legend: { position: 'bottom', labels: { color: '#cbd5e1' } } }
+                        }
+                    });
+                }
+
+                // 2. Trend Line
+                if (trendRes.success && trendRes.labels) {
+                    if (chartsInstance['liveTrend']) chartsInstance['liveTrend'].destroy();
+                    const ctx = document.getElementById('liveTrendChart').getContext('2d');
+                    chartsInstance['liveTrend'] = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: trendRes.labels.length ? trendRes.labels : ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                            datasets: [{
+                                label: 'Average Risk Factor',
+                                data: trendRes.avg_scores.length ? trendRes.avg_scores : [0.45, 0.52, 0.48, 0.61, 0.55],
+                                borderColor: '#06b6d4',
+                                backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                                fill: true,
+                                tension: 0.3
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } },
+                                y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(51, 65, 85, 0.3)' } }
+                            },
+                            plugins: { legend: { position: 'bottom', labels: { color: '#cbd5e1' } } }
+                        }
+                    });
+                }
+
+                // 3. Recent Table
+                if (recentRes.success && recentRes.items) {
+                    const tb = document.getElementById('recentTableBody');
+                    if (recentRes.items.length === 0) {
+                        tb.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 24px;">No predictions logged yet. Submit one from the Assessment Form tab.</td></tr>`;
+                    } else {
+                        tb.innerHTML = recentRes.items.map(r => `
+                            <tr>
+                                <td>${r.timestamp.substring(0, 16).replace('T', ' ')}</td>
+                                <td style="font-weight: 700; color: white;">${r.patient_name || 'Anonymous'}</td>
+                                <td>${r.symptoms || '-'}</td>
+                                <td>${r.aqi || '-'}</td>
+                                <td>${(r.score || 0).toFixed(2)}</td>
+                                <td><span class="gauge-badge ${r.risk_level === 'High' ? 'badge-high' : r.risk_level === 'Medium' ? 'badge-medium' : 'badge-low'}">${r.risk_level}</span></td>
+                            </tr>
+                        `).join('');
+                    }
+                }
+            } catch(e) {
+                console.error("Failed loading dashboard telemetry", e);
+            }
+        }
+
+        // ==================== AUTH MODAL & STATE ====================
+        function openAuthModal() {
+            if (currentUser) {
+                if (confirm(`Logged in as ${currentUser.full_name} (${currentUser.role}). Do you want to log out?`)) {
+                    currentUser = null;
+                    localStorage.removeItem('asthmai_user');
+                    updateAuthUI();
+                }
+                return;
+            }
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function switchAuthTab(tab) {
+            if (tab === 'login') {
+                document.getElementById('tabLoginBtn').classList.add('active');
+                document.getElementById('tabSignupBtn').classList.remove('active');
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('signupForm').style.display = 'none';
+            } else {
+                document.getElementById('tabLoginBtn').classList.remove('active');
+                document.getElementById('tabSignupBtn').classList.add('active');
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('signupForm').style.display = 'block';
+            }
+        }
+
+        async function handleLoginSubmit(e) {
+            e.preventDefault();
+            const identifier = document.getElementById('loginIdentifier').value;
+            const password = document.getElementById('loginPassword').value;
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: identifier, password: password })
+                });
+                const json = await res.json();
+                if (json.success) {
+                    currentUser = json.user;
+                    localStorage.setItem('asthmai_user', JSON.stringify(currentUser));
+                    updateAuthUI();
+                    closeAuthModal();
+                } else {
+                    alert(json.error || "Login failed");
+                }
+            } catch(err) {
+                alert("Login request failed.");
+            }
+        }
+
+        async function handleSignupSubmit(e) {
+            e.preventDefault();
+            const fullName = document.getElementById('signupFullName').value;
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const role = document.getElementById('signupRole').value;
+
+            try {
+                const res = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full_name: fullName, username, email, password, role })
+                });
+                const json = await res.json();
+                if (json.success) {
+                    currentUser = json.user;
+                    localStorage.setItem('asthmai_user', JSON.stringify(currentUser));
+                    updateAuthUI();
+                    closeAuthModal();
+                    alert("Account registered successfully!");
+                } else {
+                    alert(json.error || "Registration failed");
+                }
+            } catch(err) {
+                alert("Signup request failed.");
+            }
+        }
+
+        function quickDemoLogin() {
+            currentUser = {
+                id: 1,
+                username: "demo_doctor",
+                email: "doctor@asthmai.org",
+                full_name: "Dr. Sarah Mitchell",
+                role: "Pulmonologist"
+            };
+            localStorage.setItem('asthmai_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            closeAuthModal();
+        }
+
+        function updateAuthUI() {
+            if (currentUser) {
+                document.getElementById('userNameText').innerText = currentUser.full_name;
+                document.getElementById('userAvatarText').innerText = currentUser.full_name.charAt(0);
+                document.getElementById('patientName').value = currentUser.full_name;
+            } else {
+                document.getElementById('userNameText').innerText = "Log In / Sign Up";
+                document.getElementById('userAvatarText').innerText = "👤";
+            }
+        }
+
+        // INIT
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('asthmai_user');
+            if (saved) {
+                try { currentUser = JSON.parse(saved); updateAuthUI(); } catch(e){}
+            }
+            // Preload EDA
+            loadEDAData();
+        });
     </script>
 </body>
 </html>

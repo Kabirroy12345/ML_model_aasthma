@@ -1,0 +1,22 @@
+AsthmAI Safety-Net Hybrid System v2
+========================================
+Total Samples:      300
+Heuristic Triggers: 40 (13.3%)
+
+Pure ML Accuracy:   0.7367
+Hybrid Accuracy:    0.7067
+Improvement:        -3.00%
+
+High Conf (17% coverage): Acc=84.6%
+Med  Conf (62% coverage): Acc=66.3%
+Low  Conf (20% coverage): Acc=72.1%
+
+              precision    recall  f1-score   support
+
+        High       0.70      0.81      0.75       129
+         Low       0.67      0.26      0.38        23
+      Medium       0.71      0.69      0.70       148
+
+    accuracy                           0.71       300
+   macro avg       0.69      0.59      0.61       300
+weighted avg       0.71      0.71      0.70       300

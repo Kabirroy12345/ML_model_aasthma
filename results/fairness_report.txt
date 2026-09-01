@@ -1,0 +1,22 @@
+AsthmAI - Demographic Fairness Analysis
+Dataset: Kaggle Asthma Disease Dataset (n=2392)
+Test set: 479 patients
+Overall Accuracy: 0.9645  F1: 0.9471
+
+Per-Subgroup Performance:
+  Age <18                    n=   82  Acc=93.9%  F1=0.910
+  Age 18-45                  n=  173  Acc=97.7%  F1=0.965
+  Age 46-65                  n=  134  Acc=98.5%  F1=0.978
+  Age >65                    n=   90  Acc=93.3%  F1=0.901
+  Gender: Male               n=  241  Acc=96.3%  F1=0.944
+  Gender: Female             n=  238  Acc=96.6%  F1=0.950
+  Ethnicity: Caucasian       n=  291  Acc=95.9%  F1=0.939
+  Ethnicity: African American  n=  105  Acc=99.0%  F1=0.986
+  Ethnicity: Asian           n=   37  Acc=97.3%  F1=0.960
+  Ethnicity: Other           n=   46  Acc=93.5%  F1=0.903
+
+Fairness Metrics:
+  Max accuracy variance:      5.7%
+  Demographic parity diff:    0.057
+  Equalized odds ratio:       0.942
+  Fairness threshold (<5%):   FAIL

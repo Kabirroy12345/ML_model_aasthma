@@ -1,0 +1,991 @@
+AQI,PM2.5,SO2 level,NO2 level,CO2 level,Humidity,Temperature,Asthma Symptoms Frequency,Triggers,Weather Sensitivity,Poor Air Quality Exposure,Night Breathing Difficulty,Risk Factor,Risk Class
+116,31.71,7.93,22.21,354.78,57.44,26.02,Less than once a month,Smoke,Cold weather,No,Never,0.24,Low
+36,52.31,13.1,26.47,390.17,41.16,23.5,Less than once a month,Smoke,Yes,Occasionally,Rarely,0.24,Low
+91,34.61,15.38,23.35,398.48,52.7,18.88,Less than once a month,Dust,No,Occasionally,Never,0.12,Low
+51,60.41,10.96,34.33,349.6,45.41,23.59,1-2 times a month,Dust,Hot and humid weather,No,Never,0.24,Low
+64,29.66,15.94,19.62,406.17,44.31,18.39,1-2 times a month,Dust,Yes,No,Rarely,0.24,Low
+105,43.21,10.1,28.77,392.21,51.49,23.55,Less than once a month,Dust,Hot and humid weather,No,Never,0.24,Low
+92,41.24,12.13,34.2,343.46,74.66,28.43,1-2 times a month,Dust,No,"Yes, often",Never,0.36,Medium
+84,39.27,13.28,23.96,402.59,60.25,23.8,1-2 times a month,Smoke,Cold weather,No,Never,0.36,Medium
+112,46.21,14.19,31.54,410.64,46.76,30.99,1-2 times a month,Dust,Yes,Occasionally,Never,0.36,Medium
+78,51.15,11.24,27.63,403.43,63.92,25.33,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Never,0.36,Medium
+114,47.0,14.74,27.45,410.41,44.69,27.51,Daily,"Smoke,Cold",Cold weather,Occasionally,Never,0.84,High
+57,28.9,13.42,30.36,409.05,66.63,27.81,Daily,"Smoke,Cold",No,No,Never,0.72,High
+56,28.0,7.13,17.13,419.63,47.33,30.76,1-2 times a month,Dust,No,No,Rarely,0.12,Low
+79,25.1,17.55,34.95,372.07,57.28,17.21,1-2 times a month,"Smoke,Cold",Hot and humid weather,No,Occasionally,0.36,Medium
+84,38.1,9.24,16.15,357.76,71.61,21.52,Less than once a month,"Dust,Pollen",Hot and humid weather,No,Never,0.24,Low
+61,64.69,17.69,34.48,361.75,51.35,24.61,1-2 times a month,"Smoke,Cold",No,"Yes, often",Never,0.48,Medium
+80,38.85,12.67,30.39,372.03,69.61,28.15,Frequently (Weekly),Smoke,Yes,Occasionally,Rarely,0.36,Medium
+118,67.1,11.11,31.34,459.65,53.46,24.9,1-2 times a month,"Dust,Pollen",Hot and humid weather,No,Never,0.48,Medium
+70,38.71,13.23,37.98,371.96,54.13,24.93,Frequently (Weekly),Dust,Yes,Occasionally,Rarely,0.36,Medium
+41,42.16,10.13,35.01,387.31,47.37,29.5,Daily,Dust,Cold weather,Occasionally,Never,0.72,High
+44,46.06,6.19,33.22,397.01,66.71,22.14,Daily,Dust,Yes,No,Never,0.72,High
+132,35.72,11.51,26.17,391.65,52.58,22.63,Frequently (Weekly),"Smoke,Cold",Cold weather,No,Never,0.6,High
+123,42.12,13.37,25.96,455.5,70.1,26.48,Daily,Dust,No,Occasionally,Never,0.72,High
+78,21.3,16.88,32.65,348.42,49.47,36.27,Frequently (Weekly),Dust,Yes,No,Never,0.36,Medium
+105,29.95,8.78,30.32,462.42,51.43,24.17,Less than once a month,"Smoke,Cold",No,No,Never,0.24,Low
+92,20.83,13.31,29.9,406.82,64.22,20.77,Frequently (Weekly),Dust,Yes,"Yes, often",Never,0.6,High
+116,46.53,11.65,27.75,432.96,54.55,20.8,Daily,"Smoke,Cold",Yes,Occasionally,Frequently,0.96,High
+60,23.68,12.2,26.16,399.59,57.19,22.16,Less than once a month,"Dust,Pollen",Yes,Occasionally,Occasionally,0.12,Low
+62,56.48,15.13,19.96,424.35,42.87,30.39,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.48,Medium
+115,44.86,10.62,31.57,369.25,55.84,22.3,Daily,Dust,Yes,Occasionally,Never,0.84,High
+46,54.4,12.25,26.14,358.36,58.59,25.73,Daily,Smoke,Cold weather,No,Rarely,0.72,High
+87,29.37,15.42,27.05,474.02,69.56,22.55,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Frequently,0.48,Medium
+85,27.0,15.19,17.32,456.54,52.22,17.6,1-2 times a month,"Smoke,Cold",Hot and humid weather,No,Rarely,0.24,Low
+106,38.47,8.43,29.14,369.68,57.16,23.82,Daily,Pollen,Cold weather,Occasionally,Rarely,0.72,High
+88,52.16,9.83,20.1,422.47,64.36,11.47,Frequently (Weekly),Pollen,Cold weather,Occasionally,Never,0.48,Medium
+79,65.56,11.29,26.48,435.49,55.24,25.37,Less than once a month,Pollen,Yes,No,Frequently,0.36,Medium
+78,46.91,14.99,32.63,412.48,64.26,26.82,1-2 times a month,"Dust,Pollen",Hot and humid weather,Occasionally,Occasionally,0.48,Medium
+57,21.62,11.54,28.4,393.89,74.78,18.95,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+80,28.66,12.23,27.84,462.57,55.66,21.54,Frequently (Weekly),Dust,No,"Yes, often",Occasionally,0.72,High
+114,21.19,15.74,24.16,420.6,65.28,16.88,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Never,0.48,Medium
+79,40.91,11.65,24.91,375.57,58.55,12.82,1-2 times a month,Pollen,No,Occasionally,Rarely,0.24,Low
+119,36.42,16.43,36.56,388.09,62.75,15.74,Less than once a month,Dust,No,Occasionally,Never,0.12,Low
+105,37.51,7.15,31.62,369.09,60.89,27.48,Daily,"Dust,Pollen",Yes,No,Frequently,0.84,High
+100,28.13,10.58,25.0,393.77,64.13,22.26,Less than once a month,Smoke,Yes,No,Rarely,0.12,Low
+79,26.5,7.83,27.38,397.57,62.84,25.72,Frequently (Weekly),Pollen,Yes,"Yes, often",Rarely,0.48,Medium
+70,42.2,11.85,28.36,425.02,55.08,33.52,1-2 times a month,Smoke,Cold weather,No,Never,0.36,Medium
+128,48.11,14.41,30.61,420.08,49.7,29.45,Daily,Smoke,Yes,No,Never,0.72,High
+104,25.08,11.89,28.24,407.36,57.68,26.91,1-2 times a month,Smoke,Hot and humid weather,Occasionally,Frequently,0.6,High
+77,47.75,10.96,17.34,409.49,44.13,21.15,1-2 times a month,"Smoke,Cold",Hot and humid weather,Occasionally,Never,0.36,Medium
+128,53.61,7.71,27.99,428.3,59.89,31.02,1-2 times a month,Smoke,No,Occasionally,Frequently,0.6,High
+102,11.11,16.36,27.8,395.02,60.77,30.03,1-2 times a month,Smoke,Hot and humid weather,Occasionally,Never,0.36,Medium
+52,58.1,12.03,39.38,326.74,52.83,28.58,1-2 times a month,Smoke,Hot and humid weather,Occasionally,Occasionally,0.36,Medium
+73,48.48,11.04,44.54,465.48,56.0,23.44,Less than once a month,Smoke,No,No,Rarely,0.24,Low
+102,51.23,16.21,31.41,367.99,63.79,18.9,Daily,Dust,No,No,Frequently,0.84,High
+120,29.8,10.83,23.79,418.38,61.46,32.08,1-2 times a month,Pollen,Cold weather,Occasionally,Never,0.36,Medium
+137,48.41,9.38,31.68,387.49,62.06,27.96,Daily,Smoke,Cold weather,"Yes, often",Rarely,0.96,High
+85,51.12,9.62,18.45,442.77,62.33,23.27,1-2 times a month,Pollen,Hot and humid weather,No,Rarely,0.24,Low
+107,31.26,8.91,24.1,364.92,56.14,23.23,Less than once a month,Pollen,Yes,Occasionally,Frequently,0.36,Medium
+73,49.49,8.58,19.07,377.85,54.53,17.49,Frequently (Weekly),"Dust,Pollen",No,Occasionally,Never,0.6,High
+60,40.91,9.75,32.74,383.97,59.4,27.18,Less than once a month,Dust,No,No,Never,0.12,Low
+42,34.78,18.68,19.81,417.71,66.48,25.29,Less than once a month,Smoke,Hot and humid weather,No,Never,0.12,Low
+93,38.1,8.87,25.93,406.84,55.96,25.84,1-2 times a month,Pollen,Hot and humid weather,No,Never,0.24,Low
+120,42.77,7.99,28.1,414.09,65.19,28.43,Daily,Pollen,No,No,Never,0.72,High
+110,36.93,12.84,27.23,397.03,39.16,28.32,Less than once a month,Pollen,Hot and humid weather,No,Occasionally,0.24,Low
+87,30.13,11.99,25.0,425.65,57.0,19.49,Less than once a month,Dust,Yes,Occasionally,Never,0.12,Low
+116,47.02,13.54,30.13,424.66,54.16,24.25,Frequently (Weekly),Pollen,Hot and humid weather,Occasionally,Rarely,0.48,Medium
+160,48.3,10.3,20.05,441.81,42.85,25.26,Less than once a month,Pollen,Yes,No,Never,0.24,Low
+64,42.03,9.22,38.48,408.11,45.27,26.4,Less than once a month,Pollen,Hot and humid weather,"Yes, often",Never,0.36,Medium
+25,20.33,17.14,22.36,412.62,58.31,15.61,1-2 times a month,Smoke,Yes,Occasionally,Never,0.36,Medium
+94,32.8,6.36,28.19,449.2,55.35,18.72,Less than once a month,Pollen,Yes,"Yes, often",Never,0.36,Medium
+113,30.28,12.99,31.13,430.36,60.25,27.0,1-2 times a month,"Dust,Pollen",Yes,Occasionally,Rarely,0.36,Medium
+41,60.73,14.26,32.8,413.82,33.57,27.86,1-2 times a month,Smoke,Cold weather,Occasionally,Never,0.36,Medium
+105,42.78,14.54,33.49,357.33,62.33,31.72,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Never,0.48,Medium
+74,37.21,11.32,18.66,348.45,62.57,15.98,Frequently (Weekly),Dust,No,Occasionally,Frequently,0.6,High
+95,32.15,8.08,21.91,416.4,43.94,29.26,Less than once a month,Dust,Hot and humid weather,No,Rarely,0.24,Low
+60,37.13,15.65,28.29,418.88,65.0,25.7,Daily,"Smoke,Cold",Hot and humid weather,No,Never,0.84,High
+57,50.21,10.99,29.47,378.96,68.15,18.44,1-2 times a month,"Smoke,Cold",Hot and humid weather,No,Rarely,0.24,Low
+53,16.65,16.82,35.19,408.0,44.5,15.71,Less than once a month,Dust,No,Occasionally,Rarely,0.12,Low
+103,42.34,13.57,25.56,375.61,55.37,28.71,Frequently (Weekly),Smoke,Yes,Occasionally,Rarely,0.36,Medium
+67,33.42,10.57,22.16,416.62,56.87,19.13,Frequently (Weekly),"Smoke,Cold",Yes,"Yes, often",Never,0.6,High
+91,43.68,13.31,24.15,420.88,40.35,17.58,1-2 times a month,"Dust,Pollen",Yes,No,Never,0.36,Medium
+90,49.96,16.15,42.17,418.54,52.21,26.94,Frequently (Weekly),Pollen,Hot and humid weather,No,Occasionally,0.48,Medium
+56,31.51,11.69,37.69,406.29,66.86,23.43,Less than once a month,Dust,Yes,Occasionally,Rarely,0.24,Low
+86,22.8,9.92,26.66,385.31,47.68,27.45,1-2 times a month,Dust,No,No,Rarely,0.24,Low
+88,38.85,7.0,36.01,396.84,70.2,25.41,1-2 times a month,"Dust,Pollen",No,No,Rarely,0.24,Low
+113,52.53,10.79,24.04,432.04,57.61,40.32,Frequently (Weekly),"Dust,Pollen",Yes,"Yes, often",Never,0.72,High
+122,48.99,14.44,33.52,412.16,48.01,27.17,Daily,Smoke,Cold weather,No,Frequently,0.96,High
+61,34.78,8.52,18.63,412.83,54.5,27.23,Frequently (Weekly),Dust,Cold weather,No,Occasionally,0.6,High
+88,30.75,14.48,30.36,406.62,41.97,19.21,Daily,"Smoke,Cold",Yes,"Yes, often",Never,0.96,High
+32,36.0,12.41,34.06,419.32,57.43,32.45,1-2 times a month,"Dust,Pollen",Cold weather,Occasionally,Rarely,0.36,Medium
+102,27.13,14.62,25.64,424.63,52.04,21.73,1-2 times a month,Dust,No,No,Never,0.24,Low
+111,48.6,4.98,31.63,380.37,50.79,19.44,Daily,Dust,Hot and humid weather,No,Never,0.84,High
+22,53.13,7.64,24.5,421.16,44.09,22.5,Daily,Smoke,Yes,Occasionally,Occasionally,0.72,High
+71,36.07,10.61,29.32,390.61,54.35,26.9,1-2 times a month,Dust,Yes,No,Occasionally,0.24,Low
+62,35.98,18.11,25.35,404.73,56.33,21.74,Less than once a month,Dust,Cold weather,Occasionally,Occasionally,0.24,Low
+76,31.49,9.66,32.74,427.25,43.48,19.49,1-2 times a month,Dust,Cold weather,Occasionally,Occasionally,0.36,Medium
+71,35.11,12.06,20.33,353.51,63.58,19.44,Daily,"Smoke,Cold",No,Occasionally,Rarely,0.6,High
+85,32.86,18.41,21.03,362.39,57.25,24.92,Less than once a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+110,39.64,13.03,35.76,377.38,47.32,27.22,Less than once a month,Dust,Hot and humid weather,No,Never,0.24,Low
+74,49.62,13.96,13.14,378.76,54.61,27.78,Frequently (Weekly),"Smoke,Cold",Yes,No,Frequently,0.6,High
+61,47.07,10.25,23.66,396.29,61.43,15.76,1-2 times a month,Smoke,No,No,Never,0.24,Low
+80,29.02,15.77,27.47,451.8,66.19,19.52,1-2 times a month,Pollen,Yes,No,Frequently,0.36,Medium
+79,39.6,15.65,28.85,432.12,67.67,28.35,Less than once a month,"Smoke,Cold",Hot and humid weather,Occasionally,Never,0.24,Low
+88,48.7,13.95,24.84,385.12,68.27,22.04,1-2 times a month,Smoke,Cold weather,No,Occasionally,0.24,Low
+73,28.98,11.33,21.43,428.12,45.4,25.51,Less than once a month,"Dust,Pollen",No,No,Frequently,0.36,Medium
+99,42.04,13.89,36.62,400.0,49.31,36.45,Frequently (Weekly),Pollen,Hot and humid weather,Occasionally,Never,0.48,Medium
+118,54.53,7.35,33.5,407.0,43.5,12.2,Frequently (Weekly),Smoke,Hot and humid weather,Occasionally,Rarely,0.6,High
+58,35.69,15.59,25.78,368.62,64.19,23.18,Less than once a month,Dust,Yes,No,Never,0.12,Low
+94,16.16,8.86,17.58,361.22,52.69,27.81,Less than once a month,Pollen,No,Occasionally,Rarely,0.12,Low
+108,10.52,11.48,29.88,423.61,63.84,18.62,Less than once a month,Smoke,No,Occasionally,Frequently,0.36,Medium
+73,42.69,15.91,28.35,397.85,44.11,23.13,Less than once a month,"Smoke,Cold",No,No,Never,0.12,Low
+115,41.24,15.19,23.71,420.83,50.4,17.64,Less than once a month,Smoke,Cold weather,No,Never,0.24,Low
+84,41.47,7.38,14.8,447.3,48.84,27.27,1-2 times a month,Dust,Yes,"Yes, often",Frequently,0.6,High
+57,45.61,9.45,26.37,395.59,65.55,20.59,1-2 times a month,Dust,No,Occasionally,Rarely,0.24,Low
+54,20.88,13.32,31.75,389.29,59.59,21.48,1-2 times a month,"Smoke,Cold",Hot and humid weather,No,Never,0.36,Medium
+109,30.0,6.39,33.78,453.59,38.48,27.9,1-2 times a month,Pollen,Yes,No,Never,0.36,Medium
+99,47.03,16.62,27.34,396.62,50.74,26.58,1-2 times a month,Pollen,No,No,Never,0.12,Low
+121,48.23,12.5,23.81,376.26,63.5,28.73,1-2 times a month,"Dust,Pollen",Yes,No,Never,0.24,Low
+96,36.1,16.29,32.51,423.37,64.3,33.21,Frequently (Weekly),"Smoke,Cold",No,No,Never,0.48,Medium
+80,22.07,9.47,21.33,394.33,59.13,24.88,Daily,"Dust,Pollen",Hot and humid weather,No,Rarely,0.72,High
+96,43.85,10.16,20.39,373.02,55.95,33.99,Less than once a month,Dust,Yes,"Yes, often",Never,0.24,Low
+85,42.76,15.47,27.31,397.14,46.65,25.46,Daily,Pollen,Cold weather,"Yes, often",Never,0.84,High
+74,28.99,11.81,37.22,425.68,64.62,30.94,Daily,"Dust,Pollen",No,No,Never,0.72,High
+71,16.02,8.17,36.67,363.94,45.45,23.59,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Rarely,0.24,Low
+41,46.08,13.95,20.96,363.24,42.96,28.58,Frequently (Weekly),"Smoke,Cold",No,"Yes, often",Never,0.6,High
+64,30.48,7.78,24.82,394.74,56.61,21.47,1-2 times a month,Smoke,Cold weather,Occasionally,Never,0.36,Medium
+85,41.15,15.89,43.04,366.75,53.22,30.9,Daily,"Dust,Pollen",Yes,No,Never,0.6,High
+17,39.43,13.09,24.31,361.61,61.73,30.97,Frequently (Weekly),Dust,No,No,Occasionally,0.48,Medium
+75,27.12,9.39,37.96,403.26,58.75,23.05,Less than once a month,Dust,Hot and humid weather,"Yes, often",Rarely,0.24,Low
+108,46.62,15.46,33.71,427.04,68.68,24.61,Less than once a month,Pollen,No,No,Never,0.12,Low
+118,29.23,15.33,34.93,419.58,58.26,18.62,Daily,"Smoke,Cold",Yes,Occasionally,Never,0.84,High
+72,22.52,11.9,25.29,398.08,62.57,28.69,1-2 times a month,Dust,No,No,Never,0.12,Low
+66,19.21,18.6,24.36,431.78,47.8,28.7,1-2 times a month,Pollen,Cold weather,No,Never,0.36,Medium
+70,37.63,18.47,22.52,449.79,60.25,17.48,Less than once a month,"Smoke,Cold",Cold weather,No,Occasionally,0.24,Low
+73,59.2,13.1,33.68,421.77,52.97,35.13,1-2 times a month,Pollen,Yes,"Yes, often",Rarely,0.36,Medium
+112,40.95,15.53,18.05,388.09,50.4,25.86,Frequently (Weekly),Dust,No,Occasionally,Occasionally,0.48,Medium
+123,63.44,15.61,27.0,448.89,47.66,22.64,1-2 times a month,"Dust,Pollen",Yes,Occasionally,Never,0.36,Medium
+40,59.86,8.39,37.19,440.42,67.05,30.24,1-2 times a month,"Dust,Pollen",Hot and humid weather,No,Rarely,0.36,Medium
+61,45.86,12.94,31.68,409.61,55.01,20.44,Frequently (Weekly),Pollen,Yes,No,Never,0.48,Medium
+34,59.99,9.62,33.55,435.46,49.87,30.44,1-2 times a month,"Smoke,Cold",Yes,No,Never,0.24,Low
+81,57.91,9.6,18.65,377.34,61.3,18.61,Less than once a month,Dust,Hot and humid weather,Occasionally,Never,0.24,Low
+66,54.15,12.28,22.72,339.56,50.43,22.8,1-2 times a month,"Smoke,Cold",Yes,No,Never,0.24,Low
+93,17.34,12.1,35.92,369.23,48.57,23.57,Frequently (Weekly),"Dust,Pollen",No,Occasionally,Never,0.48,Medium
+101,36.99,7.31,27.89,407.57,77.98,21.21,Less than once a month,Pollen,Cold weather,"Yes, often",Never,0.36,Medium
+102,31.55,12.86,22.2,394.32,44.81,21.27,Less than once a month,"Dust,Pollen",Cold weather,No,Rarely,0.12,Low
+46,56.04,11.55,32.15,428.93,71.64,21.76,1-2 times a month,Dust,Yes,"Yes, often",Occasionally,0.48,Medium
+83,36.57,16.14,24.55,356.9,48.1,20.7,1-2 times a month,Dust,No,"Yes, often",Occasionally,0.36,Medium
+42,63.12,15.27,43.94,354.31,59.64,21.22,1-2 times a month,"Smoke,Cold",No,Occasionally,Occasionally,0.36,Medium
+131,40.14,9.42,31.84,419.89,55.59,31.22,Daily,Dust,No,Occasionally,Never,0.84,High
+75,36.27,16.31,23.29,355.46,61.67,26.8,1-2 times a month,Dust,Cold weather,"Yes, often",Occasionally,0.36,Medium
+51,34.9,14.16,32.53,395.06,43.59,23.89,Less than once a month,Pollen,Hot and humid weather,No,Never,0.24,Low
+70,36.78,11.52,37.26,403.46,43.58,28.32,1-2 times a month,Dust,Hot and humid weather,Occasionally,Occasionally,0.24,Low
+90,41.43,10.29,28.02,382.68,60.94,22.96,Frequently (Weekly),"Smoke,Cold",Yes,Occasionally,Never,0.48,Medium
+104,40.77,8.57,24.1,421.86,40.62,20.34,Daily,"Smoke,Cold",No,Occasionally,Rarely,0.72,High
+117,32.82,8.32,28.54,338.16,45.01,15.6,1-2 times a month,Pollen,No,No,Rarely,0.24,Low
+89,35.83,6.47,23.75,455.49,52.34,28.88,Frequently (Weekly),Pollen,Yes,No,Rarely,0.36,Medium
+74,64.27,11.99,27.52,384.12,43.51,13.3,1-2 times a month,Smoke,Yes,No,Never,0.24,Low
+102,62.59,5.53,19.49,392.16,44.78,16.17,1-2 times a month,Dust,Yes,No,Occasionally,0.36,Medium
+106,34.07,9.69,32.7,482.34,52.05,25.8,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.6,High
+89,51.81,14.23,20.64,361.81,37.65,23.73,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+103,29.57,16.49,30.85,364.77,44.66,31.36,1-2 times a month,Pollen,Yes,Occasionally,Occasionally,0.36,Medium
+71,36.48,8.93,24.83,441.86,64.76,21.12,1-2 times a month,Smoke,Yes,"Yes, often",Frequently,0.6,High
+90,27.72,14.01,29.27,359.78,64.08,27.4,Frequently (Weekly),"Smoke,Cold",No,No,Never,0.36,Medium
+34,52.45,10.74,24.22,414.59,74.48,22.84,Frequently (Weekly),"Dust,Pollen",No,Occasionally,Occasionally,0.6,High
+122,45.28,10.35,29.37,386.15,59.79,26.85,Less than once a month,"Dust,Pollen",No,"Yes, often",Never,0.48,Medium
+73,47.17,12.91,31.19,352.56,64.86,25.12,Less than once a month,Pollen,Cold weather,No,Occasionally,0.24,Low
+121,49.35,9.93,26.12,417.49,51.12,26.62,Less than once a month,"Smoke,Cold",No,No,Never,0.24,Low
+68,30.28,11.54,17.65,413.96,53.66,25.0,Frequently (Weekly),"Smoke,Cold",Hot and humid weather,"Yes, often",Never,0.72,High
+90,35.32,12.43,29.1,395.21,59.81,25.1,Frequently (Weekly),"Smoke,Cold",Cold weather,No,Never,0.48,Medium
+87,46.78,15.4,30.85,464.24,39.77,19.0,1-2 times a month,Dust,Yes,No,Rarely,0.24,Low
+67,37.76,16.3,20.57,377.78,58.1,24.99,Less than once a month,Smoke,No,No,Never,0.12,Low
+96,39.44,10.19,22.96,426.18,51.53,26.72,Less than once a month,Smoke,No,No,Never,0.12,Low
+122,31.29,10.95,25.11,405.84,51.03,23.5,Less than once a month,Dust,No,No,Rarely,0.12,Low
+130,58.43,14.2,14.18,428.08,64.14,23.83,Daily,"Smoke,Cold",Yes,No,Never,0.84,High
+101,50.24,10.95,32.08,383.03,43.08,14.67,Less than once a month,Dust,Cold weather,No,Never,0.24,Low
+55,56.29,13.81,24.83,356.9,55.32,31.96,Less than once a month,Dust,Yes,No,Never,0.12,Low
+48,48.58,14.9,29.75,380.23,59.36,17.3,Daily,Pollen,Cold weather,No,Never,0.6,High
+114,28.03,15.42,22.93,400.21,50.17,21.1,1-2 times a month,Pollen,Hot and humid weather,Occasionally,Occasionally,0.36,Medium
+57,33.34,12.08,40.17,421.29,55.07,19.85,1-2 times a month,"Smoke,Cold",No,No,Rarely,0.36,Medium
+102,33.87,8.1,19.21,401.1,55.26,24.48,Frequently (Weekly),Pollen,Yes,Occasionally,Never,0.48,Medium
+89,36.11,11.84,25.19,406.79,62.02,25.81,1-2 times a month,Pollen,No,"Yes, often",Occasionally,0.48,Medium
+115,53.46,10.83,34.41,451.24,53.98,27.64,Less than once a month,Smoke,Yes,No,Never,0.24,Low
+99,22.25,14.55,20.67,396.78,45.41,27.66,Less than once a month,Dust,Yes,Occasionally,Never,0.12,Low
+89,33.64,16.14,29.14,384.17,49.13,32.24,Less than once a month,"Dust,Pollen",Cold weather,No,Frequently,0.36,Medium
+135,34.09,16.82,31.87,415.45,51.78,22.18,1-2 times a month,"Dust,Pollen",No,"Yes, often",Rarely,0.48,Medium
+107,22.76,14.82,20.22,348.18,48.3,21.07,1-2 times a month,Pollen,No,No,Rarely,0.24,Low
+100,42.8,9.47,24.15,345.7,56.98,23.0,1-2 times a month,"Smoke,Cold",Cold weather,No,Never,0.36,Medium
+69,35.46,16.25,28.39,392.39,55.01,17.3,1-2 times a month,Smoke,Yes,No,Rarely,0.12,Low
+59,52.86,13.05,29.77,369.15,56.28,21.99,Daily,Smoke,No,Occasionally,Rarely,0.72,High
+78,37.35,9.4,23.67,378.32,46.92,16.14,Less than once a month,"Smoke,Cold",No,No,Never,0.12,Low
+48,43.71,14.94,38.42,436.72,56.24,19.2,Frequently (Weekly),Smoke,No,Occasionally,Frequently,0.6,High
+77,42.83,11.45,30.21,413.15,66.2,15.5,Daily,Pollen,Cold weather,Occasionally,Never,0.72,High
+103,10.37,5.76,32.35,397.58,56.37,29.8,Daily,Dust,Cold weather,Occasionally,Rarely,0.84,High
+111,23.69,9.57,32.91,402.23,63.77,24.65,Less than once a month,"Dust,Pollen",No,No,Frequently,0.36,Medium
+76,45.24,12.15,18.4,391.5,55.72,33.26,Frequently (Weekly),"Smoke,Cold",No,"Yes, often",Occasionally,0.6,High
+163,44.75,12.18,26.81,426.77,49.12,29.2,1-2 times a month,Pollen,No,No,Rarely,0.36,Medium
+116,37.74,9.15,28.63,425.05,60.9,29.88,Less than once a month,Pollen,Hot and humid weather,Occasionally,Occasionally,0.36,Medium
+81,57.36,13.97,27.1,430.25,43.18,23.73,1-2 times a month,Smoke,Hot and humid weather,"Yes, often",Rarely,0.48,Medium
+116,46.45,13.66,30.24,429.17,49.89,26.48,Daily,"Dust,Pollen",Yes,No,Never,0.84,High
+69,58.27,7.87,16.17,402.59,53.71,19.41,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+88,10.33,19.5,29.4,377.17,59.88,21.51,Daily,"Smoke,Cold",Cold weather,No,Rarely,0.72,High
+77,61.24,8.0,25.73,392.23,65.54,24.07,Daily,"Smoke,Cold",Yes,Occasionally,Rarely,0.84,High
+58,32.93,10.85,15.7,403.67,62.42,14.75,Less than once a month,Smoke,Hot and humid weather,No,Occasionally,0.24,Low
+100,41.02,13.37,31.26,378.17,59.75,21.81,Frequently (Weekly),Dust,Cold weather,No,Occasionally,0.48,Medium
+83,56.23,11.35,22.03,449.45,61.72,27.65,1-2 times a month,Smoke,No,Occasionally,Rarely,0.36,Medium
+87,13.38,16.28,25.82,445.81,62.27,21.38,1-2 times a month,Dust,Hot and humid weather,No,Never,0.24,Low
+84,37.86,10.97,26.18,391.98,45.03,19.56,Frequently (Weekly),Smoke,Yes,No,Occasionally,0.36,Medium
+67,51.98,9.19,16.39,427.09,71.38,22.49,1-2 times a month,Dust,Cold weather,No,Rarely,0.24,Low
+124,33.97,14.1,18.18,416.58,62.56,27.8,Daily,Smoke,Yes,Occasionally,Never,0.84,High
+91,52.92,3.19,30.87,380.25,53.14,25.95,Frequently (Weekly),Pollen,No,No,Never,0.48,Medium
+79,48.35,13.63,24.44,418.21,58.28,23.28,1-2 times a month,"Dust,Pollen",No,No,Never,0.36,Medium
+49,42.77,15.68,25.11,382.63,44.8,24.5,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,"Yes, often",Occasionally,0.6,High
+120,48.65,5.44,28.34,376.26,52.08,27.93,1-2 times a month,"Smoke,Cold",Yes,No,Frequently,0.48,Medium
+107,56.73,11.01,17.71,413.2,51.34,30.54,Daily,Dust,No,No,Rarely,0.84,High
+88,48.74,6.82,25.72,413.21,51.8,21.58,1-2 times a month,Dust,Yes,No,Occasionally,0.24,Low
+53,50.79,11.88,27.78,481.71,61.17,23.5,Less than once a month,Pollen,No,No,Rarely,0.24,Low
+126,28.8,18.53,37.76,397.13,56.55,29.82,1-2 times a month,Dust,Hot and humid weather,"Yes, often",Never,0.36,Medium
+76,45.62,12.13,22.41,385.02,44.56,27.33,Less than once a month,Dust,Yes,No,Never,0.12,Low
+68,45.64,11.12,32.45,423.75,44.11,17.49,1-2 times a month,Smoke,Hot and humid weather,No,Occasionally,0.36,Medium
+84,53.39,3.0,27.4,398.68,39.77,19.76,Less than once a month,Smoke,Cold weather,Occasionally,Occasionally,0.24,Low
+97,25.93,8.96,20.74,382.17,60.53,20.37,Frequently (Weekly),Dust,Cold weather,No,Never,0.48,Medium
+83,53.47,11.9,23.67,375.34,52.05,22.16,Less than once a month,Pollen,Hot and humid weather,No,Rarely,0.24,Low
+16,30.07,12.19,33.41,391.3,60.5,25.7,1-2 times a month,Smoke,No,"Yes, often",Never,0.36,Medium
+94,68.01,13.09,32.9,433.21,79.89,33.22,Less than once a month,Dust,No,No,Never,0.12,Low
+110,29.75,14.63,25.4,412.01,48.29,23.78,Less than once a month,"Smoke,Cold",Cold weather,No,Never,0.24,Low
+63,26.99,9.52,30.26,374.06,56.8,26.61,1-2 times a month,Dust,Cold weather,"Yes, often",Never,0.36,Medium
+120,35.56,12.72,21.87,458.37,67.6,30.1,Less than once a month,Dust,No,No,Rarely,0.12,Low
+107,53.7,10.59,26.99,372.62,49.88,30.62,1-2 times a month,Dust,Cold weather,No,Never,0.36,Medium
+96,43.53,9.62,25.83,376.46,51.99,30.23,1-2 times a month,Dust,Cold weather,"Yes, often",Rarely,0.36,Medium
+61,61.88,9.41,32.33,434.09,59.91,20.51,1-2 times a month,"Smoke,Cold",Cold weather,Occasionally,Occasionally,0.48,Medium
+94,36.59,13.59,30.74,444.1,76.05,17.72,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Occasionally,0.6,High
+97,34.2,4.51,24.13,408.1,57.73,20.95,1-2 times a month,"Dust,Pollen",Cold weather,Occasionally,Rarely,0.36,Medium
+80,29.04,6.6,25.61,360.61,50.42,25.17,Less than once a month,Pollen,Cold weather,No,Occasionally,0.12,Low
+113,34.47,21.32,27.16,399.49,48.97,20.63,Less than once a month,Smoke,Yes,Occasionally,Occasionally,0.24,Low
+78,23.35,9.76,26.34,357.99,51.32,15.43,Less than once a month,"Smoke,Cold",Cold weather,No,Rarely,0.24,Low
+80,32.42,16.43,24.96,472.99,40.18,17.39,1-2 times a month,"Dust,Pollen",No,No,Never,0.24,Low
+73,25.36,11.24,25.05,409.31,55.43,38.57,Frequently (Weekly),Dust,No,Occasionally,Never,0.48,Medium
+75,49.38,10.22,36.18,428.59,56.09,22.89,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Rarely,0.48,Medium
+84,58.75,13.68,24.85,389.67,57.05,33.0,Frequently (Weekly),Pollen,Hot and humid weather,No,Occasionally,0.48,Medium
+81,43.24,12.07,29.35,454.48,43.78,22.84,Daily,Pollen,Cold weather,No,Occasionally,0.84,High
+81,33.49,11.23,42.55,385.63,58.49,28.21,1-2 times a month,Smoke,No,Occasionally,Never,0.24,Low
+111,48.07,12.1,23.27,371.65,46.29,22.91,Less than once a month,"Smoke,Cold",No,Occasionally,Never,0.24,Low
+125,38.82,13.32,29.16,411.25,52.88,24.46,Frequently (Weekly),Dust,Yes,"Yes, often",Rarely,0.6,High
+49,52.67,9.95,29.48,427.62,49.79,28.11,Daily,"Dust,Pollen",No,"Yes, often",Never,0.96,High
+121,29.45,10.44,28.18,463.73,64.49,22.78,Frequently (Weekly),Dust,Hot and humid weather,No,Never,0.48,Medium
+105,30.11,9.38,27.15,449.49,49.6,18.24,Frequently (Weekly),Pollen,No,Occasionally,Frequently,0.6,High
+64,47.17,8.65,22.8,436.84,65.14,19.94,1-2 times a month,"Smoke,Cold",No,"Yes, often",Rarely,0.48,Medium
+77,38.31,17.52,30.11,380.43,57.02,21.02,Frequently (Weekly),Smoke,Yes,No,Never,0.36,Medium
+93,50.9,9.69,16.97,381.79,59.28,24.38,Frequently (Weekly),Dust,Hot and humid weather,"Yes, often",Never,0.6,High
+41,27.55,14.94,38.44,371.39,56.5,14.66,Less than once a month,Smoke,Yes,"Yes, often",Frequently,0.36,Medium
+85,45.52,10.99,38.15,399.41,48.42,25.74,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Occasionally,0.48,Medium
+99,46.47,13.45,26.27,337.79,58.26,30.8,Less than once a month,Smoke,No,No,Never,0.12,Low
+67,20.46,11.88,35.28,442.95,52.46,21.5,1-2 times a month,Dust,Yes,"Yes, often",Rarely,0.48,Medium
+48,39.3,6.44,25.22,369.77,58.29,22.11,Frequently (Weekly),Pollen,Cold weather,Occasionally,Never,0.48,Medium
+91,15.94,12.29,28.4,362.67,59.12,33.55,Less than once a month,"Smoke,Cold",No,Occasionally,Frequently,0.36,Medium
+140,55.85,13.93,24.65,390.91,70.51,32.1,1-2 times a month,Smoke,No,No,Occasionally,0.36,Medium
+66,23.46,8.82,32.16,354.29,59.29,25.41,Daily,"Dust,Pollen",Hot and humid weather,No,Rarely,0.72,High
+72,37.42,19.14,24.4,424.2,62.11,19.77,Daily,"Dust,Pollen",Hot and humid weather,Occasionally,Never,0.84,High
+76,39.58,14.97,32.88,377.79,61.01,26.14,Less than once a month,Dust,Hot and humid weather,Occasionally,Never,0.24,Low
+120,28.13,14.26,28.95,414.55,53.77,18.49,1-2 times a month,Smoke,Hot and humid weather,No,Never,0.36,Medium
+46,63.82,14.57,29.2,424.66,60.1,16.57,1-2 times a month,Pollen,No,No,Rarely,0.24,Low
+101,32.84,5.0,18.29,381.79,52.92,26.31,Frequently (Weekly),Dust,No,No,Never,0.48,Medium
+68,35.99,14.53,28.18,381.4,52.17,21.16,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.48,Medium
+78,30.48,18.7,21.24,374.97,47.85,14.64,Less than once a month,"Dust,Pollen",Cold weather,No,Rarely,0.12,Low
+63,31.13,14.83,28.7,358.73,60.43,27.19,Less than once a month,Dust,Cold weather,No,Never,0.12,Low
+76,40.16,10.89,39.76,388.54,50.97,31.33,1-2 times a month,Pollen,No,No,Never,0.12,Low
+56,45.88,8.71,19.09,404.7,59.1,27.43,Frequently (Weekly),Dust,Yes,No,Never,0.36,Medium
+68,42.02,7.85,26.52,360.05,55.0,21.83,Less than once a month,Dust,Yes,Occasionally,Never,0.12,Low
+22,30.53,7.72,23.26,382.76,52.64,13.89,1-2 times a month,Pollen,Hot and humid weather,Occasionally,Never,0.24,Low
+46,41.36,10.73,20.55,409.55,47.38,24.48,Less than once a month,"Dust,Pollen",Yes,Occasionally,Never,0.12,Low
+92,24.77,8.88,22.31,400.41,65.76,20.37,Daily,Dust,Hot and humid weather,Occasionally,Rarely,0.72,High
+119,52.44,11.92,37.52,325.14,52.18,19.7,1-2 times a month,Dust,Cold weather,No,Never,0.36,Medium
+168,35.36,12.4,38.85,418.55,67.46,15.05,Less than once a month,"Dust,Pollen",Cold weather,Occasionally,Occasionally,0.48,Medium
+111,31.77,6.97,22.05,440.53,48.44,32.7,Frequently (Weekly),Smoke,Yes,Occasionally,Never,0.6,High
+71,17.38,9.3,30.27,382.39,68.7,18.71,Less than once a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+35,34.76,10.57,22.46,354.07,55.18,15.54,1-2 times a month,Dust,Hot and humid weather,"Yes, often",Never,0.48,Medium
+98,62.21,10.57,23.77,379.01,60.98,32.78,Frequently (Weekly),"Dust,Pollen",Yes,Occasionally,Never,0.48,Medium
+50,47.61,12.37,14.75,375.9,43.67,24.32,Less than once a month,Pollen,No,Occasionally,Rarely,0.12,Low
+68,52.51,12.69,41.18,432.4,44.76,23.65,Daily,Smoke,Hot and humid weather,No,Rarely,0.84,High
+113,40.19,10.7,35.1,367.81,55.03,26.45,Less than once a month,Dust,Cold weather,Occasionally,Frequently,0.36,Medium
+91,10.75,10.07,23.4,386.8,46.48,26.58,Less than once a month,Dust,Yes,Occasionally,Occasionally,0.12,Low
+62,42.87,11.91,29.02,451.67,64.86,24.29,Less than once a month,"Dust,Pollen",Yes,Occasionally,Never,0.24,Low
+45,41.88,16.31,25.81,406.81,57.87,16.42,Less than once a month,Dust,No,No,Never,0.24,Low
+92,50.77,7.41,33.88,408.99,49.8,16.12,1-2 times a month,Dust,Cold weather,Occasionally,Occasionally,0.36,Medium
+98,41.2,15.48,26.39,398.58,47.92,20.87,1-2 times a month,Smoke,Cold weather,No,Occasionally,0.24,Low
+122,31.66,7.22,27.68,429.57,53.18,21.49,Less than once a month,Smoke,Yes,Occasionally,Rarely,0.24,Low
+22,38.59,13.38,23.39,416.1,51.37,22.21,Daily,Smoke,No,Occasionally,Never,0.72,High
+91,34.98,15.27,31.57,459.93,58.68,25.16,Daily,Smoke,Cold weather,No,Never,0.72,High
+109,45.27,8.29,40.66,455.72,53.85,22.72,1-2 times a month,Smoke,Hot and humid weather,"Yes, often",Frequently,0.72,High
+76,39.98,12.83,25.74,414.7,65.03,20.55,Daily,Pollen,Cold weather,Occasionally,Never,0.72,High
+45,27.68,9.29,25.97,402.57,58.73,25.76,Less than once a month,"Smoke,Cold",Cold weather,No,Rarely,0.12,Low
+64,46.31,15.44,28.71,402.35,48.67,27.5,1-2 times a month,Smoke,Yes,Occasionally,Never,0.24,Low
+84,31.87,6.59,30.22,377.37,51.71,20.11,Frequently (Weekly),Smoke,Hot and humid weather,No,Occasionally,0.48,Medium
+72,36.3,9.21,26.16,407.63,48.44,17.47,1-2 times a month,Dust,Yes,"Yes, often",Never,0.36,Medium
+86,34.9,12.57,24.35,357.36,48.38,26.27,Less than once a month,"Smoke,Cold",Cold weather,No,Occasionally,0.24,Low
+115,42.46,14.16,28.73,377.27,40.75,21.23,Less than once a month,Dust,Hot and humid weather,No,Never,0.24,Low
+77,23.11,11.7,17.72,424.54,62.67,28.47,Daily,Smoke,Cold weather,Occasionally,Rarely,0.84,High
+116,39.5,13.55,24.16,419.7,64.45,19.81,Less than once a month,Pollen,Cold weather,No,Occasionally,0.24,Low
+80,53.82,10.39,16.49,390.09,46.58,17.58,1-2 times a month,Smoke,Yes,Occasionally,Frequently,0.36,Medium
+97,41.25,8.44,24.47,412.95,47.72,21.18,1-2 times a month,Pollen,Yes,No,Rarely,0.24,Low
+82,32.34,16.56,22.81,445.36,60.03,26.42,Less than once a month,"Dust,Pollen",No,"Yes, often",Never,0.36,Medium
+98,34.39,13.46,31.91,392.92,49.29,21.98,Frequently (Weekly),Dust,Cold weather,No,Frequently,0.6,High
+101,44.38,9.95,22.71,359.43,64.92,23.19,1-2 times a month,Pollen,Cold weather,No,Never,0.24,Low
+102,47.1,7.25,25.59,421.27,49.33,21.48,Frequently (Weekly),"Dust,Pollen",Cold weather,Occasionally,Never,0.6,High
+90,58.92,15.72,15.2,414.76,38.31,29.01,Daily,Dust,Hot and humid weather,Occasionally,Rarely,0.84,High
+17,20.91,16.25,34.31,424.8,54.92,26.79,Daily,Dust,Yes,Occasionally,Frequently,0.84,High
+97,43.5,11.09,22.1,362.63,50.14,15.66,Frequently (Weekly),Pollen,Yes,No,Never,0.48,Medium
+40,40.04,9.95,25.8,354.67,56.56,28.93,1-2 times a month,"Smoke,Cold",Yes,"Yes, often",Rarely,0.36,Medium
+71,40.56,11.54,32.53,409.67,52.78,27.37,Daily,Dust,Hot and humid weather,No,Occasionally,0.72,High
+29,42.68,11.09,33.03,406.1,60.36,29.58,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.24,Low
+130,38.49,14.62,22.3,390.23,58.22,22.5,1-2 times a month,Smoke,No,Occasionally,Occasionally,0.36,Medium
+100,27.93,8.9,30.55,447.34,58.63,19.92,Less than once a month,Dust,Cold weather,No,Rarely,0.12,Low
+76,40.63,10.34,20.74,398.61,55.39,23.34,1-2 times a month,Pollen,No,No,Frequently,0.36,Medium
+120,47.69,11.4,28.4,433.82,54.09,24.22,Less than once a month,"Dust,Pollen",No,No,Never,0.12,Low
+98,37.63,12.58,22.92,423.63,44.21,29.58,Daily,Dust,No,No,Rarely,0.72,High
+88,54.04,14.38,22.03,363.93,58.48,26.89,Less than once a month,"Dust,Pollen",No,No,Never,0.12,Low
+91,36.53,13.03,26.94,378.21,60.67,23.83,Daily,Smoke,Cold weather,No,Rarely,0.72,High
+76,44.28,16.39,23.92,363.5,57.44,23.61,Less than once a month,"Smoke,Cold",No,Occasionally,Rarely,0.12,Low
+56,21.81,8.86,39.83,416.15,53.04,23.42,1-2 times a month,"Smoke,Cold",Yes,No,Never,0.36,Medium
+107,66.86,16.18,24.26,405.62,59.0,22.14,1-2 times a month,Pollen,Cold weather,No,Rarely,0.36,Medium
+81,37.89,8.84,20.15,439.91,56.86,27.86,Frequently (Weekly),Smoke,Cold weather,No,Rarely,0.48,Medium
+41,34.01,10.87,22.55,422.74,59.44,17.44,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Frequently,0.72,High
+100,38.2,12.72,28.9,358.99,55.2,23.92,Less than once a month,Pollen,Yes,Occasionally,Never,0.24,Low
+83,28.13,15.89,28.43,392.18,43.89,28.86,Less than once a month,Dust,Yes,Occasionally,Occasionally,0.12,Low
+133,24.09,11.09,28.53,337.06,54.6,18.99,Frequently (Weekly),"Smoke,Cold",Yes,"Yes, often",Never,0.6,High
+88,39.18,13.59,34.2,414.17,47.54,34.48,Less than once a month,Pollen,Yes,No,Rarely,0.12,Low
+54,41.89,10.89,18.3,480.58,51.26,18.95,Frequently (Weekly),Dust,Cold weather,Occasionally,Frequently,0.6,High
+43,41.9,5.18,33.8,402.63,55.79,21.13,Less than once a month,"Dust,Pollen",Yes,Occasionally,Frequently,0.48,Medium
+119,41.13,12.13,22.86,401.23,62.36,28.47,Less than once a month,Smoke,No,No,Never,0.12,Low
+86,37.6,8.24,30.46,402.61,59.33,31.82,Frequently (Weekly),Dust,Hot and humid weather,No,Never,0.48,Medium
+62,26.78,15.64,39.31,411.44,55.88,25.76,1-2 times a month,Dust,Cold weather,"Yes, often",Never,0.48,Medium
+66,33.63,15.87,23.66,401.36,64.64,26.28,Frequently (Weekly),Dust,Yes,No,Rarely,0.48,Medium
+115,43.5,9.43,22.69,417.08,54.67,32.61,1-2 times a month,"Smoke,Cold",No,Occasionally,Occasionally,0.48,Medium
+96,34.14,8.71,22.75,380.84,57.7,17.71,Less than once a month,"Smoke,Cold",Yes,No,Never,0.12,Low
+113,43.74,9.4,27.06,378.31,51.4,16.08,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+89,39.17,13.32,36.14,360.94,46.76,14.26,Less than once a month,"Dust,Pollen",No,Occasionally,Never,0.12,Low
+60,39.76,12.9,21.56,398.16,59.92,19.9,Frequently (Weekly),Pollen,No,"Yes, often",Rarely,0.6,High
+133,42.43,21.96,24.53,364.29,43.45,19.84,1-2 times a month,Smoke,Yes,Occasionally,Never,0.24,Low
+75,43.57,11.5,34.27,444.7,48.1,25.33,1-2 times a month,Pollen,No,"Yes, often",Frequently,0.48,Medium
+107,49.94,11.72,31.98,387.71,56.28,29.2,Less than once a month,Smoke,Yes,Occasionally,Frequently,0.36,Medium
+111,63.47,17.93,24.99,336.21,49.57,28.27,Daily,Dust,Cold weather,No,Never,0.84,High
+87,53.44,13.23,27.15,358.4,54.15,28.52,Less than once a month,Dust,No,Occasionally,Never,0.12,Low
+63,21.51,8.26,33.55,403.11,55.43,19.29,1-2 times a month,Dust,Cold weather,No,Rarely,0.24,Low
+65,26.54,13.56,37.82,423.06,50.69,26.25,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+100,37.6,14.09,38.83,411.28,55.51,20.6,1-2 times a month,"Smoke,Cold",Cold weather,No,Rarely,0.36,Medium
+96,31.76,11.38,35.48,371.42,55.99,27.46,Less than once a month,"Smoke,Cold",No,Occasionally,Frequently,0.36,Medium
+123,45.19,14.47,23.36,377.54,46.0,24.33,1-2 times a month,"Dust,Pollen",Yes,Occasionally,Never,0.36,Medium
+113,45.29,13.98,38.36,382.81,59.67,28.58,1-2 times a month,Dust,Hot and humid weather,No,Occasionally,0.36,Medium
+63,32.81,9.75,24.73,412.04,39.55,35.88,1-2 times a month,Pollen,Hot and humid weather,No,Occasionally,0.36,Medium
+114,53.46,16.32,18.47,405.77,70.14,24.36,1-2 times a month,Pollen,Cold weather,"Yes, often",Occasionally,0.6,High
+60,55.63,9.85,29.11,388.29,59.82,19.4,Daily,Pollen,Hot and humid weather,No,Rarely,0.84,High
+99,20.73,13.77,37.53,385.12,62.56,16.22,Less than once a month,Dust,Yes,"Yes, often",Frequently,0.36,Medium
+149,21.62,9.77,31.35,382.42,59.74,19.76,Frequently (Weekly),Smoke,No,Occasionally,Never,0.48,Medium
+94,52.81,6.9,26.33,403.07,55.36,29.23,Less than once a month,Dust,No,No,Never,0.12,Low
+39,51.27,12.94,29.71,444.42,48.92,26.54,1-2 times a month,"Dust,Pollen",Yes,No,Rarely,0.36,Medium
+81,46.04,17.91,31.73,401.59,54.94,24.95,1-2 times a month,Smoke,Hot and humid weather,"Yes, often",Never,0.48,Medium
+144,39.42,11.86,28.77,390.3,61.13,25.6,1-2 times a month,Pollen,No,Occasionally,Never,0.24,Low
+84,38.58,7.41,25.41,387.44,48.09,27.5,1-2 times a month,Smoke,Cold weather,Occasionally,Never,0.36,Medium
+120,45.71,12.86,23.01,447.87,56.49,17.11,Less than once a month,Dust,No,No,Occasionally,0.24,Low
+60,41.81,9.34,27.97,425.53,40.28,28.89,Less than once a month,Dust,No,Occasionally,Occasionally,0.12,Low
+77,56.16,15.16,26.9,425.85,47.84,26.76,Frequently (Weekly),Pollen,Yes,Occasionally,Never,0.6,High
+79,30.58,11.55,27.33,423.57,47.45,16.31,Less than once a month,"Dust,Pollen",Yes,Occasionally,Occasionally,0.24,Low
+134,41.51,6.46,34.36,405.02,67.93,25.75,1-2 times a month,Dust,Cold weather,"Yes, often",Frequently,0.6,High
+76,50.77,13.42,26.19,435.32,44.03,17.85,Less than once a month,Smoke,Cold weather,No,Never,0.24,Low
+37,41.27,12.46,27.13,355.68,57.97,26.94,Frequently (Weekly),Dust,No,Occasionally,Occasionally,0.48,Medium
+150,47.7,11.24,28.55,450.78,69.01,24.06,Daily,Dust,Cold weather,No,Never,0.84,High
+91,49.3,8.99,43.91,426.04,63.78,18.35,1-2 times a month,Dust,Hot and humid weather,Occasionally,Never,0.36,Medium
+100,35.88,17.21,21.43,412.72,67.41,26.38,Frequently (Weekly),Smoke,Cold weather,No,Never,0.48,Medium
+42,28.04,10.75,34.79,379.36,69.85,27.77,Less than once a month,Smoke,Yes,"Yes, often",Never,0.36,Medium
+91,30.31,13.85,26.53,419.07,55.36,21.45,Daily,"Dust,Pollen",No,No,Rarely,0.84,High
+87,27.68,10.86,28.02,431.34,59.18,28.63,Daily,Dust,No,Occasionally,Never,0.72,High
+61,17.75,14.31,20.63,382.08,56.82,22.28,Daily,Dust,No,No,Never,0.72,High
+102,55.2,12.01,39.61,378.25,59.22,28.11,Frequently (Weekly),Smoke,Yes,No,Frequently,0.72,High
+43,17.32,11.87,29.51,368.39,57.78,22.51,1-2 times a month,Dust,No,No,Never,0.12,Low
+62,64.36,9.5,31.55,413.67,68.5,30.27,1-2 times a month,Dust,Hot and humid weather,Occasionally,Never,0.36,Medium
+117,33.9,13.31,19.52,393.8,56.69,20.5,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+69,35.42,15.99,23.73,456.19,47.7,18.95,Daily,"Dust,Pollen",Hot and humid weather,Occasionally,Never,0.84,High
+72,25.78,8.99,30.3,352.89,59.77,20.68,Frequently (Weekly),Smoke,Hot and humid weather,No,Rarely,0.48,Medium
+87,42.88,9.75,26.52,375.28,59.34,25.3,Frequently (Weekly),Dust,Cold weather,Occasionally,Occasionally,0.6,High
+76,34.5,20.93,30.15,401.1,48.84,23.63,Less than once a month,Smoke,No,Occasionally,Occasionally,0.24,Low
+104,38.24,9.86,40.43,417.45,48.27,25.13,Less than once a month,"Dust,Pollen",Yes,"Yes, often",Occasionally,0.36,Medium
+92,33.84,10.71,30.89,414.31,63.97,18.06,Less than once a month,Pollen,No,"Yes, often",Occasionally,0.36,Medium
+46,48.32,16.37,24.82,401.41,51.48,20.69,Less than once a month,Dust,Yes,Occasionally,Never,0.24,Low
+66,30.29,16.45,24.11,406.58,52.58,30.61,Less than once a month,Smoke,Hot and humid weather,"Yes, often",Never,0.36,Medium
+62,41.47,4.74,23.5,401.25,50.41,25.73,1-2 times a month,Smoke,Yes,No,Rarely,0.24,Low
+70,45.84,14.45,25.11,431.87,57.86,27.35,1-2 times a month,Dust,No,No,Rarely,0.24,Low
+85,55.29,11.47,27.06,380.7,63.67,22.54,Less than once a month,Smoke,Yes,"Yes, often",Rarely,0.24,Low
+90,51.42,11.87,28.91,390.57,59.8,25.42,1-2 times a month,Pollen,Yes,Occasionally,Never,0.24,Low
+24,42.67,15.41,31.24,417.55,49.43,21.52,Frequently (Weekly),"Dust,Pollen",Cold weather,No,Never,0.48,Medium
+112,38.43,10.86,30.21,445.36,66.76,15.3,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.36,Medium
+80,44.15,10.82,28.88,383.52,61.73,28.46,Less than once a month,Dust,No,No,Frequently,0.24,Low
+57,49.11,10.9,29.35,409.31,62.84,25.24,Less than once a month,Smoke,Yes,No,Rarely,0.12,Low
+111,30.81,10.67,43.21,390.2,62.94,20.52,Frequently (Weekly),Pollen,Cold weather,No,Never,0.48,Medium
+30,50.02,12.82,24.52,414.73,52.37,22.87,Less than once a month,Pollen,Cold weather,No,Rarely,0.24,Low
+44,28.62,16.19,26.76,352.51,47.46,22.1,Less than once a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+135,44.84,14.08,17.06,392.0,52.28,31.99,Frequently (Weekly),Smoke,No,Occasionally,Frequently,0.6,High
+86,47.77,11.7,26.13,384.1,63.7,27.16,Less than once a month,"Dust,Pollen",Yes,Occasionally,Rarely,0.12,Low
+70,31.91,13.83,22.07,389.63,45.34,18.5,Less than once a month,Dust,Yes,"Yes, often",Occasionally,0.24,Low
+89,20.66,14.39,22.69,325.56,43.81,17.72,Daily,"Dust,Pollen",Cold weather,No,Never,0.72,High
+86,36.79,14.07,20.57,460.51,38.74,26.37,1-2 times a month,Pollen,Cold weather,Occasionally,Rarely,0.36,Medium
+84,8.83,10.19,20.51,326.39,46.02,24.92,Frequently (Weekly),Dust,No,No,Occasionally,0.36,Medium
+101,37.64,13.63,28.21,414.51,48.88,26.64,1-2 times a month,Dust,No,Occasionally,Rarely,0.36,Medium
+78,25.83,5.73,32.05,356.65,56.43,23.83,Less than once a month,Dust,Hot and humid weather,Occasionally,Rarely,0.24,Low
+93,77.03,16.35,23.62,360.91,45.4,21.57,1-2 times a month,Pollen,Cold weather,Occasionally,Never,0.36,Medium
+88,52.02,16.39,15.49,410.38,60.84,27.58,1-2 times a month,Pollen,Hot and humid weather,No,Rarely,0.36,Medium
+62,39.23,14.73,28.4,414.93,54.89,26.67,Less than once a month,"Smoke,Cold",Hot and humid weather,No,Occasionally,0.24,Low
+61,55.98,15.88,30.43,372.39,38.79,30.5,Less than once a month,"Smoke,Cold",Yes,No,Rarely,0.24,Low
+118,49.95,11.66,31.7,368.63,54.94,27.36,Daily,"Dust,Pollen",Yes,No,Rarely,0.84,High
+98,25.89,10.35,21.17,361.26,57.04,20.98,Less than once a month,Smoke,Hot and humid weather,No,Never,0.24,Low
+107,31.89,8.52,24.21,401.4,70.85,25.31,Daily,"Dust,Pollen",Cold weather,No,Rarely,0.84,High
+85,51.44,14.4,21.98,368.58,56.44,23.05,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.48,Medium
+88,26.4,9.71,24.51,436.42,41.33,19.19,Less than once a month,Smoke,Yes,Occasionally,Never,0.12,Low
+80,46.16,10.57,24.01,368.95,56.54,15.31,Less than once a month,Pollen,Hot and humid weather,Occasionally,Occasionally,0.24,Low
+109,48.68,13.24,25.02,414.25,55.75,34.34,Less than once a month,Dust,No,No,Never,0.24,Low
+77,37.8,11.22,27.49,445.51,60.28,21.73,Daily,Dust,No,Occasionally,Never,0.72,High
+57,42.13,12.92,30.07,402.8,76.25,24.02,Frequently (Weekly),Smoke,Hot and humid weather,Occasionally,Rarely,0.48,Medium
+98,49.02,6.61,23.04,344.36,49.75,24.8,Less than once a month,Dust,Hot and humid weather,No,Occasionally,0.24,Low
+78,49.03,11.54,26.57,414.88,49.37,23.65,Daily,"Dust,Pollen",Cold weather,Occasionally,Never,0.96,High
+94,44.78,14.57,23.35,391.72,59.35,12.13,Daily,"Smoke,Cold",Yes,No,Never,0.72,High
+98,39.34,11.33,16.75,393.11,69.92,23.85,Less than once a month,Dust,No,No,Occasionally,0.12,Low
+70,46.56,9.69,30.71,448.03,60.71,33.25,1-2 times a month,Pollen,Yes,No,Rarely,0.24,Low
+81,17.07,14.31,22.77,403.97,53.74,22.85,1-2 times a month,"Dust,Pollen",Cold weather,No,Never,0.36,Medium
+78,60.13,11.15,18.04,419.72,63.68,32.04,Frequently (Weekly),Dust,Cold weather,No,Occasionally,0.6,High
+114,37.36,12.61,29.97,381.8,69.26,24.82,Less than once a month,"Smoke,Cold",Yes,No,Never,0.12,Low
+81,30.98,11.79,27.09,395.04,48.53,22.08,Less than once a month,"Smoke,Cold",Yes,Occasionally,Never,0.12,Low
+91,47.45,11.9,31.8,435.17,46.45,24.8,Daily,Dust,Yes,No,Never,0.72,High
+56,45.68,16.27,31.55,401.21,55.08,24.19,1-2 times a month,Dust,No,No,Never,0.24,Low
+101,28.35,13.34,20.67,406.22,56.13,24.24,Frequently (Weekly),"Smoke,Cold",Yes,Occasionally,Never,0.6,High
+98,41.23,8.65,32.46,423.14,65.1,21.04,Less than once a month,"Smoke,Cold",Hot and humid weather,Occasionally,Never,0.24,Low
+63,40.35,11.12,16.62,448.26,51.78,17.19,Frequently (Weekly),Pollen,Hot and humid weather,Occasionally,Rarely,0.48,Medium
+131,40.42,10.58,26.14,367.28,59.44,27.7,Less than once a month,Dust,Hot and humid weather,No,Never,0.12,Low
+91,59.49,11.85,25.94,380.52,67.5,24.74,1-2 times a month,Smoke,Cold weather,"Yes, often",Never,0.48,Medium
+68,36.32,15.06,23.74,447.62,56.23,32.51,1-2 times a month,Dust,No,No,Never,0.24,Low
+83,37.29,11.48,35.67,459.47,49.11,24.24,Less than once a month,"Smoke,Cold",Cold weather,"Yes, often",Never,0.36,Medium
+77,33.55,12.66,31.22,389.45,60.92,15.87,1-2 times a month,"Dust,Pollen",Yes,"Yes, often",Never,0.36,Medium
+127,30.73,4.87,19.26,403.39,51.29,26.12,Less than once a month,Smoke,Yes,Occasionally,Occasionally,0.36,Medium
+105,41.28,15.98,19.95,415.52,56.52,24.53,1-2 times a month,Dust,No,No,Never,0.24,Low
+95,32.55,11.57,40.21,410.57,53.27,21.54,Frequently (Weekly),"Dust,Pollen",No,Occasionally,Rarely,0.48,Medium
+128,38.61,12.89,25.4,406.22,53.81,27.04,1-2 times a month,Dust,Yes,Occasionally,Never,0.36,Medium
+60,41.69,12.87,23.12,443.73,51.79,26.75,1-2 times a month,Dust,No,No,Rarely,0.24,Low
+107,37.52,9.73,35.43,345.35,49.73,18.06,1-2 times a month,Smoke,No,No,Occasionally,0.24,Low
+98,42.89,11.14,17.07,378.53,63.28,22.2,Less than once a month,Pollen,Cold weather,No,Never,0.24,Low
+78,42.44,9.6,36.7,417.2,56.1,29.1,1-2 times a month,"Dust,Pollen",No,No,Never,0.24,Low
+81,46.5,15.95,22.98,384.42,64.79,18.54,Less than once a month,"Smoke,Cold",No,No,Never,0.12,Low
+104,73.19,5.36,30.99,407.4,36.77,22.76,1-2 times a month,Pollen,Cold weather,No,Occasionally,0.48,Medium
+101,53.8,8.61,25.09,432.78,50.3,24.93,Frequently (Weekly),Pollen,Hot and humid weather,No,Never,0.6,High
+56,34.91,11.13,17.53,452.83,48.07,18.3,Frequently (Weekly),Pollen,No,"Yes, often",Never,0.6,High
+128,54.0,16.46,28.99,415.16,52.02,23.34,Less than once a month,Pollen,No,"Yes, often",Rarely,0.36,Medium
+113,25.08,14.38,34.02,441.08,45.86,22.75,Daily,"Dust,Pollen",Hot and humid weather,Occasionally,Never,0.84,High
+79,33.7,6.99,13.32,405.63,42.51,21.71,Daily,Smoke,Yes,No,Never,0.6,High
+66,49.11,11.83,22.21,391.52,60.7,15.71,Daily,"Smoke,Cold",Yes,No,Occasionally,0.72,High
+115,47.56,14.33,35.43,355.3,50.04,23.85,1-2 times a month,Smoke,No,Occasionally,Rarely,0.24,Low
+100,48.07,18.64,30.01,368.55,59.27,20.5,1-2 times a month,Dust,Hot and humid weather,No,Never,0.24,Low
+99,31.01,11.09,30.39,401.77,46.51,29.14,Daily,Dust,Yes,No,Never,0.84,High
+102,33.82,8.04,34.41,396.63,42.32,26.74,1-2 times a month,Pollen,Yes,No,Rarely,0.24,Low
+117,41.96,13.37,30.31,417.03,58.18,19.53,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+107,36.14,11.71,29.06,455.97,59.6,22.17,Less than once a month,Pollen,Hot and humid weather,No,Never,0.12,Low
+73,51.16,13.34,35.23,424.72,49.14,24.03,Less than once a month,Dust,Hot and humid weather,Occasionally,Occasionally,0.36,Medium
+65,35.61,13.76,25.99,420.78,47.66,21.35,1-2 times a month,"Smoke,Cold",Hot and humid weather,Occasionally,Frequently,0.48,Medium
+93,37.64,12.73,27.56,452.75,64.98,16.61,1-2 times a month,Dust,No,No,Never,0.24,Low
+140,21.12,14.08,33.46,384.9,53.9,25.8,Frequently (Weekly),Smoke,Cold weather,No,Never,0.48,Medium
+78,50.94,16.95,23.5,389.1,47.41,27.03,Less than once a month,Dust,No,No,Never,0.12,Low
+93,43.31,11.04,35.52,433.34,42.46,28.26,Frequently (Weekly),Pollen,No,"Yes, often",Never,0.6,High
+109,13.5,8.24,30.48,414.01,50.04,28.61,1-2 times a month,Pollen,Cold weather,"Yes, often",Never,0.48,Medium
+75,46.78,12.94,20.74,398.24,52.23,20.0,Less than once a month,Pollen,Cold weather,"Yes, often",Never,0.36,Medium
+106,37.11,8.37,26.73,399.6,60.92,27.73,Less than once a month,Pollen,Hot and humid weather,No,Frequently,0.24,Low
+84,48.66,8.69,19.87,390.96,53.52,18.94,Less than once a month,Smoke,Cold weather,No,Occasionally,0.12,Low
+117,39.72,9.6,28.2,399.55,53.18,25.33,Less than once a month,Smoke,No,No,Never,0.12,Low
+61,32.02,7.97,26.18,403.65,48.89,20.71,Less than once a month,Smoke,No,No,Never,0.12,Low
+145,60.46,15.42,22.15,389.1,67.44,25.56,Less than once a month,"Dust,Pollen",No,Occasionally,Rarely,0.24,Low
+79,60.55,12.19,16.97,416.55,64.89,16.52,Frequently (Weekly),"Smoke,Cold",No,Occasionally,Never,0.6,High
+98,37.96,14.11,23.98,424.28,62.49,25.91,Less than once a month,"Dust,Pollen",Hot and humid weather,No,Never,0.24,Low
+83,43.25,13.41,26.93,383.83,53.64,20.18,Less than once a month,Dust,No,Occasionally,Occasionally,0.24,Low
+59,33.64,11.22,25.13,424.08,59.28,27.4,Frequently (Weekly),"Smoke,Cold",Cold weather,No,Never,0.48,Medium
+106,17.79,15.01,19.53,363.96,34.19,25.58,1-2 times a month,"Smoke,Cold",No,No,Rarely,0.24,Low
+79,55.77,10.69,28.37,419.65,56.07,25.81,Daily,"Dust,Pollen",Yes,"Yes, often",Never,0.84,High
+97,30.23,11.79,21.14,421.14,70.65,24.67,Less than once a month,Smoke,Yes,"Yes, often",Never,0.36,Medium
+63,55.51,9.94,34.52,399.21,51.87,18.19,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.36,Medium
+79,50.0,15.58,35.49,404.02,47.03,32.06,Frequently (Weekly),"Dust,Pollen",Cold weather,Occasionally,Rarely,0.48,Medium
+75,43.43,12.39,26.53,391.83,53.87,23.55,Frequently (Weekly),"Smoke,Cold",Hot and humid weather,No,Rarely,0.48,Medium
+98,39.19,13.79,37.34,382.02,46.88,23.78,Less than once a month,Smoke,Cold weather,No,Rarely,0.12,Low
+94,48.18,10.13,27.17,399.81,47.69,29.94,1-2 times a month,Smoke,Cold weather,No,Never,0.24,Low
+82,26.61,14.52,20.73,390.4,57.65,19.6,1-2 times a month,Dust,Cold weather,No,Rarely,0.24,Low
+73,56.83,14.2,35.38,432.59,61.53,23.21,1-2 times a month,Pollen,No,Occasionally,Occasionally,0.36,Medium
+94,41.54,6.88,37.83,338.23,57.18,24.65,Daily,"Dust,Pollen",No,No,Never,0.72,High
+95,58.04,12.2,34.8,397.1,46.01,23.06,Daily,Dust,Yes,No,Rarely,0.72,High
+90,38.29,12.31,24.1,341.85,48.81,25.25,1-2 times a month,Smoke,Cold weather,"Yes, often",Occasionally,0.48,Medium
+134,41.86,11.07,20.01,372.54,55.75,20.7,1-2 times a month,"Dust,Pollen",Cold weather,No,Never,0.36,Medium
+102,41.59,15.4,26.43,387.46,60.18,24.29,1-2 times a month,Pollen,Hot and humid weather,No,Never,0.36,Medium
+139,46.91,8.28,43.55,448.19,53.16,25.16,1-2 times a month,Dust,No,No,Rarely,0.36,Medium
+85,61.01,10.33,21.11,432.22,48.31,30.15,Daily,"Dust,Pollen",No,No,Never,0.72,High
+79,34.79,9.3,33.28,403.4,63.11,32.66,Less than once a month,Dust,No,No,Occasionally,0.24,Low
+74,37.25,15.16,27.26,402.18,70.54,24.93,Frequently (Weekly),Pollen,Yes,"Yes, often",Rarely,0.6,High
+96,40.34,8.73,32.94,429.07,62.34,30.11,Daily,"Dust,Pollen",No,No,Occasionally,0.84,High
+72,12.24,6.36,21.57,431.94,72.89,21.15,Frequently (Weekly),"Dust,Pollen",Yes,No,Rarely,0.48,Medium
+76,31.79,13.32,25.7,383.26,50.56,35.33,Daily,"Smoke,Cold",Cold weather,No,Never,0.72,High
+37,35.26,11.43,23.62,418.78,63.04,23.13,Frequently (Weekly),Smoke,No,"Yes, often",Rarely,0.6,High
+125,71.04,14.8,22.91,368.37,66.49,23.94,1-2 times a month,Pollen,Cold weather,Occasionally,Never,0.36,Medium
+75,42.67,13.92,33.17,388.69,49.06,26.77,Less than once a month,"Dust,Pollen",Hot and humid weather,No,Rarely,0.24,Low
+123,46.88,11.97,21.3,414.51,47.96,27.8,Frequently (Weekly),Smoke,Yes,No,Rarely,0.48,Medium
+83,23.66,7.52,30.3,378.87,47.47,24.37,1-2 times a month,Smoke,Yes,Occasionally,Occasionally,0.24,Low
+103,38.69,7.91,28.6,390.44,54.33,12.42,Less than once a month,Pollen,Cold weather,No,Occasionally,0.12,Low
+88,51.37,7.05,21.88,349.83,44.17,26.92,Frequently (Weekly),Pollen,Hot and humid weather,"Yes, often",Occasionally,0.72,High
+93,71.02,11.69,23.65,412.75,69.46,19.21,Less than once a month,Pollen,Yes,No,Never,0.12,Low
+59,33.3,9.67,29.92,378.95,45.28,28.33,Frequently (Weekly),Pollen,Yes,Occasionally,Never,0.36,Medium
+115,18.32,11.25,28.23,379.57,58.15,27.06,Frequently (Weekly),Pollen,Hot and humid weather,No,Never,0.48,Medium
+79,31.26,12.83,28.31,440.9,37.66,24.88,1-2 times a month,"Smoke,Cold",No,No,Never,0.24,Low
+109,29.65,17.64,26.78,376.34,70.88,28.91,Frequently (Weekly),Pollen,Yes,Occasionally,Rarely,0.48,Medium
+47,29.04,13.62,25.6,425.01,65.61,20.94,Less than once a month,Dust,Hot and humid weather,Occasionally,Never,0.24,Low
+64,51.56,12.44,27.1,440.56,41.67,30.81,Daily,Pollen,Hot and humid weather,Occasionally,Never,0.84,High
+96,43.15,7.26,36.68,431.61,57.68,24.73,1-2 times a month,Smoke,No,No,Frequently,0.36,Medium
+80,25.35,12.45,31.28,388.62,51.9,22.77,1-2 times a month,"Smoke,Cold",Cold weather,No,Never,0.24,Low
+98,57.76,14.52,26.58,386.59,57.07,29.72,Daily,"Dust,Pollen",Hot and humid weather,No,Frequently,0.96,High
+90,62.54,13.0,21.85,370.4,59.73,20.46,Less than once a month,"Dust,Pollen",Cold weather,No,Rarely,0.24,Low
+134,19.81,8.86,25.85,344.38,47.5,13.96,1-2 times a month,"Smoke,Cold",Yes,No,Rarely,0.24,Low
+97,52.59,11.16,22.57,426.57,53.8,18.03,Less than once a month,"Smoke,Cold",Yes,No,Never,0.12,Low
+78,36.87,12.29,23.23,423.66,40.28,31.08,Less than once a month,Dust,Yes,No,Never,0.12,Low
+78,30.65,10.81,16.02,419.64,54.94,25.28,Frequently (Weekly),Pollen,No,Occasionally,Never,0.48,Medium
+114,21.75,9.91,27.16,317.04,39.1,24.66,1-2 times a month,Pollen,Cold weather,No,Never,0.24,Low
+45,34.32,5.27,40.64,394.55,65.22,29.22,Frequently (Weekly),Pollen,Cold weather,Occasionally,Never,0.48,Medium
+104,34.02,9.99,28.68,419.45,44.03,25.7,Frequently (Weekly),Smoke,Hot and humid weather,No,Occasionally,0.6,High
+55,40.49,13.07,31.91,435.88,57.13,22.55,Daily,Pollen,No,Occasionally,Rarely,0.6,High
+113,67.38,14.94,33.93,413.08,62.2,22.03,Less than once a month,Smoke,Hot and humid weather,Occasionally,Never,0.36,Medium
+75,33.91,12.47,27.5,403.59,69.92,19.07,1-2 times a month,Pollen,No,Occasionally,Rarely,0.36,Medium
+98,22.84,15.31,26.44,378.41,68.98,18.32,Daily,Pollen,Yes,No,Frequently,0.84,High
+88,37.32,11.89,20.85,410.45,65.32,25.32,Daily,Pollen,No,"Yes, often",Occasionally,0.84,High
+48,53.6,9.41,29.14,383.68,54.93,23.43,Frequently (Weekly),"Dust,Pollen",No,No,Rarely,0.48,Medium
+106,39.39,10.75,28.67,380.72,64.51,26.33,Daily,Smoke,Yes,Occasionally,Occasionally,0.84,High
+65,47.29,13.48,23.44,362.43,56.66,23.21,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Rarely,0.24,Low
+105,44.67,11.36,35.51,373.7,57.88,19.11,Daily,"Dust,Pollen",Yes,"Yes, often",Rarely,0.96,High
+56,41.51,10.35,23.54,408.4,49.6,25.37,Daily,Pollen,Hot and humid weather,Occasionally,Rarely,0.84,High
+94,61.08,6.95,44.95,356.99,70.48,25.65,1-2 times a month,Dust,Yes,Occasionally,Occasionally,0.36,Medium
+91,29.57,9.65,30.92,387.85,48.83,24.67,Less than once a month,Smoke,Hot and humid weather,Occasionally,Never,0.24,Low
+75,26.74,10.79,28.12,443.4,46.51,24.94,1-2 times a month,"Dust,Pollen",No,Occasionally,Never,0.24,Low
+122,28.09,10.69,39.37,361.81,57.87,33.47,Less than once a month,Pollen,No,"Yes, often",Never,0.36,Medium
+85,41.98,9.46,15.15,416.48,41.37,19.07,Daily,Dust,Cold weather,Occasionally,Never,0.84,High
+74,38.23,16.36,26.56,417.21,55.94,18.9,Less than once a month,Smoke,No,No,Rarely,0.12,Low
+92,47.79,13.8,24.95,391.67,68.03,15.91,Daily,Dust,No,Occasionally,Never,0.72,High
+46,40.61,18.02,26.39,421.92,58.26,23.58,Less than once a month,"Smoke,Cold",Cold weather,Occasionally,Never,0.24,Low
+146,37.06,7.07,30.53,393.98,54.37,15.11,Less than once a month,Smoke,No,Occasionally,Frequently,0.36,Medium
+60,43.14,13.05,26.44,427.81,49.48,24.1,Less than once a month,Dust,Cold weather,No,Frequently,0.36,Medium
+97,61.2,10.95,36.86,365.07,43.72,23.56,Less than once a month,Dust,No,Occasionally,Never,0.24,Low
+81,25.02,12.08,30.84,459.62,61.92,20.6,1-2 times a month,"Dust,Pollen",Yes,No,Occasionally,0.24,Low
+111,31.17,17.69,31.34,446.97,55.14,27.06,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Never,0.6,High
+91,40.18,6.57,31.92,329.81,59.29,25.11,1-2 times a month,Smoke,Yes,"Yes, often",Never,0.36,Medium
+65,65.51,10.28,20.87,432.66,36.28,32.29,1-2 times a month,Smoke,Yes,Occasionally,Rarely,0.36,Medium
+37,26.9,9.58,29.71,382.56,60.15,27.2,Daily,Smoke,Yes,Occasionally,Rarely,0.72,High
+40,39.91,10.37,29.3,444.24,71.8,22.96,1-2 times a month,Pollen,Yes,Occasionally,Never,0.24,Low
+80,30.82,6.08,20.86,428.41,65.42,13.11,1-2 times a month,"Smoke,Cold",Hot and humid weather,"Yes, often",Occasionally,0.48,Medium
+120,45.05,15.84,34.77,367.66,58.24,28.64,Daily,Pollen,Cold weather,Occasionally,Never,0.84,High
+44,17.02,15.56,15.75,411.05,46.62,29.44,1-2 times a month,Dust,Cold weather,No,Frequently,0.36,Medium
+131,26.63,13.8,43.05,381.27,55.28,30.92,1-2 times a month,Pollen,Yes,"Yes, often",Never,0.36,Medium
+110,53.78,8.2,27.95,418.58,55.65,12.18,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Occasionally,0.72,High
+54,38.01,12.56,22.98,405.94,51.23,24.92,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+53,32.56,14.97,32.66,379.84,50.35,27.18,Less than once a month,Smoke,Hot and humid weather,Occasionally,Frequently,0.24,Low
+62,40.53,12.99,32.08,358.78,71.17,30.4,Less than once a month,Dust,Cold weather,"Yes, often",Rarely,0.36,Medium
+95,38.92,11.62,39.49,403.86,46.91,27.38,1-2 times a month,"Smoke,Cold",Yes,No,Never,0.24,Low
+89,47.09,15.7,38.3,411.48,52.23,23.97,Frequently (Weekly),Smoke,Cold weather,"Yes, often",Frequently,0.72,High
+81,16.37,9.95,20.03,395.0,59.72,19.38,Frequently (Weekly),Dust,Cold weather,No,Rarely,0.36,Medium
+71,27.33,12.04,27.0,374.24,72.6,23.62,Daily,Pollen,Hot and humid weather,"Yes, often",Rarely,0.84,High
+90,26.43,13.99,21.63,383.2,52.96,26.28,Frequently (Weekly),Pollen,Hot and humid weather,No,Rarely,0.48,Medium
+106,45.46,12.73,32.75,367.0,41.44,28.17,Less than once a month,Dust,Hot and humid weather,No,Rarely,0.24,Low
+84,38.61,13.83,36.93,417.25,37.95,16.48,Less than once a month,Dust,Cold weather,Occasionally,Never,0.24,Low
+70,57.41,13.84,20.63,332.25,74.33,25.01,Less than once a month,Dust,Hot and humid weather,"Yes, often",Occasionally,0.36,Medium
+109,48.82,13.92,27.57,429.21,39.88,16.73,1-2 times a month,Pollen,No,Occasionally,Occasionally,0.36,Medium
+79,37.09,10.54,24.84,398.52,54.94,25.83,Frequently (Weekly),Dust,Hot and humid weather,No,Rarely,0.48,Medium
+101,37.88,10.37,32.58,418.24,41.24,18.82,1-2 times a month,Dust,No,No,Never,0.36,Medium
+79,54.69,12.48,31.02,419.06,48.84,17.34,1-2 times a month,"Smoke,Cold",Cold weather,Occasionally,Never,0.48,Medium
+112,55.01,17.06,35.02,403.61,50.23,32.61,1-2 times a month,Dust,Cold weather,No,Never,0.36,Medium
+117,38.32,11.97,25.5,390.21,39.64,18.13,1-2 times a month,Smoke,No,No,Never,0.24,Low
+112,28.19,13.97,27.32,433.75,65.16,21.7,Less than once a month,Dust,Hot and humid weather,No,Never,0.24,Low
+62,16.08,12.05,30.75,345.62,59.34,23.47,Less than once a month,Dust,Cold weather,Occasionally,Rarely,0.12,Low
+75,14.93,18.4,25.71,436.66,50.81,13.44,1-2 times a month,"Dust,Pollen",Yes,No,Occasionally,0.36,Medium
+107,46.55,11.26,30.33,371.33,50.09,28.27,Less than once a month,Dust,No,Occasionally,Rarely,0.12,Low
+80,46.63,13.89,36.14,399.88,62.68,20.14,Daily,Dust,No,No,Occasionally,0.72,High
+86,32.37,9.71,40.62,445.15,56.08,19.19,1-2 times a month,Smoke,Hot and humid weather,"Yes, often",Never,0.48,Medium
+67,54.54,8.61,25.07,463.86,72.67,28.73,Frequently (Weekly),Dust,No,Occasionally,Never,0.6,High
+118,38.0,12.3,40.37,411.16,50.98,17.96,Frequently (Weekly),Pollen,Hot and humid weather,No,Never,0.48,Medium
+112,34.72,15.44,24.29,358.07,58.98,26.45,Daily,Dust,No,No,Occasionally,0.72,High
+82,53.68,14.23,33.33,426.89,44.53,23.1,Frequently (Weekly),Pollen,Yes,Occasionally,Never,0.48,Medium
+67,53.13,5.62,25.16,398.77,52.05,24.72,Less than once a month,Dust,Yes,No,Rarely,0.12,Low
+66,40.02,14.24,21.62,368.7,61.51,24.33,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Rarely,0.36,Medium
+86,45.77,8.05,34.59,405.25,65.65,24.61,Less than once a month,Smoke,Yes,"Yes, often",Never,0.24,Low
+97,48.85,14.56,27.98,364.6,68.86,12.69,Frequently (Weekly),Smoke,No,"Yes, often",Rarely,0.6,High
+60,65.64,13.61,35.49,405.3,58.7,19.7,Frequently (Weekly),Smoke,Hot and humid weather,"Yes, often",Rarely,0.6,High
+52,38.97,11.59,32.06,374.23,66.01,19.14,1-2 times a month,"Dust,Pollen",Yes,No,Never,0.24,Low
+87,25.55,14.08,31.23,342.73,59.06,30.77,Frequently (Weekly),Smoke,Hot and humid weather,Occasionally,Never,0.48,Medium
+110,47.56,10.91,30.72,349.82,53.1,24.4,1-2 times a month,"Dust,Pollen",No,"Yes, often",Occasionally,0.36,Medium
+87,41.87,13.07,34.87,377.26,44.57,24.52,1-2 times a month,Pollen,Yes,No,Never,0.12,Low
+80,39.01,7.56,32.66,412.57,53.7,33.74,Less than once a month,Pollen,No,"Yes, often",Never,0.24,Low
+57,40.37,10.77,24.71,439.76,45.85,13.65,1-2 times a month,"Dust,Pollen",Hot and humid weather,No,Rarely,0.36,Medium
+71,21.75,14.72,30.83,443.75,63.29,30.6,1-2 times a month,"Smoke,Cold",Yes,No,Rarely,0.24,Low
+112,42.45,8.11,36.8,352.19,64.35,24.01,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.48,Medium
+53,35.65,14.39,27.57,393.4,47.47,20.57,Less than once a month,Smoke,Cold weather,Occasionally,Occasionally,0.24,Low
+129,35.12,5.93,25.61,382.32,62.29,21.48,1-2 times a month,Smoke,Hot and humid weather,No,Rarely,0.36,Medium
+88,34.26,8.38,24.49,398.56,45.33,22.42,1-2 times a month,Dust,No,No,Never,0.24,Low
+47,39.85,11.18,31.82,447.77,66.09,31.21,Frequently (Weekly),"Smoke,Cold",Hot and humid weather,No,Never,0.48,Medium
+98,46.28,12.71,27.13,397.99,53.12,24.91,1-2 times a month,Smoke,Cold weather,No,Occasionally,0.24,Low
+95,40.45,10.22,29.54,429.67,58.1,27.87,Less than once a month,Smoke,Cold weather,No,Rarely,0.12,Low
+74,52.84,10.98,25.25,467.0,65.56,19.46,Frequently (Weekly),Dust,No,"Yes, often",Never,0.6,High
+115,50.0,15.63,34.55,349.96,61.02,24.27,Less than once a month,Dust,No,No,Rarely,0.12,Low
+70,39.82,15.56,28.88,386.25,53.46,28.48,1-2 times a month,Dust,Hot and humid weather,Occasionally,Never,0.36,Medium
+96,25.5,10.33,36.62,421.48,61.88,29.62,1-2 times a month,Dust,Yes,Occasionally,Never,0.36,Medium
+83,46.59,10.85,35.37,413.23,47.01,17.05,Less than once a month,Pollen,Cold weather,"Yes, often",Rarely,0.24,Low
+78,36.05,11.38,26.62,428.4,39.13,27.13,1-2 times a month,"Dust,Pollen",No,Occasionally,Never,0.36,Medium
+118,38.09,18.9,35.54,385.94,64.5,23.98,Less than once a month,Smoke,No,No,Never,0.24,Low
+109,24.14,11.5,25.56,402.3,44.25,26.51,1-2 times a month,Dust,Cold weather,"Yes, often",Frequently,0.6,High
+58,45.14,16.75,30.05,378.01,62.86,20.53,Frequently (Weekly),Dust,Yes,Occasionally,Rarely,0.48,Medium
+96,70.0,14.05,23.07,432.76,57.39,31.97,1-2 times a month,Smoke,Yes,Occasionally,Rarely,0.24,Low
+133,33.53,12.13,32.01,404.23,54.0,25.23,Less than once a month,Pollen,Hot and humid weather,"Yes, often",Occasionally,0.36,Medium
+122,47.15,10.09,30.47,443.44,47.7,21.34,Less than once a month,"Smoke,Cold",No,No,Rarely,0.24,Low
+59,56.34,13.65,31.42,445.01,51.63,21.7,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,No,Rarely,0.6,High
+124,32.89,9.75,17.99,357.39,54.17,27.57,Frequently (Weekly),"Dust,Pollen",Yes,No,Frequently,0.6,High
+109,10.6,10.26,15.88,452.21,57.11,28.01,1-2 times a month,Dust,No,No,Occasionally,0.24,Low
+59,47.92,14.11,21.1,431.82,47.57,24.13,1-2 times a month,"Dust,Pollen",Yes,No,Occasionally,0.24,Low
+89,42.86,12.05,30.96,393.72,62.21,20.77,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Frequently,0.6,High
+96,44.53,11.22,30.79,422.88,62.26,28.88,Frequently (Weekly),Smoke,Yes,No,Rarely,0.48,Medium
+56,39.54,11.15,34.32,387.0,58.87,20.59,Less than once a month,Pollen,No,Occasionally,Rarely,0.12,Low
+105,54.39,9.74,24.76,436.15,51.32,21.69,Less than once a month,Smoke,Cold weather,No,Never,0.24,Low
+141,37.62,13.73,28.7,400.77,63.26,36.48,Less than once a month,Dust,Cold weather,No,Occasionally,0.24,Low
+116,66.36,12.3,23.64,423.56,59.51,25.93,Less than once a month,Pollen,Hot and humid weather,No,Never,0.36,Medium
+90,50.02,7.85,35.76,380.78,39.58,23.85,Frequently (Weekly),Dust,No,Occasionally,Occasionally,0.6,High
+79,49.79,10.38,23.23,407.12,56.64,21.83,Less than once a month,Dust,No,Occasionally,Never,0.12,Low
+89,38.87,10.63,34.95,424.22,71.42,22.65,1-2 times a month,Smoke,Hot and humid weather,No,Occasionally,0.24,Low
+62,43.92,10.99,26.2,406.58,63.79,30.8,Less than once a month,"Smoke,Cold",Cold weather,No,Never,0.24,Low
+74,19.25,13.67,37.57,414.92,64.66,28.09,Frequently (Weekly),"Dust,Pollen",Cold weather,No,Frequently,0.72,High
+37,33.33,9.94,28.85,373.64,48.97,20.19,Frequently (Weekly),Pollen,Cold weather,Occasionally,Never,0.48,Medium
+96,52.83,20.39,28.03,410.76,55.88,22.53,Less than once a month,Dust,Cold weather,No,Frequently,0.36,Medium
+78,37.18,16.02,22.86,380.74,52.55,17.38,Less than once a month,Dust,Yes,No,Occasionally,0.12,Low
+102,27.25,16.34,40.81,400.65,55.18,25.3,Less than once a month,Dust,Hot and humid weather,Occasionally,Rarely,0.24,Low
+89,30.19,9.27,33.68,389.36,50.24,9.06,Less than once a month,"Smoke,Cold",Cold weather,No,Never,0.12,Low
+60,31.94,6.03,30.22,391.34,46.91,16.32,1-2 times a month,Pollen,Cold weather,Occasionally,Never,0.24,Low
+90,38.99,11.19,29.84,345.21,55.08,25.19,Less than once a month,"Dust,Pollen",Cold weather,No,Rarely,0.12,Low
+67,32.87,13.0,24.22,402.12,49.58,10.48,Less than once a month,"Dust,Pollen",No,Occasionally,Never,0.24,Low
+127,56.93,11.52,31.68,398.49,60.91,34.38,Less than once a month,Smoke,Hot and humid weather,No,Never,0.24,Low
+66,42.92,10.66,27.5,354.58,55.42,19.57,1-2 times a month,"Smoke,Cold",Yes,"Yes, often",Never,0.36,Medium
+78,23.92,7.26,27.7,410.16,39.18,26.83,Daily,Dust,No,Occasionally,Never,0.72,High
+61,58.84,10.24,33.86,421.58,65.59,29.56,1-2 times a month,Pollen,No,No,Frequently,0.48,Medium
+58,39.42,11.21,30.95,401.48,60.84,25.53,1-2 times a month,"Smoke,Cold",Cold weather,Occasionally,Rarely,0.36,Medium
+89,44.88,10.46,27.72,425.24,52.92,23.27,Less than once a month,Smoke,Cold weather,No,Never,0.24,Low
+55,43.55,10.46,37.35,387.14,52.55,21.58,1-2 times a month,Dust,Hot and humid weather,Occasionally,Rarely,0.24,Low
+78,42.77,9.89,22.57,392.31,44.9,17.42,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+94,36.46,16.81,17.75,400.57,53.8,21.18,Less than once a month,"Dust,Pollen",No,Occasionally,Never,0.24,Low
+79,47.47,13.82,24.08,402.4,59.95,23.71,Daily,Dust,Hot and humid weather,No,Never,0.84,High
+28,38.42,15.01,28.84,328.38,69.53,24.96,Frequently (Weekly),"Smoke,Cold",Yes,"Yes, often",Occasionally,0.6,High
+120,44.75,12.82,32.58,375.39,56.14,20.38,1-2 times a month,Dust,Yes,Occasionally,Occasionally,0.36,Medium
+89,35.91,8.44,23.37,427.27,55.3,28.78,Frequently (Weekly),Smoke,Cold weather,No,Frequently,0.6,High
+95,35.54,13.54,49.04,378.47,65.5,16.3,Frequently (Weekly),Smoke,Yes,"Yes, often",Never,0.48,Medium
+78,23.53,16.11,30.5,391.1,46.45,27.01,Less than once a month,Smoke,Yes,No,Occasionally,0.12,Low
+105,38.2,16.36,28.78,392.45,55.93,28.06,1-2 times a month,Pollen,No,Occasionally,Rarely,0.36,Medium
+108,41.82,14.11,20.36,358.76,49.75,25.03,Daily,"Smoke,Cold",Cold weather,No,Rarely,0.84,High
+112,62.87,11.92,18.9,452.32,56.87,32.46,Frequently (Weekly),Smoke,Cold weather,No,Frequently,0.72,High
+92,46.72,11.82,17.77,397.0,63.23,26.99,Daily,"Dust,Pollen",Cold weather,No,Rarely,0.84,High
+53,31.17,13.84,36.65,373.59,41.45,31.57,1-2 times a month,Dust,Hot and humid weather,"Yes, often",Occasionally,0.48,Medium
+97,27.97,7.46,34.34,419.48,64.46,10.51,Frequently (Weekly),Dust,No,Occasionally,Rarely,0.48,Medium
+92,43.35,13.89,28.09,391.69,58.83,29.05,Less than once a month,Dust,Cold weather,Occasionally,Never,0.12,Low
+73,29.58,10.52,21.24,406.39,56.88,26.0,1-2 times a month,Dust,No,No,Never,0.24,Low
+67,33.09,19.01,27.06,439.89,66.63,26.74,Daily,Smoke,No,No,Never,0.72,High
+98,31.31,11.45,36.92,383.8,48.51,26.97,Frequently (Weekly),Pollen,No,No,Rarely,0.36,Medium
+82,35.95,12.89,25.42,436.56,45.14,22.08,1-2 times a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+79,46.52,12.31,22.26,387.59,47.84,28.11,Frequently (Weekly),Dust,Cold weather,Occasionally,Never,0.48,Medium
+129,17.96,9.73,24.98,402.27,58.9,33.06,1-2 times a month,Pollen,No,Occasionally,Never,0.24,Low
+103,54.22,13.86,26.06,412.04,49.93,14.84,Less than once a month,"Smoke,Cold",No,Occasionally,Occasionally,0.24,Low
+94,37.64,13.21,31.68,388.1,49.32,29.73,1-2 times a month,"Smoke,Cold",Cold weather,No,Never,0.24,Low
+111,32.78,14.85,14.31,368.98,46.81,23.84,Frequently (Weekly),"Smoke,Cold",Yes,"Yes, often",Occasionally,0.72,High
+93,50.11,14.13,28.56,410.14,55.8,20.93,Less than once a month,"Dust,Pollen",Hot and humid weather,No,Rarely,0.24,Low
+66,37.82,12.59,23.25,436.49,54.95,17.87,Frequently (Weekly),Smoke,No,"Yes, often",Rarely,0.6,High
+74,26.51,9.51,25.11,419.28,43.43,25.95,Daily,"Smoke,Cold",No,Occasionally,Never,0.72,High
+105,24.31,9.54,31.92,416.66,42.38,32.33,Frequently (Weekly),"Dust,Pollen",No,No,Never,0.48,Medium
+104,48.03,17.34,21.29,385.35,51.5,22.52,Less than once a month,"Smoke,Cold",No,Occasionally,Occasionally,0.24,Low
+99,50.2,12.42,29.67,420.62,63.04,27.16,Less than once a month,Dust,Hot and humid weather,Occasionally,Never,0.24,Low
+55,33.73,18.91,31.6,411.75,50.77,23.5,Frequently (Weekly),"Smoke,Cold",Cold weather,No,Rarely,0.6,High
+107,56.72,9.93,31.06,423.93,43.17,15.55,1-2 times a month,Smoke,No,Occasionally,Frequently,0.48,Medium
+82,39.57,18.62,32.36,401.24,53.49,22.9,Frequently (Weekly),Dust,Cold weather,Occasionally,Rarely,0.6,High
+95,54.26,9.59,30.81,417.11,54.62,20.74,1-2 times a month,Dust,Hot and humid weather,No,Rarely,0.24,Low
+64,27.23,10.79,32.45,385.96,42.64,19.53,Frequently (Weekly),"Smoke,Cold",No,No,Frequently,0.6,High
+137,26.02,14.05,21.65,425.68,45.68,21.61,Daily,Smoke,No,"Yes, often",Occasionally,0.96,High
+90,33.97,14.9,36.83,359.8,62.56,22.6,Less than once a month,"Smoke,Cold",Hot and humid weather,No,Never,0.12,Low
+77,38.66,14.17,20.51,385.0,44.83,28.94,Frequently (Weekly),Dust,Yes,No,Never,0.36,Medium
+99,57.1,6.08,30.4,383.28,61.96,24.13,Daily,Pollen,No,"Yes, often",Occasionally,0.84,High
+108,43.13,10.17,24.21,502.54,43.26,17.13,Less than once a month,Pollen,Cold weather,No,Never,0.36,Medium
+100,32.04,8.46,17.36,423.97,41.22,30.63,Less than once a month,Smoke,Hot and humid weather,No,Rarely,0.12,Low
+64,38.63,8.23,24.1,371.22,54.08,26.05,1-2 times a month,Smoke,No,Occasionally,Rarely,0.24,Low
+113,32.34,12.01,27.22,360.6,50.6,24.11,Less than once a month,Smoke,Yes,No,Rarely,0.12,Low
+75,30.39,4.93,36.8,351.28,50.32,28.27,1-2 times a month,Dust,Yes,No,Frequently,0.36,Medium
+88,39.7,15.03,38.83,360.31,56.58,24.68,Frequently (Weekly),Dust,No,No,Rarely,0.36,Medium
+28,38.65,13.94,27.58,370.48,50.76,21.89,Daily,Dust,Yes,No,Occasionally,0.72,High
+74,32.11,16.73,20.14,371.59,45.71,26.13,Frequently (Weekly),"Smoke,Cold",Yes,Occasionally,Rarely,0.48,Medium
+72,30.29,9.15,20.05,384.83,58.38,27.7,Daily,Pollen,No,"Yes, often",Never,0.72,High
+99,49.86,8.69,32.56,422.68,57.03,26.32,1-2 times a month,Pollen,Hot and humid weather,No,Never,0.24,Low
+75,46.07,14.79,32.33,396.45,54.6,28.64,Daily,Pollen,Yes,No,Never,0.72,High
+43,52.76,14.89,25.04,422.16,54.55,23.94,1-2 times a month,"Dust,Pollen",Yes,Occasionally,Never,0.36,Medium
+92,35.51,15.93,20.75,371.2,47.62,18.99,Frequently (Weekly),Dust,Yes,"Yes, often",Frequently,0.72,High
+80,27.2,14.96,34.64,387.41,46.24,20.93,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+67,33.89,12.18,20.79,371.81,51.82,30.89,1-2 times a month,Smoke,Yes,No,Rarely,0.24,Low
+91,52.5,10.55,24.89,417.9,47.23,23.88,1-2 times a month,"Smoke,Cold",No,Occasionally,Never,0.36,Medium
+44,20.05,14.3,30.82,390.72,55.84,18.44,Frequently (Weekly),Smoke,No,No,Never,0.36,Medium
+98,57.34,10.4,15.32,452.93,50.76,17.04,Less than once a month,Dust,No,Occasionally,Rarely,0.24,Low
+83,27.31,12.42,32.91,377.26,55.01,17.53,Less than once a month,Smoke,Cold weather,Occasionally,Rarely,0.24,Low
+80,48.44,10.89,42.65,373.9,53.66,27.78,1-2 times a month,"Smoke,Cold",No,Occasionally,Rarely,0.24,Low
+109,26.32,12.96,29.16,416.12,69.98,24.46,1-2 times a month,Smoke,Yes,No,Rarely,0.24,Low
+71,35.33,15.41,27.77,395.34,42.92,33.23,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+88,15.54,11.55,28.29,416.55,52.88,27.65,Daily,Pollen,Cold weather,Occasionally,Never,0.84,High
+82,63.37,10.15,29.0,397.84,45.07,26.23,Daily,"Smoke,Cold",Cold weather,Occasionally,Occasionally,0.84,High
+166,47.15,11.49,23.72,395.35,49.21,33.83,1-2 times a month,"Dust,Pollen",Yes,No,Rarely,0.36,Medium
+102,48.86,8.62,22.44,380.21,48.87,18.34,1-2 times a month,Smoke,Yes,"Yes, often",Occasionally,0.48,Medium
+55,34.18,14.03,26.49,387.87,60.14,16.63,Daily,Dust,No,No,Never,0.6,High
+125,29.54,12.6,28.88,356.09,43.38,27.2,Frequently (Weekly),Smoke,No,No,Never,0.36,Medium
+108,47.99,11.8,21.91,432.97,61.89,22.38,Frequently (Weekly),Pollen,No,Occasionally,Never,0.6,High
+90,23.44,12.62,19.69,437.03,59.32,25.28,Less than once a month,Dust,No,Occasionally,Never,0.24,Low
+73,37.42,7.12,24.51,428.22,71.09,30.05,Frequently (Weekly),"Smoke,Cold",Yes,No,Never,0.48,Medium
+55,23.28,16.74,19.71,383.98,69.63,28.43,Frequently (Weekly),Pollen,Yes,No,Occasionally,0.36,Medium
+96,38.95,10.35,32.44,382.95,48.21,30.88,1-2 times a month,Dust,No,"Yes, often",Never,0.36,Medium
+66,17.36,10.83,6.79,413.55,65.78,19.23,1-2 times a month,"Smoke,Cold",Cold weather,No,Rarely,0.24,Low
+68,20.11,15.14,20.82,374.65,52.12,29.27,1-2 times a month,Dust,Yes,Occasionally,Occasionally,0.36,Medium
+108,30.82,13.69,35.81,431.49,57.34,19.77,1-2 times a month,"Dust,Pollen",Hot and humid weather,Occasionally,Rarely,0.36,Medium
+123,49.11,18.0,27.14,328.07,69.27,32.15,1-2 times a month,Smoke,No,No,Never,0.24,Low
+76,31.89,8.79,28.34,383.23,50.8,26.33,Less than once a month,"Smoke,Cold",Yes,No,Rarely,0.12,Low
+105,52.15,8.79,27.58,371.01,54.63,27.7,Frequently (Weekly),"Dust,Pollen",Cold weather,Occasionally,Never,0.6,High
+91,60.24,8.98,24.85,436.47,38.45,20.53,1-2 times a month,"Dust,Pollen",No,"Yes, often",Never,0.36,Medium
+98,35.73,12.97,34.38,430.53,61.91,21.72,Less than once a month,Pollen,No,No,Never,0.12,Low
+61,22.99,11.49,24.16,416.36,71.22,25.43,Frequently (Weekly),Pollen,No,No,Never,0.48,Medium
+79,54.46,10.21,23.31,457.14,60.15,32.24,Frequently (Weekly),"Smoke,Cold",Yes,No,Rarely,0.48,Medium
+58,19.49,12.03,32.9,401.52,66.1,31.66,Frequently (Weekly),Dust,No,Occasionally,Occasionally,0.6,High
+55,27.94,8.68,17.22,420.56,63.24,26.02,Daily,"Dust,Pollen",No,No,Rarely,0.72,High
+95,20.26,16.73,26.24,351.62,49.95,21.62,Frequently (Weekly),Dust,Yes,"Yes, often",Rarely,0.48,Medium
+74,54.16,9.75,24.36,390.28,59.07,26.93,Daily,Dust,No,No,Never,0.72,High
+59,46.01,9.51,26.04,393.98,58.31,29.91,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.48,Medium
+52,62.34,5.18,24.06,371.14,45.93,25.1,1-2 times a month,Dust,Yes,No,Occasionally,0.36,Medium
+47,34.86,7.23,29.92,411.96,64.8,21.41,Daily,"Smoke,Cold",Hot and humid weather,No,Never,0.72,High
+41,27.75,9.84,34.87,342.28,50.67,26.76,Less than once a month,"Smoke,Cold",Yes,No,Never,0.12,Low
+94,35.61,10.98,30.54,411.78,53.51,22.54,Less than once a month,Smoke,Hot and humid weather,No,Never,0.12,Low
+21,23.45,14.47,25.62,385.8,52.78,22.53,1-2 times a month,"Dust,Pollen",Cold weather,No,Rarely,0.24,Low
+96,57.68,7.55,31.76,374.59,55.39,23.82,Less than once a month,Smoke,Yes,No,Never,0.12,Low
+97,78.53,12.85,32.33,425.51,77.81,26.95,1-2 times a month,"Dust,Pollen",No,No,Rarely,0.36,Medium
+83,30.41,13.51,30.62,446.82,51.16,22.32,Less than once a month,"Dust,Pollen",No,No,Frequently,0.24,Low
+91,45.32,14.59,33.5,424.41,42.3,24.33,Frequently (Weekly),Dust,No,No,Frequently,0.6,High
+75,36.21,15.13,14.23,375.69,55.33,25.4,Less than once a month,Pollen,Hot and humid weather,"Yes, often",Occasionally,0.36,Medium
+94,45.42,8.83,28.13,416.64,48.06,22.34,Less than once a month,Smoke,No,Occasionally,Rarely,0.12,Low
+87,53.4,14.18,30.11,390.44,52.47,31.93,Frequently (Weekly),"Smoke,Cold",Yes,Occasionally,Occasionally,0.6,High
+116,25.63,17.16,18.28,432.11,60.4,32.15,1-2 times a month,Smoke,Yes,Occasionally,Never,0.36,Medium
+123,32.53,16.31,29.85,404.53,45.89,22.78,Less than once a month,"Smoke,Cold",Hot and humid weather,No,Never,0.24,Low
+124,52.91,17.09,33.82,356.86,53.51,20.81,Frequently (Weekly),"Dust,Pollen",Yes,"Yes, often",Never,0.72,High
+65,46.55,12.54,27.66,396.79,57.28,22.22,1-2 times a month,Smoke,Cold weather,"Yes, often",Rarely,0.36,Medium
+104,44.06,10.4,31.44,375.06,47.4,26.74,Daily,"Smoke,Cold",Hot and humid weather,Occasionally,Never,0.84,High
+98,46.58,4.35,33.79,373.52,55.16,22.74,Frequently (Weekly),Pollen,Yes,Occasionally,Never,0.48,Medium
+65,49.16,8.41,34.98,390.88,57.23,17.25,Daily,Pollen,Yes,Occasionally,Rarely,0.72,High
+64,54.58,10.7,34.48,408.85,54.01,23.15,1-2 times a month,"Dust,Pollen",Yes,No,Never,0.36,Medium
+78,49.54,11.13,37.05,426.68,56.97,25.68,1-2 times a month,Dust,No,No,Never,0.24,Low
+62,42.23,9.72,25.18,389.81,57.65,28.34,Less than once a month,Pollen,Cold weather,Occasionally,Occasionally,0.24,Low
+55,43.91,13.08,25.22,437.11,49.38,32.99,1-2 times a month,Smoke,Yes,Occasionally,Never,0.24,Low
+98,42.05,12.41,13.24,350.65,42.25,22.26,Frequently (Weekly),Pollen,Yes,No,Never,0.36,Medium
+89,32.75,11.85,21.57,368.14,46.29,20.18,Daily,"Smoke,Cold",No,No,Never,0.6,High
+86,39.02,14.76,34.17,458.56,45.61,23.27,Less than once a month,"Smoke,Cold",Yes,Occasionally,Never,0.24,Low
+105,39.6,10.83,23.33,367.26,64.39,19.38,1-2 times a month,Smoke,No,Occasionally,Never,0.36,Medium
+83,19.36,15.05,31.05,438.39,39.78,21.31,Less than once a month,Smoke,No,"Yes, often",Never,0.36,Medium
+108,47.58,8.41,29.89,398.09,60.55,20.93,Daily,"Dust,Pollen",No,Occasionally,Never,0.72,High
+67,51.32,10.67,34.55,399.23,50.08,25.7,1-2 times a month,Pollen,No,Occasionally,Never,0.36,Medium
+66,44.77,12.81,15.8,430.84,63.84,19.9,Frequently (Weekly),Dust,No,No,Never,0.36,Medium
+87,50.9,6.4,29.69,422.44,50.88,28.12,Daily,"Dust,Pollen",No,No,Never,0.84,High
+137,38.85,10.57,30.67,438.14,55.23,30.65,Less than once a month,"Dust,Pollen",Yes,Occasionally,Occasionally,0.24,Low
+118,33.57,14.17,23.12,391.82,59.33,18.68,1-2 times a month,Dust,No,No,Never,0.24,Low
+110,51.66,10.45,33.1,405.78,65.51,17.29,Frequently (Weekly),"Dust,Pollen",No,No,Occasionally,0.72,High
+49,27.55,6.21,19.68,390.78,50.93,21.6,Less than once a month,Smoke,Yes,No,Never,0.12,Low
+85,27.89,9.62,34.36,369.2,48.94,22.23,1-2 times a month,Dust,Yes,No,Rarely,0.24,Low
+111,45.49,8.47,15.04,403.67,60.47,30.12,Daily,Smoke,Yes,No,Rarely,0.72,High
+137,44.67,13.65,22.26,393.37,41.34,23.34,Less than once a month,Dust,Yes,Occasionally,Rarely,0.24,Low
+46,52.12,12.3,27.18,350.9,39.95,26.69,Frequently (Weekly),Dust,No,"Yes, often",Never,0.6,High
+101,19.66,7.68,28.8,429.58,55.59,25.96,Less than once a month,"Dust,Pollen",Yes,No,Never,0.24,Low
+111,36.26,6.83,16.08,406.79,60.91,19.44,Less than once a month,"Smoke,Cold",No,Occasionally,Rarely,0.24,Low
+98,26.02,10.14,33.51,373.57,58.83,23.04,Frequently (Weekly),Dust,No,No,Never,0.36,Medium
+55,49.64,11.91,31.89,411.95,53.71,23.68,1-2 times a month,"Smoke,Cold",No,No,Never,0.24,Low
+90,56.18,9.82,39.67,392.35,49.28,26.0,Daily,Dust,Hot and humid weather,Occasionally,Rarely,0.72,High
+95,46.1,12.95,32.48,409.22,68.4,16.64,1-2 times a month,Dust,No,No,Never,0.24,Low
+87,30.97,12.92,24.46,445.63,67.7,19.74,Less than once a month,Dust,Yes,No,Rarely,0.12,Low
+68,29.23,13.87,21.44,411.67,56.36,24.25,Frequently (Weekly),Dust,Yes,Occasionally,Never,0.36,Medium
+62,33.91,7.37,25.9,388.21,48.79,21.93,Daily,Pollen,Yes,"Yes, often",Rarely,0.72,High
+93,29.98,10.99,41.11,369.82,46.58,17.17,1-2 times a month,"Smoke,Cold",No,No,Never,0.24,Low
+69,39.38,15.29,28.47,384.65,58.7,19.35,1-2 times a month,Dust,Yes,"Yes, often",Rarely,0.36,Medium
+70,29.07,10.15,29.03,421.04,45.43,16.36,1-2 times a month,Pollen,No,Occasionally,Occasionally,0.36,Medium
+79,22.61,9.05,36.63,401.87,45.44,31.49,Less than once a month,"Dust,Pollen",Cold weather,Occasionally,Occasionally,0.36,Medium
+87,44.51,10.3,21.08,418.08,52.3,22.44,1-2 times a month,Pollen,Yes,No,Rarely,0.24,Low
+111,44.38,9.94,30.87,388.87,60.43,22.73,Less than once a month,Smoke,Cold weather,No,Never,0.12,Low
+59,60.5,12.15,31.26,371.17,68.18,19.15,Frequently (Weekly),Pollen,Cold weather,No,Rarely,0.48,Medium
+46,35.57,10.12,34.56,413.17,56.87,24.37,1-2 times a month,Dust,Cold weather,Occasionally,Rarely,0.36,Medium
+77,16.41,6.09,33.22,365.94,59.06,27.19,1-2 times a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+42,50.18,14.87,27.41,384.16,63.96,19.55,Less than once a month,Dust,Yes,"Yes, often",Never,0.24,Low
+98,51.0,13.72,20.19,362.12,61.59,19.66,1-2 times a month,Dust,Yes,Occasionally,Never,0.24,Low
+34,52.33,12.29,23.78,372.19,50.24,22.03,Less than once a month,Pollen,Yes,Occasionally,Never,0.12,Low
+104,57.49,11.62,32.84,422.94,61.99,17.23,Less than once a month,Pollen,Yes,Occasionally,Never,0.24,Low
+113,58.37,11.32,38.54,430.49,63.24,26.17,Less than once a month,Smoke,No,Occasionally,Never,0.24,Low
+96,29.98,10.0,20.59,433.45,57.26,27.6,1-2 times a month,Pollen,Cold weather,Occasionally,Frequently,0.48,Medium
+39,60.55,6.17,21.02,431.12,55.34,16.41,1-2 times a month,Smoke,Yes,Occasionally,Rarely,0.36,Medium
+90,35.38,16.68,18.94,386.14,60.48,28.43,1-2 times a month,Smoke,Yes,No,Rarely,0.24,Low
+66,48.83,11.96,22.28,417.77,58.65,28.92,Frequently (Weekly),Pollen,Hot and humid weather,Occasionally,Rarely,0.48,Medium
+57,43.16,6.97,33.31,435.6,40.22,10.21,Less than once a month,"Smoke,Cold",Yes,No,Never,0.24,Low
+98,27.68,8.49,35.0,368.64,58.43,18.38,Less than once a month,"Smoke,Cold",No,No,Never,0.12,Low
+105,55.38,12.9,16.16,409.28,64.97,20.94,Less than once a month,Smoke,Yes,Occasionally,Occasionally,0.36,Medium
+117,34.65,12.66,20.42,400.27,63.27,26.39,1-2 times a month,Dust,Cold weather,No,Rarely,0.24,Low
+76,62.37,9.79,19.69,342.79,57.81,26.77,Daily,Pollen,No,Occasionally,Never,0.72,High
+92,31.61,9.28,22.87,411.15,55.85,20.18,1-2 times a month,Dust,Hot and humid weather,Occasionally,Never,0.36,Medium
+122,28.14,10.25,26.79,376.22,51.74,32.34,1-2 times a month,Pollen,Yes,Occasionally,Frequently,0.48,Medium
+141,32.41,5.99,23.88,432.34,53.2,19.68,Less than once a month,Dust,Cold weather,No,Rarely,0.24,Low
+106,58.26,10.49,31.3,383.81,60.18,20.16,Less than once a month,"Dust,Pollen",No,No,Never,0.24,Low
+76,21.02,10.64,16.11,413.69,58.5,19.02,Frequently (Weekly),Dust,Hot and humid weather,No,Never,0.48,Medium
+88,49.87,16.53,25.38,401.85,62.47,22.55,1-2 times a month,"Smoke,Cold",Cold weather,Occasionally,Rarely,0.36,Medium
+78,64.1,10.48,36.32,344.35,50.07,28.94,1-2 times a month,Dust,No,Occasionally,Frequently,0.48,Medium
+104,36.88,12.26,36.81,389.51,63.57,19.4,1-2 times a month,Smoke,No,No,Never,0.24,Low
+65,37.27,16.98,37.55,411.54,48.8,25.66,1-2 times a month,"Smoke,Cold",Yes,No,Never,0.24,Low
+94,41.37,8.53,29.68,432.87,56.73,24.44,Frequently (Weekly),Dust,No,No,Rarely,0.48,Medium
+92,25.81,10.56,24.6,400.23,50.24,23.63,Frequently (Weekly),"Smoke,Cold",Cold weather,Occasionally,Never,0.6,High
+93,72.44,10.27,29.39,432.54,55.89,24.83,Less than once a month,Pollen,Yes,"Yes, often",Rarely,0.36,Medium
+56,48.98,6.82,43.3,416.22,71.74,28.7,Daily,"Smoke,Cold",Cold weather,Occasionally,Never,0.84,High
+91,27.42,11.07,24.95,415.7,58.31,25.64,Less than once a month,"Smoke,Cold",Hot and humid weather,No,Never,0.12,Low
+132,28.73,15.54,39.25,420.04,56.03,29.41,1-2 times a month,Dust,No,Occasionally,Rarely,0.36,Medium
+72,41.98,14.28,12.6,393.86,66.81,18.24,Less than once a month,"Dust,Pollen",No,Occasionally,Rarely,0.24,Low
+90,26.12,15.34,32.08,368.04,35.19,21.57,Less than once a month,Dust,Yes,No,Rarely,0.12,Low
+43,22.84,10.29,31.79,444.28,55.22,18.34,1-2 times a month,Dust,Yes,Occasionally,Never,0.24,Low
+91,44.11,8.31,30.17,418.12,51.93,27.18,1-2 times a month,Dust,Yes,No,Occasionally,0.24,Low
+91,53.85,18.93,30.38,397.08,48.52,29.38,1-2 times a month,Dust,No,No,Never,0.24,Low
+89,50.77,12.89,29.66,422.17,43.91,22.28,Frequently (Weekly),Smoke,Cold weather,Occasionally,Never,0.6,High
+103,36.41,7.36,31.77,413.92,53.31,24.67,Daily,Pollen,No,No,Never,0.72,High
+80,36.27,19.75,25.42,377.75,60.57,16.32,1-2 times a month,"Dust,Pollen",No,No,Never,0.24,Low
+117,43.03,11.19,26.44,387.9,52.85,24.1,Less than once a month,Pollen,Yes,Occasionally,Never,0.24,Low
+65,52.26,2.79,19.34,439.3,62.6,16.68,Frequently (Weekly),"Smoke,Cold",Hot and humid weather,No,Never,0.6,High
+124,23.91,15.96,32.19,394.12,55.68,23.97,1-2 times a month,Dust,No,No,Never,0.24,Low
+85,32.27,4.96,35.57,414.28,64.25,14.9,1-2 times a month,Dust,No,No,Never,0.12,Low
+80,36.48,12.87,37.96,441.82,50.34,31.62,Less than once a month,"Dust,Pollen",Cold weather,No,Occasionally,0.24,Low
+48,37.27,14.17,22.94,396.55,41.0,23.77,Frequently (Weekly),"Smoke,Cold",Cold weather,Occasionally,Never,0.48,Medium
+55,40.05,13.99,17.37,376.94,43.15,23.57,Frequently (Weekly),"Dust,Pollen",Hot and humid weather,Occasionally,Frequently,0.72,High
+92,38.48,16.87,29.63,402.7,50.3,33.91,Less than once a month,Pollen,Cold weather,No,Never,0.12,Low
+69,47.65,14.75,21.77,380.0,48.37,24.06,Daily,Dust,No,"Yes, often",Never,0.72,High
+110,18.77,17.32,30.95,357.3,50.91,15.56,1-2 times a month,Dust,Cold weather,No,Occasionally,0.36,Medium
+92,22.1,12.08,15.11,425.98,63.11,20.81,1-2 times a month,Smoke,No,Occasionally,Frequently,0.36,Medium
+49,31.36,10.48,34.92,392.15,43.5,33.89,1-2 times a month,Pollen,Yes,No,Occasionally,0.24,Low
+103,50.33,11.06,29.47,313.27,67.42,19.2,1-2 times a month,Pollen,Cold weather,Occasionally,Rarely,0.36,Medium
+80,33.91,16.49,16.14,409.38,49.05,22.31,Less than once a month,Smoke,Yes,No,Never,0.12,Low
+87,42.54,9.73,29.71,410.03,46.64,31.99,Frequently (Weekly),"Dust,Pollen",Yes,No,Never,0.48,Medium
+107,40.49,14.21,28.47,458.0,56.26,20.74,Frequently (Weekly),"Dust,Pollen",Yes,No,Frequently,0.6,High
+53,43.96,9.35,31.45,398.8,67.98,23.09,1-2 times a month,Dust,No,Occasionally,Rarely,0.24,Low
+63,56.97,9.49,32.67,430.39,49.51,30.85,1-2 times a month,Smoke,Yes,"Yes, often",Never,0.48,Medium
+96,48.32,15.36,13.78,420.83,50.7,21.23,1-2 times a month,Dust,Hot and humid weather,No,Occasionally,0.36,Medium
+40,51.62,13.9,25.02,377.5,51.07,19.76,Less than once a month,Dust,Cold weather,No,Never,0.12,Low
+69,39.98,5.68,28.14,408.16,66.08,15.4,Less than once a month,"Dust,Pollen",Yes,Occasionally,Occasionally,0.24,Low
+112,56.27,9.2,26.22,394.58,51.54,18.88,Frequently (Weekly),Smoke,Hot and humid weather,Occasionally,Never,0.6,High
+82,39.29,3.88,25.81,377.0,58.24,20.6,Frequently (Weekly),"Dust,Pollen",Yes,Occasionally,Rarely,0.36,Medium
+49,18.36,10.85,34.53,385.26,56.4,22.53,Frequently (Weekly),Dust,Yes,No,Occasionally,0.36,Medium
+89,68.74,11.31,18.59,380.92,55.79,26.72,Less than once a month,"Smoke,Cold",Hot and humid weather,Occasionally,Occasionally,0.24,Low
+72,40.79,11.13,25.89,407.15,50.24,24.7,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.36,Medium
+67,46.71,15.64,27.35,397.57,70.21,17.6,1-2 times a month,"Smoke,Cold",Yes,Occasionally,Rarely,0.36,Medium
+171,26.23,13.17,26.85,383.47,76.75,30.07,Less than once a month,Pollen,No,No,Never,0.24,Low
+101,65.42,19.1,22.16,390.88,46.97,19.33,1-2 times a month,Dust,Yes,No,Occasionally,0.36,Medium
+76,31.83,13.71,40.37,349.54,45.67,33.37,Daily,Dust,Cold weather,Occasionally,Rarely,0.72,High
+108,36.19,13.96,33.65,374.85,56.08,25.02,1-2 times a month,Dust,Yes,"Yes, often",Rarely,0.36,Medium
+77,21.63,12.28,40.86,386.52,36.99,29.0,1-2 times a month,Pollen,No,No,Rarely,0.12,Low
+73,44.21,11.22,32.26,449.66,54.35,26.85,Less than once a month,"Smoke,Cold",Cold weather,Occasionally,Occasionally,0.24,Low
+95,37.0,9.75,32.28,419.11,71.61,32.04,1-2 times a month,Pollen,No,"Yes, often",Rarely,0.36,Medium
+98,21.94,10.89,28.29,369.66,50.49,24.11,Daily,Smoke,Cold weather,No,Never,0.72,High
+106,40.7,11.94,37.06,446.99,64.41,22.36,Frequently (Weekly),"Smoke,Cold",Cold weather,No,Never,0.6,High
+119,41.11,11.98,31.39,402.26,66.27,26.29,Less than once a month,Smoke,No,No,Never,0.24,Low
+121,37.56,13.73,27.73,371.32,47.13,22.69,Less than once a month,Pollen,No,Occasionally,Occasionally,0.24,Low
+109,19.01,12.85,38.63,400.05,56.97,26.61,Daily,"Smoke,Cold",Yes,Occasionally,Rarely,0.84,High
+108,44.37,10.35,19.75,432.15,58.49,32.17,Daily,Dust,Cold weather,No,Frequently,0.84,High
+113,26.53,9.45,23.46,364.92,59.95,16.61,1-2 times a month,Smoke,Yes,Occasionally,Occasionally,0.36,Medium
+99,50.66,12.51,44.85,371.97,61.6,23.83,1-2 times a month,"Dust,Pollen",Hot and humid weather,Occasionally,Occasionally,0.48,Medium
+48,32.66,9.45,32.4,457.23,63.49,34.98,Frequently (Weekly),Dust,No,Occasionally,Occasionally,0.48,Medium
+96,50.7,10.55,12.23,407.47,49.52,23.01,1-2 times a month,"Dust,Pollen",No,No,Occasionally,0.36,Medium
+122,40.94,10.55,34.26,385.15,56.92,29.62,Less than once a month,Dust,Yes,No,Occasionally,0.24,Low
+67,40.66,19.11,21.17,392.09,67.83,28.51,1-2 times a month,Dust,No,"Yes, often",Rarely,0.36,Medium
+79,58.06,7.82,24.74,404.51,67.05,16.93,1-2 times a month,Dust,Yes,"Yes, often",Occasionally,0.48,Medium
+85,30.23,9.98,43.5,392.9,56.25,24.5,Less than once a month,"Smoke,Cold",Yes,No,Rarely,0.12,Low
+89,25.7,9.69,38.34,437.29,50.45,25.05,Frequently (Weekly),"Smoke,Cold",Yes,No,Never,0.36,Medium
+71,47.06,11.18,39.79,405.38,62.86,39.21,1-2 times a month,Dust,Yes,No,Occasionally,0.24,Low
+86,26.08,15.3,24.35,419.43,59.58,9.54,1-2 times a month,Dust,No,Occasionally,Occasionally,0.36,Medium
+97,29.44,11.29,26.68,404.1,58.26,15.6,1-2 times a month,Pollen,No,Occasionally,Frequently,0.48,Medium
+31,20.04,7.89,28.68,395.22,62.42,22.17,Less than once a month,Smoke,Yes,No,Rarely,0.12,Low
+81,53.6,16.18,32.13,430.68,48.79,22.03,Frequently (Weekly),"Smoke,Cold",No,No,Never,0.6,High
+77,27.19,12.85,25.28,428.89,62.66,19.74,Daily,"Smoke,Cold",Hot and humid weather,Occasionally,Frequently,0.96,High
+42,30.53,13.32,38.89,352.21,56.64,20.16,Less than once a month,"Dust,Pollen",No,No,Rarely,0.12,Low
+102,22.67,13.66,31.59,402.26,64.03,27.37,Frequently (Weekly),Smoke,Cold weather,Occasionally,Never,0.6,High
+92,35.65,8.32,38.16,462.45,55.31,19.15,1-2 times a month,Dust,Yes,Occasionally,Never,0.36,Medium
+89,39.14,12.06,22.77,383.57,59.06,21.23,1-2 times a month,Dust,Cold weather,Occasionally,Never,0.24,Low
+103,49.07,14.37,25.44,415.5,58.78,28.45,Less than once a month,Smoke,No,No,Never,0.24,Low
+97,24.05,10.75,29.16,435.06,50.9,28.92,1-2 times a month,Smoke,No,Occasionally,Frequently,0.48,Medium
+66,33.01,12.88,25.53,367.39,47.13,21.54,1-2 times a month,"Dust,Pollen",No,Occasionally,Rarely,0.24,Low
+101,55.75,13.1,34.45,386.48,62.75,16.1,1-2 times a month,Pollen,No,Occasionally,Never,0.24,Low
+110,53.52,7.32,33.88,357.83,48.08,27.87,Less than once a month,Dust,No,No,Never,0.24,Low
+57,32.12,9.11,26.19,405.14,51.49,19.3,Less than once a month,Pollen,Hot and humid weather,No,Never,0.24,Low
+106,40.04,4.93,31.86,414.57,51.91,30.49,Frequently (Weekly),"Smoke,Cold",Yes,"Yes, often",Occasionally,0.72,High
+77,64.43,12.38,40.99,417.03,57.45,26.0,Less than once a month,"Dust,Pollen",No,"Yes, often",Rarely,0.36,Medium
+99,28.58,18.07,33.88,448.11,59.73,23.53,Less than once a month,Dust,Hot and humid weather,No,Never,0.12,Low
+91,15.72,9.97,30.98,402.48,43.8,25.71,1-2 times a month,"Smoke,Cold",No,Occasionally,Rarely,0.24,Low
+77,32.5,11.24,36.55,365.75,49.21,14.74,1-2 times a month,Pollen,Yes,Occasionally,Rarely,0.24,Low
+99,41.02,14.21,38.38,367.76,49.65,31.35,1-2 times a month,Pollen,Yes,No,Never,0.24,Low
+77,31.16,12.98,36.41,383.02,53.5,23.39,1-2 times a month,Pollen,Yes,"Yes, often",Occasionally,0.36,Medium
+111,51.81,9.08,27.75,406.12,39.44,24.52,Less than once a month,Smoke,Yes,No,Never,0.24,Low
+120,41.95,16.97,33.9,472.0,64.06,21.51,Frequently (Weekly),Smoke,Yes,"Yes, often",Never,0.6,High
+74,32.47,12.26,26.27,393.89,55.14,22.74,Frequently (Weekly),Smoke,Yes,"Yes, often",Rarely,0.6,High
+80,33.28,11.19,28.49,445.61,54.97,32.81,Frequently (Weekly),Smoke,Yes,Occasionally,Never,0.48,Medium
+75,29.25,11.64,31.21,400.72,61.56,22.61,Less than once a month,Dust,No,No,Never,0.12,Low
+97,51.12,14.15,19.49,367.72,59.0,21.7,1-2 times a month,Dust,Cold weather,Occasionally,Occasionally,0.36,Medium
+118,31.92,10.24,30.33,376.33,59.85,26.83,1-2 times a month,"Dust,Pollen",Cold weather,No,Occasionally,0.36,Medium
+47,24.67,16.5,23.93,385.13,56.08,25.64,Less than once a month,Smoke,Yes,Occasionally,Frequently,0.24,Low
+51,51.02,16.17,21.41,399.28,56.13,31.69,Less than once a month,Pollen,Yes,"Yes, often",Never,0.36,Medium
+84,39.26,11.93,32.68,408.07,63.0,13.25,Less than once a month,Dust,No,No,Rarely,0.12,Low
+90,23.56,12.24,27.01,380.92,58.87,21.33,Daily,Dust,Yes,No,Occasionally,0.72,High
+69,60.93,9.69,29.51,425.47,68.11,15.9,1-2 times a month,Pollen,No,No,Rarely,0.24,Low
+87,46.27,10.56,26.65,431.73,55.85,29.59,Less than once a month,Dust,No,No,Frequently,0.24,Low
+64,41.6,8.7,24.12,393.82,60.24,17.48,Frequently (Weekly),Pollen,No,"Yes, often",Occasionally,0.6,High
+73,41.0,12.16,28.53,431.87,55.26,25.83,Frequently (Weekly),"Dust,Pollen",Cold weather,Occasionally,Rarely,0.6,High
+120,37.23,12.16,20.02,341.17,57.28,17.3,1-2 times a month,Dust,Cold weather,Occasionally,Rarely,0.36,Medium
+70,35.99,7.32,28.03,328.11,58.31,21.74,Less than once a month,"Dust,Pollen",Cold weather,No,Never,0.24,Low
+71,34.28,13.88,40.19,421.73,52.33,18.54,1-2 times a month,"Dust,Pollen",Yes,No,Never,0.36,Medium
+87,33.76,9.48,20.37,381.74,50.2,24.19,1-2 times a month,Dust,Cold weather,"Yes, often",Never,0.48,Medium
+118,37.58,13.32,35.6,465.17,59.73,34.1,1-2 times a month,Smoke,No,Occasionally,Rarely,0.24,Low
+84,31.78,14.74,40.96,395.18,57.61,16.77,Frequently (Weekly),Dust,No,"Yes, often",Never,0.48,Medium
+68,43.8,16.05,24.9,369.37,67.72,18.31,Less than once a month,Smoke,Cold weather,Occasionally,Rarely,0.24,Low
+102,39.15,15.13,29.8,448.85,54.19,26.69,Frequently (Weekly),Dust,Cold weather,Occasionally,Rarely,0.48,Medium
+109,31.48,17.05,19.92,416.45,46.74,22.47,1-2 times a month,Pollen,Hot and humid weather,Occasionally,Rarely,0.36,Medium
+112,39.86,14.24,19.8,444.81,55.12,17.11,Frequently (Weekly),Smoke,No,"Yes, often",Rarely,0.72,High
+85,45.67,12.67,28.49,383.94,62.17,20.94,1-2 times a month,Dust,No,"Yes, often",Occasionally,0.36,Medium
+97,11.38,10.41,31.35,409.33,38.83,16.32,Less than once a month,Dust,Hot and humid weather,No,Frequently,0.36,Medium
+106,47.5,11.22,24.85,373.17,55.07,21.89,Less than once a month,Pollen,Cold weather,No,Rarely,0.12,Low
+88,26.19,16.55,21.2,353.91,61.3,19.88,1-2 times a month,Pollen,Hot and humid weather,Occasionally,Rarely,0.36,Medium
+120,33.8,11.05,22.83,425.5,58.02,25.32,Frequently (Weekly),"Smoke,Cold",No,No,Rarely,0.48,Medium
+103,8.25,11.83,33.88,386.98,51.75,27.14,Frequently (Weekly),Dust,No,Occasionally,Never,0.48,Medium
+134,45.47,16.17,33.12,370.91,45.06,11.67,Frequently (Weekly),Pollen,Yes,"Yes, often",Never,0.6,High
+104,31.97,11.29,32.28,356.23,55.5,24.33,1-2 times a month,Pollen,Cold weather,No,Never,0.24,Low
+33,36.3,9.5,25.93,404.22,46.56,12.17,1-2 times a month,Dust,Yes,Occasionally,Never,0.24,Low
+73,42.21,15.55,22.32,401.09,59.83,23.97,Less than once a month,Smoke,No,Occasionally,Occasionally,0.12,Low
+45,16.24,9.63,35.97,385.81,54.02,31.75,Less than once a month,Dust,Cold weather,No,Never,0.12,Low
+70,41.6,13.11,39.72,379.64,67.48,21.92,Frequently (Weekly),"Dust,Pollen",No,Occasionally,Never,0.48,Medium
+73,46.78,13.06,25.18,419.6,40.46,24.58,Less than once a month,Smoke,Cold weather,"Yes, often",Rarely,0.36,Medium
+108,42.53,12.67,27.13,327.32,52.38,28.48,Less than once a month,Dust,Cold weather,No,Occasionally,0.24,Low
+76,33.97,5.04,18.96,417.21,62.97,28.14,1-2 times a month,Smoke,Yes,"Yes, often",Occasionally,0.36,Medium
+122,40.35,14.39,31.73,419.72,63.47,28.98,Less than once a month,Smoke,No,No,Never,0.24,Low
+67,40.38,11.7,40.23,366.84,60.6,26.65,Less than once a month,Pollen,Hot and humid weather,Occasionally,Frequently,0.36,Medium
+77,50.08,14.19,33.2,336.99,46.77,20.24,1-2 times a month,Dust,No,Occasionally,Never,0.36,Medium
+51,55.74,13.67,40.99,416.9,51.22,26.39,Less than once a month,Dust,No,No,Never,0.12,Low
+125,35.57,12.63,25.54,369.61,37.2,31.0,1-2 times a month,Pollen,No,Occasionally,Occasionally,0.24,Low
+126,41.89,10.92,21.5,449.19,54.75,26.25,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+78,32.16,10.95,37.2,463.81,65.2,24.47,1-2 times a month,Smoke,No,No,Never,0.24,Low
+51,45.94,12.14,28.63,405.83,55.27,14.72,Less than once a month,"Dust,Pollen",Yes,"Yes, often",Rarely,0.24,Low
+81,45.23,12.69,23.29,396.3,58.79,18.24,Frequently (Weekly),"Smoke,Cold",Yes,No,Rarely,0.48,Medium
+94,37.75,10.93,39.35,394.06,59.89,20.31,1-2 times a month,Smoke,No,"Yes, often",Never,0.36,Medium
+68,45.66,14.7,25.14,342.65,52.13,19.3,1-2 times a month,Smoke,No,"Yes, often",Rarely,0.36,Medium
+143,39.7,10.95,22.43,393.27,35.63,22.84,1-2 times a month,Smoke,Yes,No,Never,0.24,Low
+129,38.5,8.98,30.71,384.13,66.44,19.68,1-2 times a month,"Smoke,Cold",Hot and humid weather,Occasionally,Rarely,0.36,Medium
+47,29.46,13.31,18.76,381.82,59.26,27.84,1-2 times a month,Dust,No,Occasionally,Occasionally,0.24,Low
+55,41.68,18.03,35.33,412.15,45.73,21.89,Frequently (Weekly),Dust,Cold weather,No,Never,0.48,Medium
+94,31.3,8.16,20.67,403.17,58.01,18.4,Less than once a month,Dust,No,Occasionally,Rarely,0.24,Low
+57,53.56,11.7,28.49,425.96,55.82,20.19,1-2 times a month,Pollen,Yes,Occasionally,Rarely,0.36,Medium
+89,28.64,15.09,29.59,387.54,65.23,23.01,Less than once a month,Dust,Hot and humid weather,No,Never,0.24,Low
+89,43.06,13.64,29.01,426.23,58.8,22.18,Frequently (Weekly),Dust,No,No,Never,0.36,Medium
+85,36.95,14.07,19.81,405.57,60.04,24.33,1-2 times a month,Pollen,No,"Yes, often",Occasionally,0.36,Medium
+114,42.55,11.86,27.35,414.85,56.17,22.98,Less than once a month,"Smoke,Cold",No,Occasionally,Never,0.24,Low
+131,39.19,4.16,36.03,401.23,49.0,32.0,1-2 times a month,"Smoke,Cold",Yes,"Yes, often",Frequently,0.6,High
+94,29.2,12.91,25.82,451.13,59.4,28.26,Less than once a month,"Dust,Pollen",No,"Yes, often",Never,0.24,Low
+52,54.0,12.89,21.11,323.23,55.07,19.71,Daily,Pollen,Yes,No,Rarely,0.72,High
+93,29.33,15.65,24.82,414.34,47.34,15.01,1-2 times a month,"Smoke,Cold",No,No,Rarely,0.24,Low
+73,48.57,10.16,20.3,424.62,49.62,22.3,1-2 times a month,"Smoke,Cold",Cold weather,No,Never,0.36,Medium
+138,21.38,17.66,14.79,365.01,46.59,18.24,1-2 times a month,"Smoke,Cold",Hot and humid weather,No,Never,0.36,Medium
+105,36.2,10.99,27.45,455.22,62.93,15.01,1-2 times a month,Smoke,Yes,No,Never,0.36,Medium
+93,59.28,10.61,28.3,402.2,71.95,27.5,Frequently (Weekly),Dust,Cold weather,"Yes, often",Rarely,0.72,High
+102,38.54,9.91,32.61,386.58,63.63,23.82,1-2 times a month,Dust,No,"Yes, often",Never,0.36,Medium
+87,41.01,15.34,29.85,410.45,59.1,29.33,Frequently (Weekly),"Smoke,Cold",Yes,Occasionally,Rarely,0.6,High
+119,60.06,9.24,32.23,423.47,53.2,23.14,1-2 times a month,Dust,Hot and humid weather,No,Rarely,0.36,Medium
+71,37.73,14.04,28.53,399.23,52.92,22.76,Frequently (Weekly),Dust,No,Occasionally,Never,0.36,Medium
+114,44.54,9.73,40.63,399.41,47.6,17.98,1-2 times a month,Pollen,Yes,No,Occasionally,0.24,Low
+126,46.66,11.54,22.46,425.35,70.29,20.61,1-2 times a month,Dust,Yes,Occasionally,Occasionally,0.36,Medium
+68,24.29,8.04,25.45,431.04,46.95,15.05,Less than once a month,"Smoke,Cold",No,No,Never,0.12,Low
+94,35.37,14.21,37.94,407.37,47.91,28.92,1-2 times a month,Dust,Yes,No,Never,0.24,Low
+94,40.14,10.75,26.39,355.34,53.79,17.5,Frequently (Weekly),Dust,Hot and humid weather,Occasionally,Never,0.48,Medium
+61,20.05,12.99,27.08,371.89,54.3,25.15,1-2 times a month,"Smoke,Cold",No,No,Rarely,0.24,Low
+53,55.59,11.56,31.09,433.53,61.59,22.37,1-2 times a month,Pollen,No,Occasionally,Rarely,0.36,Medium
+63,50.37,13.2,34.31,389.08,48.51,26.36,Frequently (Weekly),"Smoke,Cold",Yes,No,Occasionally,0.48,Medium
+82,45.88,11.88,28.64,380.55,39.25,23.44,1-2 times a month,Pollen,Cold weather,Occasionally,Rarely,0.24,Low
+98,56.23,13.77,22.67,414.18,52.81,17.95,1-2 times a month,Smoke,No,Occasionally,Rarely,0.24,Low
+74,49.55,13.69,25.67,407.33,53.79,22.5,Frequently (Weekly),Dust,No,Occasionally,Frequently,0.6,High
+135,37.44,12.76,31.04,395.4,52.93,30.63,Frequently (Weekly),Smoke,Hot and humid weather,"Yes, often",Rarely,0.6,High
+108,21.94,9.35,26.98,418.98,52.65,19.06,Frequently (Weekly),Dust,Yes,No,Rarely,0.48,Medium
+94,29.52,10.48,25.95,363.1,51.78,29.76,1-2 times a month,"Smoke,Cold",No,No,Never,0.24,Low
+75,32.9,9.95,22.3,350.75,44.98,28.07,Daily,Dust,No,Occasionally,Rarely,0.72,High
+88,47.21,16.17,34.85,445.65,66.4,24.62,1-2 times a month,Dust,No,Occasionally,Never,0.24,Low
+113,39.16,14.28,26.91,363.34,66.23,20.37,Frequently (Weekly),"Smoke,Cold",Yes,No,Rarely,0.48,Medium
+107,19.92,11.96,27.93,350.84,66.31,24.79,1-2 times a month,Pollen,Yes,Occasionally,Rarely,0.24,Low
+111,52.26,10.23,31.68,386.89,44.94,20.73,Frequently (Weekly),Smoke,No,Occasionally,Never,0.48,Medium
+78,56.71,10.19,18.95,400.57,58.72,29.64,1-2 times a month,Smoke,Cold weather,"Yes, often",Occasionally,0.48,Medium
+72,58.67,12.37,27.46,385.03,50.85,17.22,Less than once a month,Dust,No,No,Rarely,0.12,Low
+49,27.59,17.15,37.43,391.35,51.58,25.26,1-2 times a month,Dust,Yes,No,Never,0.24,Low

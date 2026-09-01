@@ -1478,18 +1478,99 @@
         </form>
       </div>
 
-      <!-- STEP 2: ENVIRONMENTAL VARIABLES (WEB API SYNC) -->
+      <!-- STEP 2: ENVIRONMENTAL VARIABLES (WEB API SYNC OR MANUAL INPUT) -->
       <div id="user-step-2" class="portal-card" style="display: none;">
         <div class="card-title-row">
           <div>
             <h3><i class="fa-solid fa-satellite-dish text-primary"></i> Step 2: Environmental Telemetry Ingestion</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-              Live sensor sync from the Open-Meteo Air Quality & Weather API using browser geolocation or manual telemetry.
+              Choose between real-time Open-Meteo GPS sensor sync or manually writing custom environmental values.
             </p>
           </div>
+          
+          <!-- Mode Switcher Tabs -->
+          <div style="display: flex; gap: 0.4rem; background: var(--bg-card-subtle); padding: 0.3rem; border-radius: 12px;">
+            <button type="button" class="nav-btn active" id="btn-env-gps" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="setEnvInputMode('gps')">
+              <i class="fa-solid fa-location-crosshairs"></i> 1. Live GPS Sync
+            </button>
+            <button type="button" class="nav-btn" id="btn-env-manual" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="setEnvInputMode('manual')">
+              <i class="fa-solid fa-pen-to-square"></i> 2. Write Values Manually
+            </button>
+          </div>
+        </div>
+
+        <!-- GPS Mode Actions Bar -->
+        <div id="panel-env-gps" style="display: flex; justify-content: space-between; align-items: center; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 38px; height: 38px; border-radius: 10px; background: #0284c7; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+              <i class="fa-solid fa-satellite"></i>
+            </div>
+            <div>
+              <strong style="font-size: 0.9rem; color: #0369a1;">Real-Time Open-Meteo Satellite & Ground Sensors</strong>
+              <p style="font-size: 0.75rem; color: #0284c7;">Auto-detects device GPS coordinates to pull live air quality and weather telemetry.</p>
+            </div>
+          </div>
           <button class="btn-hero-primary" style="padding: 0.65rem 1.25rem; font-size: 0.85rem;" onclick="fetchLiveEnvironmentalData(false)">
-            <i class="fa-solid fa-location-crosshairs"></i> Auto-Fetch Live GPS AQI
+            <i class="fa-solid fa-rotate"></i> Auto-Fetch Live GPS AQI
           </button>
+        </div>
+
+        <!-- Manual Mode Input Form -->
+        <div id="panel-env-manual" style="display: none; background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <strong style="font-size: 0.95rem; color: var(--text-main);"><i class="fa-solid fa-pen-to-square text-primary"></i> Manual Telemetry Input</strong>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">Write your own pollutant and weather readings to simulate custom air conditions.</p>
+            </div>
+            <!-- Quick Manual Presets -->
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+              <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('clean')">
+                🌿 Clean Air (AQI 25)
+              </button>
+              <button type="button" class="nav-btn" style="background: #fefce8; color: #a16207; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('moderate')">
+                🏙️ Moderate Urban (AQI 125)
+              </button>
+              <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('severe')">
+                🏭 Hazardous Smog (AQI 260)
+              </button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+            <div class="form-group">
+              <label for="manual-aqi">AQI (Air Quality Index)</label>
+              <input type="number" id="manual-aqi" class="form-input" min="0" max="500" value="125" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-pm25">PM2.5 (μg/m³)</label>
+              <input type="number" id="manual-pm25" class="form-input" min="0" max="500" step="0.5" value="48.5" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-no2">NO2 Level (μg/m³)</label>
+              <input type="number" id="manual-no2" class="form-input" min="0" max="300" step="0.5" value="32.0" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-so2">SO2 Level (μg/m³)</label>
+              <input type="number" id="manual-so2" class="form-input" min="0" max="300" step="0.5" value="18.0" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-co2">CO2 Level (ppm)</label>
+              <input type="number" id="manual-co2" class="form-input" min="300" max="1500" step="5" value="415.0" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-temp">Temperature (°C)</label>
+              <input type="number" id="manual-temp" class="form-input" min="-20" max="55" step="0.5" value="27.5" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group">
+              <label for="manual-humidity">Humidity (%)</label>
+              <input type="number" id="manual-humidity" class="form-input" min="0" max="100" step="1" value="62.0" oninput="syncManualInputsToEnv()" />
+            </div>
+            <div class="form-group" style="justify-content: flex-end;">
+              <button type="button" class="nav-btn" style="background: #f1f5f9; font-weight: 700; height: 42px; justify-content: center;" onclick="resetManualInputs()">
+                <i class="fa-solid fa-arrow-rotate-left"></i> Reset Values
+              </button>
+            </div>
+          </div>
         </div>
 
         <!-- 4x2 Dials Grid -->
@@ -1547,7 +1628,7 @@
             <i class="fa-solid fa-circle-check"></i>
             <div class="dial-val" id="disp-status" style="font-size: 1.1rem; color: #10b981;">SYNCED</div>
             <div class="dial-unit">Status</div>
-            <div class="dial-name">Telemetry Health</div>
+            <div class="dial-name">Telemetry Mode</div>
           </div>
         </div>
 
@@ -1992,6 +2073,98 @@
         document.getElementById('weather-input').value = "No specific weather-related triggers";
         updateEnvDisplay({ AQI: 35, PM25: 12.0, NO2: 15.0, SO2: 8.0, CO2: 390.0, Temperature: 22.0, Humidity: 45.0 });
       }
+    }
+
+    function setEnvInputMode(mode) {
+      const btnGps = document.getElementById('btn-env-gps');
+      const btnManual = document.getElementById('btn-env-manual');
+      const panelGps = document.getElementById('panel-env-gps');
+      const panelManual = document.getElementById('panel-env-manual');
+      const statusEl = document.getElementById('disp-status');
+
+      if (mode === 'manual') {
+        btnManual.classList.add('active');
+        btnGps.classList.remove('active');
+        panelManual.style.display = 'block';
+        panelGps.style.display = 'none';
+        if (statusEl) {
+          statusEl.innerText = 'MANUAL';
+          statusEl.style.color = '#f59e0b';
+        }
+        syncManualInputsFromEnv();
+      } else {
+        btnGps.classList.add('active');
+        btnManual.classList.remove('active');
+        panelGps.style.display = 'flex';
+        panelManual.style.display = 'none';
+        if (statusEl) {
+          statusEl.innerText = 'LIVE GPS';
+          statusEl.style.color = '#10b981';
+        }
+      }
+    }
+
+    function syncManualInputsFromEnv() {
+      const aqiInput = document.getElementById('manual-aqi');
+      if (aqiInput && document.activeElement !== aqiInput) aqiInput.value = Math.round(envData.AQI);
+      const pm25Input = document.getElementById('manual-pm25');
+      if (pm25Input && document.activeElement !== pm25Input) pm25Input.value = Number(envData.PM25).toFixed(1);
+      const no2Input = document.getElementById('manual-no2');
+      if (no2Input && document.activeElement !== no2Input) no2Input.value = Number(envData.NO2).toFixed(1);
+      const so2Input = document.getElementById('manual-so2');
+      if (so2Input && document.activeElement !== so2Input) so2Input.value = Number(envData.SO2).toFixed(1);
+      const co2Input = document.getElementById('manual-co2');
+      if (co2Input && document.activeElement !== co2Input) co2Input.value = Number(envData.CO2).toFixed(1);
+      const tempInput = document.getElementById('manual-temp');
+      if (tempInput && document.activeElement !== tempInput) tempInput.value = Number(envData.Temperature).toFixed(1);
+      const humInput = document.getElementById('manual-humidity');
+      if (humInput && document.activeElement !== humInput) humInput.value = Number(envData.Humidity).toFixed(1);
+    }
+
+    function syncManualInputsToEnv() {
+      const aqi = parseFloat(document.getElementById('manual-aqi').value) || 0;
+      const pm25 = parseFloat(document.getElementById('manual-pm25').value) || 0;
+      const no2 = parseFloat(document.getElementById('manual-no2').value) || 0;
+      const so2 = parseFloat(document.getElementById('manual-so2').value) || 0;
+      const co2 = parseFloat(document.getElementById('manual-co2').value) || 400;
+      const temp = parseFloat(document.getElementById('manual-temp').value) || 25;
+      const hum = parseFloat(document.getElementById('manual-humidity').value) || 50;
+
+      updateEnvDisplay({
+        AQI: aqi,
+        PM25: pm25,
+        NO2: no2,
+        SO2: so2,
+        CO2: co2,
+        Temperature: temp,
+        Humidity: hum
+      });
+
+      const statusEl = document.getElementById('disp-status');
+      if (statusEl) {
+        statusEl.innerText = 'MANUAL EDITED';
+        statusEl.style.color = '#0284c7';
+      }
+    }
+
+    function applyManualPreset(type) {
+      if (type === 'clean') {
+        updateEnvDisplay({ AQI: 25, PM25: 8.0, NO2: 10.0, SO2: 5.0, CO2: 390.0, Temperature: 22.0, Humidity: 45.0 });
+      } else if (type === 'moderate') {
+        updateEnvDisplay({ AQI: 125, PM25: 48.5, NO2: 32.0, SO2: 18.0, CO2: 415.0, Temperature: 27.5, Humidity: 62.0 });
+      } else if (type === 'severe') {
+        updateEnvDisplay({ AQI: 260, PM25: 135.0, NO2: 70.0, SO2: 45.0, CO2: 550.0, Temperature: 34.0, Humidity: 75.0 });
+      }
+      syncManualInputsFromEnv();
+      const statusEl = document.getElementById('disp-status');
+      if (statusEl) {
+        statusEl.innerText = 'PRESET ' + type.toUpperCase();
+        statusEl.style.color = (type === 'severe') ? '#ef4444' : ((type === 'moderate') ? '#f59e0b' : '#10b981');
+      }
+    }
+
+    function resetManualInputs() {
+      applyManualPreset('moderate');
     }
 
     function updateEnvDisplay(data) {

@@ -27,14 +27,14 @@ DB_PATH = "asthmai.db"
 
 # ==================== MODEL LOADING ====================
 
-print("Loading HridyaVayu Review 1 Models...")
+print("Loading HridyaVayu Multimodal Ensemble Models...")
 review1_package = None
 try:
     if os.path.exists(REVIEW1_MODEL_PATH):
         with open(REVIEW1_MODEL_PATH, "rb") as f:
             review1_package = pickle.load(f)
-        print("✓ HridyaVayu Review 1 Collaborative 3-Model Ensemble Loaded Successfully!")
-        model_name = "HridyaVayu Review 1 Ensemble (Baseline LR + Random Forest + Gradient Boosting)"
+        print("✓ HridyaVayu Multimodal Collaborative Ensemble Loaded Successfully!")
+        model_name = "HridyaVayu Multimodal Ensemble (Baseline LR + Random Forest + Gradient Boosting)"
     else:
         with open(FALLBACK_MODEL_PATH, "rb") as f:
             fallback = pickle.load(f)
@@ -324,18 +324,29 @@ def save_profile():
     try:
         data = request.get_json(force=True) or {}
         user_id = data.get("user_id") or 1
+        phone = data.get("phone_no", "+1-555-0143")
         user = User.query.get(user_id)
+        if not user:
+            user = User.query.filter_by(phone_no=phone).first()
+
         if not user:
             user = User(
                 name=data.get("name", "Alex Rivera"),
                 age=int(data.get("age", 30)),
                 gender=data.get("gender", "Other"),
-                phone_no=data.get("phone_no", "+1-555-0143"),
+                phone_no=phone,
                 emergency_contact_name=data.get("emergency_contact_name", "Primary Contact"),
                 emergency_contact_phone=data.get("emergency_contact_phone", "+1-555-0188")
             )
             db.session.add(user)
         else:
+            if "name" in data: user.name = data["name"]
+            if "age" in data: user.age = int(data["age"])
+            if "gender" in data: user.gender = data["gender"]
+            if "phone_no" in data: user.phone_no = data["phone_no"]
+            if "medical_history" in data: user.medical_history = data["medical_history"]
+            if "emergency_contact_name" in data: user.emergency_contact_name = data["emergency_contact_name"]
+            if "emergency_contact_phone" in data: user.emergency_contact_phone = data["emergency_contact_phone"]
             if "name" in data: user.name = data["name"]
             if "age" in data: user.age = int(data["age"])
             if "gender" in data: user.gender = data["gender"]
@@ -741,7 +752,7 @@ def predict():
             "confidence": round(confidence, 4),
             "uncertainty_entropy": round(uncertainty, 4),
             "heuristic_override": heuristic_override,
-            "model_architecture": "Review 1 Collaborative Ensemble (Baseline LR + RF + GB)",
+            "model_architecture": "HridyaVayu Multimodal Collaborative Ensemble (Baseline LR + RF + GB)",
             "model_breakdown": {
                 "baseline_linear_regression": round(lr_score, 4),
                 "random_forest": round(rf_score, 4),
@@ -997,5 +1008,5 @@ if __name__ == "__main__":
     if not os.path.exists("web_ui"):
         os.makedirs("web_ui")
     port = int(os.environ.get("PORT", 7860))
-    print(f"🚀 HridyaVayu Server Started on port {port} - Review 1 Collaborative 3-Model Ready")
+    print(f"🚀 HridyaVayu Server Started on port {port} - Collaborative AI Engine Ready")
     app.run(host="0.0.0.0", port=port, debug=False)

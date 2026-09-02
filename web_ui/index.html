@@ -3,39 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HridyaVayu - AI-Powered Smart Asthma Care System</title>
-  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <title>HridyaVayu - Intelligent Asthma Decision Support System</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- FontAwesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  
+
   <style>
     :root {
       --primary: #0284c7;
-      --primary-hover: #0369a1;
+      --primary-dark: #0369a1;
       --primary-light: #e0f2fe;
-      --accent-cyan: #06b6d4;
-      --accent-blue: #2563eb;
+      --primary-subtle: #f0f9ff;
+      --accent: #0f172a;
       --bg-main: #f8fafc;
       --bg-card: #ffffff;
       --bg-card-subtle: #f1f5f9;
       --border: #e2e8f0;
-      --border-focus: #38bdf8;
+      --border-focus: #0284c7;
       --text-main: #0f172a;
       --text-muted: #64748b;
       --text-light: #94a3b8;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-      --success: #10b981;
+      --danger: #dc2626;
+      --danger-light: #fef2f2;
+      --warning: #d97706;
+      --warning-light: #fffbeb;
+      --success: #059669;
+      --success-light: #ecfdf5;
       --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.09), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-      --glow-cyan: 0 0 25px rgba(6, 182, 212, 0.25);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+      --radius: 12px;
+      --radius-lg: 16px;
     }
 
     * {
@@ -45,30 +51,24 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-main);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(224, 242, 254, 0.7) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(207, 250, 254, 0.5) 0px, transparent 40%),
-        radial-gradient(at 50% 100%, rgba(241, 245, 249, 0.8) 0px, transparent 60%);
-      background-attachment: fixed;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Navigation Header */
+    /* Top App Navigation Header */
     header.app-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: #ffffff;
       border-bottom: 1px solid var(--border);
-      padding: 0.75rem 2rem;
+      padding: 0.85rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -77,60 +77,56 @@
     .brand-logo {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.75rem;
       text-decoration: none;
-      color: var(--text-main);
       cursor: pointer;
     }
 
     .brand-icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 1.25rem;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      font-size: 1.15rem;
     }
 
     .brand-text h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #0284c7, #2563eb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.3px;
       line-height: 1.1;
     }
 
     .brand-text p {
       font-size: 0.7rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
       color: var(--text-muted);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .nav-btn {
-      padding: 0.55rem 1.1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
+      gap: 0.45rem;
+      transition: all 0.15s ease;
       text-decoration: none;
       border: 1px solid transparent;
       background: transparent;
@@ -144,519 +140,402 @@
 
     .nav-btn.active {
       background: var(--primary-light);
-      color: var(--primary);
-      border-color: rgba(2, 132, 199, 0.2);
+      color: var(--primary-dark);
+      border-color: #bae6fd;
     }
 
     .nav-btn-primary {
-      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      background: var(--primary) !important;
       color: white !important;
-      border: none;
-      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
     }
 
     .nav-btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(2, 132, 199, 0.35);
+      background: var(--primary-dark) !important;
     }
 
-    .nav-btn-admin {
-      background: #0f172a;
-      color: white !important;
-      border: none;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
-    }
-
-    .nav-btn-admin:hover {
-      background: #1e293b;
-      transform: translateY(-1px);
-    }
-
-    .user-profile-badge {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.35rem 0.85rem;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 9999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .user-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    /* Container */
+    /* Container & Layout */
     .container {
-      max-width: 1280px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 2.5rem 1.5rem;
       flex: 1;
       width: 100%;
     }
 
-    /* Section Views */
     .view-section {
       display: none;
-      animation: fadeIn 0.3s ease-in-out forwards;
     }
 
     .view-section.active {
       display: block;
+      animation: fadeIn 0.25s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===================================================
-       1. ADVANCED LANDING PAGE (MATCHING TASKMASTER STYLE)
+       1. OVERVIEW / LANDING SECTION (CLEAN & PROFESSIONAL)
        =================================================== */
     .landing-hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 3.5rem;
       align-items: center;
-      padding: 2rem 0 4rem 0;
-    }
-
-    @media (max-width: 1024px) {
-      .landing-hero {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
+      margin-bottom: 4rem;
+      padding-top: 1rem;
     }
 
     .hero-badge-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      background: white;
-      border: 1px solid rgba(2, 132, 199, 0.2);
-      padding: 0.4rem 0.9rem;
+      gap: 0.5rem;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
       border-radius: 9999px;
+      padding: 0.35rem 0.9rem;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--primary);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
     }
 
-    .hero-badge-pill .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
+    .hero-badge-pill i {
+      font-size: 0.75rem;
     }
 
     .hero-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 3.8rem;
+      font-size: 2.85rem;
       font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      color: var(--text-main);
+      line-height: 1.15;
+      color: var(--accent);
+      letter-spacing: -0.02em;
       margin-bottom: 1.25rem;
     }
 
-    .hero-title span.gradient-text {
-      background: linear-gradient(135deg, #0284c7 0%, #06b6d4 50%, #2563eb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block;
+    .hero-title span {
+      color: var(--primary);
     }
 
     .hero-subtitle {
-      font-size: 1.15rem;
-      line-height: 1.6;
+      font-size: 1.05rem;
       color: var(--text-muted);
+      line-height: 1.6;
       margin-bottom: 2rem;
-      max-width: 580px;
     }
 
     .hero-ctas {
       display: flex;
-      align-items: center;
       gap: 1rem;
       margin-bottom: 2.5rem;
-      flex-wrap: wrap;
     }
 
     .btn-hero-primary {
-      padding: 0.95rem 1.85rem;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      background: var(--primary);
       color: white;
-      font-size: 1rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 9px;
+      font-size: 0.95rem;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      box-shadow: 0 10px 20px -3px rgba(2, 132, 199, 0.35);
-      transition: all 0.25s ease;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+      transition: all 0.15s ease;
     }
 
     .btn-hero-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 24px -3px rgba(2, 132, 199, 0.45);
+      background: var(--primary-dark);
+      transform: translateY(-1px);
     }
 
     .btn-hero-secondary {
-      padding: 0.95rem 1.85rem;
-      border-radius: 14px;
       background: white;
       color: var(--text-main);
-      font-size: 1rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 9px;
+      font-size: 0.95rem;
+      font-weight: 600;
       border: 1px solid var(--border);
       cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
-      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.15s ease;
     }
 
     .btn-hero-secondary:hover {
       background: var(--bg-card-subtle);
       border-color: #cbd5e1;
-      transform: translateY(-2px);
     }
 
-    /* 6-Card Feature Badge Row (matching Taskmaster style) */
-    .feature-pills-grid {
+    /* 4-Pillar Clinical Capability Cards */
+    .feature-pillars-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.85rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 640px) {
-      .feature-pills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .feature-pill-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0.85rem 0.75rem;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .feature-pill-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--border-focus);
-    }
-
-    .feature-pill-card i {
-      font-size: 1.35rem;
-      color: var(--primary);
-      margin-bottom: 0.35rem;
-      display: block;
-    }
-
-    .feature-pill-card .pill-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.2;
-    }
-
-    .feature-pill-card .pill-sub {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .hero-bottom-callout {
-      display: flex;
-      align-items: center;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+    }
+
+    .pillar-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 0.85rem 1.25rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-bottom-callout .callout-text {
-      flex: 1;
-    }
-
-    .hero-bottom-callout .callout-text strong {
-      font-size: 0.85rem;
-      color: var(--text-main);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
       display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .hero-bottom-callout .callout-text p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* Right Column: High-Tech Smart Device & Floating Telemetry Card */
-    .hero-preview-wrapper {
-      position: relative;
-    }
-
-    .preview-mockup-card {
-      background: white;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 30px rgba(6, 182, 212, 0.15);
-      padding: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mockup-header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 1.25rem;
-    }
-
-    .mockup-status-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #10b981;
-      background: #ecfdf5;
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
-    }
-
-    .device-img-container {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 280px;
-      margin-bottom: 1.25rem;
-      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .device-img-container img {
-      width: 100%;
-      height: 300px;
-      object-fit: contain;
-      transition: transform 0.4s ease;
-      filter: drop-shadow(0 15px 25px rgba(2, 132, 199, 0.2));
-    }
-
-    .device-img-container:hover img {
-      transform: scale(1.03);
-    }
-
-    .floating-telemetry-badge {
-      position: absolute;
-      bottom: 1rem;
-      left: 1rem;
-      right: 1rem;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border-radius: 12px;
-      padding: 0.65rem 1rem;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-    }
-
-    .floating-telemetry-badge .badge-stat strong {
-      display: block;
-      color: #38bdf8;
-      font-size: 0.9rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Quick Action Prompt Cards (like Taskmaster) */
-    .quick-actions-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      align-items: flex-start;
       gap: 0.85rem;
+      transition: border-color 0.15s ease;
     }
 
-    .action-card {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 0.85rem 1rem;
-      cursor: pointer;
-      transition: all 0.2s;
+    .pillar-card:hover {
+      border-color: #cbd5e1;
     }
 
-    .action-card:hover {
-      background: white;
-      border-color: var(--primary);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-
-    .action-card .card-head {
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--primary-subtle);
+      color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 0.25rem;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
-    .action-card p {
-      font-size: 0.72rem;
+    .pillar-content strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .pillar-content p {
+      font-size: 0.75rem;
       color: var(--text-muted);
       line-height: 1.35;
     }
 
-    /* ===================================================
-       2. USER PORTAL (STEP-BY-STEP GUIDED FLOW)
-       =================================================== */
-    .portal-stepper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
+    /* Right Preview: Sleek Device Presentation */
+    .hero-device-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1rem 2rem;
-      box-shadow: var(--shadow-sm);
-      position: relative;
-    }
-
-    .step-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      cursor: pointer;
-    }
-
-    .step-number {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--bg-card-subtle);
-      border: 2px solid var(--border);
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-
-    .step-item.active .step-number {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: white;
-      box-shadow: 0 0 12px rgba(2, 132, 199, 0.4);
-    }
-
-    .step-item.completed .step-number {
-      background: #10b981;
-      border-color: #10b981;
-      color: white;
-    }
-
-    .step-label strong {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .step-label span {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .step-divider {
-      flex: 1;
-      height: 2px;
-      background: var(--border);
-      margin: 0 1.5rem;
-    }
-
-    /* Form Card */
-    .portal-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 2.25rem;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
       box-shadow: var(--shadow-md);
-      margin-bottom: 2rem;
     }
 
-    .card-title-row {
+    .device-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
       border-bottom: 1px solid var(--border);
     }
 
-    .card-title-row h3 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.5rem;
+    .device-title {
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .device-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--success);
+      background: var(--success-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+    }
+
+    .device-img-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .device-img-wrapper img {
+      max-height: 250px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.06));
+    }
+
+    .device-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .stat-pill {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      text-align: center;
+    }
+
+    .stat-pill span {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .stat-pill strong {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    .device-quick-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .quick-action-btn {
+      flex: 1;
+      padding: 0.55rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+
+    .quick-action-btn:hover {
+      background: var(--bg-card-subtle);
+      border-color: #cbd5e1;
+    }
+
+    /* ===================================================
+       2. USER / PATIENT PORTAL (STEPPER & GUIDED FLOW)
+       =================================================== */
+    .stepper-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stepper-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .stepper-item.active {
+      color: var(--primary);
+    }
+
+    .stepper-item.completed {
+      color: var(--success);
+    }
+
+    .stepper-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .stepper-item.active .stepper-number {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .stepper-item.completed .stepper-number {
+      background: var(--success);
+      color: white;
+      border-color: var(--success);
+    }
+
+    .portal-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+
+    .portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portal-header h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent);
       display: flex;
       align-items: center;
       gap: 0.6rem;
     }
 
+    .portal-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Form Elements */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
     }
 
     .form-group {
@@ -665,501 +544,330 @@
       gap: 0.4rem;
     }
 
-    .form-group label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .form-group.full-width {
+      grid-column: 1 / -1;
     }
 
-    .form-group label span.guideline-tag {
-      font-size: 0.68rem;
-      background: #eff6ff;
-      color: #2563eb;
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
-      font-weight: 700;
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .form-hint {
+      font-size: 0.72rem;
+      color: var(--text-muted);
     }
 
     .form-input, .form-select {
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
+      width: 100%;
+      padding: 0.65rem 0.85rem;
       border: 1px solid var(--border);
-      background: var(--bg-card-subtle);
-      font-size: 0.9rem;
-      color: var(--text-main);
+      border-radius: 8px;
+      font-size: 0.88rem;
       font-family: inherit;
-      transition: all 0.2s;
+      color: var(--text-main);
+      background: white;
+      transition: border-color 0.15s ease;
     }
 
     .form-input:focus, .form-select:focus {
       outline: none;
       border-color: var(--primary);
-      background: white;
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
     }
 
-    /* Environmental Telemetry Ingestion Dials */
+    /* Telemetry Dials Grid */
     .env-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .env-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      margin-bottom: 1.75rem;
     }
 
     .env-dial-card {
       background: var(--bg-card-subtle);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.2rem;
+      border-radius: 10px;
+      padding: 1.15rem 1rem;
       text-align: center;
-      transition: all 0.2s;
+      transition: border-color 0.15s ease;
     }
 
     .env-dial-card:hover {
-      background: white;
-      border-color: var(--primary);
-      box-shadow: var(--shadow-sm);
+      border-color: #cbd5e1;
     }
 
-    .env-dial-card i {
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-bottom: 0.4rem;
-      display: block;
-    }
-
-    .env-dial-card .dial-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.1;
-    }
-
-    .env-dial-card .dial-unit {
-      font-size: 0.7rem;
+    .dial-name {
+      font-size: 0.72rem;
+      font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
 
-    .env-dial-card .dial-name {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    /* Results Dashboard */
-    .results-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    @media (max-width: 900px) {
-      .results-hero-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .risk-gauge-card {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      border-radius: 24px;
-      padding: 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-    }
-
-    .risk-gauge-card::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .gauge-circle {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      border: 8px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-      position: relative;
-      transition: all 0.5s ease;
-    }
-
-    .gauge-circle.high-risk {
-      border-color: var(--danger);
-      box-shadow: 0 0 35px rgba(239, 68, 68, 0.4);
-    }
-
-    .gauge-circle.medium-risk {
-      border-color: var(--warning);
-      box-shadow: 0 0 35px rgba(245, 158, 11, 0.4);
-    }
-
-    .gauge-circle.low-risk {
-      border-color: var(--success);
-      box-shadow: 0 0 35px rgba(16, 185, 129, 0.4);
-    }
-
-    .gauge-score {
+    .dial-val {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 2.8rem;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .dial-unit {
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    /* Risk Results Dashboard (Step 3) */
+    .results-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .risk-score-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .risk-badge-large {
+      padding: 0.4rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .risk-score-display {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
       font-weight: 800;
       line-height: 1;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
     }
 
-    .gauge-level-badge {
-      font-size: 0.85rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 0.35rem 1rem;
-      border-radius: 9999px;
+    .risk-meta-row {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
       margin-top: 0.5rem;
     }
 
-    /* 3-Model Breakdown Grid */
-    .models-breakdown-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    @media (max-width: 600px) {
-      .models-breakdown-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .model-score-card {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .model-score-card .model-type-tag {
-      font-size: 0.65rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .model-score-card .model-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text-main);
-      margin: 0.25rem 0 0.5rem 0;
-    }
-
-    .model-score-card .model-score-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    /* Recommendations List */
-    .recs-box {
+    /* Multi-Model Progress Bars */
+    .models-breakdown-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .model-row {
+      margin-bottom: 1rem;
+    }
+
+    .model-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .model-row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .model-row-head strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .model-progress-bg {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .model-progress-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: var(--primary);
+      transition: width 0.6s ease;
+    }
+
+    /* Recommendations & SOS */
+    .rec-box {
+      background: var(--primary-subtle);
+      border: 1px solid #bae6fd;
+      border-radius: var(--radius);
       padding: 1.25rem;
       margin-bottom: 1.5rem;
     }
 
-    .recs-box h4 {
-      font-size: 0.95rem;
+    .rec-box h4 {
+      font-size: 0.9rem;
       font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 0.85rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
-    .recs-list {
+    .rec-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .recs-list li {
-      font-size: 0.85rem;
+    .rec-list li {
+      font-size: 0.83rem;
       color: var(--text-main);
-      padding: 0.5rem 0.75rem;
-      background: var(--bg-card-subtle);
-      border-radius: 10px;
-      border-left: 3px solid var(--primary);
-    }
-
-    /* Action Buttons Bar */
-    .portal-actions-bar {
       display: flex;
-      gap: 1rem;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-    }
-
-    .btn-sos {
-      background: #dc2626;
-      color: white;
-      border: none;
-      padding: 0.85rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
-      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
-      animation: pulseSos 2s infinite;
+      line-height: 1.4;
     }
 
-    @keyframes pulseSos {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
-      70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
-    }
-
-    .btn-inhaler {
-      background: #0284c7;
-      color: white;
-      border: none;
-      padding: 0.85rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
-    }
-
-    /* ===================================================
-       3. ADMIN PORTAL
-       =================================================== */
+    /* Admin & Tables */
     .admin-stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
 
-    @media (max-width: 900px) {
-      .admin-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .admin-stat-card {
+    .stat-card {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 1.35rem;
-      box-shadow: var(--shadow-sm);
+      border-radius: var(--radius);
+      padding: 1.25rem;
     }
 
-    .admin-stat-card .stat-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .admin-stat-card .stat-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--text-main);
-      line-height: 1.1;
-    }
-
-    .admin-stat-card .stat-desc {
-      font-size: 0.78rem;
+    .stat-card-title {
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--text-muted);
-      margin-top: 0.25rem;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
 
-    /* Table Styles */
-    .admin-table-wrapper {
+    .stat-card-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .data-table-wrapper {
       background: white;
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
       margin-bottom: 2rem;
     }
 
-    .table-head-bar {
-      padding: 1.25rem 1.75rem;
+    .table-title-bar {
+      padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .table-head-bar h4 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.15rem;
+    .table-title-bar h4 {
+      font-size: 0.95rem;
       font-weight: 700;
+      color: var(--text-main);
     }
 
     table.data-table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 0.82rem;
       text-align: left;
-      font-size: 0.85rem;
     }
 
     table.data-table th {
       background: var(--bg-card-subtle);
-      padding: 0.85rem 1.25rem;
-      font-weight: 700;
       color: var(--text-muted);
+      font-weight: 600;
+      padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--border);
     }
 
     table.data-table td {
-      padding: 0.85rem 1.25rem;
+      padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--border);
       color: var(--text-main);
     }
 
-    table.data-table tr:hover td {
-      background: #f8fafc;
+    table.data-table tr:last-child td {
+      border-bottom: none;
     }
 
     /* Modal */
-    .modal-overlay {
+    .modal-backdrop {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(6px);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(4px);
       z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
     }
 
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    .modal-card {
+    .modal-content {
       background: white;
-      border-radius: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
       width: 100%;
-      max-width: 480px;
-      padding: 2.25rem;
-      box-shadow: var(--shadow-xl);
-      position: relative;
-      animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes modalPop {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      background: var(--bg-card-subtle);
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .auth-tab-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-      background: var(--bg-card-subtle);
-      padding: 0.35rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .auth-tab-btn {
-      padding: 0.55rem;
-      border-radius: 8px;
-      border: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      background: transparent;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
-
-    .auth-tab-btn.active {
-      background: white;
-      color: var(--text-main);
-      box-shadow: var(--shadow-sm);
+      max-width: 440px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
     }
 
     /* Footer */
     footer.app-footer {
-      background: white;
       border-top: 1px solid var(--border);
-      padding: 2rem;
-      margin-top: auto;
+      background: white;
+      padding: 1.5rem 2rem;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .landing-hero { grid-template-columns: 1fr; gap: 2rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .env-grid { grid-template-columns: repeat(2, 1fr); }
+      .results-layout { grid-template-columns: 1fr; }
+      .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top App Navigation Header -->
+  <!-- App Header -->
   <header class="app-header">
     <div class="brand-logo" onclick="switchView('landing')">
       <div class="brand-icon-box">
@@ -1167,181 +875,146 @@
       </div>
       <div class="brand-text">
         <h1>HridyaVayu</h1>
-        <p>Smart Asthma Care • Review 1</p>
+        <p>Intelligent Respiratory Support</p>
       </div>
     </div>
 
     <nav class="nav-links">
       <button class="nav-btn active" id="nav-landing" onclick="switchView('landing')">
-        <i class="fa-solid fa-house"></i> Home
+        <i class="fa-solid fa-house"></i> Overview
       </button>
       <button class="nav-btn" id="nav-user" onclick="handleUserPortalClick()">
         <i class="fa-solid fa-user-doctor"></i> Patient Portal
       </button>
       <button class="nav-btn" id="nav-admin" onclick="handleAdminPortalClick()">
-        <i class="fa-solid fa-shield-halved"></i> Admin Telemetry
+        <i class="fa-solid fa-shield-halved"></i> Clinical Telemetry
       </button>
       <button class="nav-btn" id="nav-eda" onclick="switchView('eda')">
-        <i class="fa-solid fa-chart-pie"></i> EDA & Research
+        <i class="fa-solid fa-chart-pie"></i> Analytics & EDA
       </button>
       
-      <div id="auth-nav-container" style="margin-left: 0.75rem;">
+      <div id="auth-nav-container" style="margin-left: 0.5rem;">
         <button class="nav-btn nav-btn-primary" onclick="openAuthModal('login')">
-          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
         </button>
       </div>
     </nav>
   </header>
 
-  <!-- Main Container with Switchable Views -->
+  <!-- Main Container -->
   <main class="container">
 
     <!-- ==========================================
-         VIEW 1: MODERN LANDING PAGE (TASKMASTER STYLE)
+         VIEW 1: CLEAN OVERVIEW / PRODUCT LANDING
          ========================================== -->
     <section id="view-landing" class="view-section active">
       <div class="landing-hero">
-        <!-- Left Hero Content -->
-        <div class="hero-left">
+        <!-- Left Overview -->
+        <div>
           <div class="hero-badge-pill">
-            <div class="pulse-dot"></div>
-            <span>HridyaVayu Smart Care Engine • Review 1 Active</span>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Clinical Decision Support System</span>
           </div>
 
           <h2 class="hero-title">
-            Your Intelligent <br />
-            <span class="gradient-text">Respiratory Guard</span>
+            Intelligent Respiratory Care <br />
+            <span>Powered by Multimodal AI</span>
           </h2>
 
           <p class="hero-subtitle">
-            HridyaVayu bridges clinical GINA screening guidelines with real-time GPS environmental sensor synchronization and a collaborative 3-model machine learning ensemble to prevent asthma attacks before they happen.
+            HridyaVayu synchronizes real-time environmental IoT telemetry with validated GINA clinical guidelines, providing early risk stratification to prevent acute asthma exacerbations.
           </p>
 
-          <!-- Primary CTAs -->
           <div class="hero-ctas">
             <button class="btn-hero-primary" onclick="handleUserPortalClick()">
               <i class="fa-solid fa-notes-medical"></i> Open Patient Portal
             </button>
             <button class="btn-hero-secondary" onclick="handleAdminPortalClick()">
-              <i class="fa-solid fa-chart-line"></i> Open Admin Portal
+              <i class="fa-solid fa-chart-line"></i> Physician Dashboard
             </button>
           </div>
 
-          <!-- 6-Feature Pill Grid (Taskmaster style) -->
-          <div class="feature-pills-grid">
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-microchip"></i>
-              <div class="pill-title">3-Model ML</div>
-              <div class="pill-sub">LR + RF + GB</div>
+          <!-- 4 Clean Pillar Highlights -->
+          <div class="feature-pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
+              <div class="pillar-content">
+                <strong>Multimodal Ensemble</strong>
+                <p>Collaborative Logistic Regression, Random Forest, and Gradient Boosting.</p>
+              </div>
             </div>
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-satellite-dish"></i>
-              <div class="pill-title">Live GPS Sync</div>
-              <div class="pill-sub">Open-Meteo AQI</div>
-            </div>
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-clipboard-check"></i>
-              <div class="pill-title">GINA Rails</div>
-              <div class="pill-sub">Clinical Guardrails</div>
-            </div>
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-kit-medical"></i>
-              <div class="pill-title">Smart Inhaler</div>
-              <div class="pill-sub">IoT Tracking Ready</div>
-            </div>
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-bell-slash"></i>
-              <div class="pill-title">SOS Dispatch</div>
-              <div class="pill-sub">Instant Alerting</div>
-            </div>
-            <div class="feature-pill-card">
-              <i class="fa-solid fa-database"></i>
-              <div class="pill-title">SQLite Isolation</div>
-              <div class="pill-sub">Zero Cloud Leak</div>
-            </div>
-          </div>
 
-          <!-- Bottom Callout Card -->
-          <div class="hero-bottom-callout">
-            <div style="font-size: 1.5rem; color: var(--primary);">
-              <i class="fa-solid fa-shield-virus"></i>
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+              <div class="pillar-content">
+                <strong>Real-Time Weather Sync</strong>
+                <p>GPS ambient telemetry from Open-Meteo for AQI, PM2.5, and gases.</p>
+              </div>
             </div>
-            <div class="callout-text">
-              <strong>• Next-Gen Smart Asthma Care System</strong>
-              <p>Certified for Review 1: Collaborative baseline regression and tree-based ensembles with medical heuristic safety.</p>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <div class="pillar-content">
+                <strong>GINA Clinical Safety Rails</strong>
+                <p>Deterministic medical heuristics ensure patient protection.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+              <div class="pillar-content">
+                <strong>Smart Inhaler Tracking</strong>
+                <p>Canister adherence logging and instant emergency SOS dispatch.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Hero Preview Mockup -->
-        <div class="hero-preview-wrapper">
-          <div class="preview-mockup-card">
-            <div class="mockup-header-bar">
-              <div style="display: flex; align-items: center; gap: 0.6rem;">
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></div>
-                <div style="width: 10px; height: 10px; border-radius: 50%; background: #10b981;"></div>
-                <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-left: 0.4rem;">HridyaVayu Smart Inhaler v1.0</span>
+        <!-- Right Device Presentation -->
+        <div>
+          <div class="hero-device-card">
+            <div class="device-header">
+              <div class="device-title">
+                <i class="fa-solid fa-microchip" style="color: var(--primary);"></i>
+                HridyaVayu Connected Airway Device
               </div>
-              <div class="mockup-status-tag">
-                <i class="fa-solid fa-wifi"></i> Online Sync
+              <div class="device-status">
+                <i class="fa-solid fa-circle" style="font-size: 6px;"></i> Active Link
               </div>
             </div>
 
-            <!-- Smart Inhaler Image Container -->
-            <div class="device-img-container">
-              <img src="/web_ui/assets/smart_inhaler.jpg" alt="HridyaVayu Smart Inhaler Device" onerror="this.src='/figures/model_comparison.png'" />
-              
-              <!-- Floating Telemetry Overlay -->
-              <div class="floating-telemetry-badge">
-                <div class="badge-stat">
-                  <span>AIRFLOW RATE</span>
-                  <strong>85% Optimal</strong>
-                </div>
-                <div class="badge-stat">
-                  <span>PEAK FLOW</span>
-                  <strong>480 L/min</strong>
-                </div>
-                <div class="badge-stat">
-                  <span>REMAINING DOSES</span>
-                  <strong>98 Left</strong>
-                </div>
+            <div class="device-img-wrapper">
+              <img src="/web_ui/assets/smart_inhaler.jpg" alt="HridyaVayu Smart Inhaler" onerror="this.src='/figures/model_comparison.png'" />
+            </div>
+
+            <div class="device-stats-row">
+              <div class="stat-pill">
+                <span>Airflow</span>
+                <strong>85% Optimal</strong>
+              </div>
+              <div class="stat-pill">
+                <span>Peak Flow</span>
+                <strong>480 L/min</strong>
+              </div>
+              <div class="stat-pill">
+                <span>Canister</span>
+                <strong id="disp-landing-doses">98 Left</strong>
               </div>
             </div>
 
-            <!-- Quick Action Interactive Prompt Cards -->
-            <div class="quick-actions-grid">
-              <div class="action-card" onclick="handleUserPortalClick()">
-                <div class="card-head">
-                  <i class="fa-solid fa-file-medical text-primary" style="color: #0284c7;"></i>
-                  <span>Clinical Form</span>
-                </div>
-                <p>8-question GINA questionnaire for immediate airway assessment.</p>
-              </div>
-
-              <div class="action-card" onclick="fetchLiveEnvironmentalData(true)">
-                <div class="card-head">
-                  <i class="fa-solid fa-location-crosshairs" style="color: #06b6d4;"></i>
-                  <span>Live GPS AQI</span>
-                </div>
-                <p>One-click Open-Meteo satellite and ground sensor sync.</p>
-              </div>
-
-              <div class="action-card" onclick="logInhalerDose()">
-                <div class="card-head">
-                  <i class="fa-solid fa-spray-can-sparkles" style="color: #10b981;"></i>
-                  <span>Inhaler Dose</span>
-                </div>
-                <p>Track medication adherence and inhaler canister usage.</p>
-              </div>
-
-              <div class="action-card" onclick="triggerEmergencySos()">
-                <div class="card-head">
-                  <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
-                  <span>Emergency SOS</span>
-                </div>
-                <p>Dispatch emergency GPS broadcast to designated doctors & family.</p>
-              </div>
+            <div class="device-quick-actions">
+              <button class="quick-action-btn" onclick="handleUserPortalClick()">
+                <i class="fa-solid fa-stethoscope"></i> Clinical Quiz
+              </button>
+              <button class="quick-action-btn" onclick="fetchLiveEnvironmentalData(true)">
+                <i class="fa-solid fa-cloud"></i> Sync GPS
+              </button>
+              <button class="quick-action-btn" onclick="logInhalerDose()">
+                <i class="fa-solid fa-plus"></i> Dose
+              </button>
+              <button class="quick-action-btn" style="color: var(--danger);" onclick="triggerEmergencySos()">
+                <i class="fa-solid fa-triangle-exclamation"></i> SOS
+              </button>
             </div>
           </div>
         </div>
@@ -1349,487 +1022,475 @@
     </section>
 
     <!-- ==========================================
-         VIEW 2: USER PORTAL (GUIDED CLINICAL FLOW)
+         VIEW 2: PATIENT PORTAL (3-STEP GUIDED FLOW)
          ========================================== -->
     <section id="view-user" class="view-section">
-      <!-- Portal Stepper Bar -->
-      <div class="portal-stepper">
-        <div class="step-item active" id="step-btn-1" onclick="setStep(1)">
-          <div class="step-number">1</div>
-          <div class="step-label">
-            <strong>Clinical Guidelines</strong>
-            <span>GINA Symptoms Screening</span>
-          </div>
+      <!-- Minimalist Progress Stepper -->
+      <div class="stepper-nav">
+        <div class="stepper-item active" id="step-btn-1" onclick="setStep(1)">
+          <div class="stepper-number">1</div>
+          <span>Clinical Screening</span>
         </div>
-        <div class="step-divider"></div>
-        <div class="step-item" id="step-btn-2" onclick="setStep(2)">
-          <div class="step-number">2</div>
-          <div class="step-label">
-            <strong>Environmental Sync</strong>
-            <span>Live GPS Web API</span>
-          </div>
+        <div style="color: #cbd5e1;"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i></div>
+        <div class="stepper-item" id="step-btn-2" onclick="setStep(2)">
+          <div class="stepper-number">2</div>
+          <span>Environmental Telemetry</span>
         </div>
-        <div class="step-divider"></div>
-        <div class="step-item" id="step-btn-3" onclick="setStep(3)">
-          <div class="step-number">3</div>
-          <div class="step-label">
-            <strong>AI Risk & Plan</strong>
-            <span>Collaborative 3-Model AI</span>
-          </div>
+        <div style="color: #cbd5e1;"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem;"></i></div>
+        <div class="stepper-item" id="step-btn-3" onclick="setStep(3)">
+          <div class="stepper-number">3</div>
+          <span>Risk Assessment & Care Plan</span>
         </div>
       </div>
 
-      <!-- STEP 1: CLINICAL GUIDELINE QUIZ -->
+      <!-- STEP 1: CLINICAL QUESTIONNAIRE -->
       <div id="user-step-1" class="portal-card">
-        <div class="card-title-row">
+        <div class="portal-header">
           <div>
-            <h3><i class="fa-solid fa-clipboard-question text-primary"></i> Step 1: Clinical Guideline Assessment</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-              Please complete the GINA respiratory assessment. These clinical answers directly calibrate the model heuristics.
-            </p>
+            <h3><i class="fa-solid fa-clipboard-list" style="color: var(--primary);"></i> Step 1: Clinical Guidelines Screening</h3>
+            <p>Standardized GINA criteria evaluating baseline symptom frequency and nocturnal airway control.</p>
           </div>
           <div style="display: flex; gap: 0.5rem;">
-            <button class="nav-btn" style="background: #eff6ff; color: #0284c7; font-size: 0.75rem;" onclick="loadPresetProfile('severe')">
-              🔴 Severe Preset
+            <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.78rem;" onclick="loadPresetProfile('severe')">
+              Load Acute Flare-up Sample
             </button>
-            <button class="nav-btn" style="background: #f0fdf4; color: #16a34a; font-size: 0.75rem;" onclick="loadPresetProfile('controlled')">
-              🟢 Controlled Preset
+            <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.78rem;" onclick="loadPresetProfile('controlled')">
+              Load Controlled Sample
             </button>
           </div>
         </div>
 
-        <form id="clinical-quiz-form" onsubmit="event.preventDefault(); setStep(2);">
+        <form id="clinical-form" onsubmit="event.preventDefault(); setStep(2);">
           <div class="form-grid">
             <div class="form-group">
-              <label for="patient-name">Patient Full Name</label>
+              <label class="form-label">Patient Name</label>
               <input type="text" id="patient-name" class="form-input" value="Alex Rivera" required />
             </div>
 
             <div class="form-group">
-              <label for="symptoms-freq">
-                Asthma Symptoms Frequency
-                <span class="guideline-tag">GINA Criterion 1</span>
-              </label>
-              <select id="symptoms-freq" class="form-select" required>
-                <option value="Daily">Daily (Severe - Step 4/5)</option>
-                <option value="Frequently (Weekly)" selected>Frequently (Weekly - Step 2/3)</option>
-                <option value="1-2 times a month">1-2 times a month (Mild - Step 1)</option>
-                <option value="Less than once a month">Less than once a month (Intermittent)</option>
+              <label class="form-label">Asthma Symptoms Frequency</label>
+              <select id="symptoms-freq" class="form-select">
+                <option value="Daily">Daily (Severe uncontrolled)</option>
+                <option value="Frequently (Weekly)" selected>Frequently / Weekly (Partly controlled)</option>
+                <option value="1-2 times a month">1-2 times a month (Mild intermittent)</option>
+                <option value="Less than once a month">Less than once a month (Well controlled)</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="night-diff">
-                Night Breathing Difficulty
-                <span class="guideline-tag">GINA Criterion 2</span>
-              </label>
-              <select id="night-diff" class="form-select" required>
-                <option value="Frequently">Frequently (Awakens > 2x / week)</option>
-                <option value="Occasionally" selected>Occasionally (Awakens 1-2x / month)</option>
-                <option value="Rarely">Rarely (Less than once a month)</option>
-                <option value="Never">Never (Undisturbed sleep)</option>
+              <label class="form-label">Nocturnal Dyspnea / Night Waking</label>
+              <select id="night-diff" class="form-select">
+                <option value="Frequently">Frequently (Multiple times per week)</option>
+                <option value="Occasionally" selected>Occasionally (1-2 times per month)</option>
+                <option value="Rarely">Rarely</option>
+                <option value="Never">Never</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="triggers-input">
-                Environmental & Activity Triggers
-                <span class="guideline-tag">GINA Criterion 3</span>
-              </label>
-              <select id="triggers-input" class="form-select">
-                <option value="Dust, Air pollution (smoke, chemicals etc.)" selected>Dust, Air pollution & Chemical Smoke</option>
-                <option value="Pollen, Seasonal Allergens">Pollen & Seasonal Allergens</option>
-                <option value="Cold Air, Strenuous Physical Exercise">Cold Air & Strenuous Physical Exercise</option>
-                <option value="No specific triggers">No specific triggers reported</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="exposure-input">
-                Poor Air Quality Exposure Frequency
-                <span class="guideline-tag">GINA Criterion 4</span>
-              </label>
+              <label class="form-label">Poor Air Quality Exposure</label>
               <select id="exposure-input" class="form-select">
-                <option value="Yes, often" selected>Yes, often (Heavy traffic/industrial corridor)</option>
-                <option value="Occasionally">Occasionally (Urban transit)</option>
-                <option value="No">No (Clean indoor/filtered environment)</option>
+                <option value="Yes, often" selected>Yes, frequent urban or traffic exposure</option>
+                <option value="Occasionally">Occasionally</option>
+                <option value="No">No, mostly clean indoor environments</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="weather-input">
-                Weather Sensitivity
-                <span class="guideline-tag">GINA Criterion 5</span>
-              </label>
+              <label class="form-label">Identified Environmental Triggers</label>
+              <select id="triggers-input" class="form-select">
+                <option value="Dust, Air pollution (smoke, chemicals etc.)" selected>Dust, smoke & chemical emissions</option>
+                <option value="Pollen, Seasonal Allergens">Pollen & seasonal allergens</option>
+                <option value="Cold Air, Exercise">Cold air & strenuous exertion</option>
+                <option value="No specific triggers">No specific triggers identified</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Weather & Meteorological Sensitivity</label>
               <select id="weather-input" class="form-select">
                 <option value="Hot and humid weather" selected>Hot and humid weather</option>
-                <option value="Cold dry winter air">Cold dry winter air</option>
-                <option value="Sudden temperature drops">Sudden temperature drops</option>
-                <option value="No specific weather-related triggers">No specific weather triggers</option>
+                <option value="Sudden temperature drops">Sudden temperature drops / Cold air</option>
+                <option value="High humidity and rain">High humidity and heavy rainfall</option>
+                <option value="No specific weather-related triggers">No weather sensitivity</option>
               </select>
             </div>
           </div>
 
-          <div style="display: flex; justify-content: flex-end; margin-top: 2rem;">
+          <div style="display: flex; justify-content: flex-end;">
             <button type="submit" class="btn-hero-primary">
-              Next: Environmental Sync <i class="fa-solid fa-arrow-right"></i>
+              Next: Environmental Telemetry <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </form>
       </div>
 
-      <!-- STEP 2: ENVIRONMENTAL VARIABLES (WEB API SYNC OR MANUAL INPUT) -->
+      <!-- STEP 2: ENVIRONMENTAL TELEMETRY INGESTION -->
       <div id="user-step-2" class="portal-card" style="display: none;">
-        <div class="card-title-row">
+        <div class="portal-header">
           <div>
-            <h3><i class="fa-solid fa-satellite-dish text-primary"></i> Step 2: Environmental Telemetry Ingestion</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-              Choose between real-time Open-Meteo GPS sensor sync or manually writing custom environmental values.
-            </p>
+            <h3><i class="fa-solid fa-satellite-dish" style="color: var(--primary);"></i> Step 2: Environmental Telemetry Ingestion</h3>
+            <p>Synchronize ambient air quality and weather parameters via real-time satellite GPS or manual entry.</p>
           </div>
           
-          <!-- Mode Switcher Tabs -->
-          <div style="display: flex; gap: 0.4rem; background: var(--bg-card-subtle); padding: 0.3rem; border-radius: 12px;">
-            <button type="button" class="nav-btn active" id="btn-env-gps" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="setEnvInputMode('gps')">
-              <i class="fa-solid fa-location-crosshairs"></i> 1. Live GPS Sync
+          <div style="display: flex; gap: 0.35rem; background: var(--bg-card-subtle); padding: 0.25rem; border-radius: 8px;">
+            <button type="button" class="nav-btn active" id="btn-env-gps" style="font-size: 0.78rem; padding: 0.35rem 0.8rem;" onclick="setEnvInputMode('gps')">
+              <i class="fa-solid fa-location-crosshairs"></i> Live GPS Sync
             </button>
-            <button type="button" class="nav-btn" id="btn-env-manual" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="setEnvInputMode('manual')">
-              <i class="fa-solid fa-pen-to-square"></i> 2. Write Values Manually
+            <button type="button" class="nav-btn" id="btn-env-manual" style="font-size: 0.78rem; padding: 0.35rem 0.8rem;" onclick="setEnvInputMode('manual')">
+              <i class="fa-solid fa-pen-to-square"></i> Manual Entry
             </button>
           </div>
         </div>
 
-        <!-- GPS Mode Actions Bar -->
-        <div id="panel-env-gps" style="display: flex; justify-content: space-between; align-items: center; background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div style="width: 38px; height: 38px; border-radius: 10px; background: #0284c7; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
-              <i class="fa-solid fa-satellite"></i>
-            </div>
-            <div>
-              <strong style="font-size: 0.9rem; color: #0369a1;">Real-Time Open-Meteo Satellite & Ground Sensors</strong>
-              <p style="font-size: 0.75rem; color: #0284c7;">Auto-detects device GPS coordinates to pull live air quality and weather telemetry.</p>
-            </div>
+        <!-- GPS Action Banner -->
+        <div id="panel-env-gps" style="display: flex; justify-content: space-between; align-items: center; background: var(--primary-subtle); border: 1px solid #bae6fd; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem;">
+          <div>
+            <strong style="font-size: 0.88rem; color: var(--primary-dark); display: block;">Open-Meteo Satellite & Ground Station Feed</strong>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pulls real-time air quality index and atmospheric metrics based on your coordinates.</span>
           </div>
-          <button class="btn-hero-primary" style="padding: 0.65rem 1.25rem; font-size: 0.85rem;" onclick="fetchLiveEnvironmentalData(false)">
-            <i class="fa-solid fa-rotate"></i> Auto-Fetch Live GPS AQI
+          <button class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.82rem;" onclick="fetchLiveEnvironmentalData(false)">
+            <i class="fa-solid fa-rotate"></i> Refresh GPS Data
           </button>
         </div>
 
-        <!-- Manual Mode Input Form -->
-        <div id="panel-env-manual" style="display: none; background: white; border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <!-- Manual Input Form -->
+        <div id="panel-env-manual" style="display: none; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <div>
-              <strong style="font-size: 0.95rem; color: var(--text-main);"><i class="fa-solid fa-pen-to-square text-primary"></i> Manual Telemetry Input</strong>
-              <p style="font-size: 0.75rem; color: var(--text-muted);">Write your own pollutant and weather readings to simulate custom air conditions.</p>
+              <strong style="font-size: 0.88rem; color: var(--text-main);">Manual Parameter Configuration</strong>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">Adjust individual variables to simulate specific clinical conditions.</p>
             </div>
-            <!-- Quick Manual Presets -->
-            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-              <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('clean')">
-                🌿 Clean Air (AQI 25)
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('clean')">
+                Clean Air (AQI 25)
               </button>
-              <button type="button" class="nav-btn" style="background: #fefce8; color: #a16207; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('moderate')">
-                🏙️ Moderate Urban (AQI 125)
+              <button type="button" class="nav-btn" style="background: #fffbeb; color: #b45309; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('moderate')">
+                Moderate (AQI 125)
               </button>
-              <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.75rem; padding: 0.35rem 0.75rem;" onclick="applyManualPreset('severe')">
-                🏭 Hazardous Smog (AQI 260)
+              <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('severe')">
+                Hazardous (AQI 260)
               </button>
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem;">
             <div class="form-group">
-              <label for="manual-aqi">AQI (Air Quality Index)</label>
+              <label class="form-label">AQI Index</label>
               <input type="number" id="manual-aqi" class="form-input" min="0" max="500" value="125" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-pm25">PM2.5 (μg/m³)</label>
+              <label class="form-label">PM2.5 (μg/m³)</label>
               <input type="number" id="manual-pm25" class="form-input" min="0" max="500" step="0.5" value="48.5" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-no2">NO2 Level (μg/m³)</label>
+              <label class="form-label">NO2 (μg/m³)</label>
               <input type="number" id="manual-no2" class="form-input" min="0" max="300" step="0.5" value="32.0" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-so2">SO2 Level (μg/m³)</label>
+              <label class="form-label">SO2 (μg/m³)</label>
               <input type="number" id="manual-so2" class="form-input" min="0" max="300" step="0.5" value="18.0" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-co2">CO2 Level (ppm)</label>
+              <label class="form-label">CO2 (ppm)</label>
               <input type="number" id="manual-co2" class="form-input" min="300" max="1500" step="5" value="415.0" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-temp">Temperature (°C)</label>
+              <label class="form-label">Temperature (°C)</label>
               <input type="number" id="manual-temp" class="form-input" min="-20" max="55" step="0.5" value="27.5" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group">
-              <label for="manual-humidity">Humidity (%)</label>
+              <label class="form-label">Humidity (%)</label>
               <input type="number" id="manual-humidity" class="form-input" min="0" max="100" step="1" value="62.0" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group" style="justify-content: flex-end;">
-              <button type="button" class="nav-btn" style="background: #f1f5f9; font-weight: 700; height: 42px; justify-content: center;" onclick="resetManualInputs()">
-                <i class="fa-solid fa-arrow-rotate-left"></i> Reset Values
+              <button type="button" class="nav-btn" style="background: var(--bg-card-subtle); height: 38px; justify-content: center;" onclick="resetManualInputs()">
+                Reset
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 4x2 Dials Grid -->
+        <!-- 8 Dials Telemetry Cards -->
         <div class="env-grid">
           <div class="env-dial-card">
-            <i class="fa-solid fa-smog"></i>
+            <div class="dial-name">US AQI</div>
             <div class="dial-val" id="disp-aqi">125</div>
-            <div class="dial-unit">Index Score</div>
-            <div class="dial-name">US Air Quality Index</div>
+            <div class="dial-unit">Air Quality Index</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-lungs-virus"></i>
+            <div class="dial-name">PM 2.5</div>
             <div class="dial-val" id="disp-pm25">48.5</div>
             <div class="dial-unit">μg/m³</div>
-            <div class="dial-name">Particulate Matter 2.5</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-cloud"></i>
+            <div class="dial-name">Nitrogen Dioxide</div>
             <div class="dial-val" id="disp-no2">32.0</div>
             <div class="dial-unit">μg/m³</div>
-            <div class="dial-name">Nitrogen Dioxide (NO2)</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-fire"></i>
+            <div class="dial-name">Sulphur Dioxide</div>
             <div class="dial-val" id="disp-so2">18.0</div>
             <div class="dial-unit">μg/m³</div>
-            <div class="dial-name">Sulphur Dioxide (SO2)</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-temperature-half"></i>
+            <div class="dial-name">Temperature</div>
             <div class="dial-val" id="disp-temp">27.5</div>
-            <div class="dial-unit">°Celsius</div>
-            <div class="dial-name">Ambient Temperature</div>
+            <div class="dial-unit">°C</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-droplet"></i>
+            <div class="dial-name">Humidity</div>
             <div class="dial-val" id="disp-humidity">62.0</div>
             <div class="dial-unit">% Relative</div>
-            <div class="dial-name">Atmospheric Humidity</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-gauge-high"></i>
+            <div class="dial-name">Carbon Dioxide</div>
             <div class="dial-val" id="disp-co2">415.0</div>
             <div class="dial-unit">ppm</div>
-            <div class="dial-name">Carbon Dioxide (CO2)</div>
           </div>
 
           <div class="env-dial-card">
-            <i class="fa-solid fa-circle-check"></i>
-            <div class="dial-val" id="disp-status" style="font-size: 1.1rem; color: #10b981;">SYNCED</div>
-            <div class="dial-unit">Status</div>
-            <div class="dial-name">Telemetry Mode</div>
+            <div class="dial-name">Telemetry Status</div>
+            <div class="dial-val" id="disp-status" style="font-size: 1rem; color: var(--success); font-family: inherit;">SYNCED</div>
+            <div class="dial-unit">Sensor Link</div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
           <button class="nav-btn" onclick="setStep(1)">
-            <i class="fa-solid fa-arrow-left"></i> Back to Clinical Quiz
+            <i class="fa-solid fa-arrow-left"></i> Back to Clinical Screening
           </button>
-          <button class="btn-hero-primary" style="background: linear-gradient(135deg, #0284c7, #2563eb);" onclick="runHridyaVayuPrediction()">
-            <i class="fa-solid fa-bolt"></i> Run Review 1 3-Model Risk Prediction <i class="fa-solid fa-arrow-right"></i>
+          <button class="btn-hero-primary" onclick="runHridyaVayuPrediction()">
+            Analyze Asthma Risk <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </div>
 
-      <!-- STEP 3: AI PREDICTION & RECOMMENDATION DASHBOARD -->
+      <!-- STEP 3: RISK ASSESSMENT & CARE PLAN -->
       <div id="user-step-3" class="portal-card" style="display: none;">
-        <div class="card-title-row">
+        <div class="portal-header">
           <div>
-            <h3><i class="fa-solid fa-heart-pulse text-primary"></i> Step 3: HridyaVayu Risk Assessment & Action Plan</h3>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">
-              Predicted by Review 1 3-Model Collaborative Ensemble (Baseline Logistic Regression + Random Forest + Gradient Boosting).
-            </p>
+            <h3><i class="fa-solid fa-heart-pulse" style="color: var(--primary);"></i> Step 3: Asthma Risk Assessment & Action Plan</h3>
+            <p>Synthesized by the collaborative multimodal ensemble with GINA clinical heuristic validation.</p>
           </div>
-          <div style="font-size: 0.85rem; color: var(--text-muted);" id="prediction-timestamp"></div>
-        </div>
-
-        <!-- Hero Results Grid -->
-        <div class="results-hero-grid">
-          <!-- Left: Animated Gauge -->
-          <div class="risk-gauge-card">
-            <div class="gauge-circle high-risk" id="risk-gauge-circle">
-              <div class="gauge-score" id="result-score-val">0.88</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">Risk Index (0 - 1.0)</div>
-            </div>
-            <div class="gauge-level-badge" id="result-level-badge" style="background: #ef4444; color: white;">
-              High Attack Risk
-            </div>
-            <div id="override-alert-banner" style="display: none; margin-top: 1rem; font-size: 0.75rem; background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; padding: 0.4rem 0.8rem; border-radius: 8px;">
-              🛡️ GINA Safety Heuristic Step 4/5 Override Engaged
-            </div>
-          </div>
-
-          <!-- Right: Model Breakdown & Factor Attributions -->
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem;">
-              <i class="fa-solid fa-code-fork" style="color: var(--primary);"></i> Review 1 Model Suite Comparison
-            </h4>
-            
-            <div class="models-breakdown-grid">
-              <div class="model-score-card">
-                <div class="model-type-tag">Baseline Model</div>
-                <div class="model-name">Logistic Regression</div>
-                <div class="model-score-val" id="score-baseline">0.96</div>
-              </div>
-              <div class="model-score-card">
-                <div class="model-type-tag">Tree Model 2</div>
-                <div class="model-name">Random Forest</div>
-                <div class="model-score-val" id="score-rf">0.88</div>
-              </div>
-              <div class="model-score-card">
-                <div class="model-type-tag">Boosting Model 3</div>
-                <div class="model-name">Gradient Boosting</div>
-                <div class="model-score-val" id="score-gb">0.98</div>
-              </div>
-            </div>
-
-            <!-- Recommendations Box -->
-            <div class="recs-box">
-              <h4><i class="fa-solid fa-user-doctor" style="color: #0284c7;"></i> Actionable Clinical Recommendations</h4>
-              <ul class="recs-list" id="recommendations-list">
-                <li>🚨 Keep fast-acting bronchodilator (Albuterol) within arm's reach.</li>
-                <li>🏠 Remain indoors with HEPA air purification active.</li>
-                <li>⏱️ Measure Peak Flow. If &lt;60% personal best, contact emergency physician.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons Bar -->
-        <div class="portal-actions-bar">
           <button class="nav-btn" onclick="setStep(1)">
-            <i class="fa-solid fa-rotate-left"></i> Re-Take Assessment
+            <i class="fa-solid fa-rotate-left"></i> New Assessment
           </button>
-          <button class="btn-inhaler" onclick="logInhalerDose()">
-            <i class="fa-solid fa-spray-can-sparkles"></i> Log Inhaler Dose (<span id="inhaler-doses-count">1</span> Doses Today)
-          </button>
-          <button class="btn-sos" onclick="triggerEmergencySos()">
-            <i class="fa-solid fa-triangle-exclamation"></i> Trigger Emergency SOS
-          </button>
+        </div>
+
+        <!-- Heuristic Override Notice -->
+        <div id="heuristic-override-banner" style="display: none; background: #fff1f2; border: 1px solid #fecdd3; border-radius: 8px; padding: 0.85rem 1.15rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; color: #be123c; font-weight: 600; font-size: 0.85rem;">
+            <i class="fa-solid fa-shield-virus"></i>
+            <span>GINA Clinical Safety Override Engaged</span>
+          </div>
+          <p style="font-size: 0.78rem; color: #9f1239; margin-top: 2px;">
+            Severe reported symptoms (daily occurrence or nocturnal dyspnea) triggered a deterministic safety escalation to protect the patient regardless of ambient air quality.
+          </p>
+        </div>
+
+        <!-- Dual Column Results -->
+        <div class="results-layout">
+          <!-- Left: Clinical Risk Gauge -->
+          <div class="risk-score-card">
+            <div class="risk-badge-large" id="res-risk-badge" style="background: #fef2f2; color: #dc2626;">
+              HIGH RISK
+            </div>
+            <div class="risk-score-display" id="res-score-val">0.79</div>
+            <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px;" id="res-patient-label">
+              Alex Rivera
+            </p>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Multimodal Probability Score</span>
+
+            <div class="risk-meta-row">
+              <span>Confidence: <strong id="res-conf-val">95%</strong></span>
+              <span>•</span>
+              <span>Entropy Uncertainty: <strong id="res-entropy-val">0.24</strong></span>
+            </div>
+          </div>
+
+          <!-- Right: 4-Model Suite Breakdown -->
+          <div class="models-breakdown-card">
+            <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fa-solid fa-code-branch" style="color: var(--primary);"></i>
+              Collaborative Ensemble Architecture
+            </h4>
+
+            <div class="model-row">
+              <div class="model-row-head">
+                <span>Baseline Logistic Regression</span>
+                <strong id="bar-val-lr">0.71</strong>
+              </div>
+              <div class="model-progress-bg">
+                <div class="model-progress-fill" id="bar-fill-lr" style="width: 71%;"></div>
+              </div>
+            </div>
+
+            <div class="model-row">
+              <div class="model-row-head">
+                <span>Random Forest Classifier</span>
+                <strong id="bar-val-rf">0.72</strong>
+              </div>
+              <div class="model-progress-bg">
+                <div class="model-progress-fill" id="bar-fill-rf" style="width: 72%;"></div>
+              </div>
+            </div>
+
+            <div class="model-row">
+              <div class="model-row-head">
+                <span>Gradient Boosting Classifier</span>
+                <strong id="bar-val-gb">0.70</strong>
+              </div>
+              <div class="model-progress-bg">
+                <div class="model-progress-fill" id="bar-fill-gb" style="width: 70%;"></div>
+              </div>
+            </div>
+
+            <div class="model-row" style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
+              <div class="model-row-head">
+                <span style="font-weight: 700; color: var(--primary-dark);">Collaborative Soft-Voting Ensemble</span>
+                <strong id="bar-val-ens" style="color: var(--primary); font-size: 0.95rem;">0.79</strong>
+              </div>
+              <div class="model-progress-bg" style="height: 10px;">
+                <div class="model-progress-fill" id="bar-fill-ens" style="width: 79%; background: linear-gradient(90deg, #0284c7, #2563eb);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prescribed Clinical Recommendations -->
+        <div class="rec-box">
+          <h4><i class="fa-solid fa-clipboard-check"></i> Actionable Clinical Recommendations</h4>
+          <ul class="rec-list" id="res-recommendations-list">
+            <li><i class="fa-solid fa-check text-primary"></i> Keep fast-acting rescue inhaler (SABA) immediately accessible.</li>
+            <li><i class="fa-solid fa-check text-primary"></i> Restrict prolonged outdoor cardio during high AQI hours.</li>
+            <li><i class="fa-solid fa-check text-primary"></i> Activate indoor HEPA air filtration.</li>
+          </ul>
+        </div>
+
+        <!-- Adherence & SOS Actions -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="border: 1px solid var(--border); border-radius: 10px; padding: 1.15rem; background: var(--bg-card-subtle);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="font-size: 0.88rem; display: block;">Smart Inhaler Canister Tracker</strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);"><span id="user-doses-count">1</span> dose logged today</span>
+              </div>
+              <button class="nav-btn nav-btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="logInhalerDose()">
+                <i class="fa-solid fa-plus"></i> Log Inhaler Dose
+              </button>
+            </div>
+          </div>
+
+          <div style="border: 1px solid #fecdd3; border-radius: 10px; padding: 1.15rem; background: #fff1f2;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="font-size: 0.88rem; color: var(--danger); display: block;">Acute Respiratory Distress SOS</strong>
+                <span style="font-size: 0.75rem; color: #9f1239;">Instant physician and emergency contact dispatch</span>
+              </div>
+              <button class="nav-btn" style="background: var(--danger); color: white; font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="triggerEmergencySos()">
+                <i class="fa-solid fa-triangle-exclamation"></i> Trigger SOS
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         VIEW 3: ADMIN PORTAL & TELEMETRY
+         VIEW 3: CLINICAL TELEMETRY & ADMIN PORTAL
          ========================================== -->
     <section id="view-admin" class="view-section">
-      <div class="card-title-row">
+      <div class="portal-header">
         <div>
-          <h3 style="font-family: 'Outfit'; font-size: 1.8rem; font-weight: 800;">
-            <i class="fa-solid fa-shield-halved text-primary"></i> Admin Telemetry & Review 1 Dashboard
-          </h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">
-            System-wide patient monitoring, IoT sensor logs, and Review 1 Machine Learning Architecture metrics.
-          </p>
+          <h3><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Clinical Telemetry & Population Overview</h3>
+          <p>System-wide patient monitoring, IoT sensor streams, and machine learning architecture benchmarks.</p>
         </div>
         <button class="nav-btn" onclick="loadAdminData()">
           <i class="fa-solid fa-rotate"></i> Refresh Telemetry
         </button>
       </div>
 
-      <!-- 4 Admin KPI Cards -->
+      <!-- 4 KPI Cards -->
       <div class="admin-stats-grid">
-        <div class="admin-stat-card">
-          <div class="stat-icon" style="background: #e0f2fe; color: #0284c7;">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <div class="stat-num" id="admin-stat-users">3</div>
-          <div class="stat-desc">Registered Patients</div>
+        <div class="stat-card">
+          <div class="stat-card-title">Registered Patients</div>
+          <div class="stat-card-val" id="admin-stat-users">3</div>
         </div>
-
-        <div class="admin-stat-card">
-          <div class="stat-icon" style="background: #fef2f2; color: #ef4444;">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-          </div>
-          <div class="stat-num" id="admin-stat-alerts">8</div>
-          <div class="stat-desc">High Risk & SOS Alerts</div>
+        <div class="stat-card">
+          <div class="stat-card-title">Environmental Logs</div>
+          <div class="stat-card-val" id="admin-stat-sensors">18</div>
         </div>
-
-        <div class="admin-stat-card">
-          <div class="stat-icon" style="background: #f0fdf4; color: #16a34a;">
-            <i class="fa-solid fa-server"></i>
-          </div>
-          <div class="stat-num" id="admin-stat-predictions">14</div>
-          <div class="stat-desc">Inference Predictions Logged</div>
+        <div class="stat-card">
+          <div class="stat-card-title">Clinical Risk Assessments</div>
+          <div class="stat-card-val" id="admin-stat-predictions">24</div>
         </div>
-
-        <div class="admin-stat-card">
-          <div class="stat-icon" style="background: #fdf4ff; color: #c026d3;">
-            <i class="fa-solid fa-chart-simple"></i>
-          </div>
-          <div class="stat-num" id="admin-stat-avg-risk">0.72</div>
-          <div class="stat-desc">Mean Population Risk</div>
+        <div class="stat-card">
+          <div class="stat-card-title">Population Mean Risk</div>
+          <div class="stat-card-val" id="admin-stat-avg-risk">0.68</div>
         </div>
       </div>
 
-      <!-- Review 1 ML Benchmark Table -->
-      <div class="admin-table-wrapper">
-        <div class="table-head-bar">
-          <h4>Review 1 Model Suite Performance</h4>
-          <span style="font-size: 0.75rem; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 9999px; font-weight: 700;">
-            5-Fold Stratified Cross-Validation
-          </span>
+      <!-- Model Performance Table -->
+      <div class="data-table-wrapper">
+        <div class="table-title-bar">
+          <h4>Machine Learning Model Architecture & Validation Performance</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Evaluated on 2,000 Patient Records</span>
         </div>
         <table class="data-table">
           <thead>
             <tr>
-              <th>Model Identity</th>
-              <th>Architecture Role</th>
-              <th>Accuracy (%)</th>
-              <th>Weighted F1-Score</th>
+              <th>Model Architecture</th>
+              <th>Category</th>
+              <th>Validation Accuracy</th>
+              <th>F1-Score</th>
               <th>Clinical Purpose</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>1. Logistic Regression</strong></td>
-              <td><span style="background: #eff6ff; color: #1d4ed8; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Baseline Model</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 700;">71.33%</td>
+              <td><strong>Logistic Regression</strong></td>
+              <td><span style="background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Baseline</span></td>
+              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">71.33%</td>
               <td style="font-family: 'JetBrains Mono';">0.7117</td>
-              <td>Linear boundary reference & baseline calibration</td>
+              <td>Rapid calibrated probability baseline</td>
             </tr>
             <tr>
-              <td><strong>2. Random Forest</strong></td>
-              <td><span style="background: #f0fdf4; color: #15803d; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Model 2 (Bagging)</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 700;">72.33%</td>
+              <td><strong>Random Forest Classifier</strong></td>
+              <td><span style="background: #ecfdf5; color: #065f46; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Bagging Ensemble</span></td>
+              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">72.33%</td>
               <td style="font-family: 'JetBrains Mono';">0.7058</td>
-              <td>Variance reduction & non-linear clinical feature capture</td>
+              <td>Non-linear feature interaction modeling</td>
             </tr>
             <tr>
-              <td><strong>3. Gradient Boosting</strong></td>
-              <td><span style="background: #fefce8; color: #a16207; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Model 3 (Boosting)</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 700;">69.67%</td>
+              <td><strong>Gradient Boosting Classifier</strong></td>
+              <td><span style="background: #fffbeb; color: #92400e; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Boosting Ensemble</span></td>
+              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">69.67%</td>
               <td style="font-family: 'JetBrains Mono';">0.6942</td>
-              <td>Bias reduction across hard-to-classify borderline cases</td>
+              <td>Targeted error correction for borderline cases</td>
             </tr>
-            <tr style="background: #f8fafc; font-weight: bold;">
-              <td><strong>Collaborative Ensemble</strong></td>
-              <td><span style="background: #faf5ff; color: #7e22ce; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Review 1 Ensemble</span></td>
-              <td style="font-family: 'JetBrains Mono'; color: #0284c7; font-weight: 800;">73.00%</td>
-              <td style="font-family: 'JetBrains Mono'; color: #0284c7; font-weight: 800;">0.7234</td>
-              <td>Collaborative soft-voting combining baseline + trees</td>
+            <tr style="background: #f8fafc;">
+              <td><strong style="color: var(--primary-dark);">HridyaVayu Multimodal Ensemble</strong></td>
+              <td><span style="background: var(--primary-light); color: var(--primary-dark); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Soft-Voting Collaborative</span></td>
+              <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--primary);">73.00%</td>
+              <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--primary);">0.7234</td>
+              <td>Fused prediction with deterministic GINA safety rails</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <!-- Recent Patient Telemetry Log -->
-      <div class="admin-table-wrapper">
-        <div class="table-head-bar">
+      <div class="data-table-wrapper">
+        <div class="table-title-bar">
           <h4>Recent Patient Clinical Assessments</h4>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">Real-time SQLite DB feed</span>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Real-time SQLite Feed</span>
         </div>
         <table class="data-table">
           <thead>
@@ -1852,149 +1513,123 @@
     </section>
 
     <!-- ==========================================
-         VIEW 4: EDA & RESEARCH STUDIO
+         VIEW 4: EDA & RESEARCH ANALYTICS
          ========================================== -->
     <section id="view-eda" class="view-section">
-      <div class="card-title-row">
+      <div class="portal-header">
         <div>
-          <h3 style="font-family: 'Outfit'; font-size: 1.8rem; font-weight: 800;">
-            <i class="fa-solid fa-chart-pie text-primary"></i> Exploratory Data Analysis & Figures
-          </h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">
-            Dataset distributions, pollutant correlations, and publication figures validating the Review 1 models.
-          </p>
+          <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> Exploratory Data Analysis & Validation</h3>
+          <p>Dataset distributions, pollutant correlations, and cross-validation performance figures.</p>
         </div>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
         <div class="portal-card" style="margin-bottom: 0;">
-          <h4 style="margin-bottom: 1rem;">Risk Class Distribution</h4>
-          <div style="height: 260px;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Risk Class Distribution</h4>
+          <div style="height: 240px;">
             <canvas id="eda-donut-chart"></canvas>
           </div>
         </div>
 
         <div class="portal-card" style="margin-bottom: 0;">
-          <h4 style="margin-bottom: 1rem;">Pollutant Levels by Risk Class</h4>
-          <div style="height: 260px;">
+          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Mean Pollutants by Risk Class</h4>
+          <div style="height: 240px;">
             <canvas id="eda-bar-chart"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- Publication Figures -->
+      <!-- Evaluation Figures Gallery -->
       <div class="portal-card">
-        <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-images text-primary"></i> Publication Evaluation Figures</h4>
+        <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Publication Figures & Benchmark Visualizations</h4>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
-          <div style="border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/model_comparison.png" style="width: 100%; height: 180px; object-fit: contain; background: white;" alt="Model Comparison" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
+            <img src="/figures/model_comparison.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="Model Comparison" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.85rem; display: block;">Model Comparison Benchmark</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">Cross-validation accuracy comparison across all models.</p>
+              <strong style="font-size: 0.82rem; display: block;">Model Comparison Benchmark</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted);">Cross-validation accuracy and F1 score across models.</p>
             </div>
           </div>
 
-          <div style="border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/roc_curves.png" style="width: 100%; height: 180px; object-fit: contain; background: white;" alt="ROC Curves" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
+            <img src="/figures/roc_curves.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="ROC Curves" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.85rem; display: block;">Multi-Model ROC Curves</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">AUC performance illustrating classifier sensitivity.</p>
+              <strong style="font-size: 0.82rem; display: block;">Multi-Model ROC Curves</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted);">ROC-AUC sensitivity and specificity curves.</p>
             </div>
           </div>
 
-          <div style="border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/shap_summary.png" style="width: 100%; height: 180px; object-fit: contain; background: white;" alt="SHAP Summary" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
+            <img src="/figures/shap_summary.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="SHAP Summary" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.85rem; display: block;">SHAP Feature Importance</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">Explainability plot identifying key environmental triggers.</p>
+              <strong style="font-size: 0.82rem; display: block;">SHAP Feature Importance</strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted);">Attribution weights for clinical and ambient factors.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- Authentication Modal -->
-  <div class="modal-overlay" id="auth-modal">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeAuthModal()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div style="text-align: center; margin-bottom: 1.25rem;">
-        <div class="brand-icon-box" style="margin: 0 auto 0.75rem auto;">
-          <i class="fa-solid fa-lungs"></i>
-        </div>
-        <h3 style="font-family: 'Outfit'; font-size: 1.5rem; font-weight: 700;" id="auth-modal-title">HridyaVayu Portal</h3>
-        <p style="font-size: 0.8rem; color: var(--text-muted);" id="auth-modal-sub">Sign in or create your medical profile</p>
+  <div id="auth-modal" class="modal-backdrop">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+        <h4 id="auth-modal-title" style="font-size: 1.15rem; font-weight: 700;">Sign In to HridyaVayu</h4>
+        <button type="button" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--text-muted);" onclick="closeAuthModal()">&times;</button>
       </div>
 
-      <div class="auth-tab-buttons">
-        <button class="auth-tab-btn active" id="tab-login" onclick="setAuthTab('login')">Sign In</button>
-        <button class="auth-tab-btn" id="tab-signup" onclick="setAuthTab('signup')">Sign Up</button>
+      <div style="display: flex; gap: 0.5rem; background: var(--bg-card-subtle); padding: 0.25rem; border-radius: 8px; margin-bottom: 1.25rem;">
+        <button type="button" class="nav-btn active" id="tab-login" style="flex: 1; justify-content: center; font-size: 0.82rem;" onclick="setAuthMode('login')">Sign In</button>
+        <button type="button" class="nav-btn" id="tab-signup" style="flex: 1; justify-content: center; font-size: 0.82rem;" onclick="setAuthMode('signup')">Register Patient</button>
       </div>
 
-      <!-- Quick 1-Click Demo Buttons -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.25rem;">
-        <button type="button" class="nav-btn" style="background: #e0f2fe; color: #0284c7; font-size: 0.75rem; justify-content: center;" onclick="quickLogin('user')">
-          ⚡ Demo Patient
+      <!-- Demo Quick Buttons -->
+      <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
+        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #f0f9ff; color: var(--primary-dark); font-size: 0.78rem; border: 1px solid #bae6fd;" onclick="loginAsDemo('User')">
+          Demo Patient
         </button>
-        <button type="button" class="nav-btn" style="background: #f1f5f9; color: #0f172a; font-size: 0.75rem; justify-content: center;" onclick="quickLogin('admin')">
-          🛡️ Demo Admin
+        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #ecfdf5; color: #065f46; font-size: 0.78rem; border: 1px solid #a7f3d0;" onclick="loginAsDemo('Admin')">
+          Demo Physician
         </button>
       </div>
 
       <form id="auth-form" onsubmit="handleAuthSubmit(event)">
         <div class="form-group" style="margin-bottom: 0.85rem;">
-          <label for="auth-username">Username or Email</label>
+          <label class="form-label" id="label-username">Username or Phone</label>
           <input type="text" id="auth-username" class="form-input" placeholder="e.g. demo_user" required />
         </div>
 
-        <div class="form-group" style="margin-bottom: 0.85rem;">
-          <label for="auth-password">Password</label>
+        <div class="form-group" id="group-name" style="display: none; margin-bottom: 0.85rem;">
+          <label class="form-label">Full Name</label>
+          <input type="text" id="auth-name" class="form-input" placeholder="e.g. Alex Rivera" />
+        </div>
+
+        <div class="form-group" id="group-phone" style="display: none; margin-bottom: 0.85rem;">
+          <label class="form-label">Phone Number</label>
+          <input type="text" id="auth-phone" class="form-input" placeholder="+1-555-0143" />
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label">Password</label>
           <input type="password" id="auth-password" class="form-input" placeholder="••••••••" required />
         </div>
 
-        <div id="signup-extra-fields" style="display: none;">
-          <div class="form-group" style="margin-bottom: 0.85rem;">
-            <label for="auth-fullname">Full Name</label>
-            <input type="text" id="auth-fullname" class="form-input" placeholder="Alex Rivera" />
-          </div>
-
-          <div class="form-group" style="margin-bottom: 0.85rem;">
-            <label for="auth-role">Account Type</label>
-            <select id="auth-role" class="form-select">
-              <option value="User" selected>Patient / User Portal</option>
-              <option value="Admin">Physician / Admin Portal</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="margin-bottom: 0.85rem;">
-            <label for="auth-emergency-phone">Emergency Contact Phone</label>
-            <input type="text" id="auth-emergency-phone" class="form-input" placeholder="+1-555-0188" />
-          </div>
-        </div>
-
-        <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center; margin-top: 1rem;" id="auth-submit-btn">
+        <button type="submit" class="btn-hero-primary" style="width: 100%; justify-content: center;" id="btn-auth-submit">
           Sign In
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- App Footer -->
   <footer class="app-footer">
-    <div style="display: flex; justify-content: center; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;">
-      <i class="fa-solid fa-lungs text-primary"></i>
-      <strong>HridyaVayu: An AI-Powered Smart Asthma Care System</strong>
-    </div>
-    <p>Academic Review 1 Architecture • Baseline Linear Regression + Random Forest + Gradient Boosting Collaborative Ensemble.</p>
+    <strong>HridyaVayu: Intelligent Respiratory Decision Support System</strong>
+    <p style="margin-top: 4px;">Collaborative Multimodal Machine Learning & Real-Time Environmental Sensor Fusion.</p>
   </footer>
 
   <!-- Script Logic -->
   <script>
-    // State
     let currentUser = JSON.parse(localStorage.getItem('hridyavayu_user')) || null;
     let authMode = 'login';
     let currentStep = 1;
@@ -2004,10 +1639,9 @@
       CO2: 415.0, Temperature: 27.5, Humidity: 62.0
     };
 
-    // Navigation Switcher
     function switchView(viewName) {
       document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.nav-links .nav-btn').forEach(b => b.classList.remove('active'));
 
       const target = document.getElementById(`view-${viewName}`);
       if (target) target.classList.add('active');
@@ -2051,13 +1685,12 @@
           }
         }
       }
-      window.scrollTo({ top: 120, behavior: 'smooth' });
+      window.scrollTo({ top: 100, behavior: 'smooth' });
     }
 
-    // Preset Patient Profiles
     function loadPresetProfile(type) {
       if (type === 'severe') {
-        document.getElementById('patient-name').value = "Alex Rivera (Acute Alert)";
+        document.getElementById('patient-name').value = "Alex Rivera (Acute Flare-up)";
         document.getElementById('symptoms-freq').value = "Daily";
         document.getElementById('night-diff').value = "Frequently";
         document.getElementById('triggers-input').value = "Dust, Air pollution (smoke, chemicals etc.)";
@@ -2089,7 +1722,7 @@
         panelGps.style.display = 'none';
         if (statusEl) {
           statusEl.innerText = 'MANUAL';
-          statusEl.style.color = '#f59e0b';
+          statusEl.style.color = '#d97706';
         }
         syncManualInputsFromEnv();
       } else {
@@ -2099,7 +1732,7 @@
         panelManual.style.display = 'none';
         if (statusEl) {
           statusEl.innerText = 'LIVE GPS';
-          statusEl.style.color = '#10b981';
+          statusEl.style.color = '#059669';
         }
       }
     }
@@ -2131,20 +1764,16 @@
       const hum = parseFloat(document.getElementById('manual-humidity').value) || 50;
 
       updateEnvDisplay({
-        AQI: aqi,
-        PM25: pm25,
-        NO2: no2,
-        SO2: so2,
-        CO2: co2,
-        Temperature: temp,
-        Humidity: hum
+        AQI: aqi, PM25: pm25, NO2: no2, SO2: so2, CO2: co2,
+        Temperature: temp, Humidity: hum
       });
 
       const statusEl = document.getElementById('disp-status');
       if (statusEl) {
-        statusEl.innerText = 'MANUAL EDITED';
+        statusEl.innerText = 'MANUAL';
         statusEl.style.color = '#0284c7';
       }
+      syncSensorDataToBackend();
     }
 
     function applyManualPreset(type) {
@@ -2156,11 +1785,7 @@
         updateEnvDisplay({ AQI: 260, PM25: 135.0, NO2: 70.0, SO2: 45.0, CO2: 550.0, Temperature: 34.0, Humidity: 75.0 });
       }
       syncManualInputsFromEnv();
-      const statusEl = document.getElementById('disp-status');
-      if (statusEl) {
-        statusEl.innerText = 'PRESET ' + type.toUpperCase();
-        statusEl.style.color = (type === 'severe') ? '#ef4444' : ((type === 'moderate') ? '#f59e0b' : '#10b981');
-      }
+      syncSensorDataToBackend();
     }
 
     function resetManualInputs() {
@@ -2178,24 +1803,19 @@
       document.getElementById('disp-co2').innerText = Number(envData.CO2).toFixed(1);
     }
 
-    // Live Environmental GPS Data Fetch
     async function fetchLiveEnvironmentalData(jumpToStep2 = false) {
       const statusEl = document.getElementById('disp-status');
       if (statusEl) statusEl.innerText = 'SYNCING...';
 
-      let lat = 28.6139;
-      let lon = 77.2090;
-
+      let lat = 28.6139, lon = 77.2090;
       if (navigator.geolocation) {
         try {
           const pos = await new Promise((resolve, reject) => {
-            navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 4000 });
+            navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 3500 });
           });
           lat = pos.coords.latitude;
           lon = pos.coords.longitude;
-        } catch (e) {
-          console.warn('Geolocation unavailable, using regional default coordinates');
-        }
+        } catch (e) {}
       }
 
       try {
@@ -2214,7 +1834,7 @@
           });
           if (statusEl) {
             statusEl.innerText = 'LIVE GPS';
-            statusEl.style.color = '#10b981';
+            statusEl.style.color = '#059669';
           }
           if (jumpToStep2) {
             switchView('user');
@@ -2227,7 +1847,6 @@
       }
     }
 
-    // Sync Environmental Telemetry to Backend SensorData ORM Table
     async function syncSensorDataToBackend() {
       try {
         const userId = (currentUser && currentUser.id) ? currentUser.id : 1;
@@ -2245,12 +1864,9 @@
             humidity: Number(envData.Humidity)
           })
         });
-      } catch (e) {
-        console.warn('Auto sensor sync to backend failed:', e);
-      }
+      } catch (e) {}
     }
 
-    // Run Review 1 Model Prediction
     async function runHridyaVayuPrediction() {
       const patientName = document.getElementById('patient-name').value || "Alex Rivera";
       const userId = currentUser ? currentUser.id : 1;
@@ -2260,7 +1876,6 @@
       const exposure = document.getElementById('exposure-input').value;
       const weatherSens = document.getElementById('weather-input').value;
 
-      // Sync Quiz Responses to QuizResponse ORM Table
       try {
         fetch('/submit-quiz', {
           method: 'POST',
@@ -2275,7 +1890,7 @@
               { question: 'Weather Sensitivity', answer: weatherSens }
             ]
           })
-        }).catch(e => console.warn('Quiz sync:', e));
+        }).catch(() => {});
       } catch(e) {}
 
       const payload = {
@@ -2307,291 +1922,335 @@
           renderPredictionResults(data);
           setStep(3);
         } else {
-          alert('Prediction error: ' + data.error);
+          alert("Assessment error: " + (data.error || "Please verify your parameters."));
         }
-      } catch (e) {
-        console.error('Prediction network error:', e);
-        alert('Failed to connect to HridyaVayu ML server.');
+      } catch (err) {
+        alert("Failed to connect to assessment service: " + err.message);
       }
     }
 
     function renderPredictionResults(data) {
-      document.getElementById('result-score-val').innerText = data.risk_score.toFixed(2);
-      
-      const badge = document.getElementById('result-level-badge');
-      const circle = document.getElementById('risk-gauge-circle');
-      badge.innerText = `${data.risk_level} Risk Attack Potential`;
+      const score = Number(data.risk_score || 0);
+      const level = data.risk_level || 'Medium';
 
-      circle.className = 'gauge-circle';
-      if (data.risk_level === 'High') {
-        circle.classList.add('high-risk');
-        badge.style.background = '#ef4444';
-      } else if (data.risk_level === 'Medium') {
-        circle.classList.add('medium-risk');
-        badge.style.background = '#f59e0b';
+      document.getElementById('res-patient-label').innerText = data.patient_name || 'Patient';
+      document.getElementById('res-score-val').innerText = score.toFixed(2);
+      document.getElementById('res-conf-val').innerText = Math.round((data.confidence || 0.85) * 100) + '%';
+      document.getElementById('res-entropy-val').innerText = Number(data.uncertainty_entropy || 0.25).toFixed(2);
+
+      const badge = document.getElementById('res-risk-badge');
+      if (level === 'High') {
+        badge.style.background = '#fef2f2';
+        badge.style.color = '#dc2626';
+        badge.innerText = 'HIGH RISK';
+      } else if (level === 'Medium') {
+        badge.style.background = '#fffbeb';
+        badge.style.color = '#d97706';
+        badge.innerText = 'MODERATE RISK';
       } else {
-        circle.classList.add('low-risk');
-        badge.style.background = '#10b981';
+        badge.style.background = '#ecfdf5';
+        badge.style.color = '#059669';
+        badge.innerText = 'LOW RISK';
       }
 
-      const overrideEl = document.getElementById('override-alert-banner');
-      if (overrideEl) {
-        overrideEl.style.display = data.heuristic_override ? 'block' : 'none';
+      const overrideBanner = document.getElementById('heuristic-override-banner');
+      if (overrideBanner) {
+        overrideBanner.style.display = data.heuristic_override ? 'block' : 'none';
       }
 
-      // Review 1 3-Model Suite Breakdown
-      if (data.model_breakdown) {
-        document.getElementById('score-baseline').innerText = data.model_breakdown.baseline_linear_regression.toFixed(2);
-        document.getElementById('score-rf').innerText = data.model_breakdown.random_forest.toFixed(2);
-        document.getElementById('score-gb').innerText = data.model_breakdown.gradient_boosting.toFixed(2);
-      }
+      const mb = data.model_breakdown || {};
+      const lr = Number(mb.baseline_linear_regression || 0.45);
+      const rf = Number(mb.random_forest || 0.52);
+      const gb = Number(mb.gradient_boosting || 0.51);
+      const ens = Number(mb.collaborative_ensemble || score);
 
-      // Recommendations
-      const recsList = document.getElementById('recommendations-list');
-      recsList.innerHTML = '';
+      document.getElementById('bar-val-lr').innerText = lr.toFixed(2);
+      document.getElementById('bar-fill-lr').style.width = Math.min(100, Math.round(lr * 100)) + '%';
+
+      document.getElementById('bar-val-rf').innerText = rf.toFixed(2);
+      document.getElementById('bar-fill-rf').style.width = Math.min(100, Math.round(rf * 100)) + '%';
+
+      document.getElementById('bar-val-gb').innerText = gb.toFixed(2);
+      document.getElementById('bar-fill-gb').style.width = Math.min(100, Math.round(gb * 100)) + '%';
+
+      document.getElementById('bar-val-ens').innerText = ens.toFixed(2);
+      document.getElementById('bar-fill-ens').style.width = Math.min(100, Math.round(ens * 100)) + '%';
+
+      const recList = document.getElementById('res-recommendations-list');
+      recList.innerHTML = '';
       (data.recommendations || []).forEach(r => {
         const li = document.createElement('li');
-        li.innerText = r;
-        recsList.appendChild(li);
+        li.innerHTML = `<i class="fa-solid fa-check" style="color: var(--primary); margin-top: 3px;"></i> <span>${r}</span>`;
+        recList.appendChild(li);
       });
-
-      document.getElementById('prediction-timestamp').innerText = new Date(data.timestamp).toLocaleTimeString();
     }
 
-    // Inhaler Tracking
-    async function logInhalerDose() {
+    function logInhalerDose() {
       inhalerDoses += 1;
       localStorage.setItem('hridyavayu_doses', inhalerDoses);
-      document.getElementById('inhaler-doses-count').innerText = inhalerDoses;
+      const cntEl = document.getElementById('user-doses-count');
+      if (cntEl) cntEl.innerText = inhalerDoses;
+      const leftEl = document.getElementById('disp-landing-doses');
+      if (leftEl) leftEl.innerText = `${Math.max(0, 100 - inhalerDoses)} Left`;
 
-      try {
-        await fetch('/api/inhaler/use', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_id: currentUser ? currentUser.id : 1 })
-        });
-        alert(`✓ Inhaler dose recorded! Total doses today: ${inhalerDoses}`);
-      } catch (e) {
-        console.warn('Logged dose locally');
-      }
+      const userId = currentUser ? currentUser.id : 1;
+      fetch('/api/inhaler/use', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: userId })
+      }).catch(() => {});
+
+      alert(`Inhaler dose recorded. Canister capacity: ${Math.max(0, 100 - inhalerDoses)} doses remaining.`);
     }
 
-    // Emergency SOS Trigger
-    async function triggerEmergencySos() {
-      const patientName = document.getElementById('patient-name').value || (currentUser ? currentUser.full_name : "Alex Rivera");
-      const confirmed = confirm(`🚨 EMERGENCY SOS CONFIRMATION:
+    function triggerEmergencySos() {
+      const patientName = currentUser ? currentUser.full_name : "Alex Rivera";
+      if (!confirm(`Trigger emergency respiratory SOS alert for ${patientName}?`)) return;
 
-Trigger critical respiratory distress alert for ${patientName}? This will notify your primary pulmonologist and emergency contacts.`);
-      if (!confirmed) return;
-
-      try {
-        const res = await fetch('/api/sos/alert', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            user_id: currentUser ? currentUser.id : 1,
-            patient_name: patientName,
-            emergency_contact: currentUser ? currentUser.emergency_contact_phone : "+1-555-0188"
-          })
-        });
-        const d = await res.json();
-        alert(`🚨 EMERGENCY SOS DISPATCHED!
-
-${d.message}
-Contact: ${d.emergency_contact}`);
-      } catch (e) {
-        alert('Emergency SOS triggered locally. Please call emergency services (911/112) immediately!');
-      }
+      const userId = currentUser ? currentUser.id : 1;
+      fetch('/api/sos/alert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: userId, patient_name: patientName })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("🚨 EMERGENCY SOS BROADCASTED: Designated emergency contacts and clinical dispatch notified.");
+      })
+      .catch(() => {
+        alert("Emergency dispatch alert logged locally.");
+      });
     }
 
-    // Admin Telemetry Data Loader
     async function loadAdminData() {
       try {
         const res = await fetch('/api/admin/overview');
-        const d = await res.json();
-        if (d.success) {
-          document.getElementById('admin-stat-users').innerText = d.stats.total_users;
-          document.getElementById('admin-stat-predictions').innerText = d.stats.total_predictions;
-          document.getElementById('admin-stat-alerts').innerText = d.stats.high_risk_alerts;
-          document.getElementById('admin-stat-avg-risk').innerText = d.stats.avg_risk.toFixed(2);
+        const json = await res.json();
+        if (json.success) {
+          const s = json.stats || {};
+          document.getElementById('admin-stat-users').innerText = s.total_users || '3';
+          document.getElementById('admin-stat-sensors').innerText = s.total_sensors || '0';
+          document.getElementById('admin-stat-predictions').innerText = s.total_predictions || '0';
+          document.getElementById('admin-stat-avg-risk').innerText = (s.avg_risk || 0.0).toFixed(2);
 
-          const table = document.getElementById('admin-records-table');
-          table.innerHTML = '';
-          (d.recent_predictions || []).forEach(r => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-              <td>${new Date(r.timestamp).toLocaleTimeString()}</td>
-              <td><strong>${r.patient_name}</strong></td>
-              <td><span style="font-weight:700; color:${r.risk_level === 'High' ? '#ef4444' : (r.risk_level === 'Medium' ? '#f59e0b' : '#10b981')}">${r.risk_level}</span></td>
-              <td style="font-family:'JetBrains Mono'; font-weight:700;">${r.score.toFixed(2)}</td>
-              <td style="font-family:'JetBrains Mono';">${r.baseline_score ? r.baseline_score.toFixed(2) : '-'}</td>
-              <td style="font-family:'JetBrains Mono';">${r.rf_score ? r.rf_score.toFixed(2) : '-'}</td>
-              <td style="font-family:'JetBrains Mono';">${r.gb_score ? r.gb_score.toFixed(2) : '-'}</td>
-              <td>${r.aqi ? Math.round(r.aqi) : '-'}</td>
-            `;
-            table.appendChild(tr);
-          });
+          const tbody = document.getElementById('admin-records-table');
+          tbody.innerHTML = '';
+          const recs = json.recent_predictions || [];
+          if (recs.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: var(--text-muted);">No records on file yet.</td></tr>';
+          } else {
+            recs.forEach(r => {
+              const tr = document.createElement('tr');
+              const dateStr = r.timestamp ? r.timestamp.split('T')[0] : 'Today';
+              const lvlColor = (r.risk_level === 'High') ? '#dc2626' : ((r.risk_level === 'Medium') ? '#d97706' : '#059669');
+              tr.innerHTML = `
+                <td>${dateStr}</td>
+                <td><strong>${r.patient_name || 'Patient'}</strong></td>
+                <td><span style="color: ${lvlColor}; font-weight: 700;">${r.risk_level}</span></td>
+                <td style="font-family: 'JetBrains Mono'; font-weight: 700;">${Number(r.score || 0).toFixed(2)}</td>
+                <td style="font-family: 'JetBrains Mono';">${Number(r.baseline_score || 0).toFixed(2)}</td>
+                <td style="font-family: 'JetBrains Mono';">${Number(r.rf_score || 0).toFixed(2)}</td>
+                <td style="font-family: 'JetBrains Mono';">${Number(r.gb_score || 0).toFixed(2)}</td>
+                <td>${Math.round(r.aqi || 0)}</td>
+              `;
+              tbody.appendChild(tr);
+            });
+          }
         }
-      } catch (e) {
-        console.error('Error loading admin data:', e);
+      } catch (err) {
+        console.error('Error loading admin overview:', err);
       }
     }
 
-    // EDA Charts
     let donutChartInstance = null;
     let barChartInstance = null;
 
     async function initEdaCharts() {
       try {
         const res = await fetch('/api/eda_data');
-        const resJson = await res.json();
-        if (!resJson.success) return;
-        const eda = resJson.data;
+        const json = await res.json();
+        if (!json.success || !json.data) return;
 
-        // Donut
-        const ctxDonut = document.getElementById('eda-donut-chart');
-        if (ctxDonut && !donutChartInstance) {
-          donutChartInstance = new Chart(ctxDonut, {
+        const d = json.data;
+
+        // Donut Chart
+        const donutCtx = document.getElementById('eda-donut-chart');
+        if (donutCtx) {
+          if (donutChartInstance) donutChartInstance.destroy();
+          const labels = Object.keys(d.risk_distribution || {});
+          const vals = Object.values(d.risk_distribution || {});
+          donutChartInstance = new Chart(donutCtx, {
             type: 'doughnut',
             data: {
-              labels: Object.keys(eda.risk_distribution),
+              labels: labels,
               datasets: [{
-                data: Object.values(eda.risk_distribution),
-                backgroundColor: ['#10b981', '#f59e0b', '#ef4444']
+                data: vals,
+                backgroundColor: ['#d97706', '#dc2626', '#059669'],
+                borderWidth: 2,
+                borderColor: '#ffffff'
               }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { position: 'bottom' } }
+            }
           });
         }
 
-        // Bar
-        const ctxBar = document.getElementById('eda-bar-chart');
-        if (ctxBar && !barChartInstance) {
-          barChartInstance = new Chart(ctxBar, {
+        // Bar Chart
+        const barCtx = document.getElementById('eda-bar-chart');
+        if (barCtx) {
+          if (barChartInstance) barChartInstance.destroy();
+          const p = d.pollutant_by_risk || {};
+          const classes = ['Low', 'Medium', 'High'];
+          const aqiVals = classes.map(c => (p['AQI'] && p['AQI'][c]) ? p['AQI'][c] : 0);
+          const pmVals = classes.map(c => (p['PM2.5'] && p['PM2.5'][c]) ? p['PM2.5'][c] : 0);
+
+          barChartInstance = new Chart(barCtx, {
             type: 'bar',
             data: {
-              labels: ['AQI', 'PM2.5', 'NO2', 'SO2'],
+              labels: classes,
               datasets: [
-                { label: 'Low Risk', data: [eda.pollutant_by_risk.AQI.Low, eda.pollutant_by_risk['PM2.5'].Low, eda.pollutant_by_risk['NO2 level'].Low, eda.pollutant_by_risk['SO2 level'].Low], backgroundColor: '#10b981' },
-                { label: 'Medium Risk', data: [eda.pollutant_by_risk.AQI.Medium, eda.pollutant_by_risk['PM2.5'].Medium, eda.pollutant_by_risk['NO2 level'].Medium, eda.pollutant_by_risk['SO2 level'].Medium], backgroundColor: '#f59e0b' },
-                { label: 'High Risk', data: [eda.pollutant_by_risk.AQI.High, eda.pollutant_by_risk['PM2.5'].High, eda.pollutant_by_risk['NO2 level'].High, eda.pollutant_by_risk['SO2 level'].High], backgroundColor: '#ef4444' }
+                { label: 'Mean AQI', data: aqiVals, backgroundColor: '#0284c7' },
+                { label: 'Mean PM2.5 (μg/m³)', data: pmVals, backgroundColor: '#0ea5e9' }
               ]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { position: 'bottom' } }
+            }
           });
         }
-      } catch (e) {
-        console.error('Error rendering EDA charts:', e);
+      } catch (err) {
+        console.error('Error rendering analytics charts:', err);
       }
     }
 
-    // Authentication Logic
-    function openAuthModal(mode = 'login', forcedRole = null) {
+    function openAuthModal(mode = 'login', targetRole = 'User') {
       authMode = mode;
-      document.getElementById('auth-modal').classList.add('active');
-      setAuthTab(mode);
-      if (forcedRole) {
-        document.getElementById('auth-role').value = forcedRole;
-      }
+      document.getElementById('auth-modal').style.display = 'flex';
+      setAuthMode(mode);
     }
 
     function closeAuthModal() {
-      document.getElementById('auth-modal').classList.remove('active');
+      document.getElementById('auth-modal').style.display = 'none';
     }
 
-    function setAuthTab(tab) {
-      authMode = tab;
-      document.getElementById('tab-login').classList.toggle('active', tab === 'login');
-      document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
-      document.getElementById('signup-extra-fields').style.display = (tab === 'signup') ? 'block' : 'none';
-      document.getElementById('auth-submit-btn').innerText = (tab === 'signup') ? 'Create Account' : 'Sign In';
-      document.getElementById('auth-modal-title').innerText = (tab === 'signup') ? 'Create HridyaVayu Profile' : 'Sign In to Portal';
+    function setAuthMode(mode) {
+      authMode = mode;
+      const tabLogin = document.getElementById('tab-login');
+      const tabSignup = document.getElementById('tab-signup');
+      const grpName = document.getElementById('group-name');
+      const grpPhone = document.getElementById('group-phone');
+      const btnSubmit = document.getElementById('btn-auth-submit');
+      const title = document.getElementById('auth-modal-title');
+
+      if (mode === 'signup') {
+        tabSignup.classList.add('active');
+        tabLogin.classList.remove('active');
+        grpName.style.display = 'flex';
+        grpPhone.style.display = 'flex';
+        btnSubmit.innerText = 'Register Patient';
+        title.innerText = 'Register Patient Account';
+      } else {
+        tabLogin.classList.add('active');
+        tabSignup.classList.remove('active');
+        grpName.style.display = 'none';
+        grpPhone.style.display = 'none';
+        btnSubmit.innerText = 'Sign In';
+        title.innerText = 'Sign In to HridyaVayu';
+      }
     }
 
-    function quickLogin(type) {
-      if (type === 'admin') {
+    function loginAsDemo(role) {
+      if (role === 'Admin') {
         document.getElementById('auth-username').value = 'demo_admin';
         document.getElementById('auth-password').value = 'admin123';
       } else {
         document.getElementById('auth-username').value = 'demo_user';
         document.getElementById('auth-password').value = 'demo123';
       }
-      document.getElementById('auth-form').dispatchEvent(new Event('submit'));
+      handleAuthSubmit(new Event('submit'));
     }
 
     async function handleAuthSubmit(e) {
-      e.preventDefault();
-      const username = document.getElementById('auth-username').value.trim();
-      const password = document.getElementById('auth-password').value.trim();
+      if (e) e.preventDefault();
+      const username = document.getElementById('auth-username').value;
+      const endpoint = (authMode === 'signup') ? '/api/auth/signup' : '/api/auth/login';
 
-      const url = (authMode === 'signup') ? '/api/auth/signup' : '/api/auth/login';
-      const body = {
-        username, password,
-        full_name: document.getElementById('auth-fullname') ? document.getElementById('auth-fullname').value : username,
-        role: document.getElementById('auth-role') ? document.getElementById('auth-role').value : 'User',
-        emergency_contact_phone: document.getElementById('auth-emergency-phone') ? document.getElementById('auth-emergency-phone').value : ''
+      const payload = {
+        username: username,
+        password: document.getElementById('auth-password').value,
+        full_name: document.getElementById('auth-name').value || username,
+        phone_no: document.getElementById('auth-phone').value || '+1-555-0143'
       };
 
       try {
-        const res = await fetch(url, {
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body)
+          body: JSON.stringify(payload)
         });
-        const data = await res.json();
-        if (data.success) {
-          currentUser = data.user;
+        const json = await res.json();
+        if (json.success && json.user) {
+          currentUser = json.user;
           localStorage.setItem('hridyavayu_user', JSON.stringify(currentUser));
-          updateAuthHeader();
+          updateAuthUi();
           closeAuthModal();
-
           if (currentUser.role === 'Admin') {
             switchView('admin');
           } else {
-            document.getElementById('patient-name').value = currentUser.full_name;
             switchView('user');
           }
         } else {
-          alert('Auth error: ' + data.error);
+          alert("Authentication failed: " + (json.error || "Please check credentials"));
         }
       } catch (err) {
-        alert('Authentication failed.');
+        alert("Connection error during login: " + err.message);
       }
     }
 
-    function updateAuthHeader() {
+    function updateAuthUi() {
       const container = document.getElementById('auth-nav-container');
       if (currentUser) {
         container.innerHTML = `
-          <div class="user-profile-badge" onclick="logoutUser()">
-            <div class="user-avatar">${currentUser.full_name.charAt(0)}</div>
-            <span>${currentUser.full_name} (${currentUser.role})</span>
-            <i class="fa-solid fa-arrow-right-from-bracket text-muted" style="font-size:0.75rem;"></i>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <div style="text-align: right;">
+              <span style="font-size: 0.8rem; font-weight: 700; display: block;">${currentUser.name || currentUser.full_name}</span>
+              <span style="font-size: 0.68rem; color: var(--text-muted);">${currentUser.role}</span>
+            </div>
+            <button class="nav-btn" style="padding: 0.4rem 0.6rem; color: var(--danger);" onclick="logout()" title="Sign Out">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </button>
           </div>
         `;
+        const pInput = document.getElementById('patient-name');
+        if (pInput && currentUser.full_name) pInput.value = currentUser.full_name;
       } else {
         container.innerHTML = `
           <button class="nav-btn nav-btn-primary" onclick="openAuthModal('login')">
-            <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
           </button>
         `;
       }
     }
 
-    function logoutUser() {
-      if (confirm('Log out of HridyaVayu?')) {
-        currentUser = null;
-        localStorage.removeItem('hridyavayu_user');
-        updateAuthHeader();
-        switchView('landing');
-      }
+    function logout() {
+      currentUser = null;
+      localStorage.removeItem('hridyavayu_user');
+      updateAuthUi();
+      switchView('landing');
     }
 
-    // Init on Load
+    // Init
     window.addEventListener('DOMContentLoaded', () => {
-      updateAuthHeader();
-      document.getElementById('inhaler-doses-count').innerText = inhalerDoses;
-      fetchLiveEnvironmentalData(false);
+      updateAuthUi();
+      const cntEl = document.getElementById('user-doses-count');
+      if (cntEl) cntEl.innerText = inhalerDoses;
+      const leftEl = document.getElementById('disp-landing-doses');
+      if (leftEl) leftEl.innerText = `${Math.max(0, 100 - inhalerDoses)} Left`;
     });
   </script>
 </body>

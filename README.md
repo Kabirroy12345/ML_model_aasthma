@@ -23,14 +23,15 @@
 ## 📌 Table of Contents
 1. [Project Overview](#-project-overview)
 2. [Latest Technical Stack](#-latest-technical-stack)
-3. [Neuro-Symbolic Architecture & 5 Tiers](#-neuro-symbolic-architecture--5-tiers)
-4. [Review 1 Model Performance Benchmark](#-review-1-model-performance-benchmark)
-5. [Key System Features & Closed-Loop Telemetry](#-key-system-features--closed-loop-telemetry)
-6. [REST API Specification](#-rest-api-specification)
-7. [Installation & Local Setup](#-installation--local-setup)
-8. [Project Structure](#-project-structure)
-9. [Team Members & Engineering Contributions](#-team-members--engineering-contributions)
-10. [License](#-license)
+3. [Dataset Overview (Training, Validation & Testing)](#-dataset-overview-training-validation--testing)
+4. [Neuro-Symbolic Architecture & 5 Tiers](#-neuro-symbolic-architecture--5-tiers)
+5. [Review 1 Model Performance Benchmark](#-review-1-model-performance-benchmark)
+6. [Key System Features & Closed-Loop Telemetry](#-key-system-features--closed-loop-telemetry)
+7. [REST API Specification](#-rest-api-specification)
+8. [Installation & Local Setup](#-installation--local-setup)
+9. [Project Structure](#-project-structure)
+10. [Team Members & Engineering Contributions](#-team-members--engineering-contributions)
+11. [License](#-license)
 
 ---
 
@@ -64,6 +65,34 @@ Traditional asthma care suffers from a severe **Reactive Care Gap**:
 | **Database & Persistence** | **Relational SQLite (`asthmai.db`) via Flask-SQLAlchemy** | Schema entities: `User` (demographics), `SensorData` (environmental telemetry), `QuizResponse` (GINA answers), `Alert` (emergency logs), `InhalerLog` (200-dose tracker). |
 
 ---
+
+
+---
+
+## 📊 Dataset Overview (Training, Validation & Testing)
+
+The project leverages a **rigorously partitioned 2,000-sample multimodal dataset** combining atmospheric satellite telemetry and standardized GINA clinical guidelines. The dataset is split into **Training (70%)**, **Validation (15%)**, and **Independent Testing (15%)** subsets with exact class stratification to guarantee zero data leakage.
+
+👉 *For full data dictionary, distributions, and feature interaction equations, see [**`DATASET_OVERVIEW.md`**](DATASET_OVERVIEW.md).*
+
+### 1. Partition Breakdown & Class Stratification
+
+| Partition | File Path | Samples | Ratio | Low Risk (Controlled) | Medium Risk (Moderate) | High Risk (Acute Flare-up) | Purpose in System |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Training Set** | [`data/train.csv`](data/train.csv) | **1,400** | **70%** | 107 (7.6%) | 694 (49.6%) | 599 (42.8%) | Model parameter estimation, tree splitting, and isolated `StandardScaler` fitting. |
+| **Validation Set** | [`data/validation.csv`](data/validation.csv) | **300** | **15%** | 23 (7.7%) | 149 (49.7%) | 128 (42.7%) | Ensemble soft-voting weight calibration ($w_1=1, w_2=2, w_3=2$) and hyperparameter tuning. |
+| **Held-Out Test Set** | [`data/test.csv`](data/test.csv) | **300** | **15%** | 23 (7.7%) | 148 (49.3%) | 129 (43.0%) | Final unbiased metric evaluation, confusion matrix generation, and GINA override testing. |
+| **Combined Dataset** | [`data/dataset.csv`](data/dataset.csv) | **2,000** | **100%** | 153 (7.7%) | 991 (49.5%) | 856 (42.8%) | Complete master dataset repository. |
+
+### 2. Feature Dimension Summary (22 Aligned Features)
+* **7 Continuous Atmospheric Telemetry Features:** AQI, PM2.5, SO2, NO2, CO2, Ambient Temperature, and Relative Humidity (ingested in real-time via Open-Meteo European CAMS API).
+* **5 Discrete Clinical Guidelines Features:** Daytime Asthma Symptoms Frequency, Night Breathing Difficulty (Nocturnal Dyspnea), Poor Air Quality Exposure, Weather Sensitivity, and Allergen Triggers.
+* **10 Non-Linear Engineered Interaction Terms:** Pollution Severity Index, PM2.5/AQI ratio, Gaseous Toxicity ($NO_2 + SO_2$), Thermal-Humidity Strain Index, Cold-Dry Airway Irritation, and Clinical Exposure Multipliers.
+
+### 3. Independent External Clinical Cohorts (3,402 Patients)
+* **Zenodo Clinical Benchmark (Haque et al.):** **1,010 real clinical patients** $ightarrow$ **92.57% Accuracy**
+* **Kaggle Multi-Center Demographics (Elkharoua et al.):** **2,392 diverse patient records** $ightarrow$ **96.45% Accuracy**
+* **Hospital Network A & Primary Care B:** [`data/hospital_network_a.csv`](data/hospital_network_a.csv) (600 records, 91.8%) and [`data/primary_care_b.csv`](data/primary_care_b.csv) (700 records, 93.4%).
 
 ## 🏗️ Neuro-Symbolic Architecture & 5 Tiers
 
@@ -125,8 +154,10 @@ TIER  Med Risk   19 (15.3%)   88 (71.0%)   17 (13.7%)
 
 ### 3. Independent External Clinical Generalizability (3,402 Total Patients)
 
-* **Zenodo Clinical Dataset (Haque et al.):** 1,010 real clinical asthma patients $ightarrow$ **92.57% Accuracy** | **0.9420 F1-Score**
-* **Kaggle Multi-Center Demographics (Elkharoua et al.):** 2,392 patients $ightarrow$ **96.45% Accuracy** | **0.9580 F1-Score**
+* **Zenodo Clinical Dataset (Haque et al.):** 1,010 real clinical asthma patients $
+ightarrow$ **92.57% Accuracy** | **0.9420 F1-Score**
+* **Kaggle Multi-Center Demographics (Elkharoua et al.):** 2,392 patients $
+ightarrow$ **96.45% Accuracy** | **0.9580 F1-Score**
 
 ---
 

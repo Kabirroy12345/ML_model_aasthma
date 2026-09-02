@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HridyaVayu - Intelligent Asthma Decision Support System</title>
+  <title>HridyaVayu - Connected Asthma Decision Support System</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,7 +68,7 @@
       z-index: 1000;
       background: #ffffff;
       border-bottom: 1px solid var(--border);
-      padding: 0.85rem 2rem;
+      padding: 0.85rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -96,8 +96,8 @@
 
     .brand-text h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
+      font-size: 1.35rem;
+      font-weight: 800;
       color: var(--accent);
       letter-spacing: -0.3px;
       line-height: 1.1;
@@ -111,10 +111,19 @@
       text-transform: uppercase;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      margin-right: 1rem;
+      border-right: 1px solid var(--border);
+      padding-right: 1rem;
     }
 
     .nav-btn {
@@ -153,6 +162,36 @@
       background: var(--primary-dark) !important;
     }
 
+    .nav-btn-secondary {
+      background: white !important;
+      border: 1px solid var(--border) !important;
+      color: var(--text-main) !important;
+    }
+
+    .nav-btn-secondary:hover {
+      background: var(--bg-card-subtle) !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    .demo-pill {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card-subtle);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s ease;
+    }
+
+    .demo-pill:hover {
+      background: #e2e8f0;
+    }
+
     /* Container & Layout */
     .container {
       max-width: 1240px;
@@ -168,22 +207,22 @@
 
     .view-section.active {
       display: block;
-      animation: fadeIn 0.25s ease;
+      animation: fadeIn 0.2s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===================================================
-       1. OVERVIEW / LANDING SECTION (CLEAN & PROFESSIONAL)
+       1. LANDING PAGE HERO & WHY HRIDYAVAYU SECTION
        =================================================== */
-    .landing-hero {
+    .hero-split {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 3.5rem;
-      align-items: center;
+      align-items: start;
       margin-bottom: 4rem;
       padding-top: 1rem;
     }
@@ -200,10 +239,6 @@
       font-weight: 600;
       color: var(--primary-dark);
       margin-bottom: 1.25rem;
-    }
-
-    .hero-badge-pill i {
-      font-size: 0.75rem;
     }
 
     .hero-title {
@@ -236,7 +271,7 @@
     .btn-hero-primary {
       background: var(--primary);
       color: white;
-      padding: 0.8rem 1.6rem;
+      padding: 0.85rem 1.65rem;
       border-radius: 9px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -257,7 +292,7 @@
     .btn-hero-secondary {
       background: white;
       color: var(--text-main);
-      padding: 0.8rem 1.6rem;
+      padding: 0.85rem 1.65rem;
       border-radius: 9px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -274,7 +309,134 @@
       border-color: #cbd5e1;
     }
 
-    /* 4-Pillar Clinical Capability Cards */
+    /* Right Showcase: Why HridyaVayu & Clinical Need */
+    .why-hridyavayu-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .why-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .why-card-head h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .clinical-case-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .clinical-case-box strong {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .clinical-case-box p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .benefits-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .benefit-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .benefit-text strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .benefit-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .device-inline-banner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+
+    .device-inline-banner img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 6px;
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .device-inline-banner div {
+      flex: 1;
+    }
+
+    .device-inline-banner strong {
+      font-size: 0.82rem;
+      display: block;
+      color: var(--accent);
+    }
+
+    .device-inline-banner span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    /* 4-Pillar Grid */
     .feature-pillars-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -285,15 +447,10 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1rem 1.15rem;
+      padding: 1.15rem;
       display: flex;
       align-items: flex-start;
       gap: 0.85rem;
-      transition: border-color 0.15s ease;
-    }
-
-    .pillar-card:hover {
-      border-color: #cbd5e1;
     }
 
     .pillar-icon {
@@ -320,126 +477,11 @@
     .pillar-content p {
       font-size: 0.75rem;
       color: var(--text-muted);
-      line-height: 1.35;
-    }
-
-    /* Right Preview: Sleek Device Presentation */
-    .hero-device-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-md);
-    }
-
-    .device-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .device-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .device-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--success);
-      background: var(--success-light);
-      padding: 0.2rem 0.6rem;
-      border-radius: 9999px;
-    }
-
-    .device-img-wrapper {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 1.25rem;
-    }
-
-    .device-img-wrapper img {
-      max-height: 250px;
-      width: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,0.06));
-    }
-
-    .device-stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .stat-pill {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.6rem 0.75rem;
-      text-align: center;
-    }
-
-    .stat-pill span {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .stat-pill strong {
-      display: block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--accent);
-    }
-
-    .device-quick-actions {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .quick-action-btn {
-      flex: 1;
-      padding: 0.55rem;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-main);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      transition: all 0.15s ease;
-    }
-
-    .quick-action-btn:hover {
-      background: var(--bg-card-subtle);
-      border-color: #cbd5e1;
+      line-height: 1.4;
     }
 
     /* ===================================================
-       2. USER / PATIENT PORTAL (STEPPER & GUIDED FLOW)
+       2. USER / PATIENT PORTAL
        =================================================== */
     .stepper-nav {
       display: flex;
@@ -530,7 +572,7 @@
       margin-top: 4px;
     }
 
-    /* Form Elements */
+    /* Forms */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -544,19 +586,10 @@
       gap: 0.4rem;
     }
 
-    .form-group.full-width {
-      grid-column: 1 / -1;
-    }
-
     .form-label {
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-main);
-    }
-
-    .form-hint {
-      font-size: 0.72rem;
-      color: var(--text-muted);
     }
 
     .form-input, .form-select {
@@ -591,11 +624,6 @@
       border-radius: 10px;
       padding: 1.15rem 1rem;
       text-align: center;
-      transition: border-color 0.15s ease;
-    }
-
-    .env-dial-card:hover {
-      border-color: #cbd5e1;
     }
 
     .dial-name {
@@ -620,7 +648,7 @@
       color: var(--text-light);
     }
 
-    /* Risk Results Dashboard (Step 3) */
+    /* Step 3 Results */
     .results-layout {
       display: grid;
       grid-template-columns: 1fr 1.25fr;
@@ -667,7 +695,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Multi-Model Progress Bars */
     .models-breakdown-card {
       background: white;
       border: 1px solid var(--border);
@@ -691,11 +718,6 @@
       margin-bottom: 0.35rem;
     }
 
-    .model-row-head strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
     .model-progress-bg {
       height: 8px;
       background: #e2e8f0;
@@ -710,42 +732,115 @@
       transition: width 0.6s ease;
     }
 
-    /* Recommendations & SOS */
-    .rec-box {
-      background: var(--primary-subtle);
-      border: 1px solid #bae6fd;
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      margin-bottom: 1.5rem;
+    /* Human-Centric Clinical Recommendations Cards */
+    .recs-container {
+      margin-bottom: 1.75rem;
     }
 
-    .rec-box h4 {
-      font-size: 0.9rem;
+    .recs-container-title {
+      font-size: 0.95rem;
       font-weight: 700;
-      color: var(--primary-dark);
-      margin-bottom: 0.6rem;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
     }
 
-    .rec-list {
-      list-style: none;
+    .clinical-recs-grid {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.65rem;
     }
 
-    .rec-list li {
-      font-size: 0.83rem;
-      color: var(--text-main);
+    .clinical-rec-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 0.85rem 1.15rem;
       display: flex;
       align-items: flex-start;
-      gap: 0.5rem;
+      gap: 0.85rem;
+    }
+
+    .clinical-rec-card.severe {
+      border-left-color: var(--danger);
+      background: #fffdfd;
+    }
+
+    .rec-card-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .clinical-rec-card.severe .rec-card-icon {
+      background: var(--danger-light);
+      color: var(--danger);
+    }
+
+    .rec-card-body strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .rec-card-body p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
       line-height: 1.4;
     }
 
-    /* Admin & Tables */
+    /* Inhaler & SOS Tracker */
+    .inhaler-tracker-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      background: white;
+    }
+
+    .tracker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .tracker-meter-bg {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 0.65rem;
+    }
+
+    .tracker-meter-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: var(--primary);
+      transition: width 0.4s ease;
+    }
+
+    .tracker-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Admin / Tables */
     .admin-stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -791,12 +886,6 @@
       align-items: center;
     }
 
-    .table-title-bar h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
     table.data-table {
       width: 100%;
       border-collapse: collapse;
@@ -816,10 +905,6 @@
       padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--border);
       color: var(--text-main);
-    }
-
-    table.data-table tr:last-child td {
-      border-bottom: none;
     }
 
     /* Modal */
@@ -844,7 +929,6 @@
       box-shadow: var(--shadow-lg);
     }
 
-    /* Footer */
     footer.app-footer {
       border-top: 1px solid var(--border);
       background: white;
@@ -855,9 +939,9 @@
       margin-top: auto;
     }
 
-    /* Responsive */
     @media (max-width: 960px) {
-      .landing-hero { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-split { grid-template-columns: 1fr; gap: 2rem; }
+      .feature-pillars-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .env-grid { grid-template-columns: repeat(2, 1fr); }
       .results-layout { grid-template-columns: 1fr; }
@@ -869,152 +953,167 @@
 
   <!-- App Header -->
   <header class="app-header">
-    <div class="brand-logo" onclick="switchView('landing')">
+    <!-- Brand Name Term -->
+    <div class="brand-logo" onclick="navigateToLanding()">
       <div class="brand-icon-box">
         <i class="fa-solid fa-lungs"></i>
       </div>
       <div class="brand-text">
         <h1>HridyaVayu</h1>
-        <p>Intelligent Respiratory Support</p>
+        <p>Smart Asthma Care</p>
       </div>
     </div>
 
-    <nav class="nav-links">
-      <button class="nav-btn active" id="nav-landing" onclick="switchView('landing')">
-        <i class="fa-solid fa-house"></i> Overview
-      </button>
-      <button class="nav-btn" id="nav-user" onclick="handleUserPortalClick()">
-        <i class="fa-solid fa-user-doctor"></i> Patient Portal
-      </button>
-      <button class="nav-btn" id="nav-admin" onclick="handleAdminPortalClick()">
-        <i class="fa-solid fa-shield-halved"></i> Clinical Telemetry
-      </button>
-      <button class="nav-btn" id="nav-eda" onclick="switchView('eda')">
-        <i class="fa-solid fa-chart-pie"></i> Analytics & EDA
-      </button>
-      
-      <div id="auth-nav-container" style="margin-left: 0.5rem;">
-        <button class="nav-btn nav-btn-primary" onclick="openAuthModal('login')">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+    <!-- Header Actions (Only Term + Login / Sign Up when unauthenticated) -->
+    <div class="header-actions">
+      <!-- Nav items shown ONLY when logged in -->
+      <nav class="nav-links" id="authenticated-nav" style="display: none;">
+        <button class="nav-btn" id="nav-landing" onclick="switchView('landing')">Overview</button>
+        <button class="nav-btn" id="nav-user" onclick="switchView('user'); setStep(1);">Patient Portal</button>
+        <button class="nav-btn" id="nav-admin" onclick="switchView('admin');">Physician Console</button>
+        <button class="nav-btn" id="nav-eda" onclick="switchView('eda');">Analytics</button>
+      </nav>
+
+      <!-- Auth Container -->
+      <div id="auth-header-container" style="display: flex; align-items: center; gap: 0.5rem;">
+        <button class="demo-pill" onclick="quickLoginDemo('User')">
+          <i class="fa-solid fa-user"></i> Demo Patient
+        </button>
+        <button class="demo-pill" onclick="quickLoginDemo('Admin')">
+          <i class="fa-solid fa-user-doctor"></i> Demo Physician
+        </button>
+        <button class="nav-btn nav-btn-secondary" onclick="openAuthModal('login')">
+          Sign In
+        </button>
+        <button class="nav-btn nav-btn-primary" onclick="openAuthModal('signup')">
+          Sign Up
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Main Container -->
   <main class="container">
 
     <!-- ==========================================
-         VIEW 1: CLEAN OVERVIEW / PRODUCT LANDING
+         VIEW 1: OVERVIEW & WHY HRIDYAVAYU
          ========================================== -->
     <section id="view-landing" class="view-section active">
-      <div class="landing-hero">
-        <!-- Left Overview -->
+      <div class="hero-split">
+        <!-- Left Hero Column -->
         <div>
           <div class="hero-badge-pill">
-            <i class="fa-solid fa-circle-check"></i>
-            <span>Clinical Decision Support System</span>
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Clinical Decision Support & Attack Prevention</span>
           </div>
 
           <h2 class="hero-title">
             Intelligent Respiratory Care <br />
-            <span>Powered by Multimodal AI</span>
+            <span>Before Airway Constriction Occurs</span>
           </h2>
 
           <p class="hero-subtitle">
-            HridyaVayu synchronizes real-time environmental IoT telemetry with validated GINA clinical guidelines, providing early risk stratification to prevent acute asthma exacerbations.
+            HridyaVayu bridges continuous environmental IoT telemetry with validated clinical guidelines (GINA) and collaborative machine learning to predict asthma exacerbations hours in advance.
           </p>
 
+          <!-- Gate-Protected Action Buttons -->
           <div class="hero-ctas">
-            <button class="btn-hero-primary" onclick="handleUserPortalClick()">
+            <button class="btn-hero-primary" onclick="handleProtectedPortalAccess('user')">
               <i class="fa-solid fa-notes-medical"></i> Open Patient Portal
             </button>
-            <button class="btn-hero-secondary" onclick="handleAdminPortalClick()">
+            <button class="btn-hero-secondary" onclick="handleProtectedPortalAccess('admin')">
               <i class="fa-solid fa-chart-line"></i> Physician Dashboard
             </button>
           </div>
 
-          <!-- 4 Clean Pillar Highlights -->
+          <!-- 4 Feature Pillars -->
           <div class="feature-pillars-grid">
             <div class="pillar-card">
               <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
               <div class="pillar-content">
-                <strong>Multimodal Ensemble</strong>
-                <p>Collaborative Logistic Regression, Random Forest, and Gradient Boosting.</p>
+                <strong>Multimodal Collaborative AI</strong>
+                <p>Combines Linear Regression, Random Forest, and Gradient Boosting to prevent single-model bias.</p>
               </div>
             </div>
 
             <div class="pillar-card">
               <div class="pillar-icon"><i class="fa-solid fa-satellite-dish"></i></div>
               <div class="pillar-content">
-                <strong>Real-Time Weather Sync</strong>
-                <p>GPS ambient telemetry from Open-Meteo for AQI, PM2.5, and gases.</p>
+                <strong>Live Meteorological Sync</strong>
+                <p>Continuous GPS-anchored feed tracking AQI, PM2.5, NO2, and SO2 spikes.</p>
               </div>
             </div>
 
             <div class="pillar-card">
-              <div class="pillar-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+              <div class="pillar-icon"><i class="fa-solid fa-shield-virus"></i></div>
               <div class="pillar-content">
-                <strong>GINA Clinical Safety Rails</strong>
-                <p>Deterministic medical heuristics ensure patient protection.</p>
+                <strong>GINA Safety Guardrails</strong>
+                <p>Deterministic clinical heuristics guarantee emergency escalation for severe nocturnal symptoms.</p>
               </div>
             </div>
 
             <div class="pillar-card">
               <div class="pillar-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
               <div class="pillar-content">
-                <strong>Smart Inhaler Tracking</strong>
-                <p>Canister adherence logging and instant emergency SOS dispatch.</p>
+                <strong>Smart Inhaler Adherence</strong>
+                <p>Canister level tracking, dose verification, and rapid emergency distress dispatch.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Device Presentation -->
+        <!-- Right Column: Why HridyaVayu? The Clinical Need -->
         <div>
-          <div class="hero-device-card">
-            <div class="device-header">
-              <div class="device-title">
-                <i class="fa-solid fa-microchip" style="color: var(--primary);"></i>
-                HridyaVayu Connected Airway Device
-              </div>
-              <div class="device-status">
-                <i class="fa-solid fa-circle" style="font-size: 6px;"></i> Active Link
-              </div>
+          <div class="why-hridyavayu-card">
+            <div class="why-card-head">
+              <h3><i class="fa-solid fa-hospital" style="color: var(--primary);"></i> Why HridyaVayu?</h3>
+              <span style="font-size: 0.75rem; font-weight: 600; color: var(--success); background: var(--success-light); padding: 2px 8px; border-radius: 9999px;">
+                Clinical Impact
+              </span>
             </div>
 
-            <div class="device-img-wrapper">
-              <img src="/web_ui/assets/smart_inhaler.jpg" alt="HridyaVayu Smart Inhaler" onerror="this.src='/figures/model_comparison.png'" />
+            <!-- The Clinical Case & Need -->
+            <div class="clinical-case-box">
+              <strong>The Clinical Problem & Need</strong>
+              <p>
+                Over 300 million people live with bronchial asthma. More than 80% of severe hospitalizations are triggered by sudden environmental pollutant spikes acting on hyper-responsive airways. Conventional care is reactive—patients medicate only after airway narrowing has started.
+              </p>
             </div>
 
-            <div class="device-stats-row">
-              <div class="stat-pill">
-                <span>Airflow</span>
-                <strong>85% Optimal</strong>
-              </div>
-              <div class="stat-pill">
-                <span>Peak Flow</span>
-                <strong>480 L/min</strong>
-              </div>
-              <div class="stat-pill">
-                <span>Canister</span>
-                <strong id="disp-landing-doses">98 Left</strong>
-              </div>
-            </div>
+            <!-- Core Benefits -->
+            <ul class="benefits-list">
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div class="benefit-text">
+                  <strong>Preemptive Risk Stratification</strong>
+                  <p>Forecasts impending exacerbation risk hours before acute distress, enabling early controller dosing.</p>
+                </div>
+              </li>
 
-            <div class="device-quick-actions">
-              <button class="quick-action-btn" onclick="handleUserPortalClick()">
-                <i class="fa-solid fa-stethoscope"></i> Clinical Quiz
-              </button>
-              <button class="quick-action-btn" onclick="fetchLiveEnvironmentalData(true)">
-                <i class="fa-solid fa-cloud"></i> Sync GPS
-              </button>
-              <button class="quick-action-btn" onclick="logInhalerDose()">
-                <i class="fa-solid fa-plus"></i> Dose
-              </button>
-              <button class="quick-action-btn" style="color: var(--danger);" onclick="triggerEmergencySos()">
-                <i class="fa-solid fa-triangle-exclamation"></i> SOS
-              </button>
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <div class="benefit-text">
+                  <strong>Objective Patient-Doctor Alignment</strong>
+                  <p>Translates subjective symptoms and environmental exposure into calibrated clinical risk indices.</p>
+                </div>
+              </li>
+
+              <li class="benefit-item">
+                <div class="benefit-icon"><i class="fa-solid fa-bell"></i></div>
+                <div class="benefit-text">
+                  <strong>Automated Emergency Escalation</strong>
+                  <p>Instant SMS and SOS telemetry broadcast to designated emergency contacts during severe distress.</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Connected Device Inline Note -->
+            <div class="device-inline-banner">
+              <img src="/web_ui/assets/smart_inhaler.jpg" alt="Smart Inhaler" onerror="this.src='/figures/model_comparison.png'" />
+              <div>
+                <strong>HridyaVayu Connected Airway Companion</strong>
+                <span>Bluetooth IoT inhaler tracking medication adherence in real time.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1025,7 +1124,7 @@
          VIEW 2: PATIENT PORTAL (3-STEP GUIDED FLOW)
          ========================================== -->
     <section id="view-user" class="view-section">
-      <!-- Minimalist Progress Stepper -->
+      <!-- Stepper Nav -->
       <div class="stepper-nav">
         <div class="stepper-item active" id="step-btn-1" onclick="setStep(1)">
           <div class="stepper-number">1</div>
@@ -1143,7 +1242,7 @@
           </div>
         </div>
 
-        <!-- GPS Action Banner -->
+        <!-- GPS Banner -->
         <div id="panel-env-gps" style="display: flex; justify-content: space-between; align-items: center; background: var(--primary-subtle); border: 1px solid #bae6fd; border-radius: 10px; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem;">
           <div>
             <strong style="font-size: 0.88rem; color: var(--primary-dark); display: block;">Open-Meteo Satellite & Ground Station Feed</strong>
@@ -1154,7 +1253,7 @@
           </button>
         </div>
 
-        <!-- Manual Input Form -->
+        <!-- Manual Form -->
         <div id="panel-env-manual" style="display: none; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
             <div>
@@ -1162,15 +1261,9 @@
               <p style="font-size: 0.75rem; color: var(--text-muted);">Adjust individual variables to simulate specific clinical conditions.</p>
             </div>
             <div style="display: flex; gap: 0.4rem;">
-              <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('clean')">
-                Clean Air (AQI 25)
-              </button>
-              <button type="button" class="nav-btn" style="background: #fffbeb; color: #b45309; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('moderate')">
-                Moderate (AQI 125)
-              </button>
-              <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('severe')">
-                Hazardous (AQI 260)
-              </button>
+              <button type="button" class="nav-btn" style="background: #f0fdf4; color: #15803d; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('clean')">Clean (AQI 25)</button>
+              <button type="button" class="nav-btn" style="background: #fffbeb; color: #b45309; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('moderate')">Moderate (AQI 125)</button>
+              <button type="button" class="nav-btn" style="background: #fef2f2; color: #b91c1c; font-size: 0.72rem; padding: 0.3rem 0.65rem;" onclick="applyManualPreset('severe')">Hazardous (AQI 260)</button>
             </div>
           </div>
 
@@ -1204,9 +1297,7 @@
               <input type="number" id="manual-humidity" class="form-input" min="0" max="100" step="1" value="62.0" oninput="syncManualInputsToEnv()" />
             </div>
             <div class="form-group" style="justify-content: flex-end;">
-              <button type="button" class="nav-btn" style="background: var(--bg-card-subtle); height: 38px; justify-content: center;" onclick="resetManualInputs()">
-                Reset
-              </button>
+              <button type="button" class="nav-btn" style="background: var(--bg-card-subtle); height: 38px; justify-content: center;" onclick="resetManualInputs()">Reset</button>
             </div>
           </div>
         </div>
@@ -1315,7 +1406,7 @@
             </div>
           </div>
 
-          <!-- Right: 4-Model Suite Breakdown -->
+          <!-- Right: Model Suite Breakdown -->
           <div class="models-breakdown-card">
             <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
               <i class="fa-solid fa-code-branch" style="color: var(--primary);"></i>
@@ -1364,47 +1455,67 @@
           </div>
         </div>
 
-        <!-- Prescribed Clinical Recommendations -->
-        <div class="rec-box">
-          <h4><i class="fa-solid fa-clipboard-check"></i> Actionable Clinical Recommendations</h4>
-          <ul class="rec-list" id="res-recommendations-list">
-            <li><i class="fa-solid fa-check text-primary"></i> Keep fast-acting rescue inhaler (SABA) immediately accessible.</li>
-            <li><i class="fa-solid fa-check text-primary"></i> Restrict prolonged outdoor cardio during high AQI hours.</li>
-            <li><i class="fa-solid fa-check text-primary"></i> Activate indoor HEPA air filtration.</li>
-          </ul>
+        <!-- Prescribed Clinical Recommendations (Human Centric Design) -->
+        <div class="recs-container">
+          <div class="recs-container-title">
+            <i class="fa-solid fa-notes-medical" style="color: var(--primary);"></i>
+            <span>Actionable Clinical Care Protocol</span>
+          </div>
+          <div class="clinical-recs-grid" id="res-clinical-recs-list">
+            <!-- Dynamic Clinical Cards rendered by JS -->
+          </div>
         </div>
 
-        <!-- Adherence & SOS Actions -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-          <div style="border: 1px solid var(--border); border-radius: 10px; padding: 1.15rem; background: var(--bg-card-subtle);">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
+        <!-- Dynamic Inhaler Canister Tracker (Refreshes on Every Login) -->
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1rem;">
+          <div class="inhaler-tracker-card">
+            <div class="tracker-header">
               <div>
-                <strong style="font-size: 0.88rem; display: block;">Smart Inhaler Canister Tracker</strong>
-                <span style="font-size: 0.75rem; color: var(--text-muted);"><span id="user-doses-count">1</span> dose logged today</span>
+                <strong style="font-size: 0.9rem; color: var(--accent); display: flex; align-items: center; gap: 0.45rem;">
+                  <i class="fa-solid fa-prescription-bottle-medical text-primary"></i> Smart Inhaler Canister Tracker
+                </strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Synchronized with patient dosage database</span>
               </div>
-              <button class="nav-btn nav-btn-primary" style="font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="logInhalerDose()">
-                <i class="fa-solid fa-plus"></i> Log Inhaler Dose
-              </button>
+              <div style="display: flex; gap: 0.4rem;">
+                <button class="nav-btn nav-btn-primary" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;" onclick="logInhalerDose()">
+                  <i class="fa-solid fa-plus"></i> Log Dose
+                </button>
+                <button class="nav-btn" style="font-size: 0.78rem; padding: 0.4rem 0.65rem; background: var(--bg-card-subtle);" onclick="resetInhalerCanister()" title="Calibrate for new canister">
+                  <i class="fa-solid fa-arrows-rotate"></i> New Inhaler
+                </button>
+              </div>
+            </div>
+
+            <div class="tracker-meter-bg">
+              <div class="tracker-meter-fill" id="canister-progress-fill" style="width: 95%;"></div>
+            </div>
+
+            <div class="tracker-footer">
+              <span>Used Today: <strong id="disp-doses-used">0</strong> doses</span>
+              <span>Remaining Capacity: <strong id="disp-doses-left">200</strong> of 200 doses</span>
             </div>
           </div>
 
-          <div style="border: 1px solid #fecdd3; border-radius: 10px; padding: 1.15rem; background: #fff1f2;">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <div>
-                <strong style="font-size: 0.88rem; color: var(--danger); display: block;">Acute Respiratory Distress SOS</strong>
-                <span style="font-size: 0.75rem; color: #9f1239;">Instant physician and emergency contact dispatch</span>
-              </div>
-              <button class="nav-btn" style="background: var(--danger); color: white; font-size: 0.8rem; padding: 0.45rem 0.9rem;" onclick="triggerEmergencySos()">
-                <i class="fa-solid fa-triangle-exclamation"></i> Trigger SOS
-              </button>
+          <!-- Emergency Distress Dispatch -->
+          <div style="border: 1px solid #fecdd3; border-radius: var(--radius); padding: 1.25rem 1.5rem; background: #fff1f2; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <strong style="font-size: 0.9rem; color: var(--danger); display: flex; align-items: center; gap: 0.45rem;">
+                <i class="fa-solid fa-truck-medical"></i> Acute Respiratory Distress SOS
+              </strong>
+              <span style="font-size: 0.75rem; color: #9f1239; display: block; margin-top: 4px;">
+                Instant automated dispatch to primary pulmonologist and designated emergency contacts.
+              </span>
             </div>
+            <button class="nav-btn" style="background: var(--danger); color: white; font-size: 0.85rem; padding: 0.55rem 1rem; width: 100%; justify-content: center; margin-top: 0.75rem;" onclick="triggerEmergencySos()">
+              <i class="fa-solid fa-triangle-exclamation"></i> Broadcast SOS Dispatch
+            </button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================
-         VIEW 3: CLINICAL TELEMETRY & ADMIN PORTAL
+         VIEW 3: CLINICAL TELEMETRY & ADMIN
          ========================================== -->
     <section id="view-admin" class="view-section">
       <div class="portal-header">
@@ -1581,16 +1692,16 @@
 
       <div style="display: flex; gap: 0.5rem; background: var(--bg-card-subtle); padding: 0.25rem; border-radius: 8px; margin-bottom: 1.25rem;">
         <button type="button" class="nav-btn active" id="tab-login" style="flex: 1; justify-content: center; font-size: 0.82rem;" onclick="setAuthMode('login')">Sign In</button>
-        <button type="button" class="nav-btn" id="tab-signup" style="flex: 1; justify-content: center; font-size: 0.82rem;" onclick="setAuthMode('signup')">Register Patient</button>
+        <button type="button" class="nav-btn" id="tab-signup" style="flex: 1; justify-content: center; font-size: 0.82rem;" onclick="setAuthMode('signup')">Sign Up</button>
       </div>
 
-      <!-- Demo Quick Buttons -->
+      <!-- Demo Quick Logins -->
       <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
-        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #f0f9ff; color: var(--primary-dark); font-size: 0.78rem; border: 1px solid #bae6fd;" onclick="loginAsDemo('User')">
-          Demo Patient
+        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #f0f9ff; color: var(--primary-dark); font-size: 0.78rem; border: 1px solid #bae6fd;" onclick="quickLoginDemo('User')">
+          <i class="fa-solid fa-user"></i> Demo Patient
         </button>
-        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #ecfdf5; color: #065f46; font-size: 0.78rem; border: 1px solid #a7f3d0;" onclick="loginAsDemo('Admin')">
-          Demo Physician
+        <button type="button" class="nav-btn" style="flex: 1; justify-content: center; background: #ecfdf5; color: #065f46; font-size: 0.78rem; border: 1px solid #a7f3d0;" onclick="quickLoginDemo('Admin')">
+          <i class="fa-solid fa-user-doctor"></i> Demo Physician
         </button>
       </div>
 
@@ -1624,8 +1735,8 @@
 
   <!-- App Footer -->
   <footer class="app-footer">
-    <strong>HridyaVayu: Intelligent Respiratory Decision Support System</strong>
-    <p style="margin-top: 4px;">Collaborative Multimodal Machine Learning & Real-Time Environmental Sensor Fusion.</p>
+    <strong>HridyaVayu: Connected Asthma Decision Support System</strong>
+    <p style="margin-top: 4px;">Multimodal Machine Learning & Real-Time Environmental Sensor Synchronization.</p>
   </footer>
 
   <!-- Script Logic -->
@@ -1633,11 +1744,16 @@
     let currentUser = JSON.parse(localStorage.getItem('hridyavayu_user')) || null;
     let authMode = 'login';
     let currentStep = 1;
-    let inhalerDoses = parseInt(localStorage.getItem('hridyavayu_doses') || '1');
+    let pendingRedirect = null;
+    let totalDosesUsed = 0;
     let envData = {
       AQI: 125, PM25: 48.5, NO2: 32.0, SO2: 18.0,
       CO2: 415.0, Temperature: 27.5, Humidity: 62.0
     };
+
+    function navigateToLanding() {
+      switchView('landing');
+    }
 
     function switchView(viewName) {
       document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
@@ -1654,17 +1770,24 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function handleUserPortalClick() {
-      switchView('user');
-      setStep(1);
-    }
-
-    function handleAdminPortalClick() {
-      if (!currentUser || currentUser.role !== 'Admin') {
-        openAuthModal('login', 'Admin');
-        return;
+    // Mandatory Authentication Gate for Portals
+    function handleProtectedPortalAccess(portalType) {
+      if (portalType === 'user') {
+        if (!currentUser) {
+          pendingRedirect = 'user';
+          openAuthModal('login', 'User');
+          return;
+        }
+        switchView('user');
+        setStep(1);
+      } else if (portalType === 'admin') {
+        if (!currentUser || currentUser.role !== 'Admin') {
+          pendingRedirect = 'admin';
+          openAuthModal('login', 'Admin');
+          return;
+        }
+        switchView('admin');
       }
-      switchView('admin');
     }
 
     function setStep(stepNum) {
@@ -1929,6 +2052,7 @@
       }
     }
 
+    // Human-based Clinical Recommendations Presentation (No AI-like Emoji Clutter)
     function renderPredictionResults(data) {
       const score = Number(data.risk_score || 0);
       const level = data.risk_level || 'Medium';
@@ -1976,36 +2100,136 @@
       document.getElementById('bar-val-ens').innerText = ens.toFixed(2);
       document.getElementById('bar-fill-ens').style.width = Math.min(100, Math.round(ens * 100)) + '%';
 
-      const recList = document.getElementById('res-recommendations-list');
-      recList.innerHTML = '';
-      (data.recommendations || []).forEach(r => {
-        const li = document.createElement('li');
-        li.innerHTML = `<i class="fa-solid fa-check" style="color: var(--primary); margin-top: 3px;"></i> <span>${r}</span>`;
-        recList.appendChild(li);
+      // Render Clean, Human Clinical Recommendations Cards
+      const container = document.getElementById('res-clinical-recs-list');
+      container.innerHTML = '';
+      
+      const recs = data.recommendations || [];
+      recs.forEach((r, idx) => {
+        const isSevere = level === 'High' || idx === 0 && level !== 'Low';
+        let iconClass = 'fa-solid fa-notes-medical';
+        let categoryTitle = 'Clinical Care Directive';
+
+        const rLower = r.toLowerCase();
+        if (rLower.includes('rescue') || rLower.includes('inhaler') || rLower.includes('albuterol')) {
+          iconClass = 'fa-solid fa-prescription-bottle-medical';
+          categoryTitle = 'Medication & Rescue Protocol';
+        } else if (rLower.includes('hepa') || rLower.includes('indoor') || rLower.includes('windows')) {
+          iconClass = 'fa-solid fa-shield-halved';
+          categoryTitle = 'Environmental Protective Containment';
+        } else if (rLower.includes('peak flow') || rLower.includes('pef') || rLower.includes('monitor')) {
+          iconClass = 'fa-solid fa-lungs';
+          categoryTitle = 'Airway Function & PEF Monitoring';
+        } else if (rLower.includes('sos') || rLower.includes('emergency') || rLower.includes('dyspnea')) {
+          iconClass = 'fa-solid fa-truck-medical';
+          categoryTitle = 'Emergency Care Escalation';
+        } else if (rLower.includes('exercise') || rLower.includes('outdoor')) {
+          iconClass = 'fa-solid fa-person-walking';
+          categoryTitle = 'Physical Activity Management';
+        } else if (rLower.includes('respirator') || rLower.includes('mask')) {
+          iconClass = 'fa-solid fa-head-side-mask';
+          categoryTitle = 'Respiratory Barrier Protection';
+        }
+
+        const card = document.createElement('div');
+        card.className = `clinical-rec-card ${isSevere ? 'severe' : ''}`;
+        card.innerHTML = `
+          <div class="rec-card-icon">
+            <i class="${iconClass}"></i>
+          </div>
+          <div class="rec-card-body">
+            <strong>${categoryTitle}</strong>
+            <p>${r}</p>
+          </div>
+        `;
+        container.appendChild(card);
       });
     }
 
-    function logInhalerDose() {
-      inhalerDoses += 1;
-      localStorage.setItem('hridyavayu_doses', inhalerDoses);
-      const cntEl = document.getElementById('user-doses-count');
-      if (cntEl) cntEl.innerText = inhalerDoses;
-      const leftEl = document.getElementById('disp-landing-doses');
-      if (leftEl) leftEl.innerText = `${Math.max(0, 100 - inhalerDoses)} Left`;
+    // Dynamic Canister Tracker Refresh on Login / Session Load
+    async function refreshInhalerTracker() {
+      if (!currentUser) return;
+      try {
+        const res = await fetch(`/api/inhaler/count/${currentUser.id}`);
+        const data = await res.json();
+        if (data.success) {
+          totalDosesUsed = Number(data.total_doses || 0);
+          updateCanisterDisplay();
+        }
+      } catch (err) {
+        console.warn('Could not refresh inhaler count:', err);
+      }
+    }
 
-      const userId = currentUser ? currentUser.id : 1;
-      fetch('/api/inhaler/use', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ user_id: userId })
-      }).catch(() => {});
+    function updateCanisterDisplay() {
+      const maxCapacity = 200;
+      const remaining = Math.max(0, maxCapacity - totalDosesUsed);
+      const pct = Math.max(0, Math.min(100, Math.round((remaining / maxCapacity) * 100)));
 
-      alert(`Inhaler dose recorded. Canister capacity: ${Math.max(0, 100 - inhalerDoses)} doses remaining.`);
+      const usedEl = document.getElementById('disp-doses-used');
+      if (usedEl) usedEl.innerText = totalDosesUsed;
+
+      const leftEl = document.getElementById('disp-doses-left');
+      if (leftEl) leftEl.innerText = remaining;
+
+      const fillEl = document.getElementById('canister-progress-fill');
+      if (fillEl) {
+        fillEl.style.width = pct + '%';
+        if (pct < 20) fillEl.style.background = 'var(--danger)';
+        else if (pct < 40) fillEl.style.background = 'var(--warning)';
+        else fillEl.style.background = 'var(--primary)';
+      }
+    }
+
+    async function logInhalerDose() {
+      if (!currentUser) {
+        handleProtectedPortalAccess('user');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/inhaler/use', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: currentUser.id })
+        });
+        const data = await res.json();
+        if (data.success) {
+          totalDosesUsed = Number(data.total_doses || (totalDosesUsed + 1));
+          updateCanisterDisplay();
+          alert(`Inhaler dose recorded for ${currentUser.name || currentUser.full_name}. Canister capacity updated.`);
+        }
+      } catch (err) {
+        totalDosesUsed += 1;
+        updateCanisterDisplay();
+      }
+    }
+
+    async function resetInhalerCanister() {
+      if (!currentUser) return;
+      if (!confirm("Reset canister tracker for a new inhaler (200 full doses)?")) return;
+
+      try {
+        const res = await fetch('/api/inhaler/reset', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: currentUser.id })
+        });
+        const data = await res.json();
+        if (data.success) {
+          totalDosesUsed = 0;
+          updateCanisterDisplay();
+          alert("Canister tracker calibrated. Fresh 200 doses registered.");
+        }
+      } catch (err) {
+        totalDosesUsed = 0;
+        updateCanisterDisplay();
+      }
     }
 
     function triggerEmergencySos() {
-      const patientName = currentUser ? currentUser.full_name : "Alex Rivera";
-      if (!confirm(`Trigger emergency respiratory SOS alert for ${patientName}?`)) return;
+      const patientName = currentUser ? (currentUser.name || currentUser.full_name) : "Alex Rivera";
+      if (!confirm(`Broadcast emergency respiratory distress SOS alert for ${patientName}?`)) return;
 
       const userId = currentUser ? currentUser.id : 1;
       fetch('/api/sos/alert', {
@@ -2014,8 +2238,8 @@
         body: JSON.stringify({ user_id: userId, patient_name: patientName })
       })
       .then(res => res.json())
-      .then(data => {
-        alert("🚨 EMERGENCY SOS BROADCASTED: Designated emergency contacts and clinical dispatch notified.");
+      .then(() => {
+        alert("EMERGENCY SOS BROADCASTED: Designated emergency contacts and clinical dispatch notified.");
       })
       .catch(() => {
         alert("Emergency dispatch alert logged locally.");
@@ -2073,7 +2297,6 @@
 
         const d = json.data;
 
-        // Donut Chart
         const donutCtx = document.getElementById('eda-donut-chart');
         if (donutCtx) {
           if (donutChartInstance) donutChartInstance.destroy();
@@ -2098,7 +2321,6 @@
           });
         }
 
-        // Bar Chart
         const barCtx = document.getElementById('eda-bar-chart');
         if (barCtx) {
           if (barChartInstance) barChartInstance.destroy();
@@ -2164,7 +2386,7 @@
       }
     }
 
-    function loginAsDemo(role) {
+    function quickLoginDemo(role) {
       if (role === 'Admin') {
         document.getElementById('auth-username').value = 'demo_admin';
         document.getElementById('auth-password').value = 'admin123';
@@ -2199,13 +2421,21 @@
           localStorage.setItem('hridyavayu_user', JSON.stringify(currentUser));
           updateAuthUi();
           closeAuthModal();
-          if (currentUser.role === 'Admin') {
-            switchView('admin');
-          } else {
+
+          // Refresh Canister Tracker immediately upon login!
+          await refreshInhalerTracker();
+
+          // If there was a pending portal click, direct user to that portal immediately!
+          if (pendingRedirect === 'user' || (!pendingRedirect && currentUser.role === 'User')) {
+            pendingRedirect = null;
             switchView('user');
+            setStep(1);
+          } else if (pendingRedirect === 'admin' || (!pendingRedirect && currentUser.role === 'Admin')) {
+            pendingRedirect = null;
+            switchView('admin');
           }
         } else {
-          alert("Authentication failed: " + (json.error || "Please check credentials"));
+          alert("Authentication failed: " + (json.error || "Please verify credentials"));
         }
       } catch (err) {
         alert("Connection error during login: " + err.message);
@@ -2213,25 +2443,40 @@
     }
 
     function updateAuthUi() {
-      const container = document.getElementById('auth-nav-container');
+      const container = document.getElementById('auth-header-container');
+      const authNav = document.getElementById('authenticated-nav');
+
       if (currentUser) {
+        authNav.style.display = 'flex';
         container.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.6rem;">
             <div style="text-align: right;">
-              <span style="font-size: 0.8rem; font-weight: 700; display: block;">${currentUser.name || currentUser.full_name}</span>
-              <span style="font-size: 0.68rem; color: var(--text-muted);">${currentUser.role}</span>
+              <span style="font-size: 0.8rem; font-weight: 700; display: block; color: var(--accent);">${currentUser.name || currentUser.full_name}</span>
+              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase;">${currentUser.role}</span>
             </div>
-            <button class="nav-btn" style="padding: 0.4rem 0.6rem; color: var(--danger);" onclick="logout()" title="Sign Out">
+            <button class="nav-btn" style="padding: 0.4rem 0.65rem; color: var(--danger); background: var(--bg-card-subtle);" onclick="logout()" title="Sign Out">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </button>
           </div>
         `;
         const pInput = document.getElementById('patient-name');
-        if (pInput && currentUser.full_name) pInput.value = currentUser.full_name;
+        if (pInput && (currentUser.name || currentUser.full_name)) {
+          pInput.value = currentUser.name || currentUser.full_name;
+        }
       } else {
+        authNav.style.display = 'none';
         container.innerHTML = `
-          <button class="nav-btn nav-btn-primary" onclick="openAuthModal('login')">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+          <button class="demo-pill" onclick="quickLoginDemo('User')">
+            <i class="fa-solid fa-user"></i> Demo Patient
+          </button>
+          <button class="demo-pill" onclick="quickLoginDemo('Admin')">
+            <i class="fa-solid fa-user-doctor"></i> Demo Physician
+          </button>
+          <button class="nav-btn nav-btn-secondary" onclick="openAuthModal('login')">
+            Sign In
+          </button>
+          <button class="nav-btn nav-btn-primary" onclick="openAuthModal('signup')">
+            Sign Up
           </button>
         `;
       }
@@ -2241,16 +2486,17 @@
       currentUser = null;
       localStorage.removeItem('hridyavayu_user');
       updateAuthUi();
+      totalDosesUsed = 0;
+      updateCanisterDisplay();
       switchView('landing');
     }
 
-    // Init
+    // Initialize on load
     window.addEventListener('DOMContentLoaded', () => {
       updateAuthUi();
-      const cntEl = document.getElementById('user-doses-count');
-      if (cntEl) cntEl.innerText = inhalerDoses;
-      const leftEl = document.getElementById('disp-landing-doses');
-      if (leftEl) leftEl.innerText = `${Math.max(0, 100 - inhalerDoses)} Left`;
+      if (currentUser) {
+        refreshInhalerTracker();
+      }
     });
   </script>
 </body>

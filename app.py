@@ -554,6 +554,18 @@ def inhaler_count(user_id):
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
+@app.route("/api/inhaler/reset", methods=["POST"])
+def inhaler_reset():
+    try:
+        data = request.get_json(force=True) or {}
+        user_id = int(data.get("user_id") or 1)
+        with get_db_connection() as conn:
+            conn.execute("DELETE FROM inhaler_usage WHERE user_id = ?", (user_id,))
+            conn.commit()
+        return jsonify({"success": True, "total_doses": 0, "message": "Canister tracker calibrated for new inhaler"})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
 # ==================== LIVE ENVIRONMENTAL SYNC ====================
 
 @app.route("/api/live", methods=["GET"])
@@ -579,24 +591,24 @@ def get_live():
         }
     })
 
-# ==================== PREDICTION PIPELINE (REVIEW 1 3-MODEL) ====================
+# ==================== PREDICTION PIPELINE ====================
 
 def build_recommendations(risk_level, score, symptoms_freq, aqi):
     recs = []
     if risk_level == "High" or score >= 0.6:
-        recs.append("🚨 HIGH RISK ALERT: Keep fast-acting rescue inhaler (SABA / Albuterol) within arm's reach.")
-        recs.append("🏠 Remain indoors with HEPA air purification active. Seal windows against particulate pollution.")
-        recs.append("⏱️ Measure Peak Expiratory Flow (PEF). If <60% personal best, enact GINA Red Zone action plan.")
-        recs.append("📞 If acute dyspnea, wheezing, or chest tightness occurs, activate the Emergency SOS immediately.")
+        recs.append("Immediate Rescue Protocol: Keep fast-acting rescue inhaler (SABA / Albuterol) within arm's reach.")
+        recs.append("Environmental Containment: Remain indoors with HEPA air purification active; keep windows sealed against particulate infiltration.")
+        recs.append("Airway Monitoring: Measure Peak Expiratory Flow (PEF). If values fall below 60% of personal best, initiate GINA Red Zone action plan.")
+        recs.append("Emergency Escalation: If acute dyspnea, wheezing, or chest tightness occurs, activate the Emergency SOS immediately.")
     elif risk_level == "Medium" or score >= 0.35:
-        recs.append("⚠️ MODERATE RISK: Pre-dose maintenance corticosteroid / ICS-formoterol as prescribed.")
-        recs.append("🏃 Avoid strenuous outdoor endurance exercises during peak AQI hours (midday to late evening).")
-        recs.append("😷 Wear an N95 respirator mask if outdoor transit near traffic or smoke is unavoidable.")
-        recs.append("💧 Maintain optimal hydration and keep rescue inhaler ready.")
+        recs.append("Maintenance Inhalation: Administer prescribed maintenance controller medication (ICS-formoterol) as scheduled.")
+        recs.append("Exertion Management: Limit strenuous outdoor physical exercise during peak ambient air pollution periods.")
+        recs.append("Respiratory Protection: Wear an N95 particulate respirator when commuting through heavy traffic or industrial areas.")
+        recs.append("Airway Hydration: Maintain optimal hydration to reduce bronchial irritation and assist airway clearance.")
     else:
-        recs.append("✅ LOW RISK / WELL-CONTROLLED: Airway stability is optimal. Regular daily activities permitted.")
-        recs.append("📅 Continue daily maintenance controller medication as scheduled by your physician.")
-        recs.append("🌿 Monitor local air quality index if planning prolonged outdoor cardio.")
+        recs.append("Stable Airway Status: Airway dynamics indicate controlled stability; regular daily activities are permitted.")
+        recs.append("Routine Adherence: Continue scheduled preventive controller therapy as prescribed by your physician.")
+        recs.append("Ambient Awareness: Check ambient Air Quality Index (AQI) prior to scheduling prolonged outdoor endurance activities.")
     return recs
 
 @app.route("/predict", methods=["POST"])

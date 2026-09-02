@@ -220,11 +220,214 @@
        =================================================== */
     .hero-split {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 3.5rem;
-      align-items: start;
+      align-items: center;
       margin-bottom: 4rem;
       padding-top: 1rem;
+    }
+
+    .hero-device-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .device-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .device-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .device-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--success);
+      background: var(--success-light);
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+    }
+
+    .device-img-wrapper-large {
+      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    .device-img-wrapper-large img {
+      max-height: 380px;
+      width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.12));
+      transition: transform 0.3s ease;
+    }
+
+    .device-img-wrapper-large:hover img {
+      transform: scale(1.02);
+    }
+
+    .device-caption-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .caption-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .caption-title strong {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .caption-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .device-caption-box p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .device-quick-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .quick-action-btn {
+      flex: 1;
+      padding: 0.65rem 0.85rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      transition: all 0.15s ease;
+    }
+
+    .quick-action-btn:hover {
+      background: var(--bg-card-subtle);
+      border-color: #cbd5e1;
+    }
+
+    /* Why HridyaVayu 3-Card Section */
+    .why-section-container {
+      margin-top: 1.5rem;
+      margin-bottom: 3.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 3.5rem;
+    }
+
+    .section-title-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .section-heading {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.15rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subheading {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .why-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .why-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .why-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+
+    .why-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .hero-badge-pill {
@@ -1062,59 +1265,89 @@
           </div>
         </div>
 
-        <!-- Right Column: Why HridyaVayu? The Clinical Need -->
+        <!-- Right Column: Prominent Large Device Showcase -->
         <div>
-          <div class="why-hridyavayu-card">
-            <div class="why-card-head">
-              <h3><i class="fa-solid fa-hospital" style="color: var(--primary);"></i> Why HridyaVayu?</h3>
-              <span style="font-size: 0.75rem; font-weight: 600; color: var(--success); background: var(--success-light); padding: 2px 8px; border-radius: 9999px;">
-                Clinical Impact
-              </span>
+          <div class="hero-device-card">
+            <div class="device-header">
+              <div class="device-title">
+                <i class="fa-solid fa-microchip" style="color: var(--primary);"></i>
+                HridyaVayu Connected Airway Companion
+              </div>
+              <div class="device-status">
+                <i class="fa-solid fa-circle" style="font-size: 6px;"></i> Active Link (BLE / Cellular)
+              </div>
             </div>
 
-            <!-- The Clinical Case & Need -->
-            <div class="clinical-case-box">
-              <strong>The Clinical Problem & Need</strong>
+            <!-- Big, High-Impact Device Image -->
+            <div class="device-img-wrapper-large">
+              <img src="/web_ui/assets/smart_inhaler.jpg" alt="HridyaVayu Smart Asthma Inhaler Device" onerror="this.src='/figures/model_comparison.png'" />
+            </div>
+
+            <!-- Device Information & Architecture Caption -->
+            <div class="device-caption-box">
+              <div class="caption-title">
+                <strong>Smart Inhaler Hardware Architecture</strong>
+                <span class="caption-badge">Connected MedTech</span>
+              </div>
               <p>
-                Over 300 million people live with bronchial asthma. More than 80% of severe hospitalizations are triggered by sudden environmental pollutant spikes acting on hyper-responsive airways. Conventional care is reactive—patients medicate only after airway narrowing has started.
+                Integrated with precision micro-acoustic airflow sensors, real-time dosage adherence tracking, and automatic emergency SOS broadcast for acute respiratory distress.
               </p>
             </div>
 
-            <!-- Core Benefits -->
-            <ul class="benefits-list">
-              <li class="benefit-item">
-                <div class="benefit-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
-                <div class="benefit-text">
-                  <strong>Preemptive Risk Stratification</strong>
-                  <p>Forecasts impending exacerbation risk hours before acute distress, enabling early controller dosing.</p>
-                </div>
-              </li>
-
-              <li class="benefit-item">
-                <div class="benefit-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                <div class="benefit-text">
-                  <strong>Objective Patient-Doctor Alignment</strong>
-                  <p>Translates subjective symptoms and environmental exposure into calibrated clinical risk indices.</p>
-                </div>
-              </li>
-
-              <li class="benefit-item">
-                <div class="benefit-icon"><i class="fa-solid fa-bell"></i></div>
-                <div class="benefit-text">
-                  <strong>Automated Emergency Escalation</strong>
-                  <p>Instant SMS and SOS telemetry broadcast to designated emergency contacts during severe distress.</p>
-                </div>
-              </li>
-            </ul>
-
-            <!-- Connected Device Inline Note -->
-            <div class="device-inline-banner">
-              <img src="/web_ui/assets/smart_inhaler.jpg" alt="Smart Inhaler" onerror="this.src='/figures/model_comparison.png'" />
-              <div>
-                <strong>HridyaVayu Connected Airway Companion</strong>
-                <span>Bluetooth IoT inhaler tracking medication adherence in real time.</span>
-              </div>
+            <div class="device-quick-actions">
+              <button class="quick-action-btn" onclick="handleProtectedPortalAccess('user')">
+                <i class="fa-solid fa-clipboard-check"></i> Patient Assessment
+              </button>
+              <button class="quick-action-btn" onclick="fetchLiveEnvironmentalData(true)">
+                <i class="fa-solid fa-satellite-dish"></i> Sync Live GPS Telemetry
+              </button>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dedicated Section: Why HridyaVayu? The Clinical Need & Benefits -->
+      <div class="why-section-container">
+        <div class="section-title-center">
+          <div class="hero-badge-pill" style="margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-hospital-user"></i>
+            <span>The Clinical Imperative</span>
+          </div>
+          <h3 class="section-heading">Why HridyaVayu? The Case, The Need & The Impact</h3>
+          <p class="section-subheading">
+            Transforming conventional reactive asthma management into proactive, AI-guided attack prevention.
+          </p>
+        </div>
+
+        <div class="why-cards-grid">
+          <div class="why-card">
+            <div class="why-card-icon" style="background: #fef2f2; color: #dc2626;">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h4>The Clinical Problem (The Need)</h4>
+            <p>
+              Over 300 million individuals globally suffer from chronic bronchial asthma. Clinical evidence reveals that over 80% of severe hospitalizations and acute attacks are triggered by undetected ambient air pollution spikes (PM2.5, NO2, SO2) interacting with hyper-reactive airways. Conventional asthma management is purely reactive—patients take medication only after airway constriction has already begun.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon" style="background: #f0f9ff; color: #0284c7;">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <h4>The HridyaVayu Breakthrough (The Case)</h4>
+            <p>
+              HridyaVayu bridges continuous satellite and ground-station IoT environmental telemetry with validated clinical guidelines (GINA criteria). By applying collaborative multimodal machine learning (combining Linear Regression, Random Forest, and Gradient Boosting), the system predicts elevated exacerbation risk hours before symptom onset, giving patients a critical preventive window.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-card-icon" style="background: #ecfdf5; color: #059669;">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <h4>The Patient & Physician Impact (The Benefits)</h4>
+            <p>
+              Patients receive personalized, actionable care directives, real-time smart inhaler canister tracking, and immediate emergency SOS dispatch during acute flare-ups. Clinicians gain objective, longitudinal population telemetry, verifiable medication adherence records, and calibrated risk scores backed by deterministic medical safety rails.
+            </p>
           </div>
         </div>
       </div>

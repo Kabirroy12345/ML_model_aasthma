@@ -204,8 +204,7 @@
     /* Calming Hospital Wellness Hero Atmosphere */
     .landing-hero-backdrop {
       position: relative;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.92) 50%, rgba(240, 249, 255, 0.91) 100%),
-                  url('/web_ui/assets/hospital_wellness_care.jpg') center / cover no-repeat;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 3rem 3.5rem;
@@ -213,41 +212,41 @@
       box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
     }
 
-    /* Hospital Care Deployment Banner */
-    .hospital-deployment-card {
+    /* India's Growing Asthma & Urban Air Crisis Showcase */
+    .india-crisis-card {
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
       box-shadow: var(--shadow-sm);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
     }
 
-    .hospital-img-box {
-      height: 340px;
+    .india-img-box {
+      height: 380px;
       position: relative;
       overflow: hidden;
     }
 
-    .hospital-img-box img {
+    .india-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.4s ease;
     }
 
-    .hospital-img-box:hover img {
+    .india-img-box:hover img {
       transform: scale(1.02);
     }
 
-    .hospital-deployment-content {
+    .india-crisis-content {
       padding: 2.5rem;
     }
 
-    .hospital-deployment-content h3 {
+    .india-crisis-content h3 {
       font-family: 'Outfit', sans-serif;
       font-size: 1.65rem;
       font-weight: 800;
@@ -256,39 +255,44 @@
       line-height: 1.25;
     }
 
-    .hospital-deployment-content p {
-      font-size: 0.88rem;
+    .india-crisis-content p {
+      font-size: 0.86rem;
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
 
-    .hospital-metrics-row {
+    .india-metrics-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
     }
 
-    .hospital-metric-pill {
-      background: var(--bg-card-subtle);
+    .india-metric-pill {
+      background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 0.5rem;
       text-align: center;
     }
 
-    .hospital-metric-pill strong {
+    .india-metric-pill strong {
       display: block;
       font-family: 'Outfit', sans-serif;
-      font-size: 1.25rem;
-      color: var(--primary);
+      font-size: 1.35rem;
+      color: #dc2626;
+      font-weight: 800;
+      line-height: 1.1;
     }
 
-    .hospital-metric-pill span {
-      font-size: 0.72rem;
+    .india-metric-pill span {
+      font-size: 0.68rem;
       color: var(--text-muted);
       font-weight: 600;
       text-transform: uppercase;
+      line-height: 1.2;
+      display: block;
+      margin-top: 3px;
     }
 
     /* Analytics Diagram Card styling */
@@ -1492,37 +1496,55 @@
         </div>
       </div>
     
-      <!-- Soothing Hospital & Pulmonary Care Deployment Showcase -->
-      <div class="hospital-deployment-card">
-        <div class="hospital-img-box">
-          <img src="/web_ui/assets/hospital_wellness_care.jpg" alt="Modern Hospital Wellness Center & Pulmonary Pavilion" />
+      <!-- India's Growing Asthma Crisis & Urban Air Quality Reality -->
+      <div class="india-crisis-card">
+        <div class="india-img-box">
+          <img src="/web_ui/assets/india_urban_air_crisis.jpg" alt="Indian Metropolitan City Skyline and Atmospheric Air Quality Reality" />
         </div>
-        <div class="hospital-deployment-content">
-          <div class="hero-badge-pill" style="margin-bottom: 0.75rem;">
-            <i class="fa-solid fa-hospital"></i>
-            <span>Clinical Environment & Real-World Care</span>
+        <div class="india-crisis-content">
+          <div class="hero-badge-pill" style="margin-bottom: 0.75rem; background: #fef2f2; border-color: #fecdd3; color: #dc2626;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>The Indian Epidemiological Emergency</span>
           </div>
-          <h3>Modern Pulmonary Care Infrastructure</h3>
+          <h3>India's Escalating Asthma Crisis & Urban Smog Reality</h3>
           <p>
-            Designed for clinical deployment across acute respiratory care pavilions, tertiary outpatient clinics, and continuous remote patient telemetry outposts. HridyaVayu eliminates the blind spots between clinical visits by synchronizing environmental sensor streams with physician care plans.
+            India represents the highest asthma fatality epicenter worldwide: according to <strong>The Lancet Global Health</strong>, India accounts for <strong>42.4% of all global asthma deaths</strong> despite having only 11.1% of global cases. In Indian megacities (Delhi-NCR, Kanpur, Kolkata, Mumbai, Lucknow), winter ambient PM2.5 levels routinely cross <strong>250 to 450+ μg/m³</strong>—up to <strong>30 times the WHO safe threshold</strong>. HridyaVayu was designed specifically to give Indian citizens proactive early warning before toxic particulate spikes trigger irreversible acute attacks.
           </p>
-          <div class="hospital-metrics-row">
-            <div class="hospital-metric-pill">
-              <strong>99.8%</strong>
-              <span>System Uptime</span>
+          <div class="india-metrics-grid">
+            <div class="india-metric-pill">
+              <strong>42.4%</strong>
+              <span>Global Deaths in India</span>
             </div>
-            <div class="hospital-metric-pill">
-              <strong>&lt; 50ms</strong>
-              <span>Edge Inference</span>
+            <div class="india-metric-pill">
+              <strong>34.3M+</strong>
+              <span>Indian Asthma Patients</span>
             </div>
-            <div class="hospital-metric-pill">
-              <strong>100%</strong>
-              <span>Data Isolation</span>
+            <div class="india-metric-pill">
+              <strong>20–30x</strong>
+              <span>WHO Safe PM2.5 Limit</span>
+            </div>
+            <div class="india-metric-pill">
+              <strong>1 in 10</strong>
+              <span>Children Affected</span>
             </div>
           </div>
         </div>
       </div>
-</section>
+
+      <!-- Epidemiological Chart: India Asthma Burden & Megacity Peaks -->
+      <div class="diagram-full-card" style="margin-bottom: 2.5rem;">
+        <div class="diagram-header">
+          <h4><i class="fa-solid fa-chart-column" style="color: #dc2626;"></i> Epidemiological Data: India's Share of Global Asthma Burden vs. City PM2.5 Peaks</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Lancet & CPCB Official Data</span>
+        </div>
+        <div class="diagram-img-box">
+          <img src="/figures/india_asthma_urban_crisis.png" alt="India Asthma Mortality and City PM2.5 Peaks" />
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
+          <strong>Clinical Analysis:</strong> Mortality rates in India are 3x the global average due to lack of real-time air quality forecasting and delayed bronchodilator rescue response. Dense vehicular exhaust, biomass burning, and winter temperature inversions create severe particulate traps that make predictive decision support indispensable.
+        </p>
+      </div>
+    </section>
 
     <!-- ==========================================
          VIEW 2: PATIENT PORTAL (3-STEP GUIDED FLOW)

@@ -1295,7 +1295,138 @@
       .form-grid { grid-template-columns: 1fr; }
       .env-grid { grid-template-columns: repeat(2, 1fr); }
       .results-layout { grid-template-columns: 1fr; }
-      .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Enhanced User Profile Header Badge */
+    .user-profile-widget {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      padding: 0.35rem 0.65rem 0.35rem 0.45rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .user-profile-widget:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.09);
+    }
+
+    .user-avatar-badge {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .avatar-patient {
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      color: #0284c7;
+      border: 1.5px solid #7dd3fc;
+    }
+
+    .avatar-doctor {
+      background: linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%);
+      color: #059669;
+      border: 1.5px solid #6ee7b7;
+    }
+
+    .online-indicator {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 11px;
+      height: 11px;
+      background: #10b981;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    .user-details-box {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 1.25;
+    }
+
+    .user-display-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .user-role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.08rem 0.4rem;
+      border-radius: 6px;
+      margin-top: 2px;
+      width: fit-content;
+      white-space: nowrap;
+    }
+
+    .role-patient {
+      background: #f0fdf4;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .role-doctor {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .logout-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #fee2e2;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      margin-left: 0.25rem;
+    }
+
+    .logout-action-btn:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      .user-profile-widget {
+        gap: 0.5rem;
+        padding: 0.25rem 0.5rem;
+      }
+      .user-avatar-badge {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+      }
+      .user-display-name {
+        font-size: 0.85rem;
+      }
+      .logout-action-btn span {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -1827,9 +1958,10 @@
               HIGH RISK
             </div>
             <div class="risk-score-display" id="res-score-val">0.79</div>
-            <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 4px;" id="res-patient-label">
-              Alex Rivera
-            </p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.4rem; margin-bottom: 4px;">
+              <i class="fa-solid fa-circle-user" style="color: var(--primary); font-size: 0.95rem;"></i>
+              <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);" id="res-patient-label">Alex Rivera</span>
+            </div>
             <span style="font-size: 0.75rem; color: var(--text-muted);">Multimodal Probability Score</span>
 
             <div class="risk-meta-row">
@@ -2852,14 +2984,29 @@
 
       if (currentUser) {
         authNav.style.display = 'flex';
+        const isDoctor = (currentUser.role === 'Admin');
+        const displayName = currentUser.name || currentUser.full_name || (isDoctor ? "Dr. Sarah Mitchell, MD" : "Alex Rivera");
+        const roleLabel = isDoctor ? "Attending Physician" : "Verified Patient";
+        const roleClass = isDoctor ? "role-doctor" : "role-patient";
+        const avatarClass = isDoctor ? "avatar-doctor" : "avatar-patient";
+        const roleIcon = isDoctor ? "fa-solid fa-stethoscope" : "fa-solid fa-shield-heart";
+        const avatarIcon = isDoctor ? "fa-solid fa-user-doctor" : "fa-solid fa-user";
+
         container.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 0.6rem;">
-            <div style="text-align: right;">
-              <span style="font-size: 0.8rem; font-weight: 700; display: block; color: var(--accent);">${currentUser.name || currentUser.full_name}</span>
-              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase;">${currentUser.role}</span>
+          <div class="user-profile-widget">
+            <div class="user-avatar-badge ${avatarClass}">
+              <i class="${avatarIcon}"></i>
+              <span class="online-indicator" title="Connected to HridyaVayu Cloud"></span>
             </div>
-            <button class="nav-btn" style="padding: 0.4rem 0.65rem; color: var(--danger); background: var(--bg-card-subtle);" onclick="logout()" title="Sign Out">
+            <div class="user-details-box">
+              <span class="user-display-name">${displayName}</span>
+              <span class="user-role-badge ${roleClass}">
+                <i class="${roleIcon}"></i> ${roleLabel}
+              </span>
+            </div>
+            <button class="logout-action-btn" onclick="logout()" title="Sign Out of Session">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Logout</span>
             </button>
           </div>
         `;

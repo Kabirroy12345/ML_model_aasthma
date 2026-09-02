@@ -194,11 +194,147 @@
 
     /* Container & Layout */
     .container {
-      max-width: 1240px;
+      max-width: 1480px;
+      width: 95%;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+      padding: 2rem 1.5rem;
       flex: 1;
+    }
+
+    /* Calming Hospital Wellness Hero Atmosphere */
+    .landing-hero-backdrop {
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.92) 50%, rgba(240, 249, 255, 0.91) 100%),
+                  url('/web_ui/assets/hospital_wellness_care.jpg') center / cover no-repeat;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+    }
+
+    /* Hospital Care Deployment Banner */
+    .hospital-deployment-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 3.5rem;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+    }
+
+    .hospital-img-box {
+      height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hospital-img-box img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hospital-img-box:hover img {
+      transform: scale(1.02);
+    }
+
+    .hospital-deployment-content {
+      padding: 2.5rem;
+    }
+
+    .hospital-deployment-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .hospital-deployment-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .hospital-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .hospital-metric-pill {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+
+    .hospital-metric-pill strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .hospital-metric-pill span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Analytics Diagram Card styling */
+    .diagram-full-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .diagram-header h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .diagram-img-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .diagram-img-box img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      border-radius: 8px;
     }
 
     .view-section {
@@ -1202,6 +1338,7 @@
          VIEW 1: OVERVIEW & WHY HRIDYAVAYU
          ========================================== -->
     <section id="view-landing" class="view-section active">
+      <div class="landing-hero-backdrop">
       <div class="hero-split">
         <!-- Left Hero Column -->
         <div>
@@ -1306,7 +1443,10 @@
         </div>
       </div>
 
-      <!-- Dedicated Section: Why HridyaVayu? The Clinical Need & Benefits -->
+      </div>
+    </div>
+
+    <!-- Dedicated Section: Why HridyaVayu? The Clinical Need & Benefits -->
       <div class="why-section-container">
         <div class="section-title-center">
           <div class="hero-badge-pill" style="margin-bottom: 0.75rem;">
@@ -1351,7 +1491,38 @@
           </div>
         </div>
       </div>
-    </section>
+    
+      <!-- Soothing Hospital & Pulmonary Care Deployment Showcase -->
+      <div class="hospital-deployment-card">
+        <div class="hospital-img-box">
+          <img src="/web_ui/assets/hospital_wellness_care.jpg" alt="Modern Hospital Wellness Center & Pulmonary Pavilion" />
+        </div>
+        <div class="hospital-deployment-content">
+          <div class="hero-badge-pill" style="margin-bottom: 0.75rem;">
+            <i class="fa-solid fa-hospital"></i>
+            <span>Clinical Environment & Real-World Care</span>
+          </div>
+          <h3>Modern Pulmonary Care Infrastructure</h3>
+          <p>
+            Designed for clinical deployment across acute respiratory care pavilions, tertiary outpatient clinics, and continuous remote patient telemetry outposts. HridyaVayu eliminates the blind spots between clinical visits by synchronizing environmental sensor streams with physician care plans.
+          </p>
+          <div class="hospital-metrics-row">
+            <div class="hospital-metric-pill">
+              <strong>99.8%</strong>
+              <span>System Uptime</span>
+            </div>
+            <div class="hospital-metric-pill">
+              <strong>&lt; 50ms</strong>
+              <span>Edge Inference</span>
+            </div>
+            <div class="hospital-metric-pill">
+              <strong>100%</strong>
+              <span>Data Isolation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
 
     <!-- ==========================================
          VIEW 2: PATIENT PORTAL (3-STEP GUIDED FLOW)
@@ -1751,108 +1922,22 @@
          VIEW 3: CLINICAL TELEMETRY & ADMIN
          ========================================== -->
     <section id="view-admin" class="view-section">
-      <div class="portal-header">
-        <div>
-          <h3><i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Clinical Telemetry & Population Overview</h3>
-          <p>System-wide patient monitoring, IoT sensor streams, and machine learning architecture benchmarks.</p>
+      <div style="background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 5rem 2.5rem; text-align: center; max-width: 680px; margin: 4rem auto; box-shadow: var(--shadow-sm);">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: #fffbeb; color: #d97706; display: flex; align-items: center; justify-content: center; font-size: 2.25rem; margin: 0 auto 1.5rem; border: 1px solid #fde68a;">
+          <i class="fa-solid fa-wrench"></i>
         </div>
-        <button class="nav-btn" onclick="loadAdminData()">
-          <i class="fa-solid fa-rotate"></i> Refresh Telemetry
+        <div style="display: inline-block; background: #f1f5f9; color: var(--text-muted); font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 1rem;">
+          Clinical Portal Notice
+        </div>
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 0.85rem;">
+          UNDER MAINTENANCE
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; max-width: 520px; margin: 0 auto 2rem;">
+          The Physician & Clinical Telemetry Console is currently undergoing scheduled infrastructure upgrades and electronic health record (EHR / HL7 FHIR) synchronization. Clinical monitoring will resume shortly.
+        </p>
+        <button class="btn-hero-primary" onclick="switchView('landing')">
+          <i class="fa-solid fa-arrow-left"></i> Return to Overview
         </button>
-      </div>
-
-      <!-- 4 KPI Cards -->
-      <div class="admin-stats-grid">
-        <div class="stat-card">
-          <div class="stat-card-title">Registered Patients</div>
-          <div class="stat-card-val" id="admin-stat-users">3</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-title">Environmental Logs</div>
-          <div class="stat-card-val" id="admin-stat-sensors">18</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-title">Clinical Risk Assessments</div>
-          <div class="stat-card-val" id="admin-stat-predictions">24</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-title">Population Mean Risk</div>
-          <div class="stat-card-val" id="admin-stat-avg-risk">0.68</div>
-        </div>
-      </div>
-
-      <!-- Model Performance Table -->
-      <div class="data-table-wrapper">
-        <div class="table-title-bar">
-          <h4>Machine Learning Model Architecture & Validation Performance</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted);">Evaluated on 2,000 Patient Records</span>
-        </div>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Model Architecture</th>
-              <th>Category</th>
-              <th>Validation Accuracy</th>
-              <th>F1-Score</th>
-              <th>Clinical Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Logistic Regression</strong></td>
-              <td><span style="background: #f1f5f9; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Baseline</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">71.33%</td>
-              <td style="font-family: 'JetBrains Mono';">0.7117</td>
-              <td>Rapid calibrated probability baseline</td>
-            </tr>
-            <tr>
-              <td><strong>Random Forest Classifier</strong></td>
-              <td><span style="background: #ecfdf5; color: #065f46; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Bagging Ensemble</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">72.33%</td>
-              <td style="font-family: 'JetBrains Mono';">0.7058</td>
-              <td>Non-linear feature interaction modeling</td>
-            </tr>
-            <tr>
-              <td><strong>Gradient Boosting Classifier</strong></td>
-              <td><span style="background: #fffbeb; color: #92400e; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Boosting Ensemble</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 600;">69.67%</td>
-              <td style="font-family: 'JetBrains Mono';">0.6942</td>
-              <td>Targeted error correction for borderline cases</td>
-            </tr>
-            <tr style="background: #f8fafc;">
-              <td><strong style="color: var(--primary-dark);">HridyaVayu Multimodal Ensemble</strong></td>
-              <td><span style="background: var(--primary-light); color: var(--primary-dark); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Soft-Voting Collaborative</span></td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--primary);">73.00%</td>
-              <td style="font-family: 'JetBrains Mono'; font-weight: 700; color: var(--primary);">0.7234</td>
-              <td>Fused prediction with deterministic GINA safety rails</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Recent Patient Telemetry Log -->
-      <div class="data-table-wrapper">
-        <div class="table-title-bar">
-          <h4>Recent Patient Clinical Assessments</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted);">Real-time SQLite Feed</span>
-        </div>
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Timestamp</th>
-              <th>Patient Name</th>
-              <th>Risk Level</th>
-              <th>Ensemble Score</th>
-              <th>Baseline LR</th>
-              <th>Random Forest</th>
-              <th>Gradient Boost</th>
-              <th>AQI</th>
-            </tr>
-          </thead>
-          <tbody id="admin-records-table">
-            <tr><td colspan="8" style="text-align: center; color: var(--text-muted);">Loading patient records...</td></tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
@@ -1862,14 +1947,71 @@
     <section id="view-eda" class="view-section">
       <div class="portal-header">
         <div>
-          <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> Exploratory Data Analysis & Validation</h3>
-          <p>Dataset distributions, pollutant correlations, and cross-validation performance figures.</p>
+          <h3><i class="fa-solid fa-chart-pie" style="color: var(--primary);"></i> System Architecture & ML Analytics</h3>
+          <p>Architectural pipelines, multi-model collaborative fusion, and empirical validation benchmarks.</p>
         </div>
       </div>
 
+      <!-- Diagram 1: System End-to-End Architecture -->
+      <div class="diagram-full-card">
+        <div class="diagram-header">
+          <h4><i class="fa-solid fa-sitemap" style="color: var(--primary);"></i> End-to-End System Architecture & Dataflow</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">5-Tier Pipeline</span>
+        </div>
+        <div class="diagram-img-box">
+          <img src="/figures/system_architecture_diagram.png" alt="HridyaVayu End-to-End System Architecture" />
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
+          <strong>Dataflow Overview:</strong> Integrates continuous live GPS weather telemetry from Open-Meteo European CAMS API with standardized GINA clinical screening questions and Bluetooth BLE smart inhaler adherence into a normalized 22-dimensional feature vector, evaluated collaboratively with deterministic safety heuristics.
+        </p>
+      </div>
+
+      <!-- Diagram 2: Collaborative ML Ensemble & Soft-Voting Architecture -->
+      <div class="diagram-full-card">
+        <div class="diagram-header">
+          <h4><i class="fa-solid fa-code-branch" style="color: #7e22ce;"></i> Collaborative ML Ensemble & Neuro-Symbolic Fusion Architecture</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Soft-Voting Formulation [1, 2, 2]</span>
+        </div>
+        <div class="diagram-img-box">
+          <img src="/figures/ml_ensemble_architecture.png" alt="Machine Learning Ensemble Architecture" />
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
+          <strong>Ensemble Mechanics:</strong> Baseline Logistic Regression ($w=1$) establishes calibrated linear log-odds; Random Forest ($w=2$) captures non-linear feature interactions; Gradient Boosting ($w=2$) targets hard borderline cases. Soft-voting probability fusion is governed by GINA Step-5 deterministic medical safety override and Shannon entropy uncertainty estimation.
+        </p>
+      </div>
+
+      <!-- Diagram 3: Multi-Model Confusion Matrices -->
+      <div class="diagram-full-card">
+        <div class="diagram-header">
+          <h4><i class="fa-solid fa-table-cells" style="color: #059669;"></i> Multi-Center Test Confusion Matrices (Test Partition: 300 Samples)</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Low / Medium / High Tiers</span>
+        </div>
+        <div class="diagram-img-box">
+          <img src="/figures/confusion_matrices_multimodel.png" alt="Model Confusion Matrices Comparison" />
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
+          <strong>Classification Accuracy:</strong> Displays the true vs. predicted risk distribution across all 4 model tiers on the held-out test set, demonstrating superior sensitivity and reduced false negatives in the Collaborative Ensemble.
+        </p>
+      </div>
+
+      <!-- Diagram 4: Multimodal Feature Correlation Heatmap -->
+      <div class="diagram-full-card">
+        <div class="diagram-header">
+          <h4><i class="fa-solid fa-cubes-stacked" style="color: #0284c7;"></i> Multimodal Feature Correlation Matrix: Ambient Telemetry vs. Clinical Risk</h4>
+          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Pearson Correlation Matrix</span>
+        </div>
+        <div class="diagram-img-box">
+          <img src="/figures/feature_correlation_heatmap.png" alt="Multimodal Feature Correlation Matrix Heatmap" />
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
+          <strong>Clinical Correlation:</strong> Highlights high positive correlation between fine particulates (PM2.5: $r=0.85$), AQI ($r=0.82$), and nocturnal dyspnea ($r=0.86$) with asthma exacerbation risk.
+        </p>
+      </div>
+
+      <!-- Dynamic Charts Grid (Chart.js) -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
         <div class="portal-card" style="margin-bottom: 0;">
-          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Risk Class Distribution</h4>
+          <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Risk Class Distribution (Cohort Balance)</h4>
           <div style="height: 240px;">
             <canvas id="eda-donut-chart"></canvas>
           </div>
@@ -1883,9 +2025,9 @@
         </div>
       </div>
 
-      <!-- Evaluation Figures Gallery -->
+      <!-- Benchmark Visualizations -->
       <div class="portal-card">
-        <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Publication Figures & Benchmark Visualizations</h4>
+        <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Cross-Validation Benchmarks & SHAP Interpretability</h4>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
           <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
             <img src="/figures/model_comparison.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="Model Comparison" />

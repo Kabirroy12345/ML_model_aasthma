@@ -336,9 +336,16 @@
     .diagram-img-box img {
       width: 100%;
       height: auto;
-      max-height: 520px;
+      max-height: 560px;
       object-fit: contain;
       border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .diagram-img-box img:hover {
+      transform: scale(1.005);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     }
 
     .view-section {
@@ -1535,10 +1542,10 @@
       <div class="diagram-full-card" style="margin-bottom: 2.5rem;">
         <div class="diagram-header">
           <h4><i class="fa-solid fa-chart-column" style="color: #dc2626;"></i> Epidemiological Data: India's Share of Global Asthma Burden vs. City PM2.5 Peaks</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Lancet & CPCB Official Data</span>
+          <span style="font-size: 0.75rem; color: #dc2626; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/india_asthma_urban_crisis.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
         </div>
         <div class="diagram-img-box">
-          <img src="/figures/india_asthma_urban_crisis.png" alt="India Asthma Mortality and City PM2.5 Peaks" />
+          <img src="/figures/india_asthma_urban_crisis.png" alt="India Asthma Mortality and City PM2.5 Peaks" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
         </div>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
           <strong>Clinical Analysis:</strong> Mortality rates in India are 3x the global average due to lack of real-time air quality forecasting and delayed bronchodilator rescue response. Dense vehicular exhaust, biomass burning, and winter temperature inversions create severe particulate traps that make predictive decision support indispensable.
@@ -1978,10 +1985,10 @@
       <div class="diagram-full-card">
         <div class="diagram-header">
           <h4><i class="fa-solid fa-sitemap" style="color: var(--primary);"></i> End-to-End System Architecture & Dataflow</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">5-Tier Pipeline</span>
+          <span style="font-size: 0.75rem; color: var(--primary); cursor: pointer; font-weight: 600;" onclick="window.open('/figures/system_architecture_diagram.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
         </div>
         <div class="diagram-img-box">
-          <img src="/figures/system_architecture_diagram.png" alt="HridyaVayu End-to-End System Architecture" />
+          <img src="/figures/system_architecture_diagram.png" alt="HridyaVayu End-to-End System Architecture" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
         </div>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
           <strong>Dataflow Overview:</strong> Integrates continuous live GPS weather telemetry from Open-Meteo European CAMS API with standardized GINA clinical screening questions and Bluetooth BLE smart inhaler adherence into a normalized 22-dimensional feature vector, evaluated collaboratively with deterministic safety heuristics.
@@ -1992,10 +1999,10 @@
       <div class="diagram-full-card">
         <div class="diagram-header">
           <h4><i class="fa-solid fa-code-branch" style="color: #7e22ce;"></i> Collaborative ML Ensemble & Neuro-Symbolic Fusion Architecture</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Soft-Voting Formulation [1, 2, 2]</span>
+          <span style="font-size: 0.75rem; color: #7e22ce; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/ml_ensemble_architecture.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
         </div>
         <div class="diagram-img-box">
-          <img src="/figures/ml_ensemble_architecture.png" alt="Machine Learning Ensemble Architecture" />
+          <img src="/figures/ml_ensemble_architecture.png" alt="Machine Learning Ensemble Architecture" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
         </div>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
           <strong>Ensemble Mechanics:</strong> Baseline Logistic Regression ($w=1$) establishes calibrated linear log-odds; Random Forest ($w=2$) captures non-linear feature interactions; Gradient Boosting ($w=2$) targets hard borderline cases. Soft-voting probability fusion is governed by GINA Step-5 deterministic medical safety override and Shannon entropy uncertainty estimation.
@@ -2006,10 +2013,10 @@
       <div class="diagram-full-card">
         <div class="diagram-header">
           <h4><i class="fa-solid fa-table-cells" style="color: #059669;"></i> Multi-Center Test Confusion Matrices (Test Partition: 300 Samples)</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Low / Medium / High Tiers</span>
+          <span style="font-size: 0.75rem; color: #059669; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/confusion_matrices_multimodel.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
         </div>
         <div class="diagram-img-box">
-          <img src="/figures/confusion_matrices_multimodel.png" alt="Model Confusion Matrices Comparison" />
+          <img src="/figures/confusion_matrices_multimodel.png" alt="Model Confusion Matrices Comparison" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
         </div>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
           <strong>Classification Accuracy:</strong> Displays the true vs. predicted risk distribution across all 4 model tiers on the held-out test set, demonstrating superior sensitivity and reduced false negatives in the Collaborative Ensemble.
@@ -2020,10 +2027,10 @@
       <div class="diagram-full-card">
         <div class="diagram-header">
           <h4><i class="fa-solid fa-cubes-stacked" style="color: #0284c7;"></i> Multimodal Feature Correlation Matrix: Ambient Telemetry vs. Clinical Risk</h4>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Pearson Correlation Matrix</span>
+          <span style="font-size: 0.75rem; color: #0284c7; cursor: pointer; font-weight: 600;" onclick="window.open('/figures/feature_correlation_heatmap.png', '_blank')"><i class="fa-solid fa-up-right-from-square"></i> Full 300 DPI View</span>
         </div>
         <div class="diagram-img-box">
-          <img src="/figures/feature_correlation_heatmap.png" alt="Multimodal Feature Correlation Matrix Heatmap" />
+          <img src="/figures/feature_correlation_heatmap.png" alt="Multimodal Feature Correlation Matrix Heatmap" title="Click to view full high-resolution diagram (300 DPI)" onclick="window.open(this.src, '_blank')" />
         </div>
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5;">
           <strong>Clinical Correlation:</strong> Highlights high positive correlation between fine particulates (PM2.5: $r=0.85$), AQI ($r=0.82$), and nocturnal dyspnea ($r=0.86$) with asthma exacerbation risk.
@@ -2051,27 +2058,27 @@
       <div class="portal-card">
         <h4 style="font-size: 0.95rem; margin-bottom: 1rem;">Cross-Validation Benchmarks & SHAP Interpretability</h4>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/model_comparison.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="Model Comparison" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/model_comparison.png', '_blank')">
+            <img src="/figures/model_comparison.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="Model Comparison" title="Click to view full high-resolution diagram (300 DPI)" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: block;">Model Comparison Benchmark</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">Cross-validation accuracy and F1 score across models.</p>
+              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">Model Comparison Benchmark <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Cross-validation accuracy and F1 score across models.</p>
             </div>
           </div>
 
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/roc_curves.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="ROC Curves" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/roc_curves.png', '_blank')">
+            <img src="/figures/roc_curves.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="ROC Curves" title="Click to view full high-resolution diagram (300 DPI)" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: block;">Multi-Model ROC Curves</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">ROC-AUC sensitivity and specificity curves.</p>
+              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">Multi-Model ROC Curves <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">ROC-AUC sensitivity and specificity curves.</p>
             </div>
           </div>
 
-          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc;">
-            <img src="/figures/shap_summary.png" style="width: 100%; height: 170px; object-fit: contain; background: white;" alt="SHAP Summary" />
+          <div style="border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f8fafc; cursor: pointer;" onclick="window.open('/figures/shap_summary.png', '_blank')">
+            <img src="/figures/shap_summary.png" style="width: 100%; height: 210px; object-fit: contain; background: white;" alt="SHAP Summary" title="Click to view full high-resolution diagram (300 DPI)" />
             <div style="padding: 0.75rem;">
-              <strong style="font-size: 0.82rem; display: block;">SHAP Feature Importance</strong>
-              <p style="font-size: 0.72rem; color: var(--text-muted);">Attribution weights for clinical and ambient factors.</p>
+              <strong style="font-size: 0.82rem; display: flex; justify-content: space-between; align-items: center;">SHAP Feature Importance <i class="fa-solid fa-up-right-from-square" style="color: var(--primary); font-size: 0.75rem;"></i></strong>
+              <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Attribution weights for clinical and ambient factors.</p>
             </div>
           </div>
         </div>

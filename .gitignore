@@ -1,6 +1,27 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-*.class
+*$py.class
+
+# Virtual environments
 venv/
+env/
+.venv/
+
+# Environment variables & secrets
 .env
-cloudflared.exe
+
+# Binary executables & tools
+*.exe
+cloudflared*
+
+# Reports, documents & presentations (tracked in backup)
+*.docx
+*.pptx
+*.pdf
+figures/*.pdf
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
